@@ -39,7 +39,7 @@ public class LoginFilter implements Filter {
 		rep.setHeader("Content-Type","text/html;charset=UTF-8");
 		
 		String uri = req.getRequestURI();
-		if(uri.contains(".jsp")
+		/*if(uri.contains(".jsp")
 			|| uri.contains(".html")
 			||uri.contains(".do")){
 			if(!uri.contains("login") && !uri.contains("deploy") && !uri.contains("callback") && !uri.contains("openid")){
@@ -51,7 +51,7 @@ public class LoginFilter implements Filter {
 					return;
 				}
 			}
-		}
+		}*/
 	    
 		// .min.css / .min.js / .woff2 以外不缓存
 		if(!uri.contains(".min.css") && !uri.contains(".min.js") && !uri.contains(".woff2")){
