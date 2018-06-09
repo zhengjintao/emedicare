@@ -101,17 +101,17 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	</div>
 	<div class="ui one column grid container">
 		<div class="column">
-			<div sytle="margin-top:10px"></div>
+			<div style="margin-top:10px"></div>
 			<div class="ui segment">
-				<a class="ui top attached label center aligned">個人情報</a>
-				<div class="ui middle aligned selection divided list">
+				<a class="ui large top attached label center aligned">個人情報</a>
+				<div class="ui large middle aligned selection divided list">
 					<div class="item" ng-click="list.onitemclick(0)">
-						<div class="right floated content">
+						<div class="right floated content" style="margin-top:12px">
 							<i class="chevron right icon"></i>
 						</div>
 						
 						<div class="content">
-							<div class="header" style='color: gray; margin-left: 2px'>U0000001</div>
+							<div class="header">U0000001</div>
 							<div class="description">本田慶応</div>
 						</div>
 					</div>
@@ -119,8 +119,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 
 			</div>
 			<div class="ui segment">
-				<a class="ui top attached label center aligned">サービス</a>
-				<div class="ui middle aligned selection divided list">
+				<a class="ui large top attached label center aligned">サービス</a>
+				<div class="ui large middle aligned selection divided list">
 					<div class="item" ng-click="list.onitemclick(1)">
 						<div class="right floated content">
 							<i class="chevron right icon"></i>
@@ -151,8 +151,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				</div>
 			</div>
 			<div class="ui segment">
-				<a class="ui top attached label center aligned">システム設定</a>
-				<div class="ui middle aligned selection divided list">
+				<a class="ui large top attached label center aligned">システム設定</a>
+				<div class="ui large middle aligned selection divided list">
 					<div class="item" ng-click="list.onitemclick(4)">
 						<div class="right floated content">
 							<i class="chevron right icon"></i>

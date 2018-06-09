@@ -7,7 +7,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <!-- Site Properties -->
-<title>診査履歴</title>
+<title></title>
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
 
@@ -42,41 +42,10 @@
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
-  list.errmessage ="";
-  list.companyid="000000001"
-  list.name ="株式会社";
-  list.shortname="BWC";
-  list.label ="株式会社tesut";
-  list.telnum="080-01";
-  list.address ="新书";
-  list.site="www.baidu.com";
-  list.types =  [
-      {id:'00001', text:'learn AngularJS'}
-      ];
-  list.onsalegoods =  [
-      {id:'00001', text:'learn AngularJS'}
-      ];
-  (function(){
-  	
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'list', 'companyid':list.companyid};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	list.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-      
-  })();
-  
+  list.lblLangs=['语言', 'Language', '言語設定'];
+  list.lblNames=['姓名', 'Name', 'お名前'];
+  list.lblMessages=['请输入姓名', 'Input your name', 'お名前を入力してください。'];
+  list.lblButtons=['登录', 'Login', 'ログイン'];
   list.submit = function() {
   	$scope.url =  "companyinfoedit.do";
   	var postdata = {'mode':'submit'};
@@ -96,9 +65,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
           });
   }
   
-  list.onitemclick = function() {
+  list.onItemClick = function() {
 	  window.location.href = 'home.do';
   }
+  
+  list.onRadioChange = function(val) {
+	  list.langInx = val;
+	  list.lblLangSetting =list.lblLangs[list.langInx];
+	  list.lblNameSetting =list.lblNames[list.langInx];
+	  list.lblNameInput =list.lblMessages[list.langInx];
+	  list.lblBtnname =list.lblButtons[list.langInx];
+	}
+  
+  list.onRadioChange(0);
 });
 </script>
 
@@ -112,14 +91,40 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	</div>
 	<div class="ui one column grid container">
 		<div class="column">
-			<div sytle="margin-top:10px"></div>
+			<div style="margin-top: 10px"></div>
 			<div class="ui segment">
-				<a class="ui top attached label center aligned">診査履歴</a>
-				<div class="ui list">
-					
+				<a class="ui large top attached label center aligned">{{list.lblLangSetting}}</a>
+				<div class="ui large form">
+					<div class="inline fields">
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="frequency" checked="checked" ng-click="list.onRadioChange(0)">
+								<label>中文</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="frequency" ng-click="list.onRadioChange(1)"> <label>English</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="frequency" ng-click="list.onRadioChange(2)"> <label>日本語</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ui segment">
+				<a class="ui large top attached label center aligned">{{list.lblNameSetting}}</a>
+				<div class="ui large transparent input">
+					<input type="text" style="width: 250px"
+						placeholder={{list.lblNameInput}}>
 				</div>
 
 			</div>
+			
+			<button class="fluid ui large button" ng-click="list.onItemClick()">{{list.lblBtnname}}</button>
 		</div>
 		<div class="column"></div>
 	</div>

@@ -112,7 +112,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	</div>
 	<div class="ui one column grid container">
 		<div class="column">
-			<div sytle="margin-top:10px"></div>
+			<div style="margin-top:10px"></div>
 			<div class="ui segment">
 				<a class="ui top attached label center aligned">言語設定</a>
 				<div class="ui list">
