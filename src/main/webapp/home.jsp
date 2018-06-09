@@ -7,21 +7,16 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <!-- Site Properties -->
-<title>考勤系统</title>
+<title>Home</title>
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
 
 <script src="jquery/jquery-3.1.1.min.js"></script>
-<script src="dist/components/form.min.js"></script>
-<script src="dist/components/transition.min.js"></script>
-<script src="dist/semantic.min.js"></script>
-<script>
-initdata=<%=request.getAttribute("initdata") %>;
-</script>
-
-<script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="dist/semantic.min.js"></script>
 <script src="angularjs/angular.min.js"></script>
+<script>
+
+</script>
 <script type="text/javascript">
   var app = angular.module('listApp',[]);
   
@@ -56,26 +51,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.onsalegoods =  [
       {id:'00001', text:'learn AngularJS'}
       ];
-  (function(){
-  	
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'list', 'companyid':list.companyid};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	list.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-      
-  })();
   
   list.submit = function() {
   	$scope.url =  "companyinfoedit.do";
@@ -95,6 +70,24 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
           	$('.ui.basic.modal') .modal('show');
           });
   }
+  
+  list.onitemclick = function(id) {
+	  var redurl = 'home.do';
+	  if(id==0){
+		  redurl = 'personalinfo.do';
+	  }else if(id==1){
+		  redurl = 'exploratory.do';
+	  }else if(id==2){
+		  redurl = 'visits.do';
+	  }else if(id==3){
+		  redurl = 'appointments.do';
+	  }else if(id==4){
+		  redurl = 'langsetting.do';
+	  }else if(id==5){
+		  redurl = 'http://www.google.co.jp';
+	  }
+	  window.location.href = redurl;
+  }
 });
 </script>
 
@@ -108,102 +101,79 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	</div>
 	<div class="ui one column grid container">
 		<div class="column">
-		   <div class="ui divider" style="margin:5px"></div>
-		   <div class="ui basic buttons">
-		    <a class="ui left attached button" href="companydetail.do">返回</a>
-          </div>
-			<div class="ui segment"  style="margin-top:5px">
-					<div class="ui middle aligned divided list">
-						<div class="item">
-							<div class="ui labeled input">
-								<div class="ui label">公司编号</div>
-								<input id="euserid" name="euserid" type="text" readonly="readonly" ng-model="list.companyid">
-							</div>
-						</div>	
+			<div sytle="margin-top:10px"></div>
+			<div class="ui segment">
+				<a class="ui top attached label center aligned">個人情報</a>
+				<div class="ui middle aligned selection divided list">
+					<div class="item" ng-click="list.onitemclick(0)">
+						<div class="right floated content">
+							<i class="chevron right icon"></i>
+						</div>
+						
+						<div class="content">
+							<div class="header" style='color: gray; margin-left: 2px'>U0000001</div>
+							<div class="description">本田慶応</div>
+						</div>
 					</div>
+				</div>
 
-					<div class="ui middle aligned divided list">
-						<div class="item">
-							<div class="ui labeled input">
-								<div class="ui label">公司名称</div>
-								<input id="eusername" name="eusername" type="text"
-									placeholder="必须（请使用真名）" ng-model="list.name">
-							</div>
+			</div>
+			<div class="ui segment">
+				<a class="ui top attached label center aligned">サービス</a>
+				<div class="ui middle aligned selection divided list">
+					<div class="item" ng-click="list.onitemclick(1)">
+						<div class="right floated content">
+							<i class="chevron right icon"></i>
 						</div>
-						<div class="item">
-							<div class="ui labeled input">
-								<div class="ui label">公司略称</div>
-								<input id="eusername" name="eusername" type="text"
-									placeholder="必须（请使用真名）" ng-model="list.shortname">
-							</div>
+						<i class="clone outline icon"></i>
+						<div class="content">
+							<a class="header">診査履歴</a>
 						</div>
 					</div>
-					<div class="ui middle aligned divided list">
-						<div class="item">
-							<div class="ui labeled input">
-								<div class="ui label">公司简介</div>
-								<input id="eusername" name="eusername" type="text"
-									placeholder="必须（请使用真名）" ng-model="list.label">
-							</div>
+					<div class="item" ng-click="list.onitemclick(2)">
+						<div class="right floated content">
+							<i class="chevron right icon"></i>
 						</div>
-						<div class="item">
-							<div class="ui labeled input">
-								<div class="ui label">联系电话</div>
-								<input id="eusername" name="eusername" type="text"
-									placeholder="必须（请使用真名）" ng-model="list.telnum">
-							</div>
-						</div>
-						<div class="item">
-							<div class="ui labeled input">
-								<div class="ui label">公司地址</div>
-								<input id="eusername" name="eusername" type="text"
-									placeholder="必须（请使用真名）" ng-model="list.address">
-							</div>
-						</div>
-						<div class="item">
-							<div class="ui labeled input">
-								<div class="ui label">官网链接</div>
-								<input id="eusername" name="eusername" type="text"
-									placeholder="必须（请使用真名）" ng-model="list.site">
-							</div>
+						<i class="edit outline icon"></i>
+						<div class="content">
+							<a class="header">通院履歴</a>
 						</div>
 					</div>
-					<div class="ui middle aligned divided list">
-						<div class="item">
-							<div class="ui labeled input">
-								<div class="ui label">公司类别</div>
-								<select name="esex" class="ui search dropdown">
-								    <option value="M">信息传输、计算机服务和软件业</option>
-								    <option value="M">农、林、牧、渔业</option>
-									<option value="s">采矿业</option>
-									<option value="M">制造业</option>
-									<option value="M">电力、热力、燃气及水的生产和供应业</option>
-									<option value="M">环境和公共设施管理业</option>
-									<option value="M">建筑业</option>
-									<option value="M">交通运输、仓储业和邮政业</option>
-									<option value="M">批发和零售业</option>
-									<option value="M">住宿、餐饮业</option>
-									<option value="M">金融、保险业</option>
-									<option value="M">房地产业</option>
-									<option value="M">租赁和商务服务业</option>
-									<option value="M">科学研究、技术服务和地质勘查业</option>
-									<option value="M">水利、环境和公共设施管理业</option>
-									<option value="M">居民服务和其他服务业</option>
-									<option value="M">教育</option>
-									<option value="M">卫生、社会保障和社会服务业</option>
-									<option value="M">文化、体育、娱乐业</option>
-									<option value="M">综合（含投资类、主业不明显）</option>
-									<option value="M">其它</option>
-								</select>
-							</div>
+					<div class="item" ng-click="list.onitemclick(3)">
+						<div class="right floated content">
+							<i class="chevron right icon"></i>
+						</div>
+						<i class="calendar alternate icon"></i>
+						<div class="content">
+							<a class="header">次回検査</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="ui segment">
+				<a class="ui top attached label center aligned">システム設定</a>
+				<div class="ui middle aligned selection divided list">
+					<div class="item" ng-click="list.onitemclick(4)">
+						<div class="right floated content">
+							<i class="chevron right icon"></i>
+						</div>
+						<i class="sun outline icon"></i>
+						<div class="content">
+							<a class="header">言語設定</a>
 						</div>
 					</div>
 					
-					<button class="ui basic submit button" ng-click="list.submit()">
-						<i class="icon user"></i> 提交
-					</button>
+					<div class="item" ng-click="list.onitemclick(5)">
+						<div class="right floated content">
+							<i class="chevron right icon"></i>
+						</div>
+						<i class="sun outline icon"></i>
+						<div class="content">
+							<a class="header">公式サイト</a>
+						</div>
+					</div>
+				</div>
 			</div>
-
 		</div>
 		<div class="column"></div>
 	</div>
