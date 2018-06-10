@@ -7,7 +7,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <!-- Site Properties -->
-<title>次回検査</title>
+<title>診査详细</title>
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
 
@@ -113,65 +113,21 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	<div class="ui one column grid container">
 		<div class="column">
 			<div style="margin-top: 10px"></div>
-			<div class="ui centered cards">
-				<div class="card">
-					<div class="content">
-						<!-- <img class="right floated mini ui image"
-								src="/images/avatar/large/elliot.jpg"> -->
-						<div class="header">下回检查通知</div>
-						<div class="meta">2018年5月30日 9点30分</div>
-						<div class="description">请提前预约好时间，不能错过时间。</div>
-					</div>
-					<div class="extra content">
-						<div class="ui two buttons">
-							<div class="ui basic green button">确认</div>
-							<div class="ui basic red button">取消</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<div class="ui segment">
+				<a class="ui large top attached label center aligned">診査详细</a>
+				<ul class="ui large list">
+					<li>血液检查</li>
+					<li>尿检</li>
+					<li>基本项目
+						<ul>
+							<li>体重：173cm</li>
+							<li>身高：65kg</li>
+							<li>血压：100～130kp</li>
+						</ul>
+					</li>
+					<li>其他</li>
+				</ul>
 
-			<h4 class="ui horizontal divider header">
-				<i class="bar chart icon"></i> 预约履历
-			</h4>
-			<div class="ui centered cards">
-				<div class="card">
-					<div class="content">
-						<!-- <img class="right floated mini ui image"
-								src="/images/avatar/large/elliot.jpg"> -->
-						<div class="header">下回检查通知</div>
-						<div class="meta">2018年5月30日 9点30分</div>
-						<div class="description">请提前预约好时间，不能错过时间。</div>
-					</div>
-					<div class="extra content">
-						状态：确认
-					</div>
-				</div>
-				<div class="card">
-					<div class="content">
-						<!-- <img class="right floated mini ui image"
-								src="/images/avatar/large/elliot.jpg"> -->
-						<div class="header">下回检查通知</div>
-						<div class="meta">2018年5月30日 9点30分</div>
-						<div class="description">请提前预约好时间，不能错过时间。</div>
-					</div>
-					<div class="extra content">
-						状态：取消
-					</div>
-				</div>
-				
-				<div class="card">
-					<div class="content">
-						<!-- <img class="right floated mini ui image"
-								src="/images/avatar/large/elliot.jpg"> -->
-						<div class="header">下回检查通知</div>
-						<div class="meta">2018年5月30日 9点30分</div>
-						<div class="description">请提前预约好时间，不能错过时间。</div>
-					</div>
-					<div class="extra content">
-						状态：确认
-					</div>
-				</div>
 			</div>
 		</div>
 		<div class="column"></div>

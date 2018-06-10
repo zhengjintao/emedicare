@@ -106,12 +106,13 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				<a class="ui large top attached label center aligned">個人情報</a>
 				<div class="ui large middle aligned selection divided list">
 					<div class="item" ng-click="list.onitemclick(0)">
-						<div class="right floated content" style="margin-top:12px">
+					   
+						<div class="right floated content" style="margin-top:10px">
 							<i class="chevron right icon"></i>
 						</div>
-						
+						<img class="ui avatar image" src="assets/images/christian.jpg">
 						<div class="content">
-							<div class="header">U0000001</div>
+							<div class="header">U000001</div>
 							<div class="description">本田慶応</div>
 						</div>
 					</div>
@@ -167,7 +168,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<div class="right floated content">
 							<i class="chevron right icon"></i>
 						</div>
-						<i class="sun outline icon"></i>
+						<i class="home icon"></i>
 						<div class="content">
 							<a class="header">公式サイト</a>
 						</div>

@@ -51,9 +51,9 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.address ="新书";
   list.site="www.baidu.com";
   list.historyList =  [
-      {id:'00001', date:'20180817', text:'learn AngularJS'},
-      {id:'00002', date:'20180717', text:'拉肚子'},
-      {id:'00003', date:'20180617', text:'learn Angul方法反反复复方法反反复复方法反反复复方法反反复复arJS'}
+      {id:'00001', date:'20180817', text:'肠胃炎'},
+      {id:'00002', date:'20180729', text:'拉肚子'},
+      {id:'00003', date:'20180603', text:'严重流感'}
       ];
   
   list.submit = function() {
@@ -97,8 +97,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="column">
 			<div style="margin-top:10px"></div>
 			<div class="ui segment">
-				<a class="ui top attached label center aligned">通院履歴</a>
-				<div class="ui form">
+				<a class="ui large top attached label center aligned">通院履歴</a>
+				<div class="ui large form">
 					<div class="inline field">
 						<label style="width: 60px">日付</label> <input type="text"
 							placeholder="Full Name" value="20180512">
@@ -106,11 +106,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					
 					<div class="inline field">
 						<label style="width: 60px">原因</label> <input type="text"
-							placeholder="Full Name" value="26">
+							placeholder="Full Name" value="急性肠胃炎">
 					</div>
 					<div class="inline field">
 						<label style="width: 60px">期間</label> <input type="text"
-							placeholder="Full Name" value="18221412663">
+							placeholder="Full Name" value="住院两周">
 					</div>
 					
 					<button class="fluid ui large button" ng-click="list.onItemClick()">保存</button>
@@ -119,7 +119,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 			</div>
 			
 			<div class="ui segment">
-				<a class="ui top attached label center aligned">履歴一覧</a>
+				<a class="ui large top attached label center aligned">履歴一覧</a>
 				<div class="ui large middle aligned divided list">
 					<div class="item" ng-repeat="eachitem in list.historyList">
 						<div class="right floated content">

@@ -97,7 +97,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   }
   
   list.onitemclick = function() {
-	  window.location.href = 'home.do';
+	  window.location.href = 'exploratorydetail.do';
   }
 });
 </script>
@@ -114,9 +114,28 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="column">
 			<div style="margin-top:10px"></div>
 			<div class="ui segment">
-				<a class="ui top attached label center aligned">診査履歴</a>
-				<div class="ui list">
-					
+				<a class="ui large top attached label center aligned">診査履歴</a>
+				<div class="ui large middle aligned selection divided list">
+					<div class="item" ng-click="list.onitemclick(2)">
+						<div class="content">
+							<a class="header">診査记录20180702</a>
+						</div>
+					</div>
+					<div class="item" ng-click="list.onitemclick(2)">
+						<div class="content">
+							<a class="header">診査记录20180614</a>
+						</div>
+					</div>
+					<div class="item" ng-click="list.onitemclick(2)">
+						<div class="content">
+							<a class="header">診査记录20170514</a>
+						</div>
+					</div>
+					<div class="item" ng-click="list.onitemclick(2)">
+						<div class="content">
+							<a class="header">診査记录20160410</a>
+						</div>
+					</div>
 				</div>
 
 			</div>

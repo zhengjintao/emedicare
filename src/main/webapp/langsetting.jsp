@@ -112,11 +112,28 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	</div>
 	<div class="ui one column grid container">
 		<div class="column">
-			<div style="margin-top:10px"></div>
+			<div style="margin-top: 10px"></div>
 			<div class="ui segment">
-				<a class="ui top attached label center aligned">言語設定</a>
-				<div class="ui list">
-					
+				<a class="ui large top attached label center aligned">言語設定</a>
+				<div class="ui large form">
+					<div class="grouped fields">
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="example2" checked="checked"> <label>中文</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="example2"> <label>English</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="example2"> <label>日本語</label>
+							</div>
+						</div>
+						<button class="fluid ui large button" ng-click="list.onItemClick()">OK</button>
+					</div>
 				</div>
 
 			</div>
