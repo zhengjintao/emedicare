@@ -46,6 +46,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.lblNames=['姓名', 'Name', 'お名前'];
   list.lblMessages=['请输入姓名', 'Input your name', 'お名前を入力してください。'];
   list.lblButtons=['登录', 'Login', 'ログイン'];
+  list.name="本田慶応";
   list.submit = function() {
   	$scope.url =  "companyinfoedit.do";
   	var postdata = {'mode':'submit'};
@@ -94,7 +95,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 			<div style="margin-top: 10px"></div>
 			<div class="ui segment">
 				<a class="ui large top attached label center aligned">{{list.lblLangSetting}}</a>
-				<div class="ui large form">
+				<div class="ui form">
 					<div class="inline fields">
 						<div class="field">
 							<div class="ui radio checkbox">
@@ -119,7 +120,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				<a class="ui large top attached label center aligned">{{list.lblNameSetting}}</a>
 				<div class="ui large transparent input">
 					<input type="text" style="width: 250px"
-						placeholder={{list.lblNameInput}}>
+						placeholder={{list.lblNameInput}} ng-model="list.name">
 				</div>
 
 			</div>

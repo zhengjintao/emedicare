@@ -112,13 +112,74 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	</div>
 	<div class="ui one column grid container">
 		<div class="column">
-			<div style="margin-top:10px"></div>
-			<div class="ui segment">
-				<a class="ui top attached label center aligned">次回検査</a>
-				<div class="ui list">
-					
+			<div style="margin-top: 10px"></div>
+			<div class="ui centered cards">
+				<div class="card">
+					<div class="content">
+						<!-- <img class="right floated mini ui image"
+								src="/images/avatar/large/elliot.jpg"> -->
+						<div class="header">下回检查通知</div>
+						<div class="meta">2018年5月30日 9点30分</div>
+						<div class="description">请提前预约好时间，不能错过时间。</div>
+					</div>
+					<div class="extra content">
+						<div class="ui two buttons">
+							<div class="ui basic green button">Approve</div>
+							<div class="ui basic red button">Decline</div>
+						</div>
+					</div>
 				</div>
+				<div class="card">
+					<div class="content">
+						<!-- <img class="right floated mini ui image"
+								src="/images/avatar/large/elliot.jpg"> -->
+						<div class="header">下回检查通知</div>
+						<div class="meta">2018年5月30日 9点30分</div>
+						<div class="description">请提前预约好时间，不能错过时间。</div>
+					</div>
+					<div class="extra content">
+						<div class="ui two buttons">
+							<div class="ui basic green button">Approve</div>
+							<div class="ui basic red button">Decline</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			<h4 class="ui horizontal divider header">
+				<i class="bar chart icon"></i> 预约履历
+			</h4>
+			<div class="ui centered cards">
+				<div class="card">
+					<div class="content">
+						<!-- <img class="right floated mini ui image"
+								src="/images/avatar/large/elliot.jpg"> -->
+						<div class="header">下回检查通知</div>
+						<div class="meta">2018年5月30日 9点30分</div>
+						<div class="description">请提前预约好时间，不能错过时间。</div>
+					</div>
+					<div class="extra content">
+						<div class="ui two buttons">
+							<div class="ui basic green button">Approve</div>
+							<div class="ui basic red button">Decline</div>
+						</div>
+					</div>
+				</div>
+				<div class="card">
+					<div class="content">
+						<!-- <img class="right floated mini ui image"
+								src="/images/avatar/large/elliot.jpg"> -->
+						<div class="header">下回检查通知</div>
+						<div class="meta">2018年5月30日 9点30分</div>
+						<div class="description">请提前预约好时间，不能错过时间。</div>
+					</div>
+					<div class="extra content">
+						<div class="ui two buttons">
+							<div class="ui basic green button">Approve</div>
+							<div class="ui basic red button">Decline</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="column"></div>

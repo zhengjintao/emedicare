@@ -50,32 +50,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.telnum="080-01";
   list.address ="新书";
   list.site="www.baidu.com";
-  list.types =  [
-      {id:'00001', text:'learn AngularJS'}
+  list.historyList =  [
+      {id:'00001', date:'20180817', text:'learn AngularJS'},
+      {id:'00002', date:'20180717', text:'拉肚子'},
+      {id:'00003', date:'20180617', text:'learn Angul方法反反复复方法反反复复方法反反复复方法反反复复arJS'}
       ];
-  list.onsalegoods =  [
-      {id:'00001', text:'learn AngularJS'}
-      ];
-  (function(){
-  	
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'list', 'companyid':list.companyid};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	list.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-      
-  })();
   
   list.submit = function() {
   	$scope.url =  "companyinfoedit.do";
@@ -96,8 +75,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
           });
   }
   
-  list.onitemclick = function() {
-	  window.location.href = 'home.do';
+  list.onitemedit = function(id) {
+	  alert(id);
+  }
+  
+  list.onitemdelete = function(id) {
+	  alert(id);
   }
 });
 </script>
@@ -115,8 +98,40 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 			<div style="margin-top:10px"></div>
 			<div class="ui segment">
 				<a class="ui top attached label center aligned">通院履歴</a>
-				<div class="ui list">
+				<div class="ui form">
+					<div class="inline field">
+						<label style="width: 60px">日付</label> <input type="text"
+							placeholder="Full Name" value="20180512">
+					</div>
 					
+					<div class="inline field">
+						<label style="width: 60px">原因</label> <input type="text"
+							placeholder="Full Name" value="26">
+					</div>
+					<div class="inline field">
+						<label style="width: 60px">期間</label> <input type="text"
+							placeholder="Full Name" value="18221412663">
+					</div>
+					
+					<button class="fluid ui large button" ng-click="list.onItemClick()">保存</button>
+				</div>
+
+			</div>
+			
+			<div class="ui segment">
+				<a class="ui top attached label center aligned">履歴一覧</a>
+				<div class="ui large middle aligned divided list">
+					<div class="item" ng-repeat="eachitem in list.historyList">
+						<div class="right floated content">
+							<i class="edit icon" ng-click="list.onitemedit(eachitem.id)"></i>
+							<i class="window close outline icon" ng-click="list.onitemdelete(eachitem.id)"></i>
+						</div>
+						<div class="content">
+							<div class="header">{{eachitem.date}}</div>
+							<div class="description">{{eachitem.text}}</div>
+						</div>
+						
+					</div>
 				</div>
 
 			</div>

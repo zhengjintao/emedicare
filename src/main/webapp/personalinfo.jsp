@@ -96,7 +96,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
           });
   }
   
-  list.onitemclick = function() {
+ list.onItemClick() = function() {
 	  window.location.href = 'home.do';
   }
 });
@@ -112,15 +112,93 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	</div>
 	<div class="ui one column grid container">
 		<div class="column">
-			<div style="margin-top:10px"></div>
+			<div style="margin-top: 10px"></div>
 			<div class="ui segment">
-				<a class="ui top attached label center aligned">個人情報</a>
-				<div class="ui list">
-					
+				<a class="ui large top attached label center aligned">個人情報</a>
+				<div class="ui form">
+					<div class="inline field">
+						<label style="width: 60px">姓名</label> <input type="text"
+							placeholder="Full Name" value="本田慶応">
+					</div>
+					<div class="inline field">
+						<label style="width: 60px">性别</label>
+						<div class="ui radio checkbox">
+							<input type="radio" name="frequency" checked="checked"> <label>男</label>
+						</div>
+						<div class="ui radio checkbox" style="margin-left: 10px">
+							<input type="radio" name="frequency"> <label>女</label>
+						</div>
+					</div>
+					<div class="inline field">
+						<label style="width: 60px">出生年月</label> <select
+							class="ui fluid search dropdown" style="width: 80px">
+							<option value="">1930</option>
+							<option value="1">1990</option>
+							<option value="2">2018</option>
+							<option value="3">March</option>
+							<option value="4">April</option>
+							<option value="5">May</option>
+							<option value="6">June</option>
+							<option value="7">July</option>
+							<option value="8">August</option>
+							<option value="9">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select> <select class="ui fluid search dropdown" style="width: 60px">
+							<option value="1">01</option>
+							<option value="2">02</option>
+							<option value="3">03</option>
+							<option value="4">04</option>
+							<option value="5">05</option>
+							<option value="6">06</option>
+							<option value="7">07</option>
+							<option value="8">08</option>
+							<option value="9">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select> <select class="ui fluid search dropdown" style="width: 60px">
+							<option value="1">01</option>
+							<option value="2">02</option>
+							<option value="3">03</option>
+							<option value="4">04</option>
+							<option value="5">05</option>
+							<option value="6">06</option>
+							<option value="7">07</option>
+							<option value="8">08</option>
+							<option value="9">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">03</option>
+							<option value="14">04</option>
+							<option value="15">05</option>
+							<option value="16">06</option>
+							<option value="17">07</option>
+							<option value="18">08</option>
+							<option value="19">09</option>
+							<option value="20">10</option>
+							<option value="21">11</option>
+							<option value="22">12</option>
+						</select>
+
+					</div>
+					<div class="inline field">
+						<label style="width: 60px">年龄</label> <input type="text"
+							placeholder="Full Name" disabled="" value="26">
+					</div>
+					<div class="inline field">
+						<label style="width: 60px">联系方式</label> <input type="text"
+							placeholder="Full Name" value="18221412663">
+					</div>
 				</div>
 
 			</div>
+			<button class="fluid ui large button" ng-click="list.onItemClick()">保存</button>
+			
 		</div>
+	
 		<div class="column"></div>
 	</div>
 
