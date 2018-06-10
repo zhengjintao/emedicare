@@ -12,15 +12,7 @@
 
 <body>
 	<div style="width: 80%; margin-left: auto; margin-right: auto;">
-		<div class="ui inverted blue menu" style='font-size: 12.0pt'>
-			<a class="item" href=bkimportinfo.jsp><b>診断情報一括登録</b></a> 
-			<a class="active item" href=bkaccountlist.jsp><b>顧客一覧</b></a> 
-			<a class="item" href=bkimportinfo.jsp><b>次回検査</b></a>
-			<div class="right menu">
-				<a class="item"><b>ログイン</b></a> 
-				<a class="item"><b>ヘルプ</b></a>
-			</div>
-		</div>			
+	   <jsp:include page="bkheader.jsp"/>	
 	   <div class="ui grid teal inverted segment">
 			<div class="seven wide column">
 					<div class="ui action input"  style="width: 550px;">
@@ -34,7 +26,6 @@
 						</Button>
 				</div>
 			</div>
-
 		
 		<label class="ui label" style="text-align: left" ><h3>登録結果一覧</h3></label>
 				<table class="ui celled table" style="margin-top: 5px">
