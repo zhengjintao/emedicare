@@ -16,28 +16,28 @@
 		<div class="ui grid">
 			<div class="column">
 				<div class="ui breadcrumb">
-					<a class="section"><h4>顧客一覧</h4></a> <i
+					<a class="section" href="bkaccountlist.do"><h4>顧客一覧</h4></a> <i
 						class="right angle icon divider"></i> 
-					<a class="section"><h4>ユーザ名前</h4></a>
+					<a class="section" href="bkhistorylist.do"><h4>本田慶応</h4></a>
 					<i class="right angle icon divider"></i>
 					<div class="active section">
-						<h4>2018-09-01_ユーザAAAの診断結果</h4>
+						<h4>診断結果1</h4>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="ui section divider" style="margin-top: 5px"></div>
-		<h3 class="ui top attached header" style="margin-top: -5px">基本検査</h3>
+		<div class="ui section divider" style="margin-top: 5px;margin-bottom:0px"></div>
+		<h3 class="ui top attached header" style="margin-top: 10px;">基本検査</h3>
 		<div class="ui attached segment" style="margin-top: auto;">
 			<div class="ui grid">
 				<div class="eight wide column">
 					<div class="ui middle aligned divided list">
 						<div class="item">
 							<div class="ui labeled input">
-								<div class="ui label">名前</div>
+								<div class="ui label">体重</div>
 								<input id="eusername" name="eusername" type="text"
 									readonly="readonly"
-									value=<%=(String) request.getAttribute("username")%>>
+									value="65kg">
 							</div>
 						</div>
 					</div>
@@ -46,10 +46,10 @@
 					<div class="ui middle aligned divided list">
 						<div class="item">
 							<div class="ui labeled input">
-								<div class="ui label">年齢</div>
+								<div class="ui label">身高</div>
 								<input id="eusername" name="eusername" type="text"
 									readonly="readonly"
-									value=<%=(String) request.getAttribute("username")%>>
+									value="173cm">
 							</div>
 						</div>
 					</div>
@@ -58,10 +58,10 @@
 					<div class="ui middle aligned divided list">
 						<div class="item">
 							<div class="ui labeled input">
-								<div class="ui label">性別</div>
+								<div class="ui label">血压</div>
 								<input id="eusername" name="eusername" type="text"
 									readonly="readonly"
-									value=<%=(String) request.getAttribute("username")%>>
+									value="100~130kp">
 							</div>
 						</div>
 					</div>
@@ -70,27 +70,27 @@
 					<div class="ui middle aligned divided list">
 						<div class="item">
 							<div class="ui labeled input">
-								<div class="ui label">電話番号</div>
+								<div class="ui label">心跳</div>
 								<input id="eusername" name="eusername" type="text"
 									readonly="readonly"
-									value=<%=(String) request.getAttribute("username")%>>
+									value=60～80次／min>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<h3 class="ui top attached header" style="margin-top: -5px">血液检查</h3>
+		<h3 class="ui top attached header" style="margin-top: 10px;">血液检查</h3>
 		<div class="ui attached segment" style="margin-top: auto;">
 			<div class="ui grid">
 				<div class="eight wide column">
 					<div class="ui middle aligned divided list">
 						<div class="item">
 							<div class="ui labeled input">
-								<div class="ui label">名前</div>
+								<div class="ui label">血小板</div>
 								<input id="eusername" name="eusername" type="text"
 									readonly="readonly"
-									value=<%=(String) request.getAttribute("username")%>>
+									value="10mk">
 							</div>
 						</div>
 					</div>
@@ -99,10 +99,10 @@
 					<div class="ui middle aligned divided list">
 						<div class="item">
 							<div class="ui labeled input">
-								<div class="ui label">年齢</div>
+								<div class="ui label">血小板</div>
 								<input id="eusername" name="eusername" type="text"
 									readonly="readonly"
-									value=<%=(String) request.getAttribute("username")%>>
+									value="10mk">
 							</div>
 						</div>
 					</div>
@@ -111,10 +111,10 @@
 					<div class="ui middle aligned divided list">
 						<div class="item">
 							<div class="ui labeled input">
-								<div class="ui label">性別</div>
+								<div class="ui label">血小板</div>
 								<input id="eusername" name="eusername" type="text"
 									readonly="readonly"
-									value=<%=(String) request.getAttribute("username")%>>
+									value="10mk">
 							</div>
 						</div>
 					</div>
@@ -123,10 +123,63 @@
 					<div class="ui middle aligned divided list">
 						<div class="item">
 							<div class="ui labeled input">
-								<div class="ui label">電話番号</div>
+								<div class="ui label">血小板</div>
 								<input id="eusername" name="eusername" type="text"
 									readonly="readonly"
-									value=<%=(String) request.getAttribute("username")%>>
+									value="10mk">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<h3 class="ui top attached header" style="margin-top: 10px;">尿检</h3>
+		<div class="ui attached segment" style="margin-top: auto;">
+			<div class="ui grid">
+				<div class="eight wide column">
+					<div class="ui middle aligned divided list">
+						<div class="item">
+							<div class="ui labeled input">
+								<div class="ui label">尿素含量</div>
+								<input id="eusername" name="eusername" type="text"
+									readonly="readonly"
+									value="10mk">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="eight wide column">
+					<div class="ui middle aligned divided list">
+						<div class="item">
+							<div class="ui labeled input">
+								<div class="ui label">尿素含量</div>
+								<input id="eusername" name="eusername" type="text"
+									readonly="readonly"
+									value="10mk">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="eight wide column">
+					<div class="ui middle aligned divided list">
+						<div class="item">
+							<div class="ui labeled input">
+								<div class="ui label">尿素含量</div>
+								<input id="eusername" name="eusername" type="text"
+									readonly="readonly"
+									value="10mk">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="eight wide column">
+					<div class="ui middle aligned divided list">
+						<div class="item">
+							<div class="ui labeled input">
+								<div class="ui label">尿素含量</div>
+								<input id="eusername" name="eusername" type="text"
+									readonly="readonly"
+									value="10mk">
 							</div>
 						</div>
 					</div>

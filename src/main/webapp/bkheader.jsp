@@ -15,9 +15,6 @@
 		<a class="active item" href=bkaccountlist.jsp><b>顧客一覧</b></a> <a
 			class="item" href=bkimportinfo.jsp><b>診断情報一括登録</b></a> <a
 			class="item" href=bkimportinfo.jsp><b>次回検査</b></a>
-		<div class="right menu">
-			<a class="item"><b>ログイン</b></a>
-		</div>
 	</div>
 </body>
 </html>

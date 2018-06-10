@@ -16,18 +16,18 @@
 		<div class="ui grid">
 			<div class="column">
 				<div class="ui breadcrumb">
-					<a class="section"><h4>顧客一覧</h4></a> <i
+					<a class="section" href="bkaccountlist.do"><h4>顧客一覧</h4></a> <i
 						class="right angle icon divider"></i> 
-					<a class="section"><h4>ユーザ名前</h4></a>
+					<a class="section" href="bkhistorylist.do"><h4>本田慶応</h4></a>
 					<i class="right angle icon divider"></i>
 					<div class="active section">
-						<h4>2018-09-01_ユーザAAAの通院検査結果</h4>
+						<h4>通院記録1</h4>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="ui section divider" style="margin-top: 5px"></div>
-		<h3 class="ui top attached header" style="margin-top: -5px">基本情報</h3>
+		<div class="ui section divider" style="margin-top: 5px;margin-bottom:0px"></div>
+		<h3 class="ui top attached header" style="margin-top: 10px;">通院情報</h3>
 		<div class="ui attached segment" style="margin-top: auto;">
 			<div class="ui grid">
 				<div class="eight wide column">

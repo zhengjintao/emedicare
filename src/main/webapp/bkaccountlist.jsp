@@ -15,37 +15,40 @@
         <jsp:include page="bkheader.jsp"/>
 		<table class="ui celled table" style="margin-top: 5px">
 			<tbody>
-				<tr bgcolor="#00B5AB" height="30px">
-					<th width="80%" style="text-align: center; color: white">名前</th>
-					<th width="20%" style="text-align: center; color: white">履歴数</th>
+				<tr bgcolor="#FAFAFA" height="30px">
+					<th width="60%" style="text-align: center">名前</th>
+					<th width="20%" style="text-align: center">診査履歴数</th>
+					<th width="20%" style="text-align: center">通院記録数</th>
 				</tr>
 				<tr>
-					<td id="week0"><a href=bkhistorylist.jsp>ユーザ１</a></td>
+					<td id="week0"><a href=bkhistorylist.do>本田慶応</a></td>
+					<td><a href=bkhistorylist.do>3</a></td>
+					<td><a href=bkhistorylist.do>2</a></td>
+				</tr>
+				<tr>
+					<td id="week1">坂本龍馬</td>
+					<td>9</td>
+					<td>9</td>
+				</tr>
+				<tr>
+					<td id="week2">安倍晋三</td>
+					<td>9</td>
 					<td>0</td>
 				</tr>
 				<tr>
-					<td id="week1">ユーザ１</td>
-					<td>99</td>
+					<td id="week3">田中小次郎</td>
+					<td>0</td>
+					<td>0</td>
 				</tr>
 				<tr>
-					<td id="week2">ユーザ１</td>
-					<td>99</td>
+					<td id="week4">松田平助</td>
+					<td>9</td>
+					<td>2</td>
 				</tr>
 				<tr>
-					<td id="week3">ユーザ１</td>
-					<td>99</td>
-				</tr>
-				<tr>
-					<td id="week4">ユーザ１</td>
-					<td>99</td>
-				</tr>
-				<tr>
-					<td id="week5">ユーザ１</td>
-					<td>99</td>
-				</tr>
-				<tr>
-					<td id="week6">ユーザ１</td>
-					<td>99</td>
+					<td id="week5">佐本馬子</td>
+					<td>9</td>
+					<td>5</td>
 				</tr>
 			</tbody>
 		</table>
