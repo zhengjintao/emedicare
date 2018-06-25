@@ -16,7 +16,11 @@
 <script src="dist/components/transition.min.js"></script>
 <script src="dist/semantic.min.js"></script>
 <script>
-
+initdata=[];
+initdata.userid = '<%=request.getAttribute("userid")%>';
+initdata.username = '<%=request.getAttribute("username")%>';
+initdata.langinx = <%=request.getAttribute("langinx")%>;
+initdata.sex = <%=request.getAttribute("sex")%>;
 </script>
 
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -43,60 +47,48 @@
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
-  list.companyid="000000001"
-  list.name ="株式会社";
-  list.shortname="BWC";
-  list.label ="株式会社tesut";
-  list.telnum="080-01";
-  list.address ="新书";
-  list.site="www.baidu.com";
-  list.types =  [
-      {id:'00001', text:'learn AngularJS'}
-      ];
-  list.onsalegoods =  [
-      {id:'00001', text:'learn AngularJS'}
-      ];
-  (function(){
-  	
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'list', 'companyid':list.companyid};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	list.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-      
-  })();
+  list.userid="";
+  list.username ="本田慶応";
+  list.birthday=new Date("1989-09-12");
+  list.age="0";
+  list.telnum="080-8184-8830";
+  list.isman=true;
+  list.langinx=0;
   
-  list.submit = function() {
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'submit'};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	orderList.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
+  list.lbluserinfos = ['个人信息', 'Language', '個人情報'];;
+  list.lblnames = ['姓名', 'Language', 'サービス'];
+  list.lblsexs = ['性别', 'Language', '診査履歴'];
+  list.lblmans = ['男', 'Language', '診査履歴'];
+  list.lblwomans = ['女', 'Language', '診査履歴'];
+  list.lblbirthdays = ['出生年月', 'Language', '通院履歴'];
+  list.lblages = ['年龄', 'Language', '次回検査'];
+  list.lbltelnums = ['联系方式', 'Language', 'システム設定'];
+  list.lblsaves = ['保存', 'Language', 'システム設定'];
+  
+  list.setlabel = function() {
+	  var laninx = this.langinx;
+	  list.lbluserinfo =list.lbluserinfos[laninx];
+	  list.lblname =list.lblnames[laninx];
+	  list.lblsex =list.lblsexs[laninx];
+	  list.lblman =list.lblmans[laninx];
+	  list.lblwoman =list.lblwomans[laninx];
+	  list.lblbirthday =list.lblbirthdays[laninx];
+	  list.lblage =list.lblages[laninx];
+	  list.lbltelnum =list.lbltelnums[laninx];
+	  list.lblsave =list.lblsaves[laninx];
+	}
+  
+  list.setlabel();
+  
+  list.countage=function(){
+	  var ageDifMs = Date.now() - this.birthday.getTime();
+	  var ageDate = new Date(ageDifMs); // miliseconds from epoch
+	  list.age= Math.abs(ageDate.getUTCFullYear() - 1970);
   }
   
- list.onItemClick() = function() {
+  list.countage();
+  
+ list.onItemClick = function() {
 	  window.location.href = 'home.do';
   }
 });
@@ -114,88 +106,36 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="column">
 			<div style="margin-top: 10px"></div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">個人情報</a>
+				<a class="ui large top attached label center aligned">{{list.lbluserinfo}}</a>
 				<div class="ui form">
 					<div class="inline field">
-						<label style="width: 60px">姓名</label> <input type="text"
-							placeholder="Full Name" value="本田慶応">
+						<label style="width: 60px">{{list.lblname}}</label> <input type="text"
+							placeholder="Full Name" ng-model="list.username">
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">性别</label>
+						<label style="width: 60px">{{list.lblsex}}</label>
 						<div class="ui radio checkbox">
-							<input type="radio" name="frequency" checked="checked"> <label>男</label>
+							<input type="radio" name="frequency" ng-checked="list.isman"> <label>{{list.lblman}}</label>
 						</div>
 						<div class="ui radio checkbox" style="margin-left: 10px">
-							<input type="radio" name="frequency"> <label>女</label>
+							<input type="radio" name="frequency" ng-checked="list.isman==false"> <label>{{list.lblwoman}}</label>
 						</div>
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">出生年月</label> <select
-							class="ui fluid search dropdown" style="width: 80px">
-							<option value="">1930</option>
-							<option value="1">1990</option>
-							<option value="2">2018</option>
-							<option value="3">March</option>
-							<option value="4">April</option>
-							<option value="5">May</option>
-							<option value="6">June</option>
-							<option value="7">July</option>
-							<option value="8">August</option>
-							<option value="9">September</option>
-							<option value="10">October</option>
-							<option value="11">November</option>
-							<option value="12">December</option>
-						</select> <select class="ui fluid search dropdown" style="width: 60px">
-							<option value="1">01</option>
-							<option value="2">02</option>
-							<option value="3">03</option>
-							<option value="4">04</option>
-							<option value="5">05</option>
-							<option value="6">06</option>
-							<option value="7">07</option>
-							<option value="8">08</option>
-							<option value="9">09</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-						</select> <select class="ui fluid search dropdown" style="width: 60px">
-							<option value="1">01</option>
-							<option value="2">02</option>
-							<option value="3">03</option>
-							<option value="4">04</option>
-							<option value="5">05</option>
-							<option value="6">06</option>
-							<option value="7">07</option>
-							<option value="8">08</option>
-							<option value="9">09</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">03</option>
-							<option value="14">04</option>
-							<option value="15">05</option>
-							<option value="16">06</option>
-							<option value="17">07</option>
-							<option value="18">08</option>
-							<option value="19">09</option>
-							<option value="20">10</option>
-							<option value="21">11</option>
-							<option value="22">12</option>
-						</select>
-
+						<label style="width: 60px">{{list.lblbirthday}}</label> <input type="date" min="1900-01-01" max="2018-06-25"  ng-model="list.birthday" ng-change="list.countage()" >
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">年龄</label> <input type="text"
-							placeholder="Full Name" disabled="" value="26">
+						<label style="width: 60px">{{list.lblage}}</label> <input type="text"
+							placeholder="Full Name" disabled=""  ng-model="list.age">
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">联系方式</label> <input type="text"
-							placeholder="Full Name" value="18221412663">
+						<label style="width: 60px">{{list.lbltelnum}}</label> <input type="text"
+							placeholder="Full Name" ng-model="list.telnum">
 					</div>
 				</div>
 
 			</div>
-			<button class="fluid ui large button" ng-click="list.onItemClick()">保存</button>
+			<button class="fluid ui large button" ng-click="list.onItemClick()">{{list.lblsave}}</button>
 			
 		</div>
 	

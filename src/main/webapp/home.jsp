@@ -15,7 +15,10 @@
 <script src="dist/semantic.min.js"></script>
 <script src="angularjs/angular.min.js"></script>
 <script>
-
+initdata=[];
+initdata.userid = '<%=request.getAttribute("userid")%>';
+initdata.username = '<%=request.getAttribute("username")%>';
+initdata.langinx = <%=request.getAttribute("langinx")%>;
 </script>
 <script type="text/javascript">
   var app = angular.module('listApp',[]);
@@ -37,39 +40,31 @@
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
-  list.errmessage ="";
-  list.companyid="000000001"
-  list.name ="株式会社";
-  list.shortname="BWC";
-  list.label ="株式会社tesut";
-  list.telnum="080-01";
-  list.address ="新书";
-  list.site="www.baidu.com";
-  list.types =  [
-      {id:'00001', text:'learn AngularJS'}
-      ];
-  list.onsalegoods =  [
-      {id:'00001', text:'learn AngularJS'}
-      ];
+  list.userid=initdata.userid;
+  list.username =initdata.username;
+  list.langinx = initdata.langinx;
+  list.lbluserinfos = ['个人信息', 'Language', '個人情報'];;
+  list.lblservices = ['服务', 'Language', 'サービス'];
+  list.lblhistorys = ['诊查履历', 'Language', '診査履歴'];
+  list.lblvisits = ['就医记录', 'Language', '通院履歴'];
+  list.lblappoints = ['预约诊查', 'Language', '次回検査'];
+  list.lblsettings = ['系统设置', 'Language', 'システム設定'];
+  list.lbllangsettings = ['语言设置', 'Language', '言語設定'];
+  list.lblwebsites = ['官网', 'Language', '公式サイト'];
   
-  list.submit = function() {
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'submit'};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	orderList.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-  }
+  list.setlabel = function() {
+	  var laninx = this.langinx;
+	  list.lbluserinfo =list.lbluserinfos[laninx];
+	  list.lblservice =list.lblservices[laninx];
+	  list.lblhistory =list.lblhistorys[laninx];
+	  list.lblvisit =list.lblvisits[laninx];
+	  list.lblappoint =list.lblappoints[laninx];
+	  list.lblsetting =list.lblsettings[laninx];
+	  list.lbllangsetting =list.lbllangsettings[laninx];
+	  list.lblwebsite =list.lblwebsites[laninx];
+	}
+  
+  list.setlabel();
   
   list.onitemclick = function(id) {
 	  var redurl = 'home.do';
@@ -93,17 +88,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 
 </head>
 <body ng-controller="ListController as list">
-	<div id="cmodal" class="ui small test modal transition hidden">
-		<i class="close icon"></i>
-		<div class="content">
-			<p id="errmsg">{{list.errmessage}}</p>
-		</div>
-	</div>
 	<div class="ui one column grid container">
 		<div class="column">
 			<div style="margin-top:10px"></div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">個人情報</a>
+				<a class="ui large top attached label center aligned">{{list.lbluserinfo}}</a>
 				<div class="ui large middle aligned selection divided list">
 					<div class="item" ng-click="list.onitemclick(0)">
 					   
@@ -112,15 +101,15 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						</div>
 						<img class="ui avatar image" src="assets/images/christian.jpg">
 						<div class="content">
-							<div class="header">U000001</div>
-							<div class="description">本田慶応</div>
+							<div class="header">{{list.userid}}</div>
+							<div class="description">{{list.username}}</div>
 						</div>
 					</div>
 				</div>
 
 			</div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">サービス</a>
+				<a class="ui large top attached label center aligned">{{list.lblservice}}</a>
 				<div class="ui large middle aligned selection divided list">
 					<div class="item" ng-click="list.onitemclick(1)">
 						<div class="right floated content">
@@ -128,7 +117,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						</div>
 						<i class="clone outline icon"></i>
 						<div class="content">
-							<a class="header">診査履歴</a>
+							<a class="header">{{list.lblhistory}}</a>
 						</div>
 					</div>
 					<div class="item" ng-click="list.onitemclick(2)">
@@ -137,7 +126,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						</div>
 						<i class="edit outline icon"></i>
 						<div class="content">
-							<a class="header">通院履歴</a>
+							<a class="header">{{list.lblvisit}}</a>
 						</div>
 					</div>
 					<div class="item" ng-click="list.onitemclick(3)">
@@ -146,13 +135,13 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						</div>
 						<i class="calendar alternate icon"></i>
 						<div class="content">
-							<a class="header">次回検査</a>
+							<a class="header">{{list.lblappoint}}</a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">システム設定</a>
+				<a class="ui large top attached label center aligned">{{list.lblsetting}}</a>
 				<div class="ui large middle aligned selection divided list">
 					<div class="item" ng-click="list.onitemclick(4)">
 						<div class="right floated content">
@@ -160,7 +149,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						</div>
 						<i class="sun outline icon"></i>
 						<div class="content">
-							<a class="header">言語設定</a>
+							<a class="header">{{list.lbllangsetting}}</a>
 						</div>
 					</div>
 					
@@ -170,7 +159,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						</div>
 						<i class="home icon"></i>
 						<div class="content">
-							<a class="header">公式サイト</a>
+							<a class="header">{{list.lblwebsite}}</a>
 						</div>
 					</div>
 				</div>

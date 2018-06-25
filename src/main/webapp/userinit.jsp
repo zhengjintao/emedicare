@@ -44,7 +44,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.lblLangs=['语言', 'Language', '言語設定'];
   list.lblNames=['姓名', 'Name', 'お名前'];
-  list.lblMessages=['请输入姓名', 'Input your name', 'お名前を入力してください。'];
+  list.lblMessages=['请输入姓名。', 'Please input your name.', 'お名前を入力してください。'];
   list.lblButtons=['登录', 'Login', 'ログイン'];
   list.name="本田慶応";
   list.submit = function() {
@@ -61,13 +61,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   			list.onsalegoods = result.data.onsalegoods;
   			list.unsalegoods = result.data.unsalegoods;
           }).catch(function (result) {
-          	orderList.message = "SORRY!エラーが発生しました。";
+        	  list.message = "SORRY!エラーが発生しました。";
           	$('.ui.basic.modal') .modal('show');
           });
   }
   
   list.onItemClick = function() {
-	  window.location.href = 'home.do';
+	 if(list.name ==null || list.name.length == 0){
+	     list.errmessage = list.lblMessages[list.langInx];
+	     $('#cmodal') .modal('show');
+	     return;
+	 }
+	 
+	 window.location.href = 'userinit.do?mode=submit' + '&langkbn=' + list.langInx + '&name=' + list.name;
   }
   
   list.onRadioChange = function(val) {
