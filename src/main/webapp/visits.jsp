@@ -108,7 +108,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					<input type="date" min="1900-01-01" ng-model="list.vdate">
 					<div style="height:10px"></div>
 					<label style="width: 60px">详细情况</label> <textarea type="text"
-							placeholder="详细情况" ng-model="list.detail"></textarea>
+							placeholder="感冒发烧，住院2周。" ng-model="list.detail"></textarea>
 					<div style="height:5px"></div>
 					<button class="fluid ui large button" ng-click="list.onItemClick()">保存</button>
 				</div>

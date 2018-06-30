@@ -55,16 +55,16 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.isman=true;
   list.langinx=0;
   
-  list.lbluserinfos = ['个人信息', 'Language', '個人情報'];;
-  list.lblnames = ['姓名', 'Language', 'サービス'];
-  list.lblsexs = ['性别', 'Language', '診査履歴'];
-  list.lblmans = ['男', 'Language', '診査履歴'];
-  list.lblwomans = ['女', 'Language', '診査履歴'];
-  list.lblbirthdays = ['出生年月', 'Language', '通院履歴'];
-  list.lblages = ['年龄', 'Language', '次回検査'];
-  list.lbltelnums = ['联系方式', 'Language', 'システム設定'];
+  list.lbluserinfos = ['个人信息', 'Personal Info', '個人情報'];;
+  list.lblnames = ['姓名', 'Name', '名前'];
+  list.lblsexs = ['性别', 'Sex', '性別'];
+  list.lblmans = ['男', 'Male', '男'];
+  list.lblwomans = ['女', 'Female', '女'];
+  list.lblbirthdays = ['出生年月', 'Birthday', '生年月日'];
+  list.lblages = ['年龄', 'Age', '年齢'];
+  list.lbltelnums = ['联系方式', 'Telephone', '連絡先'];
   list.lbladdresss = ['联系地址', 'Address', 'アドレス'];
-  list.lblsaves = ['保存', 'Language', 'システム設定'];
+  list.lblsaves = ['保存', 'Save', '保存'];
   
   list.setlabel = function() {
 	  var laninx = this.langinx;
@@ -129,7 +129,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					</div>
 					<div class="inline field">
 						<label style="width: 60px">{{list.lblage}}</label> <input type="text"
-							placeholder={{list.lblage}} disabled=""  ng-model="list.age">
+							placeholder={{list.lblage}} disabled=""  ng-model="list.age" style="width:50px">
 					</div>
 					<div class="inline field">
 						<label style="width: 60px">{{list.lbltelnum}}</label> <input type="text"
@@ -137,7 +137,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					</div>
 					<div class="inline field">
 						<label style="width: 60px">{{list.lbladdress}}</label> <input type="text"
-							placeholder={{list.lbladdress}} ng-model="list.address">
+							placeholder={{list.lbladdress}} ng-model="list.address" style="width:220px">
 					</div>
 				</div>
 

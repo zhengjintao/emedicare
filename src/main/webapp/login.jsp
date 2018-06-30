@@ -130,11 +130,10 @@ $(document).ready(function() {
 
 	<div class="ui middle aligned center aligned grid container">
 		<div class="column">
-			<div class="ui middle center aligned ">
+			<!-- <div class="ui middle center aligned ">
 				<div class="ui buttons">
-					<button class="ui button" style="padding-left:0px;padding-top:0px;padding-bottom:0px">
-						<a href="login.do"><img style="height:60px;width:60px"
-							src="assets/images/elogo.jpeg"></a>
+					<button class="ui button">
+						<a href="login.do"><i class="ambulance icon"></i></a>
 					</button>
 					<div class="or" data-text="@" style="margin-top: 18px"></div>
 					<button class="ui button">
@@ -142,7 +141,7 @@ $(document).ready(function() {
 							src="assets/images/logo.png"></a>
 					</button>
 				</div>
-			</div>
+			</div> -->
 			<div class="ui large center aligned ">
 
 				<form class="ui large form" action="login.do" method="post">
@@ -170,7 +169,7 @@ $(document).ready(function() {
 								</div>
 							</div>
 						</div>
-						<div class="ui fluid large teal submit button">登录</div>
+						<div class="ui fluid large blue submit button">登录</div>
 					</div>
 
 					<div class="ui error message"></div>
