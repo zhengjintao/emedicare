@@ -63,6 +63,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.lblbirthdays = ['出生年月', 'Language', '通院履歴'];
   list.lblages = ['年龄', 'Language', '次回検査'];
   list.lbltelnums = ['联系方式', 'Language', 'システム設定'];
+  list.lbladdresss = ['联系地址', 'Address', 'アドレス'];
   list.lblsaves = ['保存', 'Language', 'システム設定'];
   
   list.setlabel = function() {
@@ -75,6 +76,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  list.lblbirthday =list.lblbirthdays[laninx];
 	  list.lblage =list.lblages[laninx];
 	  list.lbltelnum =list.lbltelnums[laninx];
+	  list.lbladdress =list.lbladdresss[laninx];
 	  list.lblsave =list.lblsaves[laninx];
 	}
   
@@ -89,7 +91,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.countage();
   
  list.onItemClick = function() {
-	  window.location.href = 'home.do';
+	  window.location.href = 'personalinfo.do?mode=submit';
   }
 });
 </script>
@@ -110,7 +112,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				<div class="ui form">
 					<div class="inline field">
 						<label style="width: 60px">{{list.lblname}}</label> <input type="text"
-							placeholder="Full Name" ng-model="list.username">
+							placeholder={{list.lblname}} ng-model="list.username">
 					</div>
 					<div class="inline field">
 						<label style="width: 60px">{{list.lblsex}}</label>
@@ -122,15 +124,20 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						</div>
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">{{list.lblbirthday}}</label> <input type="date" min="1900-01-01" max="2018-06-25"  ng-model="list.birthday" ng-change="list.countage()" >
+						<label style="width: 60px">{{list.lblbirthday}}</label> 
+						<input type="date" min="1900-01-01" max="2018-06-25"  ng-model="list.birthday" ng-change="list.countage()" >
 					</div>
 					<div class="inline field">
 						<label style="width: 60px">{{list.lblage}}</label> <input type="text"
-							placeholder="Full Name" disabled=""  ng-model="list.age">
+							placeholder={{list.lblage}} disabled=""  ng-model="list.age">
 					</div>
 					<div class="inline field">
 						<label style="width: 60px">{{list.lbltelnum}}</label> <input type="text"
-							placeholder="Full Name" ng-model="list.telnum">
+							placeholder={{list.lbltelnum}} ng-model="list.telnum">
+					</div>
+					<div class="inline field">
+						<label style="width: 60px">{{list.lbladdress}}</label> <input type="text"
+							placeholder={{list.lbladdress}} ng-model="list.address">
 					</div>
 				</div>
 

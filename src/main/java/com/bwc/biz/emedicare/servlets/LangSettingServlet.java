@@ -23,7 +23,17 @@ public class LangSettingServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("langsetting.jsp").forward(request, response);
+		String mode = request.getParameter("mode");
+		if("submit".equals(mode)){
+			// 言語区分DBへ保存
+			request.setAttribute("langinx", "0");
+			request.getRequestDispatcher("home.do").forward(request, response);
+		}else{
+			// DBから言語区分取得
+			String langinx = "0";
+			request.setAttribute("langinx", langinx);
+			request.getRequestDispatcher("langsetting.jsp").forward(request, response);
+		}
 	}
 
 	/**

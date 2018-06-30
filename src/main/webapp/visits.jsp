@@ -43,21 +43,17 @@
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
-  list.companyid="000000001"
-  list.name ="株式会社";
-  list.shortname="BWC";
-  list.label ="株式会社tesut";
-  list.telnum="080-01";
-  list.address ="新书";
-  list.site="www.baidu.com";
+  list.id="";
+  list.vdate =new Date("2018-09-12");
+  list.detail="";
   list.historyList =  [
-      {id:'00001', date:'20180817', text:'肠胃炎'},
-      {id:'00002', date:'20180729', text:'拉肚子'},
-      {id:'00003', date:'20180603', text:'严重流感'}
+      {id:'00001', date:'2018-08-17', text:'肠胃炎'},
+      {id:'00002', date:'2018-07-29', text:'拉肚子'},
+      {id:'00003', date:'2018-06-03', text:'严重流感'}
       ];
   
-  list.submit = function() {
-  	$scope.url =  "companyinfoedit.do";
+  list.onItemClick = function() {
+  	$scope.url =  "vistis.do";
   	var postdata = {'mode':'submit'};
       $http(
   		{
@@ -73,10 +69,18 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
           	orderList.message = "SORRY!エラーが発生しました。";
           	$('.ui.basic.modal') .modal('show');
           });
+      
+      
   }
   
   list.onitemedit = function(id) {
-	  alert(id);
+	  for(var i=0; i< list.historyList.length; i++){
+		  if(id == list.historyList[i].id){
+			  list.id = id;
+			  list.vdate = new Date(list.historyList[i].date);
+			  list.detail = list.historyList[i].text;
+		  }
+	  }
   }
   
   list.onitemdelete = function(id) {
@@ -99,20 +103,13 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 			<div class="ui segment">
 				<a class="ui large top attached label center aligned">通院履歴</a>
 				<div class="ui large form">
-					<div class="inline field">
-						<label style="width: 60px">日付</label> <input type="text"
-							placeholder="Full Name" value="20180512">
-					</div>
-					
-					<div class="inline field">
-						<label style="width: 60px">原因</label> <input type="text"
-							placeholder="Full Name" value="急性肠胃炎">
-					</div>
-					<div class="inline field">
-						<label style="width: 60px">期間</label> <input type="text"
-							placeholder="Full Name" value="住院两周">
-					</div>
-					
+				   <input type="text" ng-show=false ng-model="list.id">
+					<label style="width: 60px">日付</label>
+					<input type="date" min="1900-01-01" ng-model="list.vdate">
+					<div style="height:10px"></div>
+					<label style="width: 60px">详细情况</label> <textarea type="text"
+							placeholder="详细情况" ng-model="list.detail"></textarea>
+					<div style="height:5px"></div>
 					<button class="fluid ui large button" ng-click="list.onItemClick()">保存</button>
 				</div>
 

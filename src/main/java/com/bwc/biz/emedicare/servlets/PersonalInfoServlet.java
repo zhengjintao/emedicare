@@ -23,7 +23,13 @@ public class PersonalInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("personalinfo.jsp").forward(request, response);
+		String mode = request.getParameter("mode");
+		if("submit".equals(mode)){
+			request.getRequestDispatcher("home.do").forward(request, response);
+		}else{
+
+			request.getRequestDispatcher("personalinfo.jsp").forward(request, response);
+		}
 	}
 
 	/**

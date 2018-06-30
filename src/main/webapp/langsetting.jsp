@@ -16,7 +16,8 @@
 <script src="dist/components/transition.min.js"></script>
 <script src="dist/semantic.min.js"></script>
 <script>
-
+initdata=[];
+initdata.langinx = '<%=request.getAttribute("langinx")%>';
 </script>
 
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -43,61 +44,9 @@
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
-  list.companyid="000000001"
-  list.name ="株式会社";
-  list.shortname="BWC";
-  list.label ="株式会社tesut";
-  list.telnum="080-01";
-  list.address ="新书";
-  list.site="www.baidu.com";
-  list.types =  [
-      {id:'00001', text:'learn AngularJS'}
-      ];
-  list.onsalegoods =  [
-      {id:'00001', text:'learn AngularJS'}
-      ];
-  (function(){
-  	
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'list', 'companyid':list.companyid};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	list.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-      
-  })();
-  
-  list.submit = function() {
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'submit'};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	orderList.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-  }
-  
-  list.onitemclick = function() {
-	  window.location.href = 'home.do';
+  list.langinx = initdata.langinx;
+  list.onItemClick = function() {
+	  window.location.href = 'langsetting.do?mode=submit&langinx=' + list.langinx;
   }
 });
 </script>
@@ -119,17 +68,17 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					<div class="grouped fields">
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" name="example2" checked="checked"> <label>中文</label>
+								<input type="radio" value="0" ng-model="list.langinx"> <label>中文</label>
 							</div>
 						</div>
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" name="example2"> <label>English</label>
+								<input type="radio" value="1" ng-model="list.langinx"> <label>English</label>
 							</div>
 						</div>
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" name="example2"> <label>日本語</label>
+								<input type="radio" value="2" ng-model="list.langinx"> <label>日本語</label>
 							</div>
 						</div>
 						<button class="fluid ui large button" ng-click="list.onItemClick()">OK</button>

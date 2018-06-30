@@ -42,19 +42,12 @@
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
-  list.errmessage ="";
-  list.companyid="000000001"
-  list.name ="株式会社";
-  list.shortname="BWC";
-  list.label ="株式会社tesut";
-  list.telnum="080-01";
-  list.address ="新书";
-  list.site="www.baidu.com";
-  list.types =  [
-      {id:'00001', text:'learn AngularJS'}
+  list.recentList =  [
+      {id:'00001', header:'检查通知－20180606', date:'2018年5月30日 9点30分', description:'请提前预约好时间，不能错过时间。', status:'未确认'}
       ];
-  list.onsalegoods =  [
-      {id:'00001', text:'learn AngularJS'}
+  list.historyList =  [
+	  {id:'00001', header:'检查通知－20180506', date:'2018年5月30日 9点30分', description:'请提前预约好时间，不能错过时间。', status:'未确认'},
+	  {id:'00001', header:'检查通知－20180406', date:'2018年5月30日 9点00分', description:'请提前预约好时间，不能错过时间。', status:'已确认'}
       ];
   (function(){
   	
@@ -114,62 +107,37 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="column">
 			<div style="margin-top: 10px"></div>
 			<div class="ui centered cards">
-				<div class="card">
+				<div class="card" ng-repeat="eachitem in list.recentList">
 					<div class="content">
 						<!-- <img class="right floated mini ui image"
 								src="/images/avatar/large/elliot.jpg"> -->
-						<div class="header">下回检查通知</div>
-						<div class="meta">2018年5月30日 9点30分</div>
-						<div class="description">请提前预约好时间，不能错过时间。</div>
+						<div class="header">{{eachitem.header}}</div>
+						<div class="meta">{{eachitem.date}}</div>
+						<div class="description">{{eachitem.description}}</div>
 					</div>
 					<div class="extra content">
 						<div class="ui two buttons">
 							<div class="ui basic green button">确认</div>
-							<div class="ui basic red button">取消</div>
+							<!-- <div class="ui basic red button">取消</div> -->
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<h4 class="ui horizontal divider header">
-				<i class="bar chart icon"></i> 预约履历
+				<i class="bar chart icon"></i> 履历
 			</h4>
 			<div class="ui centered cards">
-				<div class="card">
+				<div class="card" ng-repeat="eachitem in list.historyList">
 					<div class="content">
 						<!-- <img class="right floated mini ui image"
 								src="/images/avatar/large/elliot.jpg"> -->
-						<div class="header">下回检查通知</div>
-						<div class="meta">2018年5月30日 9点30分</div>
-						<div class="description">请提前预约好时间，不能错过时间。</div>
+						<div class="header">{{eachitem.header}}</div>
+						<div class="meta">{{eachitem.date}}</div>
+						<div class="description">{{eachitem.description}}</div>
 					</div>
 					<div class="extra content">
-						状态：确认
-					</div>
-				</div>
-				<div class="card">
-					<div class="content">
-						<!-- <img class="right floated mini ui image"
-								src="/images/avatar/large/elliot.jpg"> -->
-						<div class="header">下回检查通知</div>
-						<div class="meta">2018年5月30日 9点30分</div>
-						<div class="description">请提前预约好时间，不能错过时间。</div>
-					</div>
-					<div class="extra content">
-						状态：取消
-					</div>
-				</div>
-				
-				<div class="card">
-					<div class="content">
-						<!-- <img class="right floated mini ui image"
-								src="/images/avatar/large/elliot.jpg"> -->
-						<div class="header">下回检查通知</div>
-						<div class="meta">2018年5月30日 9点30分</div>
-						<div class="description">请提前预约好时间，不能错过时间。</div>
-					</div>
-					<div class="extra content">
-						状态：确认
+						状态：{{eachitem.status}}
 					</div>
 				</div>
 			</div>

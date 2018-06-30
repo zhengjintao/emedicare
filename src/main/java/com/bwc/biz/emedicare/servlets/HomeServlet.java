@@ -23,12 +23,15 @@ public class HomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String langinx = request.getParameter("langinx");
+		
+		langinx = langinx == null? "0" : langinx;
 		// ユーザ情報取得
 		
 		// ユーザ情報より、画面初期化する
 		request.setAttribute("userid", "U0000002");
 		request.setAttribute("username", "本田慶応");
-		request.setAttribute("langinx", 0);
+		request.setAttribute("langinx", langinx);
 		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
 
