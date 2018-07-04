@@ -20,7 +20,10 @@ initdata=[];
 initdata.userid = '<%=request.getAttribute("userid")%>';
 initdata.username = '<%=request.getAttribute("username")%>';
 initdata.langinx = <%=request.getAttribute("langinx")%>;
-initdata.sex = <%=request.getAttribute("sex")%>;
+initdata.sex = '<%=request.getAttribute("sex")%>';
+initdata.telnum = '<%=request.getAttribute("telnum")%>';
+initdata.address = '<%=request.getAttribute("address")%>';
+initdata.birthday = '<%=request.getAttribute("birthday")%>';
 </script>
 
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -47,13 +50,14 @@ initdata.sex = <%=request.getAttribute("sex")%>;
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
-  list.userid="";
-  list.username ="本田慶応";
-  list.birthday=new Date("1989-09-12");
+  list.userid=initdata.userid;
+  list.username =initdata.username;
+  list.birthday=new Date(initdata.birthday);
   list.age="0";
-  list.telnum="080-8184-8830";
-  list.isman=true;
-  list.langinx=0;
+  list.telnum=initdata.telnum;
+  list.sex=initdata.sex;
+  list.langinx=initdata.langinx;
+  list.address=initdata.address;
   
   list.lbluserinfos = ['个人信息', 'Personal Info', '個人情報'];;
   list.lblnames = ['姓名', 'Name', '名前'];
@@ -91,8 +95,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.countage();
   
  list.onItemClick = function() {
-	  window.location.href = 'personalinfo.do?mode=submit';
+	 var birthday=list.getformatbirthday();
+	  window.location.href = 'personalinfo.do?mode=submit&username='+ list.username+'&langinx='+list.langinx 
+			  +'&sex='+ list.sex+'&telnum='+list.telnum +'&address='+ list.address+'&birthday='+ birthday;
   }
+ 
+ list.getformatbirthday = function(){
+	  var dt = list.birthday;
+	  var y = dt.getFullYear();
+	  var m = ("00" + (dt.getMonth()+1)).slice(-2);
+	  var d = ("00" + dt.getDate()).slice(-2);
+	  var result = y + "-" + m + "-" + d;
+	  return result;
+	}
 });
 </script>
 
@@ -117,10 +132,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					<div class="inline field">
 						<label style="width: 60px">{{list.lblsex}}</label>
 						<div class="ui radio checkbox">
-							<input type="radio" name="frequency" ng-checked="list.isman"> <label>{{list.lblman}}</label>
+							<input type="radio" name="frequency" value="M" ng-model="list.sex"> <label>{{list.lblman}}</label>
 						</div>
 						<div class="ui radio checkbox" style="margin-left: 10px">
-							<input type="radio" name="frequency" ng-checked="list.isman==false"> <label>{{list.lblwoman}}</label>
+							<input type="radio" name="frequency" value="F" ng-model="list.sex"> <label>{{list.lblwoman}}</label>
 						</div>
 					</div>
 					<div class="inline field">

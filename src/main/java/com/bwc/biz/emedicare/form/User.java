@@ -16,6 +16,9 @@ public class User {
 	private String maincompanyid;
 	private String maincompanyname;
 	private String rest;
+	private int langinx;
+	private String address;
+	private String telnum;
 	
 	public String getUserId() {
 		return userId;
@@ -94,6 +97,24 @@ public class User {
 	}
 	public void setRest(String rest) {
 		this.rest = rest;
+	}
+	public int getLanginx() {
+		return langinx;
+	}
+	public void setLanginx(int langinx) {
+		this.langinx = langinx;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getTelnum() {
+		return telnum;
+	}
+	public void setTelnum(String telnum) {
+		this.telnum = telnum;
 	}
 	
 }
