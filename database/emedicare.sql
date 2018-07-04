@@ -111,6 +111,9 @@ CREATE TABLE `mstr_user` (
   `mail` varchar(50) DEFAULT NULL,
   `openid` varchar(50) DEFAULT NULL,
   `rest` varchar(10) DEFAULT '1',
+  `lang` char(1) DEFAULT NULL,
+  `address` longtext,
+  `telnum` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -121,7 +124,7 @@ CREATE TABLE `mstr_user` (
 
 LOCK TABLES `mstr_user` WRITE;
 /*!40000 ALTER TABLE `mstr_user` DISABLE KEYS */;
-INSERT INTO `mstr_user` VALUES ('admin','系统超级管理员','admin','0','10:00:00.0000','17:00:00.0000','M','2',NULL,'',NULL,'1'),('system','系统超级管理员','system','0','10:00:00.0000','17:00:00.0000','M','0',NULL,'',NULL,'1');
+INSERT INTO `mstr_user` VALUES ('admin','系统超级管理员','admin','0','10:00:00.0000','17:00:00.0000','M','2','1900-01-01','',NULL,'1','0',' ',' '),('system','系统超级管理员','system','0','10:00:00.0000','17:00:00.0000','M','0','1900-01-01','',NULL,'1','0',' ',' '),('U0000002','本田慶応','111111','0','10:00:00.0000','17:00:00.0000','M','2','1989-01-24','',NULL,'1','0','埼玉県芝園町３−４−９０４','080-2314-2876');
 /*!40000 ALTER TABLE `mstr_user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -134,4 +137,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-07-04 22:47:24
+-- Dump completed on 2018-07-04 23:48:18
