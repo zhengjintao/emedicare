@@ -16,7 +16,8 @@
 <script src="dist/components/transition.min.js"></script>
 <script src="dist/semantic.min.js"></script>
 <script>
-
+initdata=[];
+initdata.langinx = <%=request.getAttribute("langinx")%>;
 </script>
 
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -42,6 +43,8 @@
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
+  list.langinx = initdata.langinx;
+  
   list.recentList =  [
       {id:'00001', header:'检查通知－20180606', date:'2018年5月30日 9点30分', description:'请提前预约好时间，不能错过时间。', status:'未确认'}
       ];
@@ -49,26 +52,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  {id:'00001', header:'检查通知－20180506', date:'2018年5月30日 9点30分', description:'请提前预约好时间，不能错过时间。', status:'未确认'},
 	  {id:'00001', header:'检查通知－20180406', date:'2018年5月30日 9点00分', description:'请提前预约好时间，不能错过时间。', status:'已确认'}
       ];
-  (function(){
-  	
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'list', 'companyid':list.companyid};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	list.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-      
-  })();
+  
+  list.lblbtnoks = ['确定', 'OK', '確認'];
+  list.lblheaders = ['履历', 'List', '履歴'];
+  list.lblstatuss =['状态：', 'Status：', '状態：']
+  
+  list.setlabel = function() {
+	  var laninx = this.langinx;
+	  list.lblbtnok =list.lblbtnoks[laninx];
+	  list.lblheader =list.lblheaders[laninx];
+	  list.lblstatus = list.lblstatuss[laninx];
+	}
+  
+  list.setlabel();
   
   list.submit = function() {
   	$scope.url =  "companyinfoedit.do";
@@ -117,7 +113,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					</div>
 					<div class="extra content">
 						<div class="ui two buttons">
-							<div class="ui basic green button">确认</div>
+							<div class="ui basic green button">{{list.lblbtnok}}</div>
 							<!-- <div class="ui basic red button">取消</div> -->
 						</div>
 					</div>
@@ -125,7 +121,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 			</div>
 
 			<h4 class="ui horizontal divider header">
-				<i class="bar chart icon"></i> 履历
+				<i class="bar chart icon"></i> {{list.lblheader}}
 			</h4>
 			<div class="ui centered cards">
 				<div class="card" ng-repeat="eachitem in list.historyList">
@@ -137,7 +133,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<div class="description">{{eachitem.description}}</div>
 					</div>
 					<div class="extra content">
-						状态：{{eachitem.status}}
+						{{list.lblstatus}}{{eachitem.status}}
 					</div>
 				</div>
 			</div>

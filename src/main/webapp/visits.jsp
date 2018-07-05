@@ -16,7 +16,8 @@
 <script src="dist/components/transition.min.js"></script>
 <script src="dist/semantic.min.js"></script>
 <script>
-
+initdata=[];
+initdata.langinx = <%=request.getAttribute("langinx")%>;
 </script>
 
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -44,6 +45,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
   list.id="";
+  list.langinx = initdata.langinx;
   list.vdate =new Date("2018-09-12");
   list.detail="";
   list.historyList =  [
@@ -51,6 +53,25 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       {id:'00002', date:'2018-07-29', text:'拉肚子'},
       {id:'00003', date:'2018-06-03', text:'严重流感'}
       ];
+  
+  list.lblvisits = ['就医记录', 'Visits', '通院履歴'];
+  list.lbldates = ['日期', 'Date', '日付'];
+  list.lbldetails = ['详细情况 ', 'Detail', '詳細情報'];
+  list.lblexplains = ['感冒发烧，住院2周', '2 week stay in hospital', '風邪で２週間入院した'];
+  list.lblheaders = ['履历一览', 'List', '履歴一覧'];
+  list.lblsaves = ['保存', 'Save', '保存'];
+  
+  list.setlabel = function() {
+	  var laninx = this.langinx;
+	  list.lblvisit =list.lblvisits[laninx];
+	  list.lbldate =list.lbldates[laninx];
+	  list.lbldetail =list.lbldetails[laninx];
+	  list.lblexplain =list.lblexplains[laninx];
+	  list.lblheader =list.lblheaders[laninx];
+	  list.lblsave =list.lblsaves[laninx];
+	}
+  
+  list.setlabel();
   
   list.onItemClick = function() {
   	$scope.url =  "vistis.do";
@@ -101,22 +122,22 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="column">
 			<div style="margin-top:10px"></div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">通院履歴</a>
+				<a class="ui large top attached label center aligned">{{list.lblvisit}}</a>
 				<div class="ui large form">
 				   <input type="text" ng-show=false ng-model="list.id">
-					<label style="width: 60px">日付</label>
+					<label style="width: 60px">{{list.lbldate}}</label>
 					<input type="date" min="1900-01-01" ng-model="list.vdate">
 					<div style="height:10px"></div>
-					<label style="width: 60px">详细情况</label> <textarea type="text"
-							placeholder="感冒发烧，住院2周。" ng-model="list.detail"></textarea>
+					<label style="width: 60px">{{list.lbldetail}}</label> <textarea type="text"
+							placeholder={{list.lblexplain}} ng-model="list.detail"></textarea>
 					<div style="height:5px"></div>
-					<button class="fluid ui large button" ng-click="list.onItemClick()">保存</button>
+					<button class="fluid ui large button" ng-click="list.onItemClick()">{{list.lblsave}}</button>
 				</div>
 
 			</div>
 			
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">履歴一覧</a>
+				<a class="ui large top attached label center aligned">{{list.lblheader}}</a>
 				<div class="ui large middle aligned divided list">
 					<div class="item" ng-repeat="eachitem in list.historyList">
 						<div class="right floated content">

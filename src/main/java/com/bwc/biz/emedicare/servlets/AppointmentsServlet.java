@@ -5,6 +5,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.bwc.biz.emedicare.form.User;
 
 /**
  * Servlet implementation class AppointmentsServlet
@@ -23,6 +26,10 @@ public class AppointmentsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		User userinfo = (User)session.getAttribute("userinfo");
+		
+		request.setAttribute("langinx", userinfo.getLanginx());
 		request.getRequestDispatcher("appointments.jsp").forward(request, response);
 	}
 
