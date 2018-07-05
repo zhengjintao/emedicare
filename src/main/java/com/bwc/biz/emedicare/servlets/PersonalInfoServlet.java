@@ -8,9 +8,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bwc.biz.emedicare.common.HashEncoder;
 import com.bwc.biz.emedicare.common.JdbcUtil;
+import com.bwc.biz.emedicare.form.User;
 
 /**
  * Servlet implementation class PersonalInfoServlet
@@ -30,10 +32,15 @@ public class PersonalInfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mode = request.getParameter("mode");
+		
+		HttpSession session = request.getSession();
+		User userinfo = (User)session.getAttribute("userinfo");
+		
 		if("submit".equals(mode)){
-			String userid="U0000002";
+			String userid=userinfo.getUserId();
 			String username=request.getParameter("username");
 			String langinx=request.getParameter("langinx");
+			langinx= langinx == null ? "0" : langinx;
 			String sex=request.getParameter("sex");
 			String telnum=request.getParameter("telnum");
 			String address=request.getParameter("address");
@@ -48,14 +55,22 @@ public class PersonalInfoServlet extends HttpServlet {
      		params[5] = birthday;
      		params[6] = userid;
      		JdbcUtil.getInstance().executeUpdate(sql, params);
+     		
+     		userinfo.setUserName(username);
+     		userinfo.setLanginx(new Integer(langinx));
+     		userinfo.setSex(sex);
+     		userinfo.setTelnum(telnum);
+     		userinfo.setAddress(address);
+			session.setAttribute("userinfo", userinfo);
+			
 			request.getRequestDispatcher("home.do").forward(request, response);
 		}else{
-			String userid="U0000002";
+			String userid=userinfo.getUserId();
 			String sql = "select * from mstr_user where userid=? and delflg='0'";
      		Object[] params = new Object[1];
      		params[0] = userid;
-     		List<Object> userinfo = JdbcUtil.getInstance().excuteQuery(sql, params);
-     		Map<String, Object> info = (Map<String, Object>)userinfo.get(0);
+     		List<Object> userinfolist = JdbcUtil.getInstance().excuteQuery(sql, params);
+     		Map<String, Object> info = (Map<String, Object>)userinfolist.get(0);
      		String enpwd = HashEncoder.getResult((String)info.get("password"));
      		
      		request.setAttribute("userid", userid);

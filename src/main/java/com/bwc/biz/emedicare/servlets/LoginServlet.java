@@ -93,7 +93,7 @@ public class LoginServlet extends HttpServlet {
      		}
      		
      		User userdata = new User();
-     		userdata.setUserId((String)info.get("uuserid"));
+     		userdata.setUserId((String)info.get("userid"));
      		userdata.setUserName((String)info.get("username"));
      		userdata.setDelflg((String)info.get("delflg"));
      		userdata.setBeginTime((Time)info.get("begintime"));
@@ -105,7 +105,9 @@ public class LoginServlet extends HttpServlet {
      		userdata.setMaincompanyname((String)info.get("companynm"));
      		userdata.setRest((String)info.get("rest"));
      		userdata.setMail((String)info.get("mail"));
-     		userdata.setLanginx(new Integer((String)info.get("lang")));
+     		String lang = (String)info.get("lang");
+     		lang = lang==null ? "0" : lang;
+     		userdata.setLanginx(new Integer(lang));
      		userdata.setAddress((String)info.get("address"));
      		userdata.setTelnum((String)info.get("telnum"));
      	    

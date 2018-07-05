@@ -43,14 +43,14 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.userid=initdata.userid;
   list.username =initdata.username;
   list.langinx = initdata.langinx;
-  list.lbluserinfos = ['个人信息', 'Language', '個人情報'];;
-  list.lblservices = ['服务', 'Language', 'サービス'];
-  list.lblhistorys = ['诊查履历', 'Language', '診査履歴'];
-  list.lblvisits = ['就医记录', 'Language', '通院履歴'];
-  list.lblappoints = ['预约诊查', 'Language', '次回検査'];
-  list.lblsettings = ['系统设置', 'Language', 'システム設定'];
+  list.lbluserinfos = ['个人信息', 'Info', '個人情報'];;
+  list.lblservices = ['服务', 'Services', 'サービス'];
+  list.lblhistorys = ['诊查履历', 'Hisotories', '診査履歴'];
+  list.lblvisits = ['就医记录', 'Visits', '通院履歴'];
+  list.lblappoints = ['预约诊查', 'Appointment', '次回検査'];
+  list.lblsettings = ['系统设置', 'Settings', 'システム設定'];
   list.lbllangsettings = ['语言设置', 'Language', '言語設定'];
-  list.lblwebsites = ['官网', 'Language', '公式サイト'];
+  list.lblwebsites = ['官网', 'Site', '公式サイト'];
   
   list.setlabel = function() {
 	  var laninx = this.langinx;

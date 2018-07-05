@@ -45,6 +45,20 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
   list.langinx = initdata.langinx;
+  list.lblhearders = ['语言设置', 'Language', '言語設定'];
+  list.lblheader="";
+  
+  list.setlabel = function() {
+	  var laninx = this.langinx;
+	  list.lblheader =list.lblhearders[laninx];
+	}
+  
+  list.setlabel();
+  
+  list.onRadioChange = function() {
+	  list.setlabel();
+  }
+  
   list.onItemClick = function() {
 	  window.location.href = 'langsetting.do?mode=submit&langinx=' + list.langinx;
   }
@@ -63,22 +77,22 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="column">
 			<div style="margin-top: 10px"></div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">言語設定</a>
+				<a class="ui large top attached label center aligned">{{list.lblheader}}</a>
 				<div class="ui large form">
 					<div class="grouped fields">
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" value="0" ng-model="list.langinx"> <label>中文</label>
+								<input type="radio" value="0" ng-model="list.langinx" ng-click="list.onRadioChange()"> <label>中文</label>
 							</div>
 						</div>
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" value="1" ng-model="list.langinx"> <label>English</label>
+								<input type="radio" value="1" ng-model="list.langinx" ng-click="list.onRadioChange()"> <label>English</label>
 							</div>
 						</div>
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" value="2" ng-model="list.langinx"> <label>日本語</label>
+								<input type="radio" value="2" ng-model="list.langinx" ng-click="list.onRadioChange()"> <label>日本語</label>
 							</div>
 						</div>
 						<button class="fluid ui large button" ng-click="list.onItemClick()">OK</button>

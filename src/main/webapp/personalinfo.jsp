@@ -59,7 +59,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.langinx=initdata.langinx;
   list.address=initdata.address;
   
-  list.lbluserinfos = ['个人信息', 'Personal Info', '個人情報'];;
+  list.lbluserinfos = ['个人信息', 'Personal Info', '個人情報'];
   list.lblnames = ['姓名', 'Name', '名前'];
   list.lblsexs = ['性别', 'Sex', '性別'];
   list.lblmans = ['男', 'Male', '男'];
