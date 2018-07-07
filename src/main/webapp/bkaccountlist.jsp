@@ -4,9 +4,6 @@
 
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
-<script>
-initdata=[];
-</script>
 
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="dist/components/form.min.js"></script>
@@ -39,6 +36,25 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  {'userid' : 'U0000002', 'username': '本田慶応', 'expcount' : '2', 'visitcount' : '3'},
 	  {'userid' : 'U0000003', 'username': '坂本龍馬', 'expcount' : '2', 'visitcount' : '3'}
 	  ];
+  
+  (function(){
+	  	$scope.url =  "bkaccountlist.do";
+	  	var postdata = {'mode':'list'};
+	      $http(
+	  		{
+	  			method:"POST",
+	  			url:$scope.url,
+	  			data:postdata,
+	  			transformRequest:transFormFactory.transForm,
+	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+	  		}).then(function (result) {
+	  			list.userinfolist = result.data.userinfolist;
+	          }).catch(function (result) {
+	          	list.message = "SORRY!エラーが発生しました。";
+	          	$('#cmodal') .modal('show');
+	          });
+	      
+	  })();
 });
 </script>
 <body ng-controller="ListController as list">

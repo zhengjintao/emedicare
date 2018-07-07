@@ -7,6 +7,11 @@
 
 <script>
 initdata=[];
+initdata.vdate = '<%=request.getAttribute("vdate")%>';
+initdata.detail = '<%=request.getAttribute("detail")%>';
+initdata.userid = '<%=request.getAttribute("userid")%>';
+initdata.username = '<%=request.getAttribute("username")%>';
+initdata.name = '<%=request.getAttribute("name")%>';
 </script>
 
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -36,11 +41,11 @@ initdata=[];
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
-  list.userid = "U0000002";
-  list.username = "本田慶応";
-  list.title = "通院記録1";
-  list.vdate =new Date();
-  list.detail="テスト";
+  list.userid = initdata.userid;
+  list.username = initdata.username;
+  list.title = initdata.name;
+  list.vdate =new Date(initdata.vdate);
+  list.detail=initdata.detail;
 });
 </script>
 
@@ -67,12 +72,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				<div class="eight wide column">
 				<div class="ui large form">
 				  <label style="width: 60px">日付</label>
-					<input type="date" min="1900-01-01" ng-model="list.vdate">
+					<input type="date" min="1900-01-01" readonly=readonly ng-model="list.vdate">
 					<div style="height:10px"></div>
-					<label style="width: 60px">詳細情報</label> <textarea type="text" ng-model="list.detail"></textarea>
+					<label style="width: 60px">詳細情報</label> <textarea readonly=readonly ng-model="list.detail"></textarea>
 				</div>
-				
-					
 				</div>
 			</div>
 		</div>

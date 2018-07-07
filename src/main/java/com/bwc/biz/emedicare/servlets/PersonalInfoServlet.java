@@ -71,7 +71,6 @@ public class PersonalInfoServlet extends HttpServlet {
      		params[0] = userid;
      		List<Object> userinfolist = JdbcUtil.getInstance().excuteQuery(sql, params);
      		Map<String, Object> info = (Map<String, Object>)userinfolist.get(0);
-     		String enpwd = HashEncoder.getResult((String)info.get("password"));
      		
      		request.setAttribute("userid", userid);
      		request.setAttribute("username", (String)info.get("username"));

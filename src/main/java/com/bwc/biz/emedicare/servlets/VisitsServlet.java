@@ -62,12 +62,12 @@ public class VisitsServlet extends HttpServlet {
 		     		params[3] = id;
 		     		JdbcUtil.getInstance().executeUpdate(sql, params);
 				}else{
-					String sql = "select max(no) id from cdata_visithistory";
+					String sql = "select no from cdata_visithistory order by no desc";
 					List<Object> idinfo = JdbcUtil.getInstance().excuteQuery(sql, null);
 		     		String maxidstr="0";
 		     		if(idinfo.size() >0){
 		     			Map<String, Object> info = (Map<String, Object>)idinfo.get(0);
-		     			maxidstr = String.valueOf(info.get("id"));
+		     			maxidstr = String.valueOf(info.get("no"));
 		     		}
 		     		
 		     		int maxid= new Integer(maxidstr);

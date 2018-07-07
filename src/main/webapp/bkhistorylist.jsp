@@ -7,6 +7,11 @@
 
 <script>
 initdata=[];
+initdata.userid = '<%=request.getAttribute("userid")%>';
+initdata.username = '<%=request.getAttribute("username")%>';
+initdata.birthday = '<%=request.getAttribute("birthday")%>';
+initdata.sex = '<%=request.getAttribute("sex")%>';
+initdata.telnum = '<%=request.getAttribute("telnum")%>';
 </script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="dist/components/form.min.js"></script>
@@ -35,20 +40,36 @@ initdata=[];
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
-  list.username="本田慶応";
-  list.age="26";
-  list.sex="男"
-  list.telnum ="18221412663";
+  list.userid = initdata.userid;
+  list.username= initdata.username;
+  list.birthday= initdata.birthday;
+  list.sex= initdata.sex;
+  list.telnum = initdata.telnum;
   list.explist = [
-	  {'id' : '0000001', 'name': '診断結果1', 'date' : '2018-09-01'},
-	  {'id' : '0000002', 'name': '診断結果2', 'date' : '2018-08-03'},
-	  {'id' : '0000003', 'name': '診断結果3', 'date' : '2017-09-11'}
+	  {'id' : '0000001', 'name': '1', 'date' : '2018-09-01'},
+	  {'id' : '0000002', 'name': '2', 'date' : '2018-08-03'},
+	  {'id' : '0000003', 'name': '3', 'date' : '2017-09-11'}
 	  ];
-  list.visitlist = [
-	  {'id' : '0000001', 'name': '通院記録1', 'date' : '2018-07-21'},
-	  {'id' : '0000002', 'name': '通院記録2', 'date' : '2018-06-23'},
-	  {'id' : '0000003', 'name': '診断結果3', 'date' : '2017-05-11'}
-	  ];
+  list.visitlist = [];
+  (function(){
+	  	$scope.url =  "bkhistorylist.do";
+	  	var postdata = {'mode':'list', 'userid' : list.userid};
+	      $http(
+	  		{
+	  			method:"POST",
+	  			url:$scope.url,
+	  			data:postdata,
+	  			transformRequest:transFormFactory.transForm,
+	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+	  		}).then(function (result) {
+	  			list.visitlist = result.data.visitlist;
+	          }).catch(function (result) {
+	          	list.message = "SORRY!エラーが発生しました。";
+	          	$('#cmodal') .modal('show');
+	          });
+	      
+	  })();
+  
 });
 </script>
 <body ng-controller="ListController as list">
@@ -72,33 +93,25 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				<div class="eight wide column">
 					<div class="ui labeled input">
 								<div class="ui label">名前</div>
-								<input id="eusername" name="eusername" type="text"
-									readonly="readonly"
-									value="本田慶応">
+								<input type="text" readonly="readonly" ng-model="list.username">
 							</div>
 				</div>
 				<div class="eight wide column">
 					<div class="ui labeled input">
-								<div class="ui label">年齢</div>
-								<input id="eusername" name="eusername" type="text"
-									readonly="readonly"
-									value="26">
+								<div class="ui label">生年月日</div>
+								<input  readonly="readonly" ng-model="list.birthday">
 							</div>
 				</div>
 				<div class="eight wide column">
 					<div class="ui labeled input">
 								<div class="ui label">性別</div>
-								<input id="eusername" name="eusername" type="text"
-									readonly="readonly"
-									value="男">
+								<input  readonly="readonly" ng-model="list.sex">
 							</div>
 				</div>
 				<div class="eight wide column">
 					<div class="ui labeled input">
 								<div class="ui label">電話番号</div>
-								<input id="eusername" name="eusername" type="text"
-									readonly="readonly"
-									value="18221412663">
+								<input  readonly="readonly" ng-model="list.telnum">
 							</div>
 				</div>
 			</div>
@@ -109,9 +122,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="ui attached segment">
 			<table class="ui celled table" style="margin-top: auto">
 				<tbody>
-
+				    <tr ng-show="list.explist.length==0">
+				     <td>診査履歴なし</a></td>
+				    </tr>
 					<tr ng-repeat="eachitem in list.explist">
-						<td><a href="bkdetailinfo.do">{{eachitem.name}}</a></td>
+						<td><a href="bkdetailinfo.do?userid={{list.userid}}">診断結果{{eachitem.name}}</a></td>
 						<td>{{eachitem.date}}</td>
 					</tr>
 				</tbody>
@@ -121,9 +136,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="ui attached segment">
 			<table class="ui celled table" style="margin-top: auto">
 				<tbody>
-
+				    <tr ng-show="list.visitlist.length==0">
+				    <td>通院記録なし</a></td>
+				    </tr>
+				    
 					<tr ng-repeat="eachitem in list.visitlist">
-						<td><a href="bkvistisinfo.do">{{eachitem.name}}</a></td>
+						<td><a href="bkvistisinfo.do?userid={{list.userid}}&id={{eachitem.id}}&username={{list.username}}&name=通院記録{{eachitem.name}}">通院記録{{eachitem.name}}</a></td>
 						<td>{{eachitem.date}}</td>
 					</tr>
 				</tbody>
