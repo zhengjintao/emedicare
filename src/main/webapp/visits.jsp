@@ -43,16 +43,12 @@ initdata.langinx = <%=request.getAttribute("langinx")%>;
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
-  list.errmessage ="";
+  list.message ="";
   list.id="";
   list.langinx = initdata.langinx;
-  list.vdate =new Date("2018-09-12");
+  list.vdate =new Date();
   list.detail="";
-  list.historyList =  [
-      {id:'00001', date:'2018-08-17', text:'肠胃炎'},
-      {id:'00002', date:'2018-07-29', text:'拉肚子'},
-      {id:'00003', date:'2018-06-03', text:'严重流感'}
-      ];
+  list.historyList =  [];
   
   list.lblvisits = ['就医记录', 'Visits', '通院履歴'];
   list.lbldates = ['日期', 'Date', '日付'];
@@ -60,6 +56,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.lblexplains = ['感冒发烧，住院2周', '2 week stay in hospital', '風邪で２週間入院した'];
   list.lblheaders = ['履历一览', 'List', '履歴一覧'];
   list.lblsaves = ['保存', 'Save', '保存'];
+  list.lblmessages = ['请输入日期和详细信息', 'Please input date and detail info.', '日付または詳細情報を入力してくだい。'];
   
   list.setlabel = function() {
 	  var laninx = this.langinx;
@@ -73,9 +70,35 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   
   list.setlabel();
   
+  (function(){
+	  	
+	  	$scope.url =  "visits.do";
+	  	var postdata = {'mode':'list'};
+	      $http(
+	  		{
+	  			method:"POST",
+	  			url:$scope.url,
+	  			data:postdata,
+	  			transformRequest:transFormFactory.transForm,
+	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+	  		}).then(function (result) {
+	  			list.historyList = result.data.historyList;
+	          }).catch(function (result) {
+	          	list.message = "SORRY!エラーが発生しました。";
+	          	$('#cmodal') .modal('show');
+	          });
+	      
+	  })();
+  
   list.onItemClick = function() {
-  	$scope.url =  "vistis.do";
-  	var postdata = {'mode':'submit'};
+	if(list.vdate==null || list.detail== null || list.detail.length==0){
+		list.message = list.lblmessages[list.langinx];
+      	$('#cmodal') .modal('show');
+      	return;
+	}
+	var date = list.getformatbirthday();
+  	$scope.url =  "visits.do";
+  	var postdata = {'mode':'submit', 'id':list.id, 'date':date, 'content':list.detail};
       $http(
   		{
   			method:"POST",
@@ -84,14 +107,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   			transformRequest:transFormFactory.transForm,
   			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
   		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
+  			list.historyList = result.data.historyList;
           }).catch(function (result) {
-          	orderList.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
+        	  list.message = "SORRY!エラーが発生しました。";
+          	$('#cmodal') .modal('show');
           });
-      
-      
   }
   
   list.onitemedit = function(id) {
@@ -105,8 +125,31 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   }
   
   list.onitemdelete = function(id) {
-	  alert(id);
+	  $scope.url =  "visits.do";
+	  	var postdata = {'mode':'submit', 'modkbn':'D', 'id':id};
+	      $http(
+	  		{
+	  			method:"POST",
+	  			url:$scope.url,
+	  			data:postdata,
+	  			transformRequest:transFormFactory.transForm,
+	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+	  		}).then(function (result) {
+	  			list.historyList = result.data.historyList;
+	          }).catch(function (result) {
+	        	  list.message = "SORRY!エラーが発生しました。";
+	          	$('#cmodal') .modal('show');
+	          });
   }
+  
+  list.getformatbirthday = function(){
+	  var dt = list.vdate;
+	  var y = dt.getFullYear();
+	  var m = ("00" + (dt.getMonth()+1)).slice(-2);
+	  var d = ("00" + dt.getDate()).slice(-2);
+	  var result = y + "-" + m + "-" + d;
+	  return result;
+	}
 });
 </script>
 
@@ -115,7 +158,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	<div id="cmodal" class="ui small test modal transition hidden">
 		<i class="close icon"></i>
 		<div class="content">
-			<p id="errmsg">{{list.errmessage}}</p>
+			<p id="errmsg">{{list.message}}</p>
 		</div>
 	</div>
 	<div class="ui one column grid container">
