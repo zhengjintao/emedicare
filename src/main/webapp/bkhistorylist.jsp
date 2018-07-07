@@ -1,16 +1,57 @@
-﻿<html>
+﻿<html ng-app="listApp">
 <!-- Standard Meta -->
 <meta http-equiv="content-type" charset="utf-8">
 
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
 
+<script>
+initdata=[];
+</script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="dist/components/form.min.js"></script>
 <script src="dist/components/transition.min.js"></script>
 <script src="dist/semantic.min.js"></script>
+<script src="angularjs/angular.min.js"></script>
 
-<body>
+<script type="text/javascript">
+  var app = angular.module('listApp',[]);
+  
+  app.config(function($provide){
+          
+      $provide.factory("transFormFactory",function(){
+          return {
+              transForm : function(obj){
+                  var str = [];  
+                  for(var p in obj){  
+                    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));  
+                  } 
+                  return str.join("&");  
+              }
+          };
+      });
+  });
+  
+app.controller('ListController', function($scope,$http,transFormFactory) {
+  var list = this;
+  list.errmessage ="";
+  list.username="本田慶応";
+  list.age="26";
+  list.sex="男"
+  list.telnum ="18221412663";
+  list.explist = [
+	  {'id' : '0000001', 'name': '診断結果1', 'date' : '2018-09-01'},
+	  {'id' : '0000002', 'name': '診断結果2', 'date' : '2018-08-03'},
+	  {'id' : '0000003', 'name': '診断結果3', 'date' : '2017-09-11'}
+	  ];
+  list.visitlist = [
+	  {'id' : '0000001', 'name': '通院記録1', 'date' : '2018-07-21'},
+	  {'id' : '0000002', 'name': '通院記録2', 'date' : '2018-06-23'},
+	  {'id' : '0000003', 'name': '診断結果3', 'date' : '2017-05-11'}
+	  ];
+});
+</script>
+<body ng-controller="ListController as list">
 	<div style="width: 80%; margin-left: auto; margin-right: auto;">
 		<jsp:include page="bkheader.jsp" />
 		<div class="ui grid">
@@ -19,7 +60,7 @@
 					<a class="section" href="bkaccountlist.do"><h4>顧客一覧</h4></a> <i
 						class="right angle icon divider"></i>
 					<div class="active section">
-						<h4>本田慶応</h4>
+						<h4>{{list.username}}</h4>
 					</div>
 				</div>
 			</div>
@@ -69,17 +110,9 @@
 			<table class="ui celled table" style="margin-top: auto">
 				<tbody>
 
-					<tr>
-						<td><a href="bkdetailinfo.do">診断結果1</a></td>
-						<td>2018-09-01</td>
-					</tr>
-					<tr>
-						<td><a>診断結果2</a></td>
-						<td>2018-08-03</td>
-					</tr>
-					<tr>
-						<td><a>診断結果3</a></td>
-						<td>2017-09-01</td>
+					<tr ng-repeat="eachitem in list.explist">
+						<td><a href="bkdetailinfo.do">{{eachitem.name}}</a></td>
+						<td>{{eachitem.date}}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -89,13 +122,9 @@
 			<table class="ui celled table" style="margin-top: auto">
 				<tbody>
 
-					<tr>
-						<td><a href="bkvistisinfo.do">通院記録1</a></td>
-						<td>2018-07-23</td>
-					</tr>
-					<tr>
-						<td><a href="bkvistisinfo.do">通院記録2</a></td>
-						<td>2018-04-30</td>
+					<tr ng-repeat="eachitem in list.visitlist">
+						<td><a href="bkvistisinfo.do">{{eachitem.name}}</a></td>
+						<td>{{eachitem.date}}</td>
 					</tr>
 				</tbody>
 			</table>
