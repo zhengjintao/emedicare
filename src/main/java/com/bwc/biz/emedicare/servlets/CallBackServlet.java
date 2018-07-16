@@ -85,7 +85,7 @@ public class CallBackServlet extends HttpServlet {
 				}
 				
 				String sql2 = "select count(*) as num from mstr_user where userid like 'U0%'";
-				List<Object> usercount = JdbcUtil.getInstance().excuteQuery(sql2, params);
+				List<Object> usercount = JdbcUtil.getInstance().excuteQuery(sql2, null);
 				Map<String, Object> row = (Map<String, Object>) usercount.get(0);
 				int uid = new Integer(row.get("num").toString());
 				
