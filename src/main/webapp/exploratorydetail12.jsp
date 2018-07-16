@@ -102,7 +102,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.sheetname = item.shortname;
 });
 </script>
-
+<style>
+.cellheader{
+    background-color:#c4e8fc
+}
+</style>
 </head>
 <body ng-controller="ListController as list">
 <div class="ui top attached  menu">
@@ -120,9 +124,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <div class="right menu">
       
       <div class="vertically fitted borderless item">
-        <a href="exploratory.do"><button class="mini ui button">
-  返回一览
-</button></a>
+        <a href="exploratory.do"><button class="mini ui button">返回一览</button></a>
       </div>
     </div>
 </div>
@@ -135,159 +137,170 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   </div>
   <div class="pusher">
   <div class="ui segment">
-  <div id="accordion1" class="ui styled fluid accordion">
-  <div class="title">
-    <i class="dropdown icon"></i>
-    现在的生活习惯
-  </div>
-  <div class="content">
-   
-	<table class="ui unstackable celled structured table">
-	<!-- 
-  <thead>
-    <tr>
-      <th colspan="3"><div class="ui ribbon large label"><h4>现在的生活习惯</h4></div></th>
-    </tr>
-  </thead> -->
+  <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td rowspan="4">饮食</td>
-      <td>饮食速度</td>
-      <td class="right aligned">很快</td>
+      <td class="cellheader" style="width:100px" rowspan="3">诊察所见</td>
+      <td class="cellheader">判定</td>
+      <td class="cellheader">本次</td>
+      <td class="cellheader">上次</td>
+      <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td>不吃早饭（3次以上）</td>
-      <td class="right aligned">有</td>
+      <td rowspan="2"></td>
+      <td>上上次上上次上上次</td>
+      <td>上上次上上次</td>
+      <td>上上次上上次上上次</td>
     </tr>
     <tr>
-      <td>晚餐就餐晚</td>
-      <td class="right aligned">否</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<table class="ui unstackable celled structured table">
+  <tbody>
+    <tr>
+      <td class="cellheader" style="width:100px" rowspan="8">身体测量</td>
+      <td class="cellheader">判定</td>
+      <td class="cellheader">检查项目</td>
+      <td class="cellheader">标准值/单位</td>
+      <td class="cellheader">本次</td>
     </tr>
     <tr>
-      <td>吃夜宵</td>
-      <td class="right aligned">否</td>
+      <td rowspan="7"></td>
+      <td>身高</td>
+      <td></td>
+      <td></td>
     </tr>
-    
+     <tr>
+      <td>体重</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>标准体重</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>肥胖度</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>BMI指数</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>腹围(cm)</td>
+      <td></td>
+      <td></td>
+    </tr>
     <tr>
-      <td rowspan="3">运动</td>
-      <td>经常运动</td>
-      <td class="right aligned">52</td>
-    </tr>
-    <tr>
-      <td>在实行身体活动计划</td>
-      <td class="right aligned">12</td>
-    </tr>
-    <tr>
-      <td>步行速度快</td>
-      <td class="right aligned">21</td>
-    </tr>
-    
-        <tr>
-      <td rowspan="2">饮酒</td>
-      <td>频度</td>
-      <td class="right aligned">52</td>
-    </tr>
-    <tr>
-      <td>饮酒量</td>
-      <td class="right aligned">12</td>
-    </tr>
-    
-    <tr>
-      <td>吸烟</td>
-      <td>烟龄</td>
-      <td class="right aligned">12</td>
-    </tr>
-    
-    <tr>
-      <td>睡眠</td>
-      <td>睡眠是否充足</td>
-      <td class="right aligned">12</td>
-    </tr>
-    
-    <tr>
-      <td>精神压力<br>焦虑感</td>
-      <td>常有压力感</td>
-      <td class="right aligned">12</td>
+      <td>体脂肪率</td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>
 
-  </div>
-  <div class="title">
-    <i class="dropdown icon"></i>
-    对于改善生活习惯的建议
-  </div>
-  <div class="content">
-    <p>There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
-  </div>
+<table class="ui unstackable celled structured table">
+  <tbody>
+    <tr>
+      <td class="cellheader" style="width:100px" rowspan="4">血压</td>
+      <td class="cellheader">判定</td>
+      <td class="cellheader">检查项目</td>
+      <td class="cellheader">标准值/单位</td>
+      <td class="cellheader">本次</td>
+    </tr>
+    <tr>
+      <td rowspan="3"></td>
+      <td>高压</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>低压</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+     <tr>
+      <td></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
-  </div>
+<table class="ui unstackable celled structured table">
+  <tbody>
+    <tr>
+      <td class="cellheader" style="width:100px" rowspan="4">视力</td>
+      <td class="cellheader">判定</td>
+      <td class="cellheader">检查项目</td>
+      <td class="cellheader">标准值/单位</td>
+      <td class="cellheader">本次</td>
+    </tr>
+    <tr>
+      <td rowspan="3"></td>
+      <td>矫正视力（右）</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>矫正视力（左）</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+     <tr>
+      <td></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
+<table class="ui unstackable celled structured table">
+  <tbody>
+    <tr>
+      <td class="cellheader" style="width:100px" rowspan="6">听力</td>
+      <td class="cellheader">判定</td>
+      <td class="cellheader">检查项目</td>
+      <td class="cellheader">标准值/单位</td>
+      <td class="cellheader">本次</td>
+    </tr>
+    <tr>
+      <td rowspan="5"></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+     <tr>
+      <td></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 </div>
-
-<div class="ui segment">
-<div id="accordion2" class="ui styled fluid accordion">
-  <div class="title">
-    <i class="dropdown icon"></i>
-    自觉症状
-  </div>
-  <div class="content">
-    <p class="transition visible" style="display: block !important;">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
-  </div>
-  <div class="title">
-    <i class="dropdown icon"></i>
-    既往史•现病史
-  </div>
-  <div class="content">
-    <p>There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
-  </div>
-  <div class="title">
-    <i class="dropdown icon"></i>
-    检查状态
-  </div>
-  <div class="content">
-    <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
-    <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
-  </div>
-</div>
-</div>
-
-
-<div class="ui segment">
-<div id="accordion3" class="ui styled fluid accordion">
-  <div class="title">
-    <i class="dropdown icon"></i>
-    服用高血压药历
-  </div>
-  <div class="content">
-    <p class="transition visible" style="display: block !important;">A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.</p>
-  </div>
-  <div class="title">
-    <i class="dropdown icon"></i>
-    服用脂质代谢异常症药历
-  </div>
-  <div class="content">
-    <p>There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.</p>
-  </div>
-  <div class="title">
-    <i class="dropdown icon"></i>
-    服用糖尿病药历
-  </div>
-  <div class="content">
-    <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
-    <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
-  </div>
-  <div class="title">
-    <i class="dropdown icon"></i>
-    吸烟经历
-  </div>
-  <div class="content">
-    <p>Three common ways for a prospective owner to acquire a dog is from pet shops, private owners, or shelters.</p>
-    <p>A pet shop may be the most convenient way to buy a dog. Buying a dog from a private owner allows you to assess the pedigree and upbringing of your dog before choosing to take it home. Lastly, finding your dog from a shelter, helps give a good home to a dog who may not find one so readily.</p>
-  </div>
-</div>
-</div>
-
   </div>
 </div>
 </body>

@@ -82,17 +82,17 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					<div class="grouped fields">
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" value="0" ng-model="list.langinx" ng-click="list.onRadioChange()"> <label>中文</label>
+								<input type="radio" value="0" ng-model="list.langinx" ng-click="list.onRadioChange()"> <label> <i class="cn flag"></i>中文</label>
 							</div>
 						</div>
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" value="1" ng-model="list.langinx" ng-click="list.onRadioChange()"> <label>English</label>
+								<input type="radio" value="1" ng-model="list.langinx" ng-click="list.onRadioChange()"> <label> <i class="gb flag"></i>English</label>
 							</div>
 						</div>
 						<div class="field">
 							<div class="ui radio checkbox">
-								<input type="radio" value="2" ng-model="list.langinx" ng-click="list.onRadioChange()"> <label>日本語</label>
+								<input type="radio" value="2" ng-model="list.langinx" ng-click="list.onRadioChange()"> <label> <i class="jp flag"></i>日本語</label>
 							</div>
 						</div>
 						<button class="fluid ui large button" ng-click="list.onItemClick()">OK</button>
