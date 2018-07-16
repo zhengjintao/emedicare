@@ -61,8 +61,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  {'name' : '甲状腺功能检查报告书', 'shortname' : '甲状腺功能检查', 'href': 'exploratorydetail15.do'},
 	  {'name' : '肿瘤标志物检查报告书', 'shortname' : '肿瘤标志物检查', 'href': 'exploratorydetail16.do'},
 	  {'name' : '胃癌风险分级检查', 'shortname' : '胃癌风险分级检查', 'href': 'exploratorydetail17.do'},
-	  {'name' : '骨密度测定结果', 'shortname' : '骨密度测定结果', 'href': 'exploratorydetail18.do'},
-	  {'name' : '血压脉搏检查解析结果', 'shortname' : '血压脉搏检查解析结果', 'href': 'exploratorydetail19.do'},
+	  {'name' : '血压脉搏检查解析结果', 'shortname' : '血压脉搏检查解析结果', 'href': 'exploratorydetail18.do'},
+	  {'name' : '骨密度测定结果', 'shortname' : '骨密度测定结果', 'href': 'exploratorydetail19.do'},
 	  {'name' : '检查报告(脳ドック)', 'shortname' : '脳ドック', 'href': 'exploratorydetail20.do'},
 	  {'name' : '检查报告(颈动脉超声波)', 'shortname' : '颈动脉超声波', 'href': 'exploratorydetail21.do'},
 	  {'name' : '检查报告(骨盆MRI)', 'shortname' : '骨盆MRI', 'href': 'exploratorydetail22.do'},
@@ -98,7 +98,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   $('#accordion2') .accordion({exclusive :false});
   $('#accordion3') .accordion({exclusive :false});
   
-  var item = list.sheets[0];
+  var item = list.sheets[22];
   list.sheetname = item.shortname;
 });
 </script>
@@ -140,163 +140,61 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" style="width:100px" rowspan="3">诊察所见</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
-    </tr>
-    <tr>
-      <td rowspan="2"></td>
-      <td>上上次上上次上上次</td>
-      <td>上上次上上次</td>
-      <td>上上次上上次上上次</td>
-    </tr>
-    <tr>
+      <td class="cellheader" style="width:20%">ID</td>
       <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="8">身体测量</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="7"></td>
-      <td>身高</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>体重</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>标准体重</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>肥胖度</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>BMI指数</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>腹围(cm)</td>
-      <td></td>
+      <td class="cellheader" style="width:20%">检查日期</td>
       <td></td>
     </tr>
     <tr>
-      <td>体脂肪率</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="4">血压</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
+      <td class="cellheader">姓名</td>
+      <td></td>
+      <td class="cellheader">年龄/性别</td>
+      <td></td>
     </tr>
     <tr>
-      <td rowspan="3"></td>
-      <td>高压</td>
+      <td class="cellheader">第一次担任医生</td>
       <td></td>
+      <td class="cellheader">第一次诊断时间</td>
       <td></td>
-    </tr>
-     <tr>
-      <td>低压</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="4">视力</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
     </tr>
     <tr>
-      <td rowspan="3"></td>
-      <td>矫正视力（右）</td>
+      <td class="cellheader">第二次担任医生</td>
       <td></td>
+      <td class="cellheader">第二次诊断时间</td>
       <td></td>
-    </tr>
-     <tr>
-      <td>矫正视力（左）</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="6">听力</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
     </tr>
     <tr>
-      <td rowspan="5"></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
+      <td colspan="4"></td>
     </tr>
     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
+      <td class="cellheader" colspan="4">检查评语</td>
     </tr>
     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
+      <td colspan="4">检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语
+      检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语</td>
+    </tr>
+    <tr>
+      <td class="cellheader" colspan="4">所见</td>
+    </tr>
+    <tr>
+      <td colspan="4">所见所见所见所见所见所见所见所见所见所见所见所见所见所见
+      所见所见所见所见所见所见所见所见所见所见所见所见所见所见
+      所见所见所见所见所见所见所见所见所见所见所见所见所见所见
+      所见所见所见所见所见所见所见所见所见所见所见所见所见所见
+      所见所见所见所见所见所见所见所见所见所见所见所见所见所见
+      所见所见所见所见所见所见所见所见所见所见所见所见所见所见</td>
+    </tr>
+    <tr>
+      <td class="cellheader" colspan="4">诊断</td>
+    </tr>
+    <tr>
+      <td colspan="4">诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断
+      诊断诊断诊断诊断诊断诊断
+      诊断诊断诊断诊断诊断诊断
+      诊断诊断诊断诊断诊断诊断
+      诊断诊断诊断诊断诊断诊断
+      诊断诊断诊断诊断诊断诊断
+      诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断</td>
     </tr>
   </tbody>
 </table>

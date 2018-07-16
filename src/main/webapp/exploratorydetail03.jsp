@@ -61,8 +61,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  {'name' : '甲状腺功能检查报告书', 'shortname' : '甲状腺功能检查', 'href': 'exploratorydetail15.do'},
 	  {'name' : '肿瘤标志物检查报告书', 'shortname' : '肿瘤标志物检查', 'href': 'exploratorydetail16.do'},
 	  {'name' : '胃癌风险分级检查', 'shortname' : '胃癌风险分级检查', 'href': 'exploratorydetail17.do'},
-	  {'name' : '骨密度测定结果', 'shortname' : '骨密度测定结果', 'href': 'exploratorydetail18.do'},
-	  {'name' : '血压脉搏检查解析结果', 'shortname' : '血压脉搏检查解析结果', 'href': 'exploratorydetail19.do'},
+	  {'name' : '血压脉搏检查解析结果', 'shortname' : '血压脉搏检查解析结果', 'href': 'exploratorydetail18.do'},
+	  {'name' : '骨密度测定结果', 'shortname' : '骨密度测定结果', 'href': 'exploratorydetail19.do'},
 	  {'name' : '检查报告(脳ドック)', 'shortname' : '脳ドック', 'href': 'exploratorydetail20.do'},
 	  {'name' : '检查报告(颈动脉超声波)', 'shortname' : '颈动脉超声波', 'href': 'exploratorydetail21.do'},
 	  {'name' : '检查报告(骨盆MRI)', 'shortname' : '骨盆MRI', 'href': 'exploratorydetail22.do'},
@@ -98,7 +98,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   $('#accordion2') .accordion({exclusive :false});
   $('#accordion3') .accordion({exclusive :false});
   
-  var item = list.sheets[0];
+  var item = list.sheets[2];
   list.sheetname = item.shortname;
 });
 </script>
@@ -137,72 +137,144 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   </div>
   <div class="pusher">
   <div class="ui segment">
-  <table class="ui unstackable celled structured table">
+<table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" style="width:100px" rowspan="3">尿常规检查</td>
+      <td class="cellheader" style="width:100px" rowspan="7">尿沉渣检查</td>
       <td class="cellheader">判定</td>
+      <td class="cellheader">检查项目</td>
+      <td class="cellheader">标准值/单位</td>
       <td class="cellheader">本次</td>
       <td class="cellheader">上次</td>
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="2"></td>
-      <td>上上次上上次上上次</td>
-      <td>上上次上上次</td>
-      <td>上上次上上次上上次</td>
-    </tr>
-    <tr>
+     <td rowspan="6"></td>
+      <td>尿糖（定性）</td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
-  </tbody>
-</table>
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="8">尿沉渣检查</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
+     <tr>
+      <td>尿蛋白（定性）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>尿胆原</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>尿PH</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>尿潜血</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>尿比重</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
+      <td class="cellheader" rowspan="4">尿沉渣检查</td>
+      <td rowspan="4"></td>
+      <td>尿沉渣白细胞</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>尿沉渣红细胞</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>尿沉渣（鳞状上皮）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>尿沉渣（肾小管上皮）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
+    <tr>
+      <td class="cellheader" rowspan="7">肾</td>
       <td rowspan="7"></td>
-      <td>身高</td>
+      <td>肌酐</td>
       <td></td>
       <td></td>
-    </tr>
-     <tr>
-      <td>体重</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>标准体重</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>肥胖度</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>BMI指数</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>腹围(cm)</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>体脂肪率</td>
-      <td> </td>
-      <td> </td>
+      <td>尿素氮</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>eGFR</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>钠（Na）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>钾（K）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>氯（Cl）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>钙（Ca）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="9"></td>
     </tr>
   </tbody>
 </table>
@@ -210,91 +282,68 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" style="width:100px" rowspan="4">肾</td>
+      <td class="cellheader" style="width:100px" rowspan="9">血常规</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">检查项目</td>
       <td class="cellheader">标准值/单位</td>
       <td class="cellheader">本次</td>
+      <td class="cellheader">上次</td>
+      <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="3"></td>
-      <td>高压</td>
+      <td rowspan="8"></td>
+      <td>白细胞计数</td>
       <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>低压</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="4">视力</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="3"></td>
-      <td>矫正视力（右）</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>矫正视力（左）</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="6">听力</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="5"></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
      <tr>
-      <td></td>
+      <td>红细胞计数</td>
+      <td> </td>
+      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
      <tr>
-      <td></td>
+      <td>血红蛋白</td>
+      <td> </td>
+      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td></td>
+      <td>红细胞压积</td>
+      <td> </td>
+      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
     <tr>
-      <td></td>
+      <td>平均红细胞体积</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>平均红细胞血红蛋白量</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>平均红细胞血红蛋白浓度</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>血小板计数</td>
+      <td> </td>
+      <td> </td>
       <td> </td>
       <td> </td>
     </tr>
