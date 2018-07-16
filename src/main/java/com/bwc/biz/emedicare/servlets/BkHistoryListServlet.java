@@ -34,7 +34,10 @@ public class BkHistoryListServlet extends HttpServlet {
 		String mode = request.getParameter("mode");
 		
 		if("list".equals(mode)){
-			this.list(request, response);
+			// 診査履歴
+			this.explist(request, response);
+			// 通院履歴
+			//this.visitlist(request, response);
 		}else{
 			String userid = request.getParameter("userid");
 
@@ -62,28 +65,53 @@ public class BkHistoryListServlet extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	private void list(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+	private void explist(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		String userid = request.getParameter("userid");
-		JSONArray userinfolist = new JSONArray();
-		String sql = "select * from cdata_visithistory where userid=? and delflg='0' order by visitdate desc";
+		JSONArray jsonArray = new JSONArray();
+		String sql = "select * from cdata_history where userid=? and deleteflg='0' order by historyno";
 		Object[] params = new Object[1];
  		params[0] = userid;
- 		List<Object> userinfodata = JdbcUtil.getInstance().excuteQuery(sql, params);
+ 		List<Object> explinfodata = JdbcUtil.getInstance().excuteQuery(sql, params);
  		int i=0;
-		for (Object data : userinfodata) {
+		for (Object data : explinfodata) {
 			Map<String, Object> row = (Map<String, Object>) data;
 			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("id", String.valueOf(row.get("no")));
-			jsonObject.put("name", String.valueOf(i+1));
-			jsonObject.put("date", row.get("visitdate").toString());
-			userinfolist.put(i, jsonObject);
+			jsonObject.put("userid", String.valueOf(row.get("userid")));
+			jsonObject.put("username", String.valueOf(row.get("username")));
+			jsonObject.put("historyno", String.valueOf(row.get("historyno")));
+			jsonObject.put("historyname", String.valueOf(row.get("historyname")));
+			jsonObject.put("historydate", String.valueOf(row.get("historydate")));
+			jsonArray.put(i, jsonObject);
 			i++;
 		}
 		
 		// 最終結果
 		JSONObject result = new JSONObject();
-		result.put("visitlist", userinfolist);
-
+		result.put("explist", jsonArray);
+		response.getWriter().write(result.toString());
+	}
+	
+	private void visitlist(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+		String userid = request.getParameter("userid");
+		JSONArray jsonArray = new JSONArray();
+		String sql = "select * from cdata_visithistory where userid=? and delflg='0' order by visitdate desc";
+		Object[] params = new Object[1];
+ 		params[0] = userid;
+ 		List<Object> datalist = JdbcUtil.getInstance().excuteQuery(sql, params);
+ 		int i=0;
+		for (Object data : datalist) {
+			Map<String, Object> row = (Map<String, Object>) data;
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("id", String.valueOf(row.get("no")));
+			jsonObject.put("name", String.valueOf(i+1));
+			jsonObject.put("date", row.get("visitdate").toString());
+			jsonArray.put(i, jsonObject);
+			i++;
+		}
+		
+		// 最終結果
+		JSONObject result = new JSONObject();
+		result.put("visitlist", jsonArray);
 		response.getWriter().write(result.toString());
 	}
 }

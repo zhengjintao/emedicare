@@ -45,11 +45,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.birthday= initdata.birthday;
   list.sex= initdata.sex;
   list.telnum = initdata.telnum;
-  list.explist = [
-	  {'id' : '0000001', 'name': '1', 'date' : '2018-09-01'},
-	  {'id' : '0000002', 'name': '2', 'date' : '2018-08-03'},
-	  {'id' : '0000003', 'name': '3', 'date' : '2017-09-11'}
-	  ];
+  list.explist =  [];
   list.visitlist = [];
   (function(){
 	  	$scope.url =  "bkhistorylist.do";
@@ -62,6 +58,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  			transformRequest:transFormFactory.transForm,
 	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
 	  		}).then(function (result) {
+	  			list.explist = result.data.explist;
 	  			list.visitlist = result.data.visitlist;
 	          }).catch(function (result) {
 	          	list.message = "SORRY!エラーが発生しました。";
@@ -126,8 +123,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				     <td>診査履歴なし</a></td>
 				    </tr>
 					<tr ng-repeat="eachitem in list.explist">
-						<td><a href="bkdetailinfo.do?userid={{list.userid}}">診断結果{{eachitem.name}}</a></td>
-						<td>{{eachitem.date}}</td>
+						<td><a href="bkdetailinfo.do?userid={{list.userid}}&historydate={{eachitem.historydate}}&historyname={{eachitem.historyname}}">{{eachitem.historyname}}</a></td>
+						<td>{{eachitem.historydate}}</td>
 					</tr>
 				</tbody>
 			</table>

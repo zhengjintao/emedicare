@@ -54,7 +54,12 @@ public class BkAccountListServlet extends HttpServlet {
 	
 	private void list(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		JSONArray userinfolist = new JSONArray();
-		String sql = "select u.userid userid, u.username username, count(v.no) vcount from mstr_user u left join cdata_visithistory v on u.userid =v.userid where u.authflg='2' and u.delflg='0' group by u.userid, u.username";
+		String sql ="select u.userid, u.username,h.historyno,v.no from mstr_user u left join" +
+                    "(select userid,count(historyno) as historyno from cdata_history where deleteflg='0' group by userid) h " +
+                    "on u.userid = h.userid  left join " +
+                    "(select userid,count(no) as no from cdata_visithistory where delflg='0' group by userid) v " +
+                    "on u.userid=v.userid where u.authflg='2' and u.delflg='0'";
+		
  		List<Object> userinfodata = JdbcUtil.getInstance().excuteQuery(sql, null);
  		int i=0;
 		for (Object data : userinfodata) {
@@ -62,8 +67,8 @@ public class BkAccountListServlet extends HttpServlet {
 			JSONObject jsonObject = new JSONObject();
 			jsonObject.put("userid", row.get("userid").toString());
 			jsonObject.put("username", row.get("username").toString());
-			jsonObject.put("expcount", String.valueOf(row.get("vcount")));
-			jsonObject.put("visitcount", String.valueOf(row.get("vcount")));
+			jsonObject.put("expcount", String.valueOf(row.get("historyno"))== "null"? "0":String.valueOf(row.get("historyno")));
+			jsonObject.put("visitcount", String.valueOf(row.get("no"))== "null"? "0":String.valueOf(row.get("no")));
 			userinfolist.put(i, jsonObject);
 			i++;
 		}
