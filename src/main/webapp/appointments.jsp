@@ -55,38 +55,58 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   
   list.lblbtnoks = ['确定', 'OK', '確認'];
   list.lblheaders = ['履历', 'List', '履歴'];
-  list.lblstatuss =['状态：', 'Status：', '状態：']
+  list.lblconfirmstatuss =['状态：已确认', 'Status：Unconfirmed', '状態：確認済']
+  list.lblstatuss =['状态：未确认', 'Status：Confirmed', '状態：未確認']
   
   list.setlabel = function() {
 	  var laninx = this.langinx;
 	  list.lblbtnok =list.lblbtnoks[laninx];
 	  list.lblheader =list.lblheaders[laninx];
 	  list.lblstatus = list.lblstatuss[laninx];
+	  list.lblconfirmstatus = list.lblconfirmstatuss[laninx];
+	  list.lblstatus = list.lblstatuss[laninx];
 	}
   
   list.setlabel();
   
-  list.submit = function() {
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'submit'};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	orderList.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
+  list.listdata = function() {
+	  $scope.url =  "appointments.do";
+	  	var postdata = {'mode':'list'};
+	      $http(
+	  		{
+	  			method:"POST",
+	  			url:$scope.url,
+	  			data:postdata,
+	  			transformRequest:transFormFactory.transForm,
+	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+	  		}).then(function (result) {
+	  			list.recentList = result.data.recentList;
+	  			list.historyList = result.data.historyList;
+	          }).catch(function (result) {
+	          	orderList.message = "SORRY!エラーが発生しました。";
+	          	$('.ui.basic.modal') .modal('show');
+	          });
   }
   
-  list.onitemclick = function() {
-	  window.location.href = 'home.do';
+  list.listdata();
+  list.onitemclick = function(id) {
+	  alert(id);
+	  $scope.url =  "appointments.do";
+	  	var postdata = {'mode':'submit', 'id' : id};
+	      $http(
+	  		{
+	  			method:"POST",
+	  			url:$scope.url,
+	  			data:postdata,
+	  			transformRequest:transFormFactory.transForm,
+	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+	  		}).then(function (result) {
+	  			list.recentList = result.data.recentList;
+	  			list.historyList = result.data.historyList;
+	          }).catch(function (result) {
+	          	orderList.message = "SORRY!エラーが発生しました。";
+	          	$('.ui.basic.modal') .modal('show');
+	          });
   }
 });
 </script>
@@ -100,7 +120,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		</div>
 	</div>
 	<div class="ui one column grid container">
-		<div class="column">
+	    <div class="column"  ng-show="list.recentList.length == 0 && list.hisotryList.length == 0">
+	      次回検査予定がありません
+	    </div>
+		<div class="column"  ng-show="list.recentList.length > 0 || list.hisotryList.length > 0">
 			<div style="margin-top: 10px"></div>
 			<div class="ui centered cards">
 				<div class="card" ng-repeat="eachitem in list.recentList">
@@ -111,19 +134,22 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<div class="meta">{{eachitem.date}}</div>
 						<div class="description">{{eachitem.description}}</div>
 					</div>
-					<div class="extra content">
+					<div class="extra content" ng-show = "eachitem.status == '0'">
 						<div class="ui two buttons">
-							<div class="ui basic green button">{{list.lblbtnok}}</div>
+							<button class="ui basic green button" ng-click="list.onitemclick(eachitem.id)">{{list.lblbtnok}}</button>
 							<!-- <div class="ui basic red button">取消</div> -->
 						</div>
+					</div>
+					<div class="extra content" ng-show = "eachitem.status == '1'">
+						{{list.lblconfirmstatus}}
 					</div>
 				</div>
 			</div>
 
-			<h4 class="ui horizontal divider header">
+			<h4 class="ui horizontal divider header" ng-show="list.historyList.length >0">
 				<i class="bar chart icon"></i> {{list.lblheader}}
 			</h4>
-			<div class="ui centered cards">
+			<div class="ui centered cards" ng-show="list.historyList.length >0">
 				<div class="card" ng-repeat="eachitem in list.historyList">
 					<div class="content">
 						<!-- <img class="right floated mini ui image"
@@ -132,8 +158,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<div class="meta">{{eachitem.date}}</div>
 						<div class="description">{{eachitem.description}}</div>
 					</div>
-					<div class="extra content">
-						{{list.lblstatus}}{{eachitem.status}}
+					<div class="extra content" ng-show="eachitem.status == 0">
+						{{list.lblstatus}}
+					</div>
+					<div class="extra content"ng-show="eachitem.status == 1">
+						{{list.lblconfirmstatus}}
 					</div>
 				</div>
 			</div>

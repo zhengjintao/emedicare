@@ -69,6 +69,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.lbltelnums = ['联系方式', 'Telephone', '連絡先'];
   list.lbladdresss = ['联系地址', 'Address', 'アドレス'];
   list.lblsaves = ['保存', 'Save', '保存'];
+  list.lblmessages = ['下列项目内容必须输入', 'The follow item is need to input.', '下記の項目は必須入力です'];
   
   list.setlabel = function() {
 	  var laninx = this.langinx;
@@ -95,6 +96,21 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.countage();
   
  list.onItemClick = function() {
+	 var haserror = false;
+	 list.errmessage = list.lblmessages[list.langinx];
+	 if(list.username==null || list.username.length==0){
+		 list.errmessage = list.errmessage + "\n" + list.lblname;
+		 haserror = true;
+	 }
+	 if(list.birthday==null){
+		 list.errmessage = list.errmessage + "\n" + list.lblbirthday;
+		 haserror = true;
+	 }
+	 if(haserror){
+		 $('#cmodal') .modal('show');
+		 return;
+	 }
+	 
 	 var birthday=list.getformatbirthday();
 	  window.location.href = 'personalinfo.do?mode=submit&username='+ list.username+'&langinx='+list.langinx 
 			  +'&sex='+ list.sex+'&telnum='+list.telnum +'&address='+ list.address+'&birthday='+ birthday;
@@ -116,7 +132,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	<div id="cmodal" class="ui small test modal transition hidden">
 		<i class="close icon"></i>
 		<div class="content">
-			<p id="errmsg">{{list.errmessage}}</p>
+			<p id="errmsg" style="white-space: pre-wrap;">{{list.errmessage}}</p>
 		</div>
 	</div>
 	<div class="ui one column grid container">
@@ -144,15 +160,15 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					</div>
 					<div class="inline field">
 						<label style="width: 60px">{{list.lblage}}</label> <input type="text"
-							placeholder={{list.lblage}} disabled=""  ng-model="list.age" style="width:50px">
+							placeholder={{list.lblage}} disabled=""  ng-model="list.age" style="width:60px">
 					</div>
 					<div class="inline field">
 						<label style="width: 60px">{{list.lbltelnum}}</label> <input type="text"
 							placeholder={{list.lbltelnum}} ng-model="list.telnum">
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">{{list.lbladdress}}</label> <input type="text"
-							placeholder={{list.lbladdress}} ng-model="list.address" style="width:220px">
+						<label style="width: 60px">{{list.lbladdress}}</label>
+							<textarea rows="2" cols="">{{list.address}}</textarea>
 					</div>
 				</div>
 

@@ -56,6 +56,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.onsalegoods =  [
       {id:'00001', text:'learn AngularJS'}
       ];
+  
   (function(){
   	
   	$scope.url =  "companyinfoedit.do";
@@ -99,22 +100,59 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.onitemclick = function() {
 	  window.location.href = 'home.do';
   }
+  
+  list.showsidebar = function(){
+	  $('.ui.sidebar').sidebar('toggle')
+	;
+  }
+  
+  list.hidesidebar = function(){
+	  $('.ui.sidebar').sidebar('hide')
+	;
+  }
 });
 </script>
 
 </head>
 <body ng-controller="ListController as list">
-	<div id="cmodal" class="ui small test modal transition hidden">
-		<i class="close icon"></i>
-		<div class="content">
-			<p id="errmsg">{{list.errmessage}}</p>
-		</div>
-	</div>
-	<div class="ui one column grid container">
-		<div class="column">
-			<div style="margin-top: 10px"></div>
-			<div class="ui segment">
-				<a class="ui large top attached label center aligned">診査详细</a>
+<div class="ui top attached demo menu">
+  <a class="item" ng-click="list.showsidebar()">
+    <i class="sidebar icon"></i>
+    更多
+  </a>
+  <div class="item">
+  健診結果報告書１
+  </div>
+</div>
+<div class="ui bottom attached segment pushable">
+
+  <div class="ui sidebar  vertical menu">
+    <a class="item" ng-click="list.hidesidebar()">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+    <a class="item">健診結果報告書１</a>
+  </div>
+  <div class="pusher">
+  <div class="ui segment">
 				<ul class="ui large list">
 					<li>血液检查</li>
 					<li>尿检</li>
@@ -129,8 +167,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				</ul>
 
 			</div>
-		</div>
-		<div class="column"></div>
-	</div>
 
+  </div>
+</div>
 </body>

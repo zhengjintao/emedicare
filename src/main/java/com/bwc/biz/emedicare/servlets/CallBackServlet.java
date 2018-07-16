@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.bwc.biz.emedicare.common.JdbcUtil;
+import com.bwc.biz.emedicare.common.StringUtil;
 import com.bwc.biz.emedicare.common.wechat.HttpRequestor;
 import com.bwc.biz.emedicare.common.wechat.URLProducer;
 
@@ -83,16 +84,21 @@ public class CallBackServlet extends HttpServlet {
 					return;
 				}
 				
-				String euserid = openid;
+				String sql2 = "select count(*) as num from mstr_user where userid like 'U0%'";
+				List<Object> usercount = JdbcUtil.getInstance().excuteQuery(sql2, params);
+				Map<String, Object> row = (Map<String, Object>) usercount.get(0);
+				int uid = new Integer(row.get("num").toString());
+				
+				String euserid = "U0" + StringUtil.padLeft(String.valueOf(++uid), 6, '0');
 				String username = userInfo.getString("nickname");
 				String sex = "1".equals(userInfo.get("sex").toString()) ? "M" : "F";
-				String password = "111111";
-				String sql2 = "insert into mstr_user values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				String password = "changeme";
+				sql2 = "insert into mstr_user values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				Object[] params2 = new Object[15];
 				
-				params2[0] = openid;
+				params2[0] = euserid;
 				params2[1] = filterEmoji(username);
-				params2[2] = "111111";
+				params2[2] = password;
 				params2[3] = "0";
 				params2[4] = "09:30:00.0000";
 				params2[5] = "18:30:00.0000";

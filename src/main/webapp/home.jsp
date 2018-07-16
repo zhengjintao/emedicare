@@ -79,7 +79,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  }else if(id==4){
 		  redurl = 'langsetting.do';
 	  }else if(id==5){
-		  redurl = 'http://www.google.co.jp';
+		  redurl = 'http://www.bitkokusai.com/zh/home';
 	  }
 	  window.location.href = redurl;
   }

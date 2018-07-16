@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.bwc.biz.emedicare.common.HashEncoder;
 import com.bwc.biz.emedicare.common.JdbcUtil;
 import com.bwc.biz.emedicare.form.User;
 
