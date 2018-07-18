@@ -137,23 +137,17 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   </div>
   <div class="pusher">
   <div class="ui segment">
-  <table class="ui unstackable celled structured table">
+   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" rowspan="5">胸部CT</td>
+      <td class="cellheader" rowspan="13">乳房检查</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">本次</td>
       <td class="cellheader">上次</td>
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
+      <td rowspan="12"></td>
       <td></td>
       <td></td>
       <td></td>
@@ -162,32 +156,70 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
       <td></td>
       <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
       <td></td>
       <td></td>
       <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
       <td></td>
     </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    
     <tr>
       <td colspan="5"></td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="5">腹部CT</td>
+      <td class="cellheader" rowspan="14">乳房检查</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">本次</td>
       <td class="cellheader">上次</td>
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
+      <td rowspan="13"></td>
       <td></td>
       <td></td>
       <td></td>
@@ -196,26 +228,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td colspan="5"></td>
-    </tr>
-    <tr>
-      <td class="cellheader" rowspan="5">MRI/MRA</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
-    </tr>
-    <tr>
-      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -224,32 +238,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
       <td></td>
       <td></td>
-      <td></td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td colspan="5"></td>
-    </tr>
-    <tr>
-      <td class="cellheader" rowspan="5">颈部超声</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
-    </tr>
-    <tr>
-      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -258,16 +248,38 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
       <td></td>
       <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
       <td></td>
       <td></td>
       <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
       <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <td></td>
       <td></td>
       <td></td>

@@ -44,8 +44,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
   list.sheets = [
-	  {'name' : '健診結果(问诊内容)', 'shortname' : '健診結果(一)', 'href': 'exploratorydetail.do'},
-	  {'name' : '健診結果(基础项目)', 'shortname' : '健診結果(二)', 'href': 'exploratorydetail02.do'},
+	  {'name' : '健診結果一(问诊内容)', 'shortname' : '健診結果(一)', 'href': 'exploratorydetail.do'},
+	  {'name' : '健診結果二(基础项目)', 'shortname' : '健診結果(二)', 'href': 'exploratorydetail02.do'},
 	  {'name' : '健診結果(尿检/肾/血常规)', 'shortname' : '健診結果(三)', 'href': 'exploratorydetail03.do'},
 	  {'name' : '健診結果(胸部X线/脂质/肝功能检查)', 'shortname' : '健診結果(四)', 'href': 'exploratorydetail04.do'},
 	  {'name' : '健診結果(糖尿病/痛风/心电图/便/眼睛)', 'shortname' : '健診結果(五)', 'href': 'exploratorydetail05.do'},

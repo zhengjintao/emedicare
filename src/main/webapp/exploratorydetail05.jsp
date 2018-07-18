@@ -44,8 +44,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
   list.sheets = [
-	  {'name' : '健診結果(问诊内容)', 'shortname' : '健診結果(一)', 'href': 'exploratorydetail.do'},
-	  {'name' : '健診結果(基础项目)', 'shortname' : '健診結果(二)', 'href': 'exploratorydetail02.do'},
+	  {'name' : '健診結果一(问诊内容)', 'shortname' : '健診結果(一)', 'href': 'exploratorydetail.do'},
+	  {'name' : '健診結果二(基础项目)', 'shortname' : '健診結果(二)', 'href': 'exploratorydetail02.do'},
 	  {'name' : '健診結果(尿检/肾/血常规)', 'shortname' : '健診結果(三)', 'href': 'exploratorydetail03.do'},
 	  {'name' : '健診結果(胸部X线/脂质/肝功能检查)', 'shortname' : '健診結果(四)', 'href': 'exploratorydetail04.do'},
 	  {'name' : '健診結果(糖尿病/痛风/心电图/便/眼睛)', 'shortname' : '健診結果(五)', 'href': 'exploratorydetail05.do'},
@@ -181,7 +181,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
     </tr>
     <tr>
-      <td colspan="6"></td>
+      <td colspan="7"></td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="2">痛风</td>
@@ -201,10 +201,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
     </tr>
     <tr>
-      <td colspan="6"></td>
+      <td colspan="7"></td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
+      <td class="cellheader" rowspan="3">心电图</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">检查项目</td>
       <td class="cellheader">标准值/单位</td>
@@ -214,7 +214,15 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td></td>
-      <td>尿酸</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -222,10 +230,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     
     <tr>
-      <td colspan="6"></td>
+      <td colspan="7"></td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
+      <td class="cellheader" rowspan="3">便</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">检查项目</td>
       <td class="cellheader">标准值/单位</td>
@@ -235,15 +243,22 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td></td>
-      <td>尿酸</td>
+      <td>便潜血第一次</td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
-    
     <tr>
-      <td colspan="6"></td>
+      <td></td>
+      <td>便潜血第二次</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="7"></td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="2">痛风</td>

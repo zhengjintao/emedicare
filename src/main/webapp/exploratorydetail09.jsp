@@ -140,7 +140,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" rowspan="5">糖尿病</td>
+      <td class="cellheader" rowspan="8">肿瘤标志物</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">检查项目</td>
       <td class="cellheader">标准值/单位</td>
@@ -150,7 +150,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td></td>
-      <td>任意时间血糖</td>
+      <td>AFP</td>
       <td></td>
       <td></td>
       <td></td>
@@ -158,7 +158,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td></td>
-      <td>血糖</td>
+      <td>PIVKA-II</td>
       <td></td>
       <td></td>
       <td></td>
@@ -166,7 +166,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td></td>
-      <td>HbA1c(NGSP)</td>
+      <td>CEA</td>
       <td></td>
       <td></td>
       <td></td>
@@ -174,17 +174,41 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td></td>
-      <td>HbA2c(JDS)</td>
+      <td>CA19-9</td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td colspan="6"></td>
+      <td></td>
+      <td>CA15-3</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
+      <td></td>
+      <td>CA125</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>CYFRA</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="7"></td>
+    </tr>
+    <tr>
+      <td class="cellheader" rowspan="5">ABI/PWV</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">检查项目</td>
       <td class="cellheader">标准值/单位</td>
@@ -194,27 +218,47 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td></td>
-      <td>尿酸</td>
+      <td>ABI 右</td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td colspan="6"></td>
+      <td></td>
+      <td>ABI 左</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
+      <td></td>
+      <td>baPWV 右</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>baPWV 左</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td colspan="7"></td>
+    </tr>
+    <tr>
+      <td class="cellheader" rowspan="2">甲状腺超声</td>
       <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
       <td class="cellheader">本次</td>
       <td class="cellheader">上次</td>
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td></td>
-      <td>尿酸</td>
       <td></td>
       <td></td>
       <td></td>
@@ -222,66 +266,35 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     
     <tr>
-      <td colspan="6"></td>
+      <td colspan="5"></td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
+      <td class="cellheader" rowspan="4">骨密度</td>
       <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
       <td class="cellheader">本次</td>
       <td class="cellheader">上次</td>
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
       <td></td>
-      <td>尿酸</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    
-    <tr>
-      <td colspan="6"></td>
-    </tr>
-    <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>尿酸</td>
-      <td></td>
-      <td></td>
+      <td>骨量   g/ｃ㎡</td>
       <td></td>
       <td></td>
     </tr>
-    
     <tr>
-      <td colspan="6"></td>
-    </tr>
-    <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
+      <td></td>
+      <td>与年轻人相比 80以上  %</td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td></td>
-      <td>尿酸</td>
+      <td>与同龄人相比   %</td>
       <td></td>
       <td></td>
-      <td></td>
-      <td></td>
+    </tr>
+    <tr>
+      <td colspan="5"></td>
     </tr>
   </tbody>
 </table>

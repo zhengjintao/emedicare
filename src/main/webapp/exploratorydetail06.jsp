@@ -98,7 +98,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   $('#accordion2') .accordion({exclusive :false});
   $('#accordion3') .accordion({exclusive :false});
   
-  var item = list.sheets[10];
+  var item = list.sheets[5];
   list.sheetname = item.shortname;
 });
 </script>
@@ -137,151 +137,113 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   </div>
   <div class="pusher">
   <div class="ui segment">
-  <table class="ui unstackable celled structured table">
+ <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" rowspan="5">糖尿病</td>
+      <td class="cellheader" style="width:100px" rowspan="6">胸部X线检查</td>
       <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
+      <td class="cellheader" colspan="4">本次</td>
+    </tr>
+    <tr>
+      <td rowspan="5"></td>
+      <td>部位</td>
+      <td colspan="3">所见</td>
     </tr>
     <tr>
       <td></td>
-      <td>任意时间血糖</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td colspan="3"></td>
     </tr>
     <tr>
-      <td></td>
-      <td>血糖</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td colspan="2">上次</td>
+      <td colspan="2">上上次</td>
     </tr>
     <tr>
-      <td></td>
-      <td>HbA1c(NGSP)</td>
+      <td>部位</td>
+      <td>所见</td>
+      <td>部位</td>
+      <td>所见</td>
+    </tr>
+    <tr>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
-    <tr>
-      <td></td>
-      <td>HbA2c(JDS)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+     <tr>
+      <td class="cellheader" style="width:100px" rowspan="3">胃活检</td>
+      <td class="cellheader"></td>
+      <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
-      <td colspan="6"></td>
+      <td rowspan="2"></td>
+      <td>部位</td>
+      <td colspan="3">所见</td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
+      <td></td>
+      <td colspan="3"></td>
+    </tr>
+  </tbody>
+</table>
+ <table class="ui unstackable celled structured table">
+  <tbody>
+    <tr>
+      <td class="cellheader" style="width:100px" rowspan="6">上腹部超声波</td>
       <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
+      <td class="cellheader" colspan="4">本次</td>
+    </tr>
+    <tr>
+      <td rowspan="5"></td>
+      <td>部位</td>
+      <td colspan="3">所见</td>
     </tr>
     <tr>
       <td></td>
-      <td>尿酸</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td colspan="3"></td>
     </tr>
     <tr>
-      <td colspan="6"></td>
+      <td colspan="2">上次</td>
+      <td colspan="2">上上次</td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
+      <td>部位</td>
+      <td>所见</td>
+      <td>部位</td>
+      <td>所见</td>
     </tr>
     <tr>
-      <td></td>
-      <td>尿酸</td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     
+  </tbody>
+</table>
+<table class="ui unstackable celled structured table">
+  <tbody>
     <tr>
-      <td colspan="6"></td>
-    </tr>
-    <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
+      <td class="cellheader" style="width:100px" rowspan="4">血沉</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">检查项目</td>
       <td class="cellheader">标准值/单位</td>
       <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td></td>
-      <td>尿酸</td>
-      <td></td>
-      <td></td>
+      <td rowspan="3"></td>
+      <td>血沉（60分）</td>
       <td></td>
       <td></td>
     </tr>
-    
-    <tr>
-      <td colspan="6"></td>
-    </tr>
-    <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td>尿酸</td>
-      <td></td>
-      <td></td>
+     <tr>
+      <td>血沉（120分）</td>
       <td></td>
       <td></td>
     </tr>
-    
-    <tr>
-      <td colspan="6"></td>
-    </tr>
-    <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
-    </tr>
-    <tr>
+     <tr>
       <td></td>
-      <td>尿酸</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td> </td>
+      <td> </td>
     </tr>
   </tbody>
 </table>

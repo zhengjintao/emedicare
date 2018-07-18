@@ -44,8 +44,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
   list.sheets = [
-	  {'name' : '健診結果(问诊内容)', 'shortname' : '健診結果(一)', 'href': 'exploratorydetail.do'},
-	  {'name' : '健診結果(基础项目)', 'shortname' : '健診結果(二)', 'href': 'exploratorydetail02.do'},
+	  {'name' : '健診結果一(问诊内容)', 'shortname' : '健診結果(一)', 'href': 'exploratorydetail.do'},
+	  {'name' : '健診結果二(基础项目)', 'shortname' : '健診結果(二)', 'href': 'exploratorydetail02.do'},
 	  {'name' : '健診結果(尿检/肾/血常规)', 'shortname' : '健診結果(三)', 'href': 'exploratorydetail03.do'},
 	  {'name' : '健診結果(胸部X线/脂质/肝功能检查)', 'shortname' : '健診結果(四)', 'href': 'exploratorydetail04.do'},
 	  {'name' : '健診結果(糖尿病/痛风/心电图/便/眼睛)', 'shortname' : '健診結果(五)', 'href': 'exploratorydetail05.do'},
@@ -98,7 +98,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   $('#accordion2') .accordion({exclusive :false});
   $('#accordion3') .accordion({exclusive :false});
   
-  var item = list.sheets[0];
+  var item = list.sheets[3];
   list.sheetname = item.shortname;
 });
 </script>
@@ -140,19 +140,31 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" style="width:100px" rowspan="3">诊察所见</td>
+      <td class="cellheader" style="width:100px" rowspan="6">胸部X线检查</td>
       <td class="cellheader">判定</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
+      <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
-      <td rowspan="2"></td>
-      <td>上上次上上次上上次</td>
-      <td>上上次上上次</td>
-      <td>上上次上上次上上次</td>
+      <td rowspan="5"></td>
+      <td>部位</td>
+      <td colspan="3"></td>
     </tr>
     <tr>
+      <td></td>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <td colspan="2">上次</td>
+      <td colspan="2">上上次</td>
+    </tr>
+    <tr>
+      <td>部位</td>
+      <td>所见</td>
+      <td>部位</td>
+      <td>所见</td>
+    </tr>
+    <tr>
+      <td></td>
       <td></td>
       <td></td>
       <td></td>
@@ -162,111 +174,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" style="width:100px" rowspan="8">身体测量</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="7"></td>
-      <td>身高</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>体重</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>标准体重</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>肥胖度</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>BMI指数</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>腹围(cm)</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>体脂肪率</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="4">血压</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="3"></td>
-      <td>高压</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>低压</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="4">视力</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="3"></td>
-      <td>矫正视力（右）</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>矫正视力（左）</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="6">听力</td>
+      <td class="cellheader" style="width:100px" rowspan="6">脂质</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">检查项目</td>
       <td class="cellheader">标准值/单位</td>
@@ -274,32 +182,116 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td rowspan="5"></td>
-      <td></td>
+      <td>总胆固醇</td>
       <td></td>
       <td></td>
     </tr>
      <tr>
+      <td>中性脂肪</td>
       <td></td>
-      <td> </td>
-      <td> </td>
+      <td></td>
     </tr>
      <tr>
+      <td>高密度脂蛋白总胆固醇</td>
       <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
       <td></td>
-      <td> </td>
-      <td> </td>
     </tr>
-    <tr>
+     <tr>
+      <td>低密度脂蛋白总胆固醇</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
       <td></td>
       <td> </td>
       <td> </td>
     </tr>
   </tbody>
 </table>
+<table class="ui unstackable celled structured table">
+  <tbody>
+    <tr>
+      <td class="cellheader" style="width:100px" rowspan="14">肝功能检查</td>
+      <td class="cellheader">判定</td>
+      <td class="cellheader">检查项目</td>
+      <td class="cellheader">标准值/单位</td>
+      <td class="cellheader">本次</td>
+    </tr>
+    <tr>
+      <td rowspan="13"></td>
+      <td>总胆红素（T-BIL）</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>ZTT</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>TTT</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>AST</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>ALT</td>
+      <td></td>
+      <td></td>
+    </tr>
+     <tr>
+      <td>γ－GTP</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>总蛋白（TP）</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+     <tr>
+      <td>白蛋白</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>A/G比</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ALP</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>LAP</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ChE</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>LDH</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
   </div>
 </div>
