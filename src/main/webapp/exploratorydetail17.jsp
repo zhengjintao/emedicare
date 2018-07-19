@@ -98,7 +98,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   $('#accordion2') .accordion({exclusive :false});
   $('#accordion3') .accordion({exclusive :false});
   
-  var item = list.sheets[0];
+  var item = list.sheets[16];
   list.sheetname = item.shortname;
 });
 </script>
@@ -140,20 +140,57 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" style="width:100px" rowspan="3">诊察所见</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
+      <td class="cellheader" colspan="4">胃癌风险分级检查</td>
     </tr>
     <tr>
-      <td rowspan="2"></td>
-      <td>上上次上上次上上次</td>
-      <td>上上次上上次</td>
-      <td>上上次上上次上上次</td>
-    </tr>
-    <tr>
+      <td>ID</td>
       <td></td>
+      <td>检查日期</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>姓名</td>
+      <td></td>
+      <td>报告日期</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+ <table class="ui unstackable celled structured table">
+  <tbody>
+    <tr>
+      <td class="cellheader" colspan="4">判定结果</td>
+    </tr>
+    <tr>
+      <td colspan="4"></td>
+    </tr>
+  </tbody>
+</table>
+ <table class="ui unstackable celled structured table">
+  <tbody>
+    <tr>
+      <td colspan="2">检查项目</td>
+      <td>测定值</td>
+      <td>判定</td>
+    </tr>
+    <tr>
+      <td colspan="2">幽门螺旋杆菌抗体( EIA法：E板 )</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td rowspan="3">胃蛋白酶原</td>
+      <td>胃蛋白酶原Ⅰ（PGⅠ）</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>胃蛋白酶原Ⅱ（PGⅡ）</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>PGⅠ/PGⅡ比</td>
       <td></td>
       <td></td>
     </tr>
@@ -162,141 +199,15 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" style="width:100px" rowspan="8">身体测量</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
+      <td colspan="4">阳性判定基准</td>
     </tr>
     <tr>
-      <td rowspan="7"></td>
-      <td>身高</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>体重</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>标准体重</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>肥胖度</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>BMI指数</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>腹围(cm)</td>
-      <td></td>
-      <td></td>
+      <td colspan="2">幽门螺旋杆菌抗体( EIA法：E板 )</td>
+      <td colspan="2">3.0 U/mL 以上</td>
     </tr>
     <tr>
-      <td>体脂肪率</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="4">血压</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="3"></td>
-      <td>高压</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>低压</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="4">视力</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="3"></td>
-      <td>矫正视力（右）</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>矫正视力（左）</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="6">听力</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="5"></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
+      <td colspan="2">胃蛋白酶原</td>
+      <td colspan="2">胃蛋白酶原70.0ng/mL以下并且PGⅠ/Ⅱ比3.0以下</td>
     </tr>
   </tbody>
 </table>

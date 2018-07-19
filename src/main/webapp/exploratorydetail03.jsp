@@ -140,7 +140,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" style="width:100px" rowspan="7">尿沉渣检查</td>
+      <td class="cellheader" style="width:100px" rowspan="7">尿常规检查</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">检查项目</td>
       <td class="cellheader">标准值/单位</td>

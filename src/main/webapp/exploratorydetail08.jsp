@@ -98,7 +98,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   $('#accordion2') .accordion({exclusive :false});
   $('#accordion3') .accordion({exclusive :false});
   
-  var item = list.sheets[9];
+  var item = list.sheets[7];
   list.sheetname = item.shortname;
 });
 </script>
@@ -140,14 +140,14 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
    <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" rowspan="13">乳房检查</td>
+      <td class="cellheader" rowspan="12">乳房检查</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">本次</td>
       <td class="cellheader">上次</td>
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="12"></td>
+      <td rowspan="11"></td>
       <td></td>
       <td></td>
       <td></td>
@@ -212,19 +212,14 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td colspan="5"></td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="14">乳房检查</td>
+      <td class="cellheader" rowspan="12">妇科检查</td>
       <td class="cellheader">判定</td>
       <td class="cellheader">本次</td>
       <td class="cellheader">上次</td>
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="13"></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
+      <td rowspan="11"></td>
       <td></td>
       <td></td>
       <td></td>

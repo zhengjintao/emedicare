@@ -152,25 +152,25 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
     </tr>
     <tr>
-      <td>CA19-9</td>
+      <td>身体测量</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>便-血红蛋白（1）</td>
+      <td>血压</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>便-血红蛋白（2）</td>
+      <td>视力</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>胃蛋白酶原</td>
+      <td>听力</td>
       <td></td>
       <td></td>
       <td></td>
@@ -182,85 +182,237 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
     </tr>
     <tr>
-      <td>PG2浓度</td>
+      <td>尿常规</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>PG1/PG2 比</td>
+      <td>肺功能</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>判定</td>
+      <td>便检查</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>胃癌风险</td>
+      <td>肝功能</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>幽门螺旋杆菌</td>
+      <td>肾功能</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>B脂蛋白</td>
+      <td>胰功能</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>B脂蛋白</td>
+      <td>脂质</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>B脂蛋白</td>
+      <td>痛风</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>B脂蛋白</td>
+      <td>血球</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>B脂蛋白</td>
+      <td>血清反应</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>B脂蛋白</td>
+      <td>血沉</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>B脂蛋白</td>
+      <td>糖尿病</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td>B脂蛋白</td>
+      <td>炎症反应</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>肝炎</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>肿瘤标记物</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>病毒抗体</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>胸部</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>心电图</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>眼底所见</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>胃部内视镜</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>上腹部超声波</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>血沉</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>乳房检查</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>骨密度</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>妇科检查</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>ABI</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>胸部CT</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>腹部CT</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>尿沉渣</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>甲状腺超声波</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>甲状腺检查</td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
   </tbody>
 </table>
+
+ <table class="ui unstackable celled structured table">
+  <tbody>
+    <tr>
+      <td rowspan="3"></td>
+      <td rowspan="3">判定区分</td>
+      <td>A：无异常 </td>
+      <td>C1: 3个月后复查</td>
+      <td>D2：要详细检查</td>
+    </tr>
+    <tr>
+      <td>B：虽然发现有轻度异常，但是对日常生活无影响 </td>
+      <td>C2: 6个月后复查</td>
+      <td>D2：要详细检查</td>
+    </tr>
+    <tr>
+      <td>C：有轻度异常，需要改善生活习惯，或动态观察</td>
+      <td>C2: 12个月后复查</td>
+      <td>E: 正在治疗中</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="ui unstackable celled structured table">
+  <tbody>
+  <tr>
+      <td class="cellheader">代谢综合症判定</td>
+      <td></td>
+      <td class="cellheader">保健指导程度</td>
+      <td></td>
+    </tr>
+  </tbody>
+  </table>
+  
+  <table class="ui unstackable celled structured table">
+  <tbody>
+     <tr>
+      <td class="cellheader">指示事项</td>
+    </tr>
+    <tr>
+      <td></td>
+    </tr>
+  </tbody>
+  </table>
 </div>
   </div>
 </div>
