@@ -11,17 +11,16 @@
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
 
+<script>
+
+</script>
+<script src="assets/js/detailcommon.js"></script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="dist/components/form.min.js"></script>
 <script src="dist/components/transition.min.js"></script>
 <script src="dist/semantic.min.js"></script>
-<script>
-
-</script>
-
-<script src="jquery/jquery-3.1.1.min.js"></script>
-<script src="dist/semantic.min.js"></script>
 <script src="angularjs/angular.min.js"></script>
+
 <script type="text/javascript">
   var app = angular.module('listApp',[]);
   
@@ -42,37 +41,12 @@
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
-  list.errmessage ="";
-  list.sheets = [
-	  {'name' : '健診結果一(问诊内容)', 'shortname' : '健診結果(一)', 'href': 'exploratorydetail.do'},
-	  {'name' : '健診結果二(基础项目)', 'shortname' : '健診結果(二)', 'href': 'exploratorydetail02.do'},
-	  {'name' : '健診結果(尿检/肾/血常规)', 'shortname' : '健診結果(三)', 'href': 'exploratorydetail03.do'},
-	  {'name' : '健診結果(胸部X线/脂质/肝功能检查)', 'shortname' : '健診結果(四)', 'href': 'exploratorydetail04.do'},
-	  {'name' : '健診結果(糖尿病/痛风/心电图/便/眼睛)', 'shortname' : '健診結果(五)', 'href': 'exploratorydetail05.do'},
-	  {'name' : '健診結果(消化管内视镜/胃活检/腹部超声/血沉)', 'shortname' : '健診結果(六)', 'href': 'exploratorydetail06.do'},
-	  {'name' : '健診結果(肺功能/胰腺/炎症反应/肝炎/血清反应)', 'shortname' : '健診結果(七)', 'href': 'exploratorydetail07.do'},
-	  {'name' : '健診結果(乳房检查/妇科检查)', 'shortname' : '健診結果(八)', 'href': 'exploratorydetail08.do'},
-	  {'name' : '健診結果(肿瘤标志物/ABI/PWV/甲状腺超声/骨密度)', 'shortname' : '健診結果(九)', 'href': 'exploratorydetail09.do'},
-	  {'name' : '健診結果(胸部CT/腹部CT/MRI/MRA/颈部超声)', 'shortname' : '健診結果(十)', 'href': 'exploratorydetail10.do'},
-	  {'name' : '健診結果(选项)', 'shortname' : '选项', 'href': 'exploratorydetail11.do'},
-	  {'name' : '综合判断', 'shortname' : '综合判断', 'href': 'exploratorydetail12.do'},
-	  {'name' : '检查结果查询', 'shortname' : '检查结果查询', 'href': 'exploratorydetail13.do'},
-	  {'name' : 'Spo２检测结果通知', 'shortname' : 'Spo２检测结果', 'href': 'exploratorydetail14.do'},
-	  {'name' : '甲状腺功能检查报告书', 'shortname' : '甲状腺功能检查', 'href': 'exploratorydetail15.do'},
-	  {'name' : '肿瘤标志物检查报告书', 'shortname' : '肿瘤标志物检查', 'href': 'exploratorydetail16.do'},
-	  {'name' : '胃癌风险分级检查', 'shortname' : '胃癌风险分级检查', 'href': 'exploratorydetail17.do'},
-	  {'name' : '血压脉搏检查解析结果', 'shortname' : '血压脉搏检查解析结果', 'href': 'exploratorydetail18.do'},
-	  {'name' : '骨密度测定结果', 'shortname' : '骨密度测定结果', 'href': 'exploratorydetail19.do'},
-	  {'name' : '检查报告(脳ドック)', 'shortname' : '脳ドック', 'href': 'exploratorydetail20.do'},
-	  {'name' : '检查报告(颈动脉超声波)', 'shortname' : '颈动脉超声波', 'href': 'exploratorydetail21.do'},
-	  {'name' : '检查报告(骨盆MRI)', 'shortname' : '骨盆MRI', 'href': 'exploratorydetail22.do'},
-	  {'name' : '检查报告(心脏超声波)', 'shortname' : '心脏超声波', 'href': 'exploratorydetail23.do'}
-	  ];
+  list.expid = 'E0000001';
+  list.sheets = constsheets;
   
   (function(){
-  	
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'list', 'companyid':list.companyid};
+	  $scope.url =  "exploratorydetail.do";
+	  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '02'};
       $http(
   		{
   			method:"POST",
@@ -81,8 +55,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   			transformRequest:transFormFactory.transForm,
   			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
   		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
+  			list.record = result.data.record;
           }).catch(function (result) {
           	list.message = "SORRY!エラーが発生しました。";
           	$('.ui.basic.modal') .modal('show');
@@ -94,213 +67,204 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  $('.ui.sidebar').sidebar('toggle');
   }
   
-  $('#accordion1') .accordion({exclusive :false});
-  $('#accordion2') .accordion({exclusive :false});
-  $('#accordion3') .accordion({exclusive :false});
-  
-  var item = list.sheets[0];
+  var item = list.sheets[1];
   list.sheetname = item.shortname;
 });
 </script>
 <style>
-.cellheader{
-    background-color:#c4e8fc
+.cellheader {
+	background-color: #c4e8fc
 }
 </style>
 </head>
 <body ng-controller="ListController as list">
-<div class="ui top attached  menu">
-  <a class="item" ng-click="list.showsidebar()">
-    <i class="sidebar icon"></i>
-    更多
-  </a>
-  <div class="item">
-  </div>
-  <div class="item">
-  {{list.sheetname}}
-  </div>
-  <div class="item">
-  </div>
-  <div class="right menu">
-      
-      <div class="vertically fitted borderless item">
-        <a href="exploratory.do"><button class="mini ui button">返回一览</button></a>
-      </div>
-    </div>
-</div>
-<div class="ui bottom attached segment pushable">
+	<div class="ui top attached  menu">
+		<a class="item" ng-click="list.showsidebar()"> <i
+			class="sidebar icon"></i> 更多
+		</a>
+		<div class="item"></div>
+		<div class="item">{{list.sheetname}}</div>
+		<div class="item"></div>
+		<div class="right menu">
 
-  <div class="ui sidebar  vertical menu">
-    <a class="item" ><h3>诊查记录20180612</h3></a>
-    <a class="item" ng-repeat="eachitem in list.sheets" href="{{eachitem.href}}">{{eachitem.name}}</a>
-    <div style="height:100px"></div>
-  </div>
-  <div class="pusher">
-  <div class="ui segment">
-  <table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="3">诊察所见</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
-    </tr>
-    <tr>
-      <td rowspan="2"></td>
-      <td>上上次上上次上上次</td>
-      <td>上上次上上次</td>
-      <td>上上次上上次上上次</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="8">身体测量</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="7"></td>
-      <td>身高</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>体重</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>标准体重</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>肥胖度</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>BMI指数</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>腹围(cm)</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>体脂肪率</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+			<div class="vertically fitted borderless item">
+				<a href="exploratory.do"><button class="mini ui button">返回一览</button></a>
+			</div>
+		</div>
+	</div>
+	<div class="ui bottom attached segment pushable">
 
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="4">血压</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="3"></td>
-      <td>高压</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>低压</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+		<div class="ui sidebar  vertical menu">
+			<a class="item"><h3>诊查记录20180612</h3></a> <a class="item"
+				ng-repeat="eachitem in list.sheets" href="{{eachitem.href}}">{{eachitem.name}}</a>
+			<div style="height: 100px"></div>
+		</div>
+		<div class="pusher">
+			<div class="ui segment">
+				<table class="ui unstackable celled structured table">
+					<tbody>
+						<tr>
+							<td class="cellheader" style="width: 100px" rowspan="3">诊察所见</td>
+							<td class="cellheader">判定</td>
+							<td class="cellheader">本次</td>
+							<td class="cellheader">上次</td>
+							<td class="cellheader">上上次</td>
+						</tr>
+						<tr>
+							<td rowspan="2"></td>
+							<td>{{list.record.laststatus}}</td>
+							<td>上上次上上次</td>
+							<td>上上次上上次上上次</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="ui unstackable celled structured table">
+					<tbody>
+						<tr>
+							<td class="cellheader" style="width: 100px" rowspan="8">身体测量</td>
+							<td class="cellheader">判定</td>
+							<td class="cellheader">检查项目</td>
+							<td class="cellheader">标准值/单位</td>
+							<td class="cellheader">本次</td>
+						</tr>
+						<tr>
+							<td rowspan="7"></td>
+							<td>身高</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>体重</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>标准体重</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>肥胖度</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>BMI指数</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>腹围(cm)</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>体脂肪率</td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
 
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="4">视力</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="3"></td>
-      <td>矫正视力（右）</td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td>矫正视力（左）</td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
+				<table class="ui unstackable celled structured table">
+					<tbody>
+						<tr>
+							<td class="cellheader" style="width: 100px" rowspan="4">血压</td>
+							<td class="cellheader">判定</td>
+							<td class="cellheader">检查项目</td>
+							<td class="cellheader">标准值/单位</td>
+							<td class="cellheader">本次</td>
+						</tr>
+						<tr>
+							<td rowspan="3"></td>
+							<td>高压</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>低压</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
 
-<table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:100px" rowspan="6">听力</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-    </tr>
-    <tr>
-      <td rowspan="5"></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-  </tbody>
-</table>
-</div>
-  </div>
-</div>
+				<table class="ui unstackable celled structured table">
+					<tbody>
+						<tr>
+							<td class="cellheader" style="width: 100px" rowspan="4">视力</td>
+							<td class="cellheader">判定</td>
+							<td class="cellheader">检查项目</td>
+							<td class="cellheader">标准值/单位</td>
+							<td class="cellheader">本次</td>
+						</tr>
+						<tr>
+							<td rowspan="3"></td>
+							<td>矫正视力（右）</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>矫正视力（左）</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table class="ui unstackable celled structured table">
+					<tbody>
+						<tr>
+							<td class="cellheader" style="width: 100px" rowspan="6">听力</td>
+							<td class="cellheader">判定</td>
+							<td class="cellheader">检查项目</td>
+							<td class="cellheader">标准值/单位</td>
+							<td class="cellheader">本次</td>
+						</tr>
+						<tr>
+							<td rowspan="5"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 </body>
