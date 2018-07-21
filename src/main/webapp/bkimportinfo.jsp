@@ -13,6 +13,7 @@
 
 
 <script type="text/javascript">
+  activeitem="#item02";
   var app = angular.module('listApp',[]);
   app.controller('ListController', function($scope,$http,transFormFactory) {
 	  var list = this;

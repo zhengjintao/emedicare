@@ -12,6 +12,7 @@
 <script src="angularjs/angular.min.js"></script>
 
 <script type="text/javascript">
+  activeitem="#item03";
   var app = angular.module('listApp',[]);
   
   app.config(function($provide){
@@ -54,16 +55,17 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 </script>
 
 <body ng-controller="ListController as list">
+
 　　　<div id="cmodal" class="ui small test modal transition hidden">
 		<i class="close icon"></i>
 		<div class="content">
 			<p id="errmsg">{{list.message}}</p>
 		</div>
 	</div>
-	<div style="width: 80%; margin-left: auto; margin-right: auto;">
-		<jsp:include page="bkheader.jsp" />
+	<div style="width:80%; margin-left: auto; margin-right: auto;margin-top:-20px;">
 		
-		<div class="ui attached segment" style="margin-top: －5px">
+	<jsp:include page="bkheader.jsp" />
+			<div class="ui attached segment">
 			<div class="ui form">
 				<div class="three fields">
 					<div class="field">
@@ -121,7 +123,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				
 			</tbody>
 		</table>
-		<div width="5px"></div>
 	</div>
 </body>
 </html>
