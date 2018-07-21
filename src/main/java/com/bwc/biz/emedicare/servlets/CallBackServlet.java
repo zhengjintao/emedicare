@@ -52,16 +52,17 @@ public class CallBackServlet extends HttpServlet {
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 				return;
 			}
+			
 			String openid = jsonObject.getString("openid");
+			errmsg = errmsg + "－－成功获取openid: " + openid+" －－<br>";
 			
 			String sql = "select * from mstr_user where openid=? and delflg='0'";
 			Object[] params = new Object[1];
 			params[0] = openid;
 			List<Object> userinfo = JdbcUtil.getInstance().excuteQuery(sql, params);
 			
-			if(userinfo != null && userinfo.size() >1){
-				request.getRequestDispatcher("login.do?multi=1&openid="+ openid).forward(request, response);
-			}else if(userinfo != null && userinfo.size() >0){
+			if(userinfo != null && userinfo.size() >0){
+				errmsg = errmsg + "－－已存在，单账号登录－－<br>";
 				Map<String, Object> info = (Map<String, Object>)userinfo.get(0);
 				if("0".equals((String)info.get("delflg"))){
 					String ueserid = (String)info.get("userid");
@@ -74,7 +75,7 @@ public class CallBackServlet extends HttpServlet {
 				return;
 			}else{
 				String accessToken = jsonObject.getString("access_token");
-				errmsg = errmsg + "－－开始获取userInfo－－<br>";
+				errmsg = errmsg + "－－开始获取用户微信信息－－<br>";
 				String infoUrl = URLProducer.GetUserInfoUrl(accessToken, openid);
 				JSONObject userInfo = HttpRequestor.httpGetProc(infoUrl);
 				
@@ -84,14 +85,17 @@ public class CallBackServlet extends HttpServlet {
 					return;
 				}
 				
+				String username = userInfo.getString("nickname");
+				String sex = "1".equals(userInfo.get("sex").toString()) ? "M" : "F";
+				errmsg = errmsg + "－－成功获取用户昵称: " + username +" －－<br>";
+				errmsg = errmsg + "－－成功获取用户性别: " + sex +" －－<br>";
+				
 				String sql2 = "select count(*) as num from mstr_user where userid like 'U0%'";
 				List<Object> usercount = JdbcUtil.getInstance().excuteQuery(sql2, null);
 				Map<String, Object> row = (Map<String, Object>) usercount.get(0);
 				int uid = new Integer(row.get("num").toString());
 				
 				String euserid = "U0" + StringUtil.padLeft(String.valueOf(++uid), 6, '0');
-				String username = userInfo.getString("nickname");
-				String sex = "1".equals(userInfo.get("sex").toString()) ? "M" : "F";
 				String password = "changeme";
 				sql2 = "insert into mstr_user values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				Object[] params2 = new Object[15];

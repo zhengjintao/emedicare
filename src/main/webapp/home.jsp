@@ -92,7 +92,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="column">
 			<div style="margin-top:10px"></div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">{{list.lbluserinfo}}</a>
+				<div class="ui large top attached label center aligned">{{list.lbluserinfo}}</div>
 				<div class="ui large middle aligned selection divided list">
 					<div class="item" ng-click="list.onitemclick(0)">
 					   
@@ -109,7 +109,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 
 			</div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">{{list.lblservice}}</a>
+				<div class="ui large top attached label center aligned">{{list.lblservice}}</div>
 				<div class="ui large middle aligned selection divided list">
 					<div class="item" ng-click="list.onitemclick(1)">
 						<div class="right floated content">
@@ -141,7 +141,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				</div>
 			</div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">{{list.lblsetting}}</a>
+				<div class="ui large top attached label center aligned">{{list.lblsetting}}</div>
 				<div class="ui large middle aligned selection divided list">
 					<div class="item" ng-click="list.onitemclick(4)">
 						<div class="right floated content">

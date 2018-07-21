@@ -165,7 +165,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="column">
 			<div style="margin-top:10px"></div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">{{list.lblvisit}}</a>
+				<div class="ui large top attached label center aligned">{{list.lblvisit}}</div>
 				<div class="ui large form">
 				   <input type="text" ng-show=false ng-model="list.id">
 					<label style="width: 60px">{{list.lbldate}}</label>
@@ -174,13 +174,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					<label style="width: 60px">{{list.lbldetail}}</label> <textarea type="text"
 							placeholder={{list.lblexplain}} ng-model="list.detail"></textarea>
 					<div style="height:5px"></div>
-					<button class="fluid ui large button" ng-click="list.onItemClick()">{{list.lblsave}}</button>
 				</div>
-
 			</div>
+			<button class="fluid ui blue large button" ng-click="list.onItemClick()">{{list.lblsave}}</button>
 			
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">{{list.lblheader}}</a>
+				<div class="ui large top attached label center aligned">{{list.lblheader}}</div>
 				<div class="ui large middle aligned divided list">
 					<div class="item" ng-repeat="eachitem in list.historyList">
 						<div class="right floated content">

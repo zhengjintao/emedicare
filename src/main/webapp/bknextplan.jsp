@@ -90,7 +90,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				</div>
 			</div>
 		</div>
-		<table class="ui celled table" style="margin-top: 5px">
+		<table class="ui unstackable celled structured table" style="margin-top: 5px">
 			<tbody>
 				<tr bgcolor="#FAFAFA" height="30px">
 					<th width="30%" style="text-align: center">ユーザ名前</th>
@@ -110,7 +110,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<h4 class="ui horizontal divider header">
 				<i class="bar chart icon"></i> 過去検査お知らせ
 		</h4>
-		<table class="ui celled table" style="margin-top: 5px">
+		<table class="ui unstackable celled structured table" style="margin-top: 5px">
 			<tbody>
 				<tr ng-repeat="eachitem in list.historyinfolist">
 					<td width="30%" id="week0"><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.username}}</a></td>

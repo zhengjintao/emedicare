@@ -10,9 +10,10 @@
 <title>診査详细</title>
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
-
 <script>
-
+initdata=[];
+initdata.expid = '<%=request.getAttribute("expid")%>';
+initdata.name = '<%=request.getAttribute("name")%>';
 </script>
 <script src="assets/js/detailcommon.js"></script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -41,7 +42,8 @@
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
-  list.expid = 'E0000001';
+  list.expid = initdata.expid;
+  list.name = initdata.name;
   list.sheets = constsheets;
   
   (function(){
@@ -96,7 +98,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	<div class="ui bottom attached segment pushable">
 
 		<div class="ui sidebar  vertical menu">
-			<a class="item"><h3>诊查记录20180612</h3></a> <a class="item"
+			<a class="item"><h3>{{list.name}}</h3></a> <a class="item"
 				ng-repeat="eachitem in list.sheets" href="{{eachitem.href}}">{{eachitem.name}}</a>
 			<div style="height: 100px"></div>
 		</div>

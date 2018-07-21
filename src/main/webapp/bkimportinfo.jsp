@@ -54,29 +54,23 @@
 
 	<div style="width: 80%; margin-left: auto; margin-right: auto;">
 		<jsp:include page="bkheader.jsp" />
-		<form action="./bkimportinfo.do" method="post" onsubmit="return checkdate();">
-		<div class="ui grid teal inverted segment">
-			<div class="seven wide column">
-				<div class="ui action input" style="width: 550px;">
+		<form action="./bkimportinfo.do" method="post"
+			onsubmit="return checkdate();">
+			<div class="ui fluid action input">
 					<input class="ui input" type="file" id="filepath" name="filepath" />
+					<button class="ui button">
+						一括登録
+					</button>
 				</div>
-			</div>
-			<div class="two wide column">
-				<Button class="ui active teal button">
-					<i></i> 一括登録
-				</Button>
-			</div>
-
-		</div>
-        </form>
+		</form>
 		<label class="ui label" style="text-align: left"><h3>登録結果一覧</h3></label>
-		<table class="ui celled table" style="margin-top: 5px">
+		<table class="ui unstackable celled structured table" style="margin-top: 5px">
 			<tbody>
-				<tr bgcolor="#00B5AB">
-					<th width="50%" style="text-align: center; color: white">ファイル名</th>
-					<th width="20%" style="text-align: center; color: white">日付</th>
-					<th width="20%" style="text-align: center; color: white">名前</th>
-					<th width="10%" style="text-align: center; color: white">結果</th>
+				<tr bgcolor="#FAFAFA">
+					<th width="50%" style="text-align: center;">ファイル名</th>
+					<th width="20%" style="text-align: center;">日付</th>
+					<th width="20%" style="text-align: center;">名前</th>
+					<th width="10%" style="text-align: center;">結果</th>
 				</tr>
 				<%
 					List<String[]> imoprthist = (List<String[]>) request.getAttribute("imoprthist");

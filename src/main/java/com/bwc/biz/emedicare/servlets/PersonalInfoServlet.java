@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bwc.biz.emedicare.common.JdbcUtil;
+import com.bwc.biz.emedicare.common.StringUtil;
 import com.bwc.biz.emedicare.form.User;
 
 /**
@@ -62,7 +63,7 @@ public class PersonalInfoServlet extends HttpServlet {
      		userinfo.setAddress(address);
 			session.setAttribute("userinfo", userinfo);
 			
-			request.getRequestDispatcher("home.do").forward(request, response);
+			response.sendRedirect("home.do");
 		}else{
 			String userid=userinfo.getUserId();
 			String sql = "select * from mstr_user where userid=? and delflg='0'";
@@ -75,8 +76,8 @@ public class PersonalInfoServlet extends HttpServlet {
      		request.setAttribute("username", (String)info.get("username"));
      		request.setAttribute("langinx", new Integer((String)info.get("lang")));
      		request.setAttribute("sex", (String)info.get("sex"));
-     		request.setAttribute("telnum", (String)info.get("telnum"));
-     		request.setAttribute("address", (String)info.get("address"));
+     		request.setAttribute("telnum", StringUtil.valueOf(info.get("telnum")));
+     		request.setAttribute("address", StringUtil.valueOf(info.get("address")));
      		request.setAttribute("birthday", info.get("birthday").toString());
 			request.getRequestDispatcher("personalinfo.jsp").forward(request, response);
 		}

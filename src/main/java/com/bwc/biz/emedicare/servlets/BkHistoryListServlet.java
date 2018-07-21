@@ -35,9 +35,14 @@ public class BkHistoryListServlet extends HttpServlet {
 		
 		if("list".equals(mode)){
 			// 診査履歴
-			this.explist(request, response);
+			JSONArray explist = this.explist(request, response);
 			// 通院履歴
-			//this.visitlist(request, response);
+			JSONArray visitlist = this.visitlist(request, response);
+			// 最終結果
+			JSONObject result = new JSONObject();
+			result.put("explist", explist);
+			result.put("visitlist", visitlist);
+			response.getWriter().write(result.toString());
 		}else{
 			String userid = request.getParameter("userid");
 
@@ -65,7 +70,7 @@ public class BkHistoryListServlet extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	private void explist(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+	private JSONArray explist(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		String userid = request.getParameter("userid");
 		JSONArray jsonArray = new JSONArray();
 		String sql = "select * from cdata_history where userid=? and deleteflg='0' order by historyno";
@@ -85,13 +90,10 @@ public class BkHistoryListServlet extends HttpServlet {
 			i++;
 		}
 		
-		// 最終結果
-		JSONObject result = new JSONObject();
-		result.put("explist", jsonArray);
-		response.getWriter().write(result.toString());
+		return jsonArray;
 	}
 	
-	private void visitlist(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+	private JSONArray visitlist(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
 		String userid = request.getParameter("userid");
 		JSONArray jsonArray = new JSONArray();
 		String sql = "select * from cdata_visithistory where userid=? and delflg='0' order by visitdate desc";
@@ -109,9 +111,6 @@ public class BkHistoryListServlet extends HttpServlet {
 			i++;
 		}
 		
-		// 最終結果
-		JSONObject result = new JSONObject();
-		result.put("visitlist", jsonArray);
-		response.getWriter().write(result.toString());
+		return jsonArray;
 	}
 }

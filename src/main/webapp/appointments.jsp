@@ -49,14 +49,14 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       {id:'00001', header:'检查通知－20180606', date:'2018年5月30日 9点30分', description:'请提前预约好时间，不能错过时间。', status:'未确认'}
       ];
   list.historyList =  [
-	  {id:'00001', header:'检查通知－20180506', date:'2018年5月30日 9点30分', description:'请提前预约好时间，不能错过时间。', status:'未确认'},
-	  {id:'00001', header:'检查通知－20180406', date:'2018年5月30日 9点00分', description:'请提前预约好时间，不能错过时间。', status:'已确认'}
+	  {id:'00001', header:'检查通知－20180506', date:'2018年5月30日 9点30分', description:'请提前预约好时间，不能错过时间。', status:'未确认'}
       ];
   
   list.lblbtnoks = ['确定', 'OK', '確認'];
   list.lblheaders = ['履历', 'List', '履歴'];
   list.lblconfirmstatuss =['状态：已确认', 'Status：Unconfirmed', '状態：確認済']
   list.lblstatuss =['状态：未确认', 'Status：Confirmed', '状態：未確認']
+  list.lblmessages =['暂时没有预定检查信息', 'No yet has appointment.', '次回検査予定がありません']
   
   list.setlabel = function() {
 	  var laninx = this.langinx;
@@ -65,6 +65,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  list.lblstatus = list.lblstatuss[laninx];
 	  list.lblconfirmstatus = list.lblconfirmstatuss[laninx];
 	  list.lblstatus = list.lblstatuss[laninx];
+	  list.lblmessage = list.lblmessages[laninx];
 	}
   
   list.setlabel();
@@ -120,10 +121,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		</div>
 	</div>
 	<div class="ui one column grid container">
-	    <div class="column"  ng-show="list.recentList.length == 0 && list.hisotryList.length == 0">
-	      次回検査予定がありません
+	    <div class="column"  ng-show="list.recentList.length == 0 && list.historyList.length == 0">
+	      <div style="margin-top: 10px"></div>
+	      <div class="ui blue message">{{list.lblmessage}}</div>
 	    </div>
-		<div class="column"  ng-show="list.recentList.length > 0 || list.hisotryList.length > 0">
+		<div class="column"  ng-show="list.recentList.length > 0 || list.historyList.length > 0">
 			<div style="margin-top: 10px"></div>
 			<div class="ui centered cards">
 				<div class="card" ng-repeat="eachitem in list.recentList">

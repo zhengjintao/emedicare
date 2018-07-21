@@ -35,7 +35,11 @@ public class ExploratoryDetailServlet extends HttpServlet {
 		if("list".equals(mode)){
 			this.list(request, response);
 		}else{
+			String expid = request.getParameter("expid");
+			String name = request.getParameter("name");
 			String jspname = String.format("exploratorydetail%s.jsp", sheetid);
+			request.setAttribute("expid", expid);
+			request.setAttribute("name", name);
 			request.getRequestDispatcher(jspname).forward(request, response);
 		}
 	}

@@ -14,4 +14,12 @@ public class StringUtil {
         }
         return new String(charr);
     }
+	
+	public static String valueOf(Object val){
+		if(val == null){
+			return "";
+		}else{
+			return val.toString();
+		}
+	}
 }

@@ -10,17 +10,13 @@
 <title>言語設定</title>
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
-
-<script src="jquery/jquery-3.1.1.min.js"></script>
-<script src="dist/components/form.min.js"></script>
-<script src="dist/components/transition.min.js"></script>
-<script src="dist/semantic.min.js"></script>
 <script>
 initdata=[];
 initdata.langinx = '<%=request.getAttribute("langinx")%>';
 </script>
-
 <script src="jquery/jquery-3.1.1.min.js"></script>
+<script src="dist/components/form.min.js"></script>
+<script src="dist/components/transition.min.js"></script>
 <script src="dist/semantic.min.js"></script>
 <script src="angularjs/angular.min.js"></script>
 <script type="text/javascript">
@@ -77,7 +73,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="column">
 			<div style="margin-top: 10px"></div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">{{list.lblheader}}</a>
+				<div class="ui large top attached label center aligned">{{list.lblheader}}</div>
 				<div class="ui large form">
 					<div class="grouped fields">
 						<div class="field">
@@ -95,7 +91,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 								<input type="radio" value="2" ng-model="list.langinx" ng-click="list.onRadioChange()"> <label> <i class="jp flag"></i>日本語</label>
 							</div>
 						</div>
-						<button class="fluid ui large button" ng-click="list.onItemClick()">OK</button>
+						<button class="fluid ui blue large button" ng-click="list.onItemClick()">OK</button>
 					</div>
 				</div>
 

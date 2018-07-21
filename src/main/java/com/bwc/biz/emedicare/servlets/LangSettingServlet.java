@@ -45,7 +45,7 @@ public class LangSettingServlet extends HttpServlet {
      		userinfo.setLanginx(new Integer(langinx));
 			session.setAttribute("userinfo", userinfo);
 			
-			request.getRequestDispatcher("home.do").forward(request, response);
+			response.sendRedirect("home.do");
 		}else{
 			// DBから言語区分取得
 			String langinx = String.valueOf(userinfo.getLanginx());

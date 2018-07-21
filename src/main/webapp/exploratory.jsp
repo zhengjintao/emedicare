@@ -42,24 +42,15 @@
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
-  list.errmessage ="";
-  list.companyid="000000001"
-  list.name ="株式会社";
-  list.shortname="BWC";
-  list.label ="株式会社tesut";
-  list.telnum="080-01";
-  list.address ="新书";
-  list.site="www.baidu.com";
-  list.types =  [
-      {id:'00001', text:'learn AngularJS'}
-      ];
-  list.onsalegoods =  [
-      {id:'00001', text:'learn AngularJS'}
+  list.records =  [
+      {id:'E0000001', text:'診査记录20170514'},
+      {id:'E0000001', text:'診査记录20170514'},
+      {id:'E0000001', text:'診査记录20170514'},
+      {id:'E0000001', text:'診査记录20170514'}
       ];
   (function(){
-  	
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'list', 'companyid':list.companyid};
+  	$scope.url =  "exploratory.do";
+  	var postdata = {'mode':'list'};
       $http(
   		{
   			method:"POST",
@@ -68,8 +59,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   			transformRequest:transFormFactory.transForm,
   			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
   		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
+  			//list.records = result.data.records;
           }).catch(function (result) {
           	list.message = "SORRY!エラーが発生しました。";
           	$('.ui.basic.modal') .modal('show');
@@ -77,27 +67,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       
   })();
   
-  list.submit = function() {
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'submit'};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-          	orderList.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-  }
-  
-  list.onitemclick = function() {
-	  window.location.href = 'exploratorydetail.do';
+  list.onitemclick = function(item) {
+	  window.location.href = 'exploratorydetail.do?expid=' + item.id +"&name=" + item.text;
   }
 });
 </script>
@@ -113,27 +84,13 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	<div class="ui one column grid container">
 		<div class="column">
 			<div style="margin-top:10px"></div>
+			<a href="home.do"><i class="angle left icon"></i>返回主页</a>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">診査履歴</a>
+				<div class="ui large top attached label center aligned">診査履歴</div>
 				<div class="ui large middle aligned selection divided list">
-					<div class="item" ng-click="list.onitemclick(2)">
+					<div class="item"  ng-repeat="eachitem in list.records" ng-click="list.onitemclick(eachitem)">
 						<div class="content">
-							<a class="header">診査记录20180702</a>
-						</div>
-					</div>
-					<div class="item" ng-click="list.onitemclick(2)">
-						<div class="content">
-							<a class="header">診査记录20180614</a>
-						</div>
-					</div>
-					<div class="item" ng-click="list.onitemclick(2)">
-						<div class="content">
-							<a class="header">診査记录20170514</a>
-						</div>
-					</div>
-					<div class="item" ng-click="list.onitemclick(2)">
-						<div class="content">
-							<a class="header">診査记录20160410</a>
+							<a class="header">{{eachitem.text}}</a>
 						</div>
 					</div>
 				</div>

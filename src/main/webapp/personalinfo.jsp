@@ -10,11 +10,6 @@
 <title>個人情報</title>
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
-
-<script src="jquery/jquery-3.1.1.min.js"></script>
-<script src="dist/components/form.min.js"></script>
-<script src="dist/components/transition.min.js"></script>
-<script src="dist/semantic.min.js"></script>
 <script>
 initdata=[];
 initdata.userid = '<%=request.getAttribute("userid")%>';
@@ -25,7 +20,6 @@ initdata.telnum = '<%=request.getAttribute("telnum")%>';
 initdata.address = '<%=request.getAttribute("address")%>';
 initdata.birthday = '<%=request.getAttribute("birthday")%>';
 </script>
-
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="dist/semantic.min.js"></script>
 <script src="angularjs/angular.min.js"></script>
@@ -33,7 +27,6 @@ initdata.birthday = '<%=request.getAttribute("birthday")%>';
   var app = angular.module('listApp',[]);
   
   app.config(function($provide){
-          
       $provide.factory("transFormFactory",function(){
           return {
               transForm : function(obj){
@@ -142,11 +135,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				<a class="ui large top attached label center aligned">{{list.lbluserinfo}}</a>
 				<div class="ui form">
 					<div class="inline field">
-						<label style="width: 60px">{{list.lblname}}</label> <input type="text"
-							placeholder={{list.lblname}} ng-model="list.username">
+						<label style="width: 53px;margin:0">{{list.lblname}}</label> <input type="text"  ng-model="list.username">
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">{{list.lblsex}}</label>
+						<label style="width: 53px;margin:0">{{list.lblsex}}</label>
 						<div class="ui radio checkbox">
 							<input type="radio" name="frequency" value="M" ng-model="list.sex"> <label>{{list.lblman}}</label>
 						</div>
@@ -155,25 +147,23 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						</div>
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">{{list.lblbirthday}}</label> 
-						<input type="date" min="1900-01-01" max="2018-06-25"  ng-model="list.birthday" ng-change="list.countage()" >
+						<label style="width: 53px;margin:0">{{list.lblbirthday}}</label> 
+						<input type="date" min="1900-01-01" ng-model="list.birthday" ng-change="list.countage()" >
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">{{list.lblage}}</label> <input type="text"
-							placeholder={{list.lblage}} disabled=""  ng-model="list.age" style="width:60px">
+						<label style="width: 53px;margin:0">{{list.lblage}}</label> <input type="text"  disabled=""  ng-model="list.age" style="width:60px">
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">{{list.lbltelnum}}</label> <input type="text"
-							placeholder={{list.lbltelnum}} ng-model="list.telnum">
+						<label style="width: 53px;margin:0">{{list.lbltelnum}}</label> <input type="text"  ng-model="list.telnum">
 					</div>
 					<div class="inline field">
-						<label style="width: 60px">{{list.lbladdress}}</label>
-							<textarea rows="2" cols="">{{list.address}}</textarea>
+						<label style="width: 53px; margin-bottom:5px">{{list.lbladdress}}</label>
+							<textarea rows="2" cols="" ng-model="list.address"></textarea>
 					</div>
 				</div>
 
 			</div>
-			<button class="fluid ui large button" ng-click="list.onItemClick()">{{list.lblsave}}</button>
+			<button class="fluid ui blue large button" ng-click="list.onItemClick()">{{list.lblsave}}</button>
 			
 		</div>
 	
