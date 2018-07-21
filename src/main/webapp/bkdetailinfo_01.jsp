@@ -1,5 +1,5 @@
 ﻿ <%@ page import="java.util.List" %> 
-<div class="ui bottom attached active tab segment">
+<div class="ui bottom attached active tab segment" data-tab="dtl01">
 	<div id="table1" class="ui attached segment" style="margin-top: auto;">
 		<div class="ui equal width grid">
 			<div class="column">

@@ -1,6 +1,5 @@
-﻿<div class="ui bottom attached active tab segment">
-	<table id="table2" border="1" class="ui unstackable celled table"
-		style="display: none;">
+﻿<div class="ui bottom attached tab segment" data-tab="dtl02">
+	<table id="table2" border="1" class="ui unstackable celled table">
 		<tr bgcolor="#00B5AB">
 			<th width="20%" style="text-align: center; color: white">检查项目</th>
 			<th width="10%" style="text-align: center; color: white">判定</th>

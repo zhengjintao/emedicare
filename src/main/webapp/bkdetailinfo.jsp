@@ -37,6 +37,32 @@
        list.dt_01[<%=i%>] = "<%=dataList.get(i)%>";
    <%}%>
    
+   list.sheets =[
+	   {'id' : 'dtl01', 'name': '健診結果報告書１'},
+	   {'id' : 'dtl02', 'name': '健診結果報告書２'},
+	   {'id' : 'dtl03', 'name': '健診結果報告書３'},
+	   {'id' : 'dtl04', 'name': '健診結果報告書４'},
+	   {'id' : 'dtl05', 'name': '健診結果報告書５'},
+	   {'id' : 'dtl06', 'name': '健診結果報告書６'},
+	   {'id' : 'dtl07', 'name': '健診結果報告書７'},
+	   {'id' : 'dtl08', 'name': '健診結果報告書８'},
+	   {'id' : 'dtl09', 'name': '健診結果報告書９'},
+	   {'id' : 'dtl10', 'name': '健診結果報告書１０'},
+	   {'id' : 'dtl11', 'name': '健診結果報告書１１'},
+	   {'id' : 'dtl12', 'name': '综合判断'},
+	   {'id' : 'dtl13', 'name': '检查结果查询表'},
+	   {'id' : 'dtl14', 'name': 'SPO 2'},
+	   {'id' : 'dtl15', 'name': '甲状腺機能'},
+	   {'id' : 'dtl16', 'name': '肿瘤标志物'},
+	   {'id' : 'dtl17', 'name': 'ABC検診'},
+	   {'id' : 'dtl18', 'name': '血压脉搏检查'},
+	   {'id' : 'dtl19', 'name': '骨密度'},
+	   {'id' : 'dtl20', 'name': '脳ドック'},
+	   {'id' : 'dtl21', 'name': '颈动脉超声波'},
+	   {'id' : 'dtl22', 'name': '骨盆MRI'},
+	   {'id' : 'dtl23', 'name': '心脏超声波'}
+   ]
+   
    list.saveData = function() {
 
 	   var json=list.dt_01;
@@ -66,6 +92,12 @@
 		    }
 		});
    }
+   
+   list.itemclick = function(eachitem){
+	   $('.menu .item').tab('change tab', eachitem.id);
+   }
+   
+   $('.menu .item').tab();
 });
 </script>
 
@@ -73,6 +105,7 @@
 body {
 	margin-top: 10px;
 	background-color: #FFFFFF;
+	min-width:950px;
 }
 
 body>.grid {
@@ -109,7 +142,7 @@ footer {
 		<jsp:include page="bkheader.jsp" />
 		<div class="ui equal width grid">
 			<div class="column" style="margin-top:10px;">
-				<div class="ui breadcrumb">
+				<div class="ui breadcrumb" style="width:500px">
 					<a class="section" href="bkaccountlist.do"><h4>顧客一覧</h4></a> <i
 						class="right angle icon divider"></i> <a class="section"
 						href="bkhistorylist.do?userid={{list.dt_01[2]}}"><h4>{{list.dt_01[0]}}</h4></a> <i
@@ -129,13 +162,26 @@ footer {
 				</div>
 			</div>
 		</div>
+		<div class="ui segment">
+		
+			<div class="ui celled horizontal list">
+			<a class="item" href="#" ng-repeat="eachitem in list.sheets" ng-click="list.itemclick(eachitem)" >{{eachitem.name}}</a>
+		</div>
+		</div>
+		
 		<div class="ui section divider"
 			style="margin-top: 5px; margin-bottom: 0px"></div>
-		<div class="ui top attached tabular menu">
-			<div id="tab1" class="active item" onclick="tabclick('tab1')">健診結果報告書1</div>
-			<div id="tab2" class="item" onclick="tabclick('tab2')">健診結果報告書2</div>
+		<div class="ui top attached tabular menu" style="display:none">
+			<a class="item active" ng-repeat="eachitem in list.sheets" data-tab={{eachitem.id}}>{{eachitem.name}}</a>
 		</div>
 		<jsp:include page="bkdetailinfo_01.jsp" />
+		<jsp:include page="bkdetailinfo_02.jsp" />
+		<jsp:include page="bkdetailinfo_03.jsp" />
+		<jsp:include page="bkdetailinfo_04.jsp" />
+		<jsp:include page="bkdetailinfo_05.jsp" />
+		<jsp:include page="bkdetailinfo_06.jsp" />
+		<jsp:include page="bkdetailinfo_07.jsp" />
+		<jsp:include page="bkdetailinfo_08.jsp" />
 	</div>
 </body>
 </html>
