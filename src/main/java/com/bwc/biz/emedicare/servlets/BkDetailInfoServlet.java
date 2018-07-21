@@ -1,12 +1,13 @@
 ﻿package com.bwc.biz.emedicare.servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bwc.biz.emedicare.detailget.GetDetailData_01;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_01;
 
 /**
  * Servlet implementation class BkDetailInfoServlet
@@ -24,16 +25,27 @@ public class BkDetailInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String mode = request.getParameter("mode");
 		String userid = request.getParameter("userid");
 		String historydate = request.getParameter("historydate");
 		String historyname = request.getParameter("historyname");
-
-		// 健診結果報告書１数据取得
-		GetDetailData_01 getdetaildata01 = new GetDetailData_01();
-		request.setAttribute("historyname", historyname);
-		request.setAttribute("detailDataList01", getdetaildata01.getDateValue(userid, historydate));
 		
-		request.getRequestDispatcher("bkdetailinfo.jsp").forward(request, response);
+		if(mode.equals("init")){
+			request.setAttribute("historyname", historyname);
+			// 画面表示用数据取得
+			this.getDispData(request,userid,historydate);
+			request.getRequestDispatcher("bkdetailinfo.jsp").forward(request, response);
+		}else if(mode.equals("save")){
+			this.savedata(request);
+			// 画面表示用数据取得
+			this.getDispData(request,userid,historydate);
+			request.getRequestDispatcher("bkdetailinfo.jsp").forward(request, response);
+		}
+		else if(mode.equals("delete")){
+			this.deletedata(request);
+		}
+		
+		
 	}
 
 	/**
@@ -41,5 +53,28 @@ public class BkDetailInfoServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
+	}
+	
+	/*
+	 * 画面表示用数据取得
+	 */
+	private void getDispData(HttpServletRequest request,String userid,String historydate){
+		// 健診結果報告書１数据取得
+		BKDetailData_01 detaildata01 = new BKDetailData_01();
+		request.setAttribute("detailDataList01", detaildata01.getDateValue(userid, historydate));
+	}
+	
+	private void savedata(HttpServletRequest request){
+		String[] detaildata01 =  request.getParameterValues("json[]");
+		BKDetailData_01 data01 = new BKDetailData_01();
+		data01.saveDataDispToDb(detaildata01);
+		
+	}
+	
+	private void deletedata(HttpServletRequest request){
+		String[] detaildata01 =  request.getParameterValues("json[]");
+		BKDetailData_01 data01 = new BKDetailData_01();
+		data01.deleteData(detaildata01);
+		
 	}
 }

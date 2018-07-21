@@ -1,6 +1,5 @@
 package com.bwc.biz.emedicare.servlets;
 
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -9,20 +8,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_01;
 import com.bwc.biz.emedicare.common.JdbcUtil;
-import com.bwc.biz.emedicare.detailsave.ImportDataDetail_01;
 import com.bwc.biz.emedicare.form.User;
 
 /**
@@ -102,10 +99,9 @@ public class BkImportInfoServlet extends HttpServlet {
 			int histno = this.check(userid, date);
 			
 			// 履历情报-Sheet1（健診結果報告書１）
-			ImportDataDetail_01 detail01 = new ImportDataDetail_01(sheet, userid,username,date,Integer.toString(histno));
-			detail01.saveData();
+			BKDetailData_01 detail01 = new BKDetailData_01(sheet, userid,username,date,Integer.toString(histno));
+			detail01.saveDataExcelToDb();
 			
-		
 			String fileName = file.getName();
 			String historyname = fileName.substring(0, fileName.indexOf("."));
 			this.saveHistoryDate(userid, username, histno, historyname, date);

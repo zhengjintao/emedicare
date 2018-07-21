@@ -29,15 +29,44 @@
       });
   });
   
-app.controller('ListController', function($scope,$http,transFormFactory) {
+  app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.dt_01 = new Array();
   <%List<String> dataList = (List<String>) request.getAttribute("detailDataList01");%>;
-  <%for(int i=0;i <dataList.size();i++){%>  
+  <%for (int i = 0; i < dataList.size(); i++) {%>  
        list.dt_01[<%=i%>] = "<%=dataList.get(i)%>";
-  <%}%> 
+   <%}%>
+   
+   list.saveData = function() {
 
- });
+	   var json=list.dt_01;
+	   $.ajax({
+		    url: "bkdetailinfo.do?mode=save",
+		    type: "POST",
+		    datatype:'json',
+		    data:{json:json},
+		    success: function(data) {
+		    	$("#errmsg").html("保存完成");
+				$('#cmodal').modal({
+					closable : false
+				}).modal('show')
+		    }
+		});
+   };
+   
+   list.deleteData = function() {
+	   var json=list.dt_01;
+	   $.ajax({
+		    url: "bkdetailinfo.do?mode=delete",
+		    type: "POST",
+		    datatype:'json',
+		    data:{json:json},
+		    success: function(data) {
+		  	  window.location.href = 'bkhistorylist.do?userid='+ list.dt_01[2];
+		    }
+		});
+   }
+});
 </script>
 
 <style type="text/css">
@@ -58,6 +87,18 @@ footer {
 }
 </style>
 <body ng-controller="ListController as list">
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$('.ui.accordion').accordion();
+		
+		var message = "<%=(String) request.getAttribute("errmsg")%>";
+		if (message != "null" && message.length > 0) {
+			$('#cmodal').modal({
+				closable : false
+
+			}).modal('show');
+		}});
+	</script>
     <div id="cmodal" class="ui small test modal transition hidden">
 		<i class="close icon"></i>
 		<div class="content">
@@ -66,16 +107,25 @@ footer {
 	</div>
 	<div style="width: 80%; margin-left: auto; margin-right: auto;">
 		<jsp:include page="bkheader.jsp" />
-		<div class="ui grid">
-			<div class="column">
+		<div class="ui equal width grid">
+			<div class="column" style="margin-top:10px;">
 				<div class="ui breadcrumb">
 					<a class="section" href="bkaccountlist.do"><h4>顧客一覧</h4></a> <i
 						class="right angle icon divider"></i> <a class="section"
-						href="bkhistorylist.do?userid={{list.dt_01[22]}}"><h4>{{list.dt_01[20]}}</h4></a> <i
+						href="bkhistorylist.do?userid={{list.dt_01[2]}}"><h4>{{list.dt_01[0]}}</h4></a> <i
 						class="right angle icon divider"></i>
 					<div class="active section">
 						<h4><%=(String)request.getAttribute("historyname")%></h4>
 					</div>
+				</div>
+			</div>
+			<div class="column"></div>
+			<div class="column" style="text-align:right" >
+				<div class="ui active teal button" ng-click="list.saveData()" >
+					<i class="save icon"></i>保存
+				</div>
+				<div class="ui active teal button" ng-click = "list.deleteData()" >
+					<i class="trash icon"></i>删除
 				</div>
 			</div>
 		</div>

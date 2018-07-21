@@ -79,16 +79,16 @@
 					<th width="10%" style="text-align: center; color: white">結果</th>
 				</tr>
 				<%
-						List<String[]> imoprthist = (List<String[]>) request.getAttribute("imoprthist");
-						for (String[] each : imoprthist) {
-							out.print("<tr>");
-							out.print("<td>"+each[2]+"</td>");
-							out.print("<td >"+each[3]+"</td>");
-							out.print("<td >"+each[1]+"</td>");
-							out.print("<td >"+each[4]+"</td>");
-							out.print("</tr>");
-						}
-					%>
+					List<String[]> imoprthist = (List<String[]>) request.getAttribute("imoprthist");
+					for (String[] each : imoprthist) {
+						out.print("<tr>");
+						out.print("<td>" + each[2] + "</td>");
+						out.print("<td >" + each[3] + "</td>");
+						out.print("<td >" + each[1] + "</td>");
+						out.print("<td >" + each[4] + "</td>");
+						out.print("</tr>");
+					}
+				%>
 			</tbody>
 		</table>
 	</div>
