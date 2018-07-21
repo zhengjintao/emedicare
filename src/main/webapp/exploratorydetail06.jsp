@@ -109,15 +109,14 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   </div>
   <div class="pusher">
   <div class="ui segment">
- <table class="ui unstackable celled structured table">
-  <tbody>
+ <tbody>
     <tr>
-      <td class="cellheader" style="width:100px" rowspan="6">胸部X线检查</td>
+      <td class="cellheader" style="width:100px" rowspan="9">上部消化管内视镜</td>
       <td class="cellheader">判定</td>
       <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
-      <td rowspan="5"></td>
+      <td rowspan="8"></td>
       <td>部位</td>
       <td colspan="3">所见</td>
     </tr>
@@ -126,8 +125,20 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td colspan="3"></td>
     </tr>
     <tr>
-      <td colspan="2">上次</td>
-      <td colspan="2">上上次</td>
+      <td></td>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <td class="cellheader" colspan="2">上次</td>
+      <td class="cellheader" colspan="2">上上次</td>
     </tr>
     <tr>
       <td>部位</td>
@@ -143,11 +154,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
      <tr>
       <td class="cellheader" style="width:100px" rowspan="3">胃活检</td>
-      <td class="cellheader"></td>
+      <td rowspan="3"></td>
       <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
-      <td rowspan="2"></td>
       <td>部位</td>
       <td colspan="3">所见</td>
     </tr>
@@ -218,7 +228,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td> </td>
     </tr>
   </tbody>
-</table>
 </div>
   </div>
 </div>

@@ -1,13 +1,18 @@
-﻿<div class="ui bottom attached tab segment" data-tab="dtl02">
+﻿ <style>
+.cellheader {
+	background-color: #c4e8fc
+}
+</style>
+<div class="ui bottom attached tab segment" data-tab="dtl02">
 	<table id="table2" border="1" class="ui unstackable celled table">
-		<tr bgcolor="#00B5AB">
-			<th width="20%" style="text-align: center; color: white">检查项目</th>
-			<th width="10%" style="text-align: center; color: white">判定</th>
-			<th width="30%" style="text-align: center; color: white">明细项目</th>
-			<th width="10%" style="text-align: center; color: white">标准值/单位</th>
-			<th width="10%" style="text-align: center; color: white">本次</th>
-			<th width="10%" style="text-align: center; color: white">上次</th>
-			<th width="10%" style="text-align: center; color: white">上上次</th>
+		<tr class="cellheader">
+			<th width="20%" style="text-align: center;">检查项目</th>
+			<th width="10%" style="text-align: center;">判定</th>
+			<th width="30%" style="text-align: center;">明细项目</th>
+			<th width="10%" style="text-align: center;">标准值/单位</th>
+			<th width="10%" style="text-align: center;">本次</th>
+			<th width="10%" style="text-align: center;">上次</th>
+			<th width="10%" style="text-align: center;">上上次</th>
 		</tr>
 		<tr>
 			<td rowspan="3">诊察所见</td>

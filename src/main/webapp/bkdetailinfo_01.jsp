@@ -1,4 +1,9 @@
 ﻿ <%@ page import="java.util.List" %> 
+ <style>
+.cellheader {
+	background-color: #c4e8fc
+}
+</style>
 <div class="ui bottom attached active tab segment" data-tab="dtl01">
 	<div id="table1" class="ui attached segment" style="margin-top: auto;">
 		<div class="ui equal width grid">
@@ -45,9 +50,9 @@
 			<div class="eight wide column">
 				<h3 class="ui top header" style="margin-top: 10px;">日常生活习惯</h3>
 				<table border="1" class="ui unstackable celled table">
-					<tr bgcolor="#00B5AB">
-						<td width="10%" style="text-align: center; color: white"></td>
-						<td width="50%" style="text-align: center; color: white"
+					<tr class="cellheader">
+						<td width="10%" style="text-align: center;"></td>
+						<td width="50%" style="text-align: center;"
 							colspan="2">现在的生活习惯</td>
 					</tr>
 					<tr>
@@ -110,7 +115,7 @@
 			<div class="eight wide column">
 				<h3 class="ui top header" style="margin-top: 10px;">问诊内容</h3>
 				<table class="ui unstackable table">
-					<tr bgcolor="#00B5AB">
+					<tr class="cellheader">
 						<td>自觉症状</td>
 					</tr>
 					<tr height="100px">
@@ -121,7 +126,7 @@
 							</div>
 						</td>
 					</tr>
-					<tr bgcolor="#00B5AB">
+					<tr class="cellheader">
 						<td>既往史•现病史</td>
 					</tr>
 					<tr>
@@ -132,7 +137,7 @@
 							</div>
 						</td>
 					</tr>
-					<tr bgcolor="#00B5AB">
+					<tr class="cellheader">
 						<td>检查状态</td>
 					</tr>
 					<tr height="100px">

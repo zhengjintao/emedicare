@@ -121,7 +121,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td></td>
+      <td rowspan="4"></td>
       <td>任意时间血糖</td>
       <td></td>
       <td></td>
@@ -129,7 +129,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
     </tr>
     <tr>
-      <td></td>
       <td>血糖</td>
       <td></td>
       <td></td>
@@ -137,7 +136,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
     </tr>
     <tr>
-      <td></td>
       <td>HbA1c(NGSP)</td>
       <td></td>
       <td></td>
@@ -145,7 +143,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
     </tr>
     <tr>
-      <td></td>
       <td>HbA2c(JDS)</td>
       <td></td>
       <td></td>
@@ -178,31 +175,24 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td class="cellheader" rowspan="3">心电图</td>
       <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
       <td class="cellheader">本次</td>
       <td class="cellheader">上次</td>
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td rowspan="2"></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
     
     <tr>
-      <td colspan="7"></td>
+      <td colspan="5"></td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="3">便</td>
@@ -214,7 +204,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td></td>
+      <td rowspan="2"></td>
       <td>便潜血第一次</td>
       <td></td>
       <td></td>
@@ -222,7 +212,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td></td>
     </tr>
     <tr>
-      <td></td>
       <td>便潜血第二次</td>
       <td></td>
       <td></td>
@@ -233,38 +222,81 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td colspan="7"></td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
+      <td class="cellheader" rowspan="9">眼底</td>
       <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
+      <td class="cellheader">当次</td>
       <td class="cellheader">标准值/单位</td>
       <td class="cellheader">本次</td>
       <td class="cellheader">上次</td>
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
+      <td rowspan="8"></td>
+      <td colspan="3" style="text-align:center">右    左 </td>
       <td></td>
-      <td>尿酸</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>检查项目</td>
+      <td>标准值/单位</td>
+      <td>本次</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>K-W（右）</td>
       <td></td>
       <td></td>
       <td></td>
       <td></td>
     </tr>
-    
     <tr>
-      <td colspan="6"></td>
+      <td>K-W（左）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
-      <td class="cellheader" rowspan="2">痛风</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
+      <td>Scheie　S（右）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Scheie　S（左）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Scheie　H（右）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Scheie　H（左）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td class="cellheader" rowspan="2">眼压</td>
+      <td></td>
+      <td>眼压（右）</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td></td>
-      <td>尿酸</td>
+      <td>眼压（左）</td>
       <td></td>
       <td></td>
       <td></td>
