@@ -168,6 +168,9 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td></td>
 							<td></td>
 						</tr>
+						<tr>
+						<td colspan="5"></td>
+						</tr>
 					</tbody>
 				</table>
 
@@ -196,6 +199,9 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td></td>
 							<td></td>
 						</tr>
+						<tr>
+						<td colspan="5"></td>
+						</tr>
 					</tbody>
 				</table>
 
@@ -223,6 +229,9 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td></td>
 							<td></td>
 							<td></td>
+						</tr>
+						<tr>
+						<td colspan="5"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -261,6 +270,9 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td></td>
 							<td></td>
 							<td></td>
+						</tr>
+						<tr>
+						<td colspan="5"></td>
 						</tr>
 					</tbody>
 				</table>

@@ -132,7 +132,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<div class="column">
 			<div style="margin-top: 10px"></div>
 			<div class="ui segment">
-				<a class="ui large top attached label center aligned">{{list.lbluserinfo}}</a>
+				<div class="ui large top attached label center aligned">{{list.lbluserinfo}}</div>
 				<div class="ui form">
 					<div class="inline field">
 						<label style="width: 53px;margin:0">{{list.lblname}}</label> <input type="text"  ng-model="list.username">
