@@ -37,6 +37,12 @@
        list.dt_01[<%=i%>] = "<%=dataList.get(i)%>";
    <%}%>
    
+   list.dt_02 = new Array();
+   <%List<String> dataList02 = (List<String>) request.getAttribute("detailDataList02");%>;
+   <%for (int i = 0; i < dataList02.size(); i++) {%>  
+        list.dt_02[<%=i%>] = "<%=dataList02.get(i)%>";
+    <%}%>
+   
    list.sheets =[
 	   {'id' : 'dtl01', 'name': '健診結果報告書１'},
 	   {'id' : 'dtl02', 'name': '健診結果報告書２'},

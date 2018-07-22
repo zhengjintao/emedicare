@@ -49,7 +49,8 @@
 		<div class="ui equal width grid">
 			<div class="eight wide column">
 				<h3 class="ui top header" style="margin-top: 10px;">日常生活习惯</h3>
-				<table border="1" class="ui unstackable celled table">
+				<table class="ui unstackable celled structured table">
+				    <tbody>
 					<tr class="cellheader">
 						<td width="10%" style="text-align: center;"></td>
 						<td width="50%" style="text-align: center;"
@@ -110,6 +111,7 @@
 						<td>常有压力感</td>
 						<td style="padding:3px"><div class="ui input" style="width:100%;"> <input type="text" ng-model="list.dt_01[16]"></div></td>
 					</tr>
+					</tbody>
 				</table>
 			</div>
 			<div class="eight wide column">
@@ -160,7 +162,8 @@
 		</div>
 		<div class="wide column">
 			<h3 class="ui top header" style="margin-top: 20px;">服药历，吸烟经历</h3>
-            <table border="1" class="ui unstackable celled table">
+            <table class="ui unstackable celled structured table">
+                <tbody>
 					<tr>
 						<td>服用高血压药历</td>
 						<td style="padding:3px"><div class="ui input" style="width:100%;"> <input type="text" ng-model="list.dt_01[21]"></div></td>
@@ -173,6 +176,7 @@
 						<td>吸烟经历</td>
 						<td style="padding:3px"><div class="ui input" style="width:100%;"> <input type="text" ng-model="list.dt_01[24]"></div></td>
 					</tr>
+				</tbody>
 			</table>
 		</div>
 	</div>

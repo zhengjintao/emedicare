@@ -19,6 +19,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_01;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_02;
 import com.bwc.biz.emedicare.common.JdbcUtil;
 import com.bwc.biz.emedicare.form.User;
 
@@ -27,7 +28,8 @@ import com.bwc.biz.emedicare.form.User;
  */
 public class BkImportInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	private boolean okflg=true;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -99,8 +101,11 @@ public class BkImportInfoServlet extends HttpServlet {
 			int histno = this.check(userid, date);
 			
 			// 履历情报-Sheet1（健診結果報告書１）
-			BKDetailData_01 detail01 = new BKDetailData_01(sheet, userid,username,date,Integer.toString(histno));
+			BKDetailData_01 detail01 = new BKDetailData_01(workbook.getSheetAt(0), userid,username,date,Integer.toString(histno));
 			detail01.saveDataExcelToDb();
+			// 履历情报-Sheet2（健診結果報告書2）
+			BKDetailData_02 detail02 = new BKDetailData_02(workbook.getSheetAt(1), userid,username,date,Integer.toString(histno));
+			detail02.saveDataExcelToDb();
 			
 			String fileName = file.getName();
 			String historyname = fileName.substring(0, fileName.indexOf("."));
@@ -108,6 +113,7 @@ public class BkImportInfoServlet extends HttpServlet {
 			this.saveImportHistoryDate(userid, sysusername, historyname);
 			inputStream.close();
 		} catch (Exception e) {
+			this.okflg = false;
 			e.printStackTrace();
 		}
 	}

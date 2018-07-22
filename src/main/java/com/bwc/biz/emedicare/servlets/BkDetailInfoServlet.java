@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_01;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_02;
 
 /**
  * Servlet implementation class BkDetailInfoServlet
@@ -62,6 +63,9 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// 健診結果報告書１数据取得
 		BKDetailData_01 detaildata01 = new BKDetailData_01();
 		request.setAttribute("detailDataList01", detaildata01.getDateValue(userid, historydate));
+		// 健診結果報告書2数据取得
+		BKDetailData_02 detaildata02 = new BKDetailData_02();
+		request.setAttribute("detailDataList02", detaildata02.getDateValue(userid, historydate));
 	}
 	
 	private void savedata(HttpServletRequest request){
