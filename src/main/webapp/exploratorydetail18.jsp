@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,7 +44,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.expid = 'E0000001';
 	  list.sheets = constsheets;
-	  (function(){
+	  list.dt_18 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList18");%>;
+	  <%for (int i = 0; i < dataList.size(); i++) {%>  
+	       list.dt_18[<%=i%>] = "<%=dataList.get(i)%>";
+	   <%}%>
+	  /* (function(){
 		  $scope.url =  "exploratorydetail.do";
 		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '18'};
 	      $http(
@@ -60,7 +66,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	          	$('.ui.basic.modal') .modal('show');
 	          });
 	      
-	  })();
+	  })(); */
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -116,21 +122,21 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td>姓名：</td>
-      <td></td>
+      <td>{{list.dt_18[0]}}</td>
       <td>ID：</td>
-      <td></td>
+      <td>{{list.dt_18[0]}}</td>
     </tr>
     <tr>
       <td>年龄：</td>
-      <td></td>
+      <td>{{list.dt_18[0]}}</td>
       <td>身高：</td>
-      <td></td>
+      <td>{{list.dt_18[0]}}</td>
     </tr>
     <tr>
       <td>BMI：</td>
-      <td></td>
+      <td>{{list.dt_18[0]}}</td>
       <td>体重：</td>
-      <td></td>
+      <td>{{list.dt_18[0]}}</td>
     </tr>
   </tbody>
 </table>
@@ -140,10 +146,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" colspan="4">血管硬度（ｂaPWV）</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[0]}}</td>
     </tr>
   </tbody>
 </table>
@@ -153,10 +159,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" colspan="4">足部血管阻塞检测(ABI)</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[0]}}</td>
     </tr>
   </tbody>
 </table>
@@ -166,10 +172,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" colspan="4">定期检查</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[0]}}</td>
     </tr>
   </tbody>
 </table>

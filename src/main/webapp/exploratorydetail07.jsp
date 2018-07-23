@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,7 +44,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.expid = 'E0000001';
 	  list.sheets = constsheets;
-	  (function(){
+	  list.dt_07 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList07");%>;
+	  <%for (int i = 0; i < dataList.size(); i++) {%>  
+	       list.dt_07[<%=i%>] = "<%=dataList.get(i)%>";
+	   <%}%>
+	  /* (function(){
 		  $scope.url =  "exploratorydetail.do";
 		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '07'};
 	      $http(
@@ -60,7 +66,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	          	$('.ui.basic.modal') .modal('show');
 	          });
 	      
-	  })();
+	  })(); */
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -123,42 +129,42 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td rowspan="5"></td>
       <td>肺活量（实测值</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td>%肺活量</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td>1秒率</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td>%1秒量</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td>V25</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
    
     <tr>
-      <td colspan="7"></td>
+      <td colspan="7">{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="2">胰腺</td>
@@ -170,15 +176,15 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
       <td>血清淀粉酶</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
-      <td colspan="7"></td>
+      <td colspan="7">{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="7">炎症反应</td>
@@ -191,49 +197,49 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td rowspan="6"></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td>ASO</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
       <td></td>
     </tr>
     <tr>
       <td>类风湿因子定量</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td>CRP定量</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td>CRP判定</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
-      <td colspan="7"></td>
+      <td colspan="7">{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="4">肝炎</td>
@@ -245,30 +251,30 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="3"></td>
+      <td rowspan="3">{{list.dt_07[0]}}</td>
       <td>HBs抗原</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td>HBs抗体</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td>HCV抗体</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     
     <tr>
-      <td colspan="7"></td>
+      <td colspan="7">{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="3">血清反应</td>
@@ -280,19 +286,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="2"></td>
+      <td rowspan="2">{{list.dt_07[0]}}</td>
       <td>梅毒反应RPR</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
     <tr>
       <td>TPLA</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
+      <td>{{list.dt_07[0]}}</td>
     </tr>
   </tbody>
 </table>

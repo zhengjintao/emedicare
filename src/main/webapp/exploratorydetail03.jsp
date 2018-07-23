@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,8 +44,13 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.expid = 'E0000001';
   list.sheets = constsheets;
-  
-  (function(){
+  list.dt_03 = new Array();
+  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList03");%>;
+  <%for (int i = 0; i < dataList.size(); i++) {%>  
+       list.dt_03[<%=i%>] = "<%=dataList.get(i)%>";
+   <%}%>
+   
+  /* (function(){
 	  $scope.url =  "exploratorydetail.do";
 	  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '03'};
       $http(
@@ -61,7 +67,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
           	$('.ui.basic.modal') .modal('show');
           });
       
-  })();
+  })(); */
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -124,127 +130,127 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
      <td rowspan="6"></td>
       <td>尿糖（定性）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
      <tr>
       <td>尿蛋白（定性）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
      <tr>
       <td>尿胆原</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
      <tr>
       <td>尿PH</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
      <tr>
       <td>尿潜血</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
      <tr>
       <td>尿比重</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="4">尿沉渣检查</td>
       <td rowspan="4"></td>
       <td>尿沉渣白细胞</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>尿沉渣红细胞</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>尿沉渣（鳞状上皮）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>尿沉渣（肾小管上皮）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     
     <tr>
       <td class="cellheader" rowspan="7">肾</td>
       <td rowspan="7"></td>
       <td>肌酐</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>尿素氮</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>eGFR</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>钠（Na）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>钾（K）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>氯（Cl）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>钙（Ca）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td colspan="9"></td>
@@ -266,59 +272,59 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td rowspan="8"></td>
       <td>白细胞计数</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
      <tr>
       <td>红细胞计数</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
      <tr>
       <td>血红蛋白</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>红细胞压积</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>平均红细胞体积</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>平均红细胞血红蛋白量</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>平均红细胞血红蛋白浓度</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
     <tr>
       <td>血小板计数</td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
+      <td>list.dt_03[0]</td>
     </tr>
   </tbody>
 </table>

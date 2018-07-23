@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -42,28 +43,15 @@ initdata.name = '<%=request.getAttribute("name")%>';
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
+  list.dt_01 = new Array();
+  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList01");%>;
+  <%for (int i = 0; i < dataList.size(); i++) {%>  
+       list.dt_01[<%=i%>] = "<%=dataList.get(i)%>";
+   <%}%>
+   
   list.expid = initdata.expid;
   list.name = initdata.name;
   list.sheets = constsheets;
-  
-  (function(){
-  	$scope.url =  "exploratorydetail.do";
-  	var postdata = {'mode':'list', 'expid':list.expid};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.record = result.data.record;
-          }).catch(function (result) {
-          	list.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-      
-  })();
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -114,62 +102,62 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 								<tr>
 									<td rowspan="4">饮食</td>
 									<td>饮食速度</td>
-									<td class="right aligned">{{list.record.eatspeed}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 								<tr>
 									<td>不吃早饭（3次以上）</td>
-									<td class="right aligned">{{list.record.uneat}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 								<tr>
 									<td>晚餐就餐晚</td>
-									<td class="right aligned">{{list.record.dinnerstatus}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 								<tr>
 									<td>吃夜宵</td>
-									<td class="right aligned">{{list.record.nighteat}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 
 								<tr>
 									<td rowspan="3">运动</td>
 									<td>经常运动</td>
-									<td class="right aligned">{{list.record.always}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 								<tr>
 									<td>在实行身体活动计划</td>
-									<td class="right aligned">{{list.record.plan}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 								<tr>
 									<td>步行速度快</td>
-									<td class="right aligned">{{list.record.walkspeed}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 
 								<tr>
 									<td rowspan="2">饮酒</td>
 									<td>频度</td>
-									<td class="right aligned">{{list.record.drinktimes}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 								<tr>
 									<td>饮酒量</td>
-									<td class="right aligned">{{list.record.drinkamount}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 
 								<tr>
 									<td>吸烟</td>
 									<td>烟龄</td>
-									<td class="right aligned">{{list.record.smokeage}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 
 								<tr>
 									<td>睡眠</td>
 									<td>睡眠是否充足</td>
-									<td class="right aligned">{{list.record.sleepstatus}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 
 								<tr>
 									<td>精神压力<br>焦虑感
 									</td>
 									<td>常有压力感</td>
-									<td class="right aligned">{{list.record.presure}}</td>
+									<td class="right aligned">{{list.dt_01[0]}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -179,7 +167,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<i class="dropdown icon"></i> 对于改善生活习惯的建议
 					</div>
 					<div class="content">
-						<p>{{list.record.suguest}}</p>
+						<p>{{list.dt_01[0]}}</p>
 						<br/>
 					</div>
 
@@ -193,19 +181,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<i class="dropdown icon"></i> 自觉症状
 					</div>
 					<div class="content">
-						<p class="transition visible" style="display: block !important;">{{list.record.selfstatus}}</p>
+						<p class="transition visible" style="display: block !important;">{{list.dt_01[0]}}</p>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 既往史•现病史
 					</div>
 					<div class="content">
-						<p>{{list.record.illhistory}}</p>
+						<p>{{list.dt_01[0]}}</p>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 检查状态
 					</div>
 					<div class="content">
-						<p>{{list.record.checkstatus}}</p>
+						<p>{{list.dt_01[0]}}</p>
 					</div>
 				</div>
 			</div>
@@ -217,25 +205,25 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<i class="dropdown icon"></i> 服用高血压药历
 					</div>
 					<div class="content">
-						<p class="transition visible" style="display: block !important;">{{list.record.drugstatus}}</p>
+						<p class="transition visible" style="display: block !important;">{{list.dt_01[0]}}</p>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 服用脂质代谢异常症药历
 					</div>
 					<div class="content">
-						<p>{{list.record.uneat}}</p>
+						<p>{{list.dt_01[0]}}</p>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 服用糖尿病药历
 					</div>
 					<div class="content">
-						<p>{{list.record.diabetes}}</p>
+						<p>{{list.dt_01[0]}}</p>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 吸烟经历
 					</div>
 					<div class="content">
-						<p>{{list.record.smokeundergo}}</p>
+						<p>{{list.dt_01[0]}}</p>
 					</div>
 				</div>
 			</div>

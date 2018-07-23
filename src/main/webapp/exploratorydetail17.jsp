@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,7 +44,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.expid = 'E0000001';
 	  list.sheets = constsheets;
-	  (function(){
+	  list.dt_17 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList17");%>;
+	  <%for (int i = 0; i < dataList.size(); i++) {%>  
+	       list.dt_17[<%=i%>] = "<%=dataList.get(i)%>";
+	   <%}%>
+	 /*  (function(){
 		  $scope.url =  "exploratorydetail.do";
 		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '17'};
 	      $http(
@@ -60,7 +66,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	          	$('.ui.basic.modal') .modal('show');
 	          });
 	      
-	  })();
+	  })(); */
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -116,15 +122,15 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td>ID</td>
-      <td></td>
+      <td>{{list.dt_17[0]}}</td>
       <td>检查日期</td>
-      <td></td>
+      <td>{{list.dt_17[0]}}</td>
     </tr>
     <tr>
       <td>姓名</td>
-      <td></td>
+      <td>{{list.dt_17[0]}}</td>
       <td>报告日期</td>
-      <td></td>
+      <td>{{list.dt_17[0]}}</td>
     </tr>
   </tbody>
 </table>
@@ -134,7 +140,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" colspan="4">判定结果</td>
     </tr>
     <tr>
-      <td colspan="4"></td>
+      <td colspan="4">{{list.dt_17[0]}}</td>
     </tr>
   </tbody>
 </table>
@@ -147,24 +153,24 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td colspan="2">幽门螺旋杆菌抗体( EIA法：E板 )</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[0]}}</td>
     </tr>
     <tr>
       <td rowspan="3">胃蛋白酶原</td>
       <td>胃蛋白酶原Ⅰ（PGⅠ）</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[0]}}</td>
     </tr>
     <tr>
       <td>胃蛋白酶原Ⅱ（PGⅡ）</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[0]}}</td>
     </tr>
     <tr>
       <td>PGⅠ/PGⅡ比</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[0]}}</td>
     </tr>
   </tbody>
 </table>

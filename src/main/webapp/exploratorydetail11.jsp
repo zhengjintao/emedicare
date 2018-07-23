@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,7 +44,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.expid = 'E0000001';
 	  list.sheets = constsheets;
-	  (function(){
+	  list.dt_11 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList11");%>;
+	  <%for (int i = 0; i < dataList.size(); i++) {%>  
+	       list.dt_11[<%=i%>] = "<%=dataList.get(i)%>";
+	   <%}%>
+	  /* (function(){
 		  $scope.url =  "exploratorydetail.do";
 		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '11'};
 	      $http(
@@ -60,7 +66,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	          	$('.ui.basic.modal') .modal('show');
 	          });
 	      
-	  })();
+	  })(); */
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -121,7 +127,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td></td>
+      <td>{{list.dt_11[0]}}</td>
       <td>血沉（60分）</td>
       <td></td>
       <td></td>

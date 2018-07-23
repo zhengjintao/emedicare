@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,7 +44,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.expid = 'E0000001';
 	  list.sheets = constsheets;
-	  (function(){
+	  list.dt_22 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList22");%>;
+	  <%for (int i = 0; i < dataList.size(); i++) {%>  
+	       list.dt_22[<%=i%>] = "<%=dataList.get(i)%>";
+	   <%}%>
+	  /* (function(){
 		  $scope.url =  "exploratorydetail.do";
 		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '22'};
 	      $http(
@@ -60,7 +66,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	          	$('.ui.basic.modal') .modal('show');
 	          });
 	      
-	  })();
+	  })(); */
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -113,30 +119,30 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <tbody>
     <tr>
       <td class="cellheader" style="width:20%">ID</td>
-      <td></td>
+      <td>{{list.dt_22[0]}}</td>
       <td class="cellheader" style="width:20%">检查日期</td>
-      <td></td>
+      <td>{{list.dt_22[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader">姓名</td>
-      <td></td>
+      <td>{{list.dt_22[0]}}</td>
       <td class="cellheader">年龄/性别</td>
-      <td></td>
+      <td>{{list.dt_22[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader">第一次担任医生</td>
-      <td></td>
+      <td>{{list.dt_22[0]}}</td>
       <td class="cellheader">第一次诊断时间</td>
-      <td></td>
+      <td>{{list.dt_22[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader">第二次担任医生</td>
-      <td></td>
+      <td>{{list.dt_22[0]}}</td>
       <td class="cellheader">第二次诊断时间</td>
-      <td></td>
+      <td>{{list.dt_22[0]}}</td>
     </tr>
     <tr>
-      <td colspan="4"></td>
+      <td colspan="4">{{list.dt_22[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" colspan="4">检查评语</td>

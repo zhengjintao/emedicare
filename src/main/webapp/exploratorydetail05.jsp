@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,7 +44,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.expid = 'E0000001';
 	  list.sheets = constsheets;
-	  (function(){
+	  list.dt_05 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList05");%>;
+	  <%for (int i = 0; i < dataList.size(); i++) {%>  
+	       list.dt_05[<%=i%>] = "<%=dataList.get(i)%>";
+	   <%}%>
+	 /*  (function(){
 		  $scope.url =  "exploratorydetail.do";
 		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '05'};
 	      $http(
@@ -60,7 +66,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	          	$('.ui.basic.modal') .modal('show');
 	          });
 	      
-	  })();
+	  })(); */
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -123,34 +129,34 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td rowspan="4"></td>
       <td>任意时间血糖</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>血糖</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>HbA1c(NGSP)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>HbA2c(JDS)</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
-      <td colspan="7"></td>
+      <td colspan="7">{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="2">痛风</td>
@@ -162,15 +168,15 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
       <td>尿酸</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
-      <td colspan="7"></td>
+      <td colspan="7">{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="3">心电图</td>
@@ -180,19 +186,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="2"></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td rowspan="2">{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     
     <tr>
-      <td colspan="5"></td>
+      <td colspan="5">{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="3">便</td>
@@ -206,20 +212,20 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td rowspan="2"></td>
       <td>便潜血第一次</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>便潜血第二次</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
-      <td colspan="7"></td>
+      <td colspan="7">{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="9">眼底</td>
@@ -231,76 +237,76 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="8"></td>
+      <td rowspan="8">{{list.dt_05[0]}}</td>
       <td colspan="3" style="text-align:center">右    左 </td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>检查项目</td>
       <td>标准值/单位</td>
       <td>本次</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>K-W（右）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>K-W（左）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>Scheie　S（右）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>Scheie　S（左）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>Scheie　H（右）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td>Scheie　H（左）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="2">眼压</td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
       <td>眼压（右）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
     <tr>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
       <td>眼压（左）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
+      <td>{{list.dt_05[0]}}</td>
     </tr>
   </tbody>
 </table>

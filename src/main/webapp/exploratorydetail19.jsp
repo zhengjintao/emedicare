@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,7 +44,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.expid = 'E0000001';
 	  list.sheets = constsheets;
-	  (function(){
+	  list.dt_19 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList19");%>;
+	  <%for (int i = 0; i < dataList.size(); i++) {%>  
+	       list.dt_19[<%=i%>] = "<%=dataList.get(i)%>";
+	   <%}%>
+	 /*  (function(){
 		  $scope.url =  "exploratorydetail.do";
 		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '19'};
 	      $http(
@@ -60,7 +66,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	          	$('.ui.basic.modal') .modal('show');
 	          });
 	      
-	  })();
+	  })(); */
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -113,75 +119,75 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <tbody>
     <tr>
       <td class="cellheader" style="width:20%">ID</td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
       <td class="cellheader" style="width:20%">检查日期</td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader">姓名</td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
       <td class="cellheader">检查部位</td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader">出生日期</td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
       <td class="cellheader">年龄/性别</td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
       <td>本次测定结果</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
       <td>测定部位：</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
       <td>你的骨密度是 /ｃ㎡</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
       <td>与年轻人的比较值为 ％</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
       <td>与同龄的比较值为 ％</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
       <td>骨面积：</td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
       <td>骨盐量：</td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader">骨密度判定</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader">解说</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
+      <td>{{list.dt_19[0]}}</td>
     </tr>
   </tbody>
 </table>

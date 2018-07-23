@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -42,6 +43,11 @@
 app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.expid = 'E0000001';
+	  list.dt_14 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList14");%>;
+	  <%for (int i = 0; i < dataList.size(); i++) {%>  
+	       list.dt_14[<%=i%>] = "<%=dataList.get(i)%>";
+	   <%}%>
 	  list.sheets = constsheets;
 	  (function(){
 		  $scope.url =  "exploratorydetail.do";
@@ -113,15 +119,15 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <tbody>
     <tr>
       <td class="cellheader" style="width:20%">ID</td>
-      <td></td>
+      <td>{{list.dt_14[0]}}</td>
       <td class="cellheader" style="width:20%">检查日期</td>
-      <td></td>
+      <td>{{list.dt_14[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader">姓名</td>
-      <td></td>
+      <td>{{list.dt_14[0]}}</td>
       <td class="cellheader">年龄/性别</td>
-      <td></td>
+      <td>{{list.dt_14[0]}}</td>
     </tr>
     <tr>
       <td colspan="4"></td>
@@ -135,8 +141,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td>血氧饱和度</td>
       <td> </td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_14[0]}}</td>
+      <td>{{list.dt_14[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader">判定区分</td>

@@ -50,7 +50,44 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
          $('#cmodal') .modal('show');
          return;
 	  }
-  }
+	  
+	  $scope.url =  "bknextplan.do";
+	  	var postdata = {'mode':'submit'};
+	      $http(
+	  		{
+	  			method:"POST",
+	  			url:$scope.url,
+	  			data:postdata,
+	  			transformRequest:transFormFactory.transForm,
+	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+	  		}).then(function (result) {
+	          }).catch(function (result) {
+	          	list.message = "SORRY!エラーが発生しました。";
+	          	$('#cmodal') .modal('show');
+	          });
+  };
+  
+  (function(){
+	  	$scope.url =  "bknextplan.do";
+	  	var postdata = {'mode':'list'};
+	      $http(
+	  		{
+	  			method:"POST",
+	  			url:$scope.url,
+	  			data:postdata,
+	  			transformRequest:transFormFactory.transForm,
+	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+	  		}).then(function (result) {
+	  			list.userlist = result.data.userlist;
+	  			list.historylist = result.data.historylist;
+	  			list.appointlist = result.data.appointlist;
+	          }).catch(function (result) {
+	          	list.message = "SORRY!エラーが発生しました。";
+	          	$('#cmodal') .modal('show');
+	          });
+	      
+	  })();
+  
 });
 </script>
 
@@ -71,7 +108,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 					<div class="field">
 						<label>通知ユーザ</label> 
 						<select class="ui dropdown">
-							<option ng-repeat="eachitem in list.userlist" ng-model="eachitem.userid">{{eachitem.username}}</option>
+							<option ng-repeat="eachitem in list.userlist" ng-model="eachitem.userid">{{eachitem.username}}({{eachitem.userid}})</option>
 						</select>
 					</div>
 					<div class="field">
@@ -123,6 +160,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				
 			</tbody>
 		</table>
+		
+		<div class="column"></div>
 	</div>
 </body>
 </html>

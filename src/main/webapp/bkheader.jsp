@@ -10,9 +10,9 @@ $( document ).ready(function(){
 </script>
 <div class="ui inverted blue menu"
 	style='margin-top: auto; font-size: 12.0pt'>
-	<a id="item01" class="item" href=bkaccountlist.jsp><b>顧客一覧</b></a> 
+	<a id="item01" class="item" href=bkaccountlist.do><b>顧客一覧</b></a> 
 	<a id="item02" class="item" href=bkimportinfo.do><b>診断情報一括登録</b></a>
-	<a id="item03" class="item" href=bknextplan.jsp><b>次回検査</b></a>
+	<a id="item03" class="item" href=bknextplan.do><b>次回検査</b></a>
 
 	<div class="right menu">
 		<a class="item" onclick="logout()"><b>ログアウト</b></a>

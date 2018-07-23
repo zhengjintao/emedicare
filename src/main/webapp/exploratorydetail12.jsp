@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,7 +44,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.expid = 'E0000001';
 	  list.sheets = constsheets;
-	  (function(){
+	  list.dt_12 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList12");%>;
+	  <%for (int i = 0; i < dataList.size(); i++) {%>  
+	       list.dt_12[<%=i%>] = "<%=dataList.get(i)%>";
+	   <%}%>
+	  /* (function(){
 		  $scope.url =  "exploratorydetail.do";
 		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '12'};
 	      $http(
@@ -60,7 +66,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	          	$('.ui.basic.modal') .modal('show');
 	          });
 	      
-	  })();
+	  })(); */
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -119,225 +125,225 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td>诊察所见</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>身体测量</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>血压</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>视力</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>听力</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>PG1浓度</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>尿常规</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>肺功能</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>便检查</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>肝功能</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>肾功能</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>胰功能</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>脂质</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>痛风</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>血球</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>血清反应</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>血沉</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>糖尿病</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>炎症反应</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>肝炎</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>肿瘤标记物</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>病毒抗体</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>胸部</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>心电图</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>眼底所见</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>胃部内视镜</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>上腹部超声波</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>血沉</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>乳房检查</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>骨密度</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>妇科检查</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>ABI</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>胸部CT</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>腹部CT</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>尿沉渣</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>甲状腺超声波</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
     <tr>
       <td>甲状腺检查</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
   </tbody>
 </table>
@@ -345,7 +351,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
  <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td rowspan="3"></td>
+      <td rowspan="3">{{list.dt_12[0]}}</td>
       <td rowspan="3">判定区分</td>
       <td>A：无异常 </td>
       <td>C1: 3个月后复查</td>
@@ -368,9 +374,9 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <tbody>
   <tr>
       <td class="cellheader">代谢综合症判定</td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
       <td class="cellheader">保健指导程度</td>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
   </tbody>
   </table>
@@ -381,7 +387,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">指示事项</td>
     </tr>
     <tr>
-      <td></td>
+      <td>{{list.dt_12[0]}}</td>
     </tr>
   </tbody>
   </table>

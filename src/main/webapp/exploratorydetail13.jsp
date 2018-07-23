@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,6 +44,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.expid = 'E0000001';
 	  list.sheets = constsheets;
+	  list.dt_13 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList13");%>;
+	  <%for (int i = 0; i < dataList.size(); i++) {%>  
+	       list.dt_13[<%=i%>] = "<%=dataList.get(i)%>";
+	   <%}%>
 	  (function(){
 		  $scope.url =  "exploratorydetail.do";
 		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '13'};
@@ -119,117 +125,117 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td>B脂蛋白</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>CA19-9</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>便-血红蛋白（1）</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>便-血红蛋白（2）</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>胃蛋白酶原</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>PG1浓度</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>PG2浓度</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>PG1/PG2 比</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>判定</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>胃癌风险</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>幽门螺旋杆菌</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>B脂蛋白</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>B脂蛋白</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>B脂蛋白</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>B脂蛋白</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>B脂蛋白</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>B脂蛋白</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>B脂蛋白</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
     <tr>
       <td>B脂蛋白</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
+      <td>{{list.dt_13[0]}}</td>
     </tr>
   </tbody>
 </table>

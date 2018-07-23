@@ -1,4 +1,5 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List"%>
+<html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
 <meta charset="utf-8" />
@@ -43,7 +44,13 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.expid = 'E0000001';
   list.sheets = constsheets;
-  (function(){
+  list.dt_04 = new Array();
+  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList04");%>;
+  <%for (int i = 0; i < dataList.size(); i++) {%>  
+       list.dt_04[<%=i%>] = "<%=dataList.get(i)%>";
+   <%}%>
+   
+  /* (function(){
 	  $scope.url =  "exploratorydetail.do";
 	  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '04'};
       $http(
@@ -60,7 +67,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
           	$('.ui.basic.modal') .modal('show');
           });
       
-  })();
+  })(); */
   
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
@@ -117,13 +124,13 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
-      <td rowspan="5"></td>
+      <td rowspan="5">{{list.dt_04[0]}}</td>
       <td>部位</td>
-      <td colspan="3"></td>
+      <td colspan="3">{{list.dt_04[0]}}</td>
     </tr>
     <tr>
-      <td></td>
-      <td colspan="3"></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td colspan="3">{{list.dt_04[0]}}</td>
     </tr>
     <tr>
       <td colspan="2">上次</td>
@@ -136,10 +143,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>所见</td>
     </tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
   </tbody>
 </table>
@@ -155,28 +162,28 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td rowspan="5"></td>
       <td>总胆固醇</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
      <tr>
       <td>中性脂肪</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
      <tr>
       <td>高密度脂蛋白总胆固醇</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
      <tr>
       <td>低密度脂蛋白总胆固醇</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
      <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
   </tbody>
 </table>
@@ -192,74 +199,74 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td rowspan="13"></td>
       <td>总胆红素（T-BIL）</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
      <tr>
       <td>ZTT</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
      <tr>
       <td>TTT</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
      <tr>
       <td>AST</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
      <tr>
       <td>ALT</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
      <tr>
       <td>γ－GTP</td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
     <tr>
       <td>总蛋白（TP）</td>
-      <td> </td>
-      <td> </td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
      <tr>
       <td>白蛋白</td>
-      <td> </td>
-      <td> </td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
     <tr>
       <td>A/G比</td>
-      <td> </td>
-      <td> </td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
     <tr>
       <td>ALP</td>
-      <td> </td>
-      <td> </td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
     <tr>
       <td>LAP</td>
-      <td> </td>
-      <td> </td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
     <tr>
       <td>ChE</td>
-      <td> </td>
-      <td> </td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
     <tr>
       <td>LDH</td>
-      <td> </td>
-      <td> </td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
     <tr>
-      <td></td>
-      <td> </td>
-      <td> </td>
-      <td> </td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[0]}}</td>
     </tr>
   </tbody>
 </table>
