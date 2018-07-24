@@ -193,6 +193,12 @@ footer {
 		<jsp:include page="bkdetailinfo_11.jsp" />	
 		<jsp:include page="bkdetailinfo_12.jsp" />
 		<jsp:include page="bkdetailinfo_13.jsp" />
+		<jsp:include page="bkdetailinfo_14.jsp" />
+		<jsp:include page="bkdetailinfo_19.jsp" />		
+		<jsp:include page="bkdetailinfo_20.jsp" />		
+		<jsp:include page="bkdetailinfo_21.jsp" />	
+		<jsp:include page="bkdetailinfo_22.jsp" />
+		<jsp:include page="bkdetailinfo_23.jsp" />
 	</div>
 </body>
 </html>
