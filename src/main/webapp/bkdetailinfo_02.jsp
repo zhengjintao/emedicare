@@ -1,4 +1,5 @@
-﻿
+﻿ <%@ page import="java.util.List" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> 
 <style>
 .cellheader {
 	background-color: #c4e8fc
@@ -40,7 +41,7 @@
 			</tr>
 			<tr>
 				<td rowspan="7">
-				    <div class="ui inverted form lblcontent"><textarea resize: none" ng-model="list.dt_02[7]"></textarea></div>
+				    <div class="ui inverted form lblcontent"><textarea style="height: 100%; width: 100%;resize: none" ng-model="list.dt_02[7]"></textarea></div>
 				</td>
 				<td>身高</td>
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[8]"></div></td>

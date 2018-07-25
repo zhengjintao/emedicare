@@ -1,4 +1,5 @@
-﻿<%@ page import="java.util.List"%>
+<%@ page import="java.util.List" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html ng-app="listApp">
 <!-- Standard Meta -->
 <meta http-equiv="content-type" charset="utf-8">
@@ -37,11 +38,18 @@
        list.dt_01[<%=i%>] = "<%=dataList.get(i)%>";
    <%}%>
    
-   list.dt_02 = new Array();
-   <%List<String> dataList02 = (List<String>) request.getAttribute("detailDataList02");%>;
-   <%for (int i = 0; i < dataList02.size(); i++) {%>  
-        list.dt_02[<%=i%>] = "<%=dataList02.get(i)%>";
-    <%}%>
+  list.dt_02 = new Array();
+  <%List<String> dataList02 = (List<String>) request.getAttribute("detailDataList02");%>;
+  <%for (int i = 0; i < dataList02.size(); i++) {%>  
+	   list.dt_02[<%=i%>] = "<%=dataList02.get(i)%>";
+   <%}%>
+   
+  list.dt_09 = new Array();
+  <%List<String> dataList09 = (List<String>) request.getAttribute("detailDataList09");%>;
+  <%for (int i = 0; i < dataList09.size(); i++) {%>  
+ 	  list.dt_09[<%=i%>] = "<%=dataList09.get(i)%>";
+   <%}%>
+    
    
    list.sheets =[
 	   {'id' : 'dtl01', 'name': '健診結果報告書１'},
@@ -70,7 +78,6 @@
    ]
    
    list.saveData = function() {
-
 	   var json=list.dt_01;
 	   $.ajax({
 		    url: "bkdetailinfo.do?mode=save",
@@ -193,7 +200,6 @@ footer {
 		<jsp:include page="bkdetailinfo_11.jsp" />	
 		<jsp:include page="bkdetailinfo_12.jsp" />
 		<jsp:include page="bkdetailinfo_13.jsp" />
-		<jsp:include page="bkdetailinfo_14.jsp" />
 		<jsp:include page="bkdetailinfo_19.jsp" />		
 		<jsp:include page="bkdetailinfo_20.jsp" />		
 		<jsp:include page="bkdetailinfo_21.jsp" />	

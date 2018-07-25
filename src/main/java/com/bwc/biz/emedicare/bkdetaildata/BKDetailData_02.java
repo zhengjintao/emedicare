@@ -153,21 +153,21 @@ public class BKDetailData_02 {
 	/*
 	 * 画面表示数据更新保存
 	 */
-	public void saveDataDispToDb(String[] detaildata01){
-		String userid = detaildata01[2];
-		String historydate = detaildata01[1];
+	public void saveDataDispToDb(String[] detaildata02){
+		String userid = detaildata02[2];
+		String historydate = detaildata02[1];
 		this.check(userid,historydate);
 		String insertsql = "insert into cdata_detail_02 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
-		for(int i=0; i < detaildata01.length;i++){
+		for(int i=0; i < detaildata02.length;i++){
 			insertparams[0] = userid;
-			insertparams[1] = detaildata01[0];
+			insertparams[1] = detaildata02[0];
 			insertparams[2] = historydate;
 			insertparams[3] = 1;
 			insertparams[4] = i;
 			insertparams[5] = lableList.get(i)[1];
 			insertparams[6] = lableList.get(i)[2];
-			insertparams[7] = detaildata01[i];
+			insertparams[7] = detaildata02[i];
 			
 			JdbcUtil.getInstance().executeUpdate(insertsql, insertparams);
 		}	
@@ -176,9 +176,9 @@ public class BKDetailData_02 {
 	/*
 	 * 画面表示数据删除
 	 */
-	public void deleteData(String[] detaildata01){
-		String userid = detaildata01[2];
-		String historydate = detaildata01[1];
+	public void deleteData(String[] detaildata02){
+		String userid = detaildata02[2];
+		String historydate = detaildata02[1];
 		
 		Object[] params = new Object[2];
 		params[0]= userid;
