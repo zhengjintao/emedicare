@@ -11,7 +11,7 @@ import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_01;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_02;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_09;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_10;
-
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_11;
 
 /**
  * Servlet implementation class BkDetailInfoServlet
@@ -75,6 +75,9 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// 健診結果報告書10数据取得
 		BKDetailData_10 detaildata10 = new BKDetailData_10();
 		request.setAttribute("detailDataList10", detaildata10.getDateValue(userid, historydate));
+		// 健診結果報告書11数据取得
+		BKDetailData_11 detaildata11 = new BKDetailData_11();
+		request.setAttribute("detailDataList11", detaildata11.getDateValue(userid, historydate));
 	}
 	
 	private void savedata(HttpServletRequest request){
@@ -97,7 +100,11 @@ public class BkDetailInfoServlet extends HttpServlet {
 		String[] detaildata10 =  request.getParameterValues("json[]");
 		BKDetailData_10 data10 = new BKDetailData_10();
 		data10.saveDataDispToDb(detaildata10);
-
+		
+		// sheet11
+		String[] detaildata11 =  request.getParameterValues("json[]");
+		BKDetailData_11 data11 = new BKDetailData_11();
+		data11.saveDataDispToDb(detaildata11);
 		
 	}
 	
@@ -122,5 +129,9 @@ public class BkDetailInfoServlet extends HttpServlet {
 		BKDetailData_10 data10 = new BKDetailData_10();
 		data10.deleteData(detaildata10);
 		
+		// sheet11
+		String[] detaildata11 =  request.getParameterValues("json[]");
+		BKDetailData_11 data11 = new BKDetailData_11();
+		data11.deleteData(detaildata11);
 	}
 }

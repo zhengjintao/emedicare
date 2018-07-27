@@ -55,6 +55,12 @@
   <%for (int i = 0; i < dataList10.size(); i++) {%>  
  	  list.dt_10[<%=i%>] = "<%=dataList10.get(i)%>";
    <%}%>
+   
+  list.dt_11 = new Array();
+  <%List<String> dataList11 = (List<String>) request.getAttribute("detailDataList11");%>;
+  <%for (int i = 0; i < dataList11.size(); i++) {%>  
+ 	  list.dt_11[<%=i%>] = "<%=dataList11.get(i)%>";
+   <%}%>
     
    
    list.sheets =[
