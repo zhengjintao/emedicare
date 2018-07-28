@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_01;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_02;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_03;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_04;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_05;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_06;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_07;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_08;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_09;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_10;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_11;
@@ -73,6 +78,22 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// 健診結果報告書3数据取得
 		BKDetailData_03 detaildata03 = new BKDetailData_03();
 		request.setAttribute("detailDataList03", detaildata03.getDateValue(userid, historydate));
+		// 健診結果報告書4数据取得
+		BKDetailData_04 detaildata04 = new BKDetailData_04();
+		request.setAttribute("detailDataList04", detaildata04.getDateValue(userid, historydate));
+		// 健診結果報告書5数据取得
+		BKDetailData_05 detaildata05 = new BKDetailData_05();
+		request.setAttribute("detailDataList05", detaildata05.getDateValue(userid, historydate));
+		// 健診結果報告書6数据取得
+		BKDetailData_06 detaildata06 = new BKDetailData_06();
+		request.setAttribute("detailDataList06", detaildata06.getDateValue(userid, historydate));
+		// 健診結果報告書7数据取得
+		BKDetailData_07 detaildata07 = new BKDetailData_07();
+		request.setAttribute("detailDataList07", detaildata07.getDateValue(userid, historydate));
+		// 健診結果報告書8数据取得
+		BKDetailData_08 detaildata08 = new BKDetailData_08();
+		request.setAttribute("detailDataList08", detaildata08.getDateValue(userid, historydate));
+		
 		// 健診結果報告書9数据取得
 		BKDetailData_09 detaildata09 = new BKDetailData_09();
 		request.setAttribute("detailDataList09", detaildata09.getDateValue(userid, historydate));

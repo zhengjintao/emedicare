@@ -33,21 +33,47 @@
   app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.dt_01 = new Array();
-  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList01");%>;
-  <%for (int i = 0; i < dataList.size(); i++) {%>  
-       list.dt_01[<%=i%>] = "<%=dataList.get(i)%>";
-   <%}%>
-   
   list.dt_02 = new Array();
+  list.dt_03 = new Array();
+  list.dt_04 = new Array();
+  list.dt_05 = new Array();
+  list.dt_06 = new Array();
+  list.dt_07 = new Array();
+  list.dt_08 = new Array();
+  
+  <%List<String> dataList01 = (List<String>) request.getAttribute("detailDataList01");%>;
   <%List<String> dataList02 = (List<String>) request.getAttribute("detailDataList02");%>;
+  <%List<String> dataList03 = (List<String>) request.getAttribute("detailDataList03");%>;
+  <%List<String> dataList04 = (List<String>) request.getAttribute("detailDataList04");%>;
+  <%List<String> dataList05 = (List<String>) request.getAttribute("detailDataList05");%>;
+  <%List<String> dataList06 = (List<String>) request.getAttribute("detailDataList06");%>;
+  <%List<String> dataList07 = (List<String>) request.getAttribute("detailDataList07");%>;
+  <%List<String> dataList08 = (List<String>) request.getAttribute("detailDataList08");%>;
+  
+  <%for (int i = 0; i < dataList01.size(); i++) {%>  
+       list.dt_01[<%=i%>] = "<%=dataList01.get(i)%>";
+  <%}%>
   <%for (int i = 0; i < dataList02.size(); i++) {%>  
 	   list.dt_02[<%=i%>] = "<%=dataList02.get(i)%>";
-   <%}%>
-   list.dt_03 = new Array();
-   <%List<String> dataList03 = (List<String>) request.getAttribute("detailDataList03");%>;
-   <%for (int i = 0; i < dataList03.size(); i++) {%>  
+  <%}%>
+  <%for (int i = 0; i < dataList03.size(); i++) {%>  
  	   list.dt_03[<%=i%>] = "<%=dataList03.get(i)%>";
-    <%}%>
+  <%}%>
+  <%for (int i = 0; i < dataList04.size(); i++) {%>  
+  	   list.dt_04[<%=i%>] = "<%=dataList04.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList03.size(); i++) {%>  
+   	   list.dt_05[<%=i%>] = "<%=dataList05.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList03.size(); i++) {%>  
+       list.dt_06[<%=i%>] = "<%=dataList06.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList03.size(); i++) {%>  
+       list.dt_07[<%=i%>] = "<%=dataList07.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList03.size(); i++) {%>  
+       list.dt_08[<%=i%>] = "<%=dataList08.get(i)%>";
+  <%}%>
    
   list.dt_09 = new Array();
   <%List<String> dataList09 = (List<String>) request.getAttribute("detailDataList09");%>;
@@ -102,7 +128,12 @@
 		    data:{
 		    	dt_01:list.dt_01,
 		    	dt_02:list.dt_02,
-		    	dt_03:list.dt_03
+		    	dt_03:list.dt_03,
+		    	dt_04:list.dt_04,
+		    	dt_05:list.dt_05,
+		    	dt_06:list.dt_06,
+		    	dt_07:list.dt_07,
+		    	dt_08:list.dt_08
 		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");
@@ -119,9 +150,7 @@
 		    type: "POST",
 		    datatype:'json',
 		    data:{
-		    	dt_01:list.dt_01,
-		    	dt_02:list.dt_02,
-		    	dt_03:list.dt_03
+		    	dt_01:list.dt_01
 		    },
 		    success: function(data) {
 		  	  window.location.href = 'bkhistorylist.do?userid='+ list.dt_01[2];

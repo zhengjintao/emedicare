@@ -21,6 +21,11 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_01;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_02;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_03;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_04;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_05;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_06;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_07;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_08;
 import com.bwc.biz.emedicare.common.JdbcUtil;
 import com.bwc.biz.emedicare.form.User;
 
@@ -110,6 +115,21 @@ public class BkImportInfoServlet extends HttpServlet {
 			// 履历情报-Sheet3（健診結果報告書3）
 			BKDetailData_03 detail03 = new BKDetailData_03(workbook.getSheetAt(2), userid,username,date,Integer.toString(histno));
 			detail03.saveDataExcelToDb();
+			// 履历情报-Sheet4（健診結果報告書4）
+			BKDetailData_04 detail04 = new BKDetailData_04(workbook.getSheetAt(3), userid,username,date,Integer.toString(histno));
+			detail04.saveDataExcelToDb();
+			// 履历情报-Sheet5（健診結果報告書5）
+			BKDetailData_05 detail05 = new BKDetailData_05(workbook.getSheetAt(4), userid,username,date,Integer.toString(histno));
+			detail05.saveDataExcelToDb();
+			// 履历情报-Sheet6（健診結果報告書6）
+			BKDetailData_06 detail06 = new BKDetailData_06(workbook.getSheetAt(5), userid,username,date,Integer.toString(histno));
+			detail06.saveDataExcelToDb();
+			// 履历情报-Sheet7（健診結果報告書7）
+			BKDetailData_07 detail07 = new BKDetailData_07(workbook.getSheetAt(6), userid,username,date,Integer.toString(histno));
+			detail07.saveDataExcelToDb();
+			// 履历情报-Sheet8（健診結果報告書8）
+			BKDetailData_08 detail08 = new BKDetailData_08(workbook.getSheetAt(7), userid,username,date,Integer.toString(histno));
+			detail08.saveDataExcelToDb();
 			
 			String fileName = file.getName();
 			String historyname = fileName.substring(0, fileName.indexOf("."));

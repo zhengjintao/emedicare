@@ -9,7 +9,7 @@ import com.bwc.biz.emedicare.common.JdbcUtil;
 import com.bwc.biz.emedicare.servlets.BkImportInfoServlet;
 
 /*
- * 明细数据第SHEET
+ * 明细数据第SHEET8
  */
 public class BKDetailData_08 {
 	// 对象Sheet
@@ -56,34 +56,7 @@ public class BKDetailData_08 {
 		new int[] {34, 1 }
 	    );
 	
-	private List<String[]> lableList = Arrays.asList(
-		new String[] { "1", "乳房检查","判定"},
-		new String[] { "2", "乳房检查","本次"},new String[] { "3", "乳房检查","上次"},new String[] { "4", "乳房检查","上上次"},
-		new String[] { "5", "乳房检查","本次"},new String[] { "6", "乳房检查","上次"},new String[] { "7", "乳房检查","上上次"},
-		new String[] { "8", "乳房检查","本次"},new String[] { "9", "乳房检查","上次"},new String[] { "10", "乳房检查","上上次"},
-		new String[] { "11", "乳房检查","本次"},new String[] { "12", "乳房检查","上次"},new String[] { "13", "乳房检查","上上次"},
-		new String[] { "14", "乳房检查","本次"},new String[] { "15", "乳房检查","上次"},new String[] { "16", "乳房检查","上上次"},
-		new String[] { "17", "乳房检查","本次"},new String[] { "18", "乳房检查","上次"},new String[] { "19", "乳房检查","上上次"},
-		new String[] { "20", "乳房检查","本次"},new String[] { "21", "乳房检查","上次"},new String[] { "22", "乳房检查","上上次"},
-		new String[] { "23", "乳房检查","本次"},new String[] { "24", "乳房检查","上次"},new String[] { "25", "乳房检查","上上次"},
-		new String[] { "26", "乳房检查","本次"},new String[] { "27", "乳房检查","上次"},new String[] { "28", "乳房检查","上上次"},
-		new String[] { "29", "乳房检查","本次"},new String[] { "30", "乳房检查","上次"},new String[] { "31", "乳房检查","上上次"},
-		new String[] { "32", "乳房检查","本次"},new String[] { "33", "乳房检查","上次"},new String[] { "34", "乳房检查","上上次"},
-		new String[] { "35", "乳房检查","本次"},new String[] { "36", "乳房检查","上次"},new String[] { "37", "乳房检查","上上次"},
-		new String[] { "38", "妇科检查","判定"},
-		new String[] { "39", "妇科检查","本次"},new String[] { "40", "妇科检查","上次"},new String[] { "41", "妇科检查","上上次"},
-		new String[] { "42", "妇科检查","本次"},new String[] { "43", "妇科检查","上次"},new String[] { "44", "妇科检查","上上次"},
-		new String[] { "45", "妇科检查","本次"},new String[] { "46", "妇科检查","上次"},new String[] { "47", "妇科检查","上上次"},
-		new String[] { "48", "妇科检查","本次"},new String[] { "49", "妇科检查","上次"},new String[] { "50", "妇科检查","上上次"},
-		new String[] { "51", "妇科检查","本次"},new String[] { "52", "妇科检查","上次"},new String[] { "53", "妇科检查","上上次"},
-		new String[] { "54", "妇科检查","本次"},new String[] { "55", "妇科检查","上次"},new String[] { "56", "妇科检查","上上次"},
-		new String[] { "57", "妇科检查","本次"},new String[] { "58", "妇科检查","上次"},new String[] { "59", "妇科检查","上上次"},
-		new String[] { "60", "妇科检查","本次"},new String[] { "61", "妇科检查","上次"},new String[] { "62", "妇科检查","上上次"},
-		new String[] { "63", "妇科检查","本次"},new String[] { "64", "妇科检查","上次"},new String[] { "65", "妇科检查","上上次"},
-		new String[] { "66", "妇科检查","本次"},new String[] { "67", "妇科检查","上次"},new String[] { "68", "妇科检查","上上次"},
-		new String[] { "69", "妇科检查","本次"},new String[] { "70", "妇科检查","上次"},new String[] { "71", "妇科检查","上上次"},
-		new String[] { "72", "妇科检查","本次"},new String[] { "73", "妇科检查","上次"},new String[] { "74", "妇科检查","上上次"}
-		);
+	private List<String[]> lableList = Arrays.asList();
 	
 	public BKDetailData_08() {}
 
@@ -112,8 +85,8 @@ public class BKDetailData_08 {
 		String insertSql = "insert into cdata_detail_08 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
 		for (int i = 0; i < indexList.size(); i++) {
-			mainclass = lableList.get(i)[1];
-			subclass = lableList.get(i)[2];
+			mainclass = "";
+			subclass = "";
 			context = BkImportInfoServlet.getCellValue(this.sheet, indexList.get(i)[0], indexList.get(i)[1]);
 			insertparams[0] = this.userid;
 			insertparams[1] = this.username;
@@ -186,9 +159,6 @@ public class BKDetailData_08 {
 		params[1]= historydate;
 		String delsql = "delete from cdata_detail_08 where userid = ? and examdate = ?";
 		JdbcUtil.getInstance().executeUpdate(delsql, params);
-		
-		String delsql2 = "delete from cdata_history where userid = ? and historydate = ?";
-		JdbcUtil.getInstance().executeUpdate(delsql2, params);
 	}
 	
 	private void check(String userid, String date) {

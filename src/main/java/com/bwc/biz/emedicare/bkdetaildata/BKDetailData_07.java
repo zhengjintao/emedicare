@@ -9,7 +9,7 @@ import com.bwc.biz.emedicare.common.JdbcUtil;
 import com.bwc.biz.emedicare.servlets.BkImportInfoServlet;
 
 /*
- * 明细数据第SHEET
+ * 明细数据第SHEET7
  */
 public class BKDetailData_07 {
 	// 对象Sheet
@@ -56,35 +56,7 @@ public class BKDetailData_07 {
 		new int[] {34, 1 }
 	    );
 	
-	private List<String[]> lableList = Arrays.asList(
-		new String[] { "1", "肺功能","判定"},
-		new String[] { "2", "肺功能","标准值/单位"},new String[] { "3", "肺功能","上次"},new String[] { "4", "肺功能","上次"},new String[] { "5", "肺功能","上上次"},
-		new String[] { "6", "肺功能","标准值/单位"},new String[] { "7", "肺功能","上次"},new String[] { "8", "肺功能","上次"},new String[] { "9", "肺功能","上上次"},
-		new String[] { "10", "肺功能","标准值/单位"},new String[] { "11", "肺功能","上次"},new String[] { "12", "肺功能","上次"},new String[] { "13", "肺功能","上上次"},
-		new String[] { "14", "肺功能","标准值/单位"},new String[] { "15", "肺功能","上次"},new String[] { "16", "肺功能","上次"},new String[] { "17", "肺功能","上上次"},
-		new String[] { "18", "肺功能","标准值/单位"},new String[] { "19", "肺功能","上次"},new String[] { "20", "肺功能","上次"},new String[] { "21", "肺功能","上上次"},
-		new String[] { "22", "肺功能","评语"},
-		new String[] { "23", "胰腺","判定"},
-		new String[] { "24", "胰腺","标准值/单位"},new String[] { "25", "胰腺","上次"},new String[] { "26", "胰腺","上次"},new String[] { "27", "胰腺","上上次"},
-		new String[] { "28", "胰腺","评语"},
-		new String[] { "29", "炎症反应","判定"},
-		new String[] { "30", "炎症反应","检查项目"},new String[] { "31", "炎症反应","标准值/单位"},new String[] { "32", "胰腺","上次"},new String[] { "33", "胰腺","上次"},new String[] { "34", "胰腺","上上次"},
-		new String[] { "35", "炎症反应","标准值/单位"},new String[] { "36", "胰腺","上次"},new String[] { "37", "胰腺","上次"},new String[] { "38", "胰腺","上上次"},
-		new String[] { "39", "炎症反应","检查项目"},new String[] { "40", "炎症反应","标准值/单位"},new String[] { "41", "胰腺","上次"},new String[] { "42", "胰腺","上次"},new String[] { "43", "胰腺","上上次"},
-		new String[] { "44", "炎症反应","标准值/单位"},new String[] { "45", "胰腺","上次"},new String[] { "46", "胰腺","上次"},new String[] { "47", "胰腺","上上次"},
-		new String[] { "48", "炎症反应","标准值/单位"},new String[] { "49", "胰腺","上次"},new String[] { "50", "胰腺","上次"},new String[] { "51", "胰腺","上上次"},
-		new String[] { "52", "炎症反应","标准值/单位"},new String[] { "53", "胰腺","上次"},new String[] { "54", "胰腺","上次"},new String[] { "55", "胰腺","上上次"},
-		new String[] { "56", "炎症反应","评语"},
-		new String[] { "57", "肝炎","判定"},
-		new String[] { "58", "肝炎","标准值/单位"},new String[] { "59", "肝炎","上次"},new String[] { "60", "肝炎","上次"},new String[] { "61", "肝炎","上上次"},
-		new String[] { "62", "肝炎","标准值/单位"},new String[] { "63", "肝炎","上次"},new String[] { "64", "肝炎","上次"},new String[] { "65", "肝炎","上上次"},
-		new String[] { "66", "肝炎","标准值/单位"},new String[] { "67", "肝炎","上次"},new String[] { "68", "肝炎","上次"},new String[] { "69", "肝炎","上上次"},
-		new String[] { "70", "肝炎","评语"},
-		new String[] { "71", "血清反应","判定"},
-		new String[] { "72", "血清反应","标准值/单位"},new String[] { "73", "血清反应","上次"},new String[] { "74", "血清反应","上次"},new String[] { "75", "血清反应","上上次"},
-		new String[] { "76", "血清反应","标准值/单位"},new String[] { "77", "血清反应","上次"},new String[] { "78", "血清反应","上次"},new String[] { "79", "血清反应","上上次"},
-		new String[] { "80", "血清反应","评语"}
-		);
+	private List<String[]> lableList = Arrays.asList();
 	
 	public BKDetailData_07() {}
 
@@ -113,8 +85,8 @@ public class BKDetailData_07 {
 		String insertSql = "insert into cdata_detail_07 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
 		for (int i = 0; i < indexList.size(); i++) {
-			mainclass = lableList.get(i)[1];
-			subclass = lableList.get(i)[2];
+			mainclass = "";
+			subclass = "";
 			context = BkImportInfoServlet.getCellValue(this.sheet, indexList.get(i)[0], indexList.get(i)[1]);
 			insertparams[0] = this.userid;
 			insertparams[1] = this.username;
@@ -187,9 +159,6 @@ public class BKDetailData_07 {
 		params[1]= historydate;
 		String delsql = "delete from cdata_detail_07 where userid = ? and examdate = ?";
 		JdbcUtil.getInstance().executeUpdate(delsql, params);
-		
-		String delsql2 = "delete from cdata_history where userid = ? and historydate = ?";
-		JdbcUtil.getInstance().executeUpdate(delsql2, params);
 	}
 	
 	private void check(String userid, String date) {
