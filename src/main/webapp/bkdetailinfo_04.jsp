@@ -16,11 +16,11 @@
     <tr>
       <td rowspan="5"><div class="ui inverted form lblcontent"><textarea rows="13" cols="1" style="resize: none"></textarea></div></td>
       <td>部位</td>
-      <td colspan="3"><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td colspan="3"><div class="ui input" style="height:30px">所见</div></td>
     </tr>
     <tr>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td colspan="3"><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td colspan="3" style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
     <tr>
       <td colspan="2">上次</td>
@@ -33,10 +33,10 @@
       <td>所见</td>
     </tr>
     <tr>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
   </tbody>
 </table>
@@ -52,28 +52,28 @@
     <tr>
       <td rowspan="5"><div class="ui inverted form lblcontent"><textarea rows="13" cols="1" style="resize: none"></textarea></div></td>
       <td>总胆固醇</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
      <tr>
       <td>中性脂肪</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
      <tr>
       <td>高密度脂蛋白总胆固醇</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
      <tr>
       <td>低密度脂蛋白总胆固醇</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
      <tr>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
     <tr>
       <td colspan="5">
@@ -96,68 +96,68 @@
       <div class="ui inverted form lblcontent"><textarea rows="35" cols="1" style="resize: none"></textarea></div>
       </td>
       <td>总胆红素（T-BIL）</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
      <tr>
       <td>ZTT</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
      <tr>
       <td>TTT</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
      <tr>
       <td>AST</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
      <tr>
       <td>ALT</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
      <tr>
       <td>γ－GTP</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
     <tr>
       <td>总蛋白（TP）</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
      <tr>
       <td>白蛋白</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
     <tr>
       <td>A/G比</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
     <tr>
       <td>ALP</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
     <tr>
       <td>LAP</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
     <tr>
       <td>ChE</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
     <tr>
       <td>LDH</td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
-      <td><div class="ui input" style="height:30px"> <input type="text"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
+      <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[]"></div></td>
     </tr>
     <tr>
       <td colspan="5">

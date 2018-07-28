@@ -24,32 +24,34 @@ public class BKDetailData_05 {
 	private String histno;
 	//数据坐标（EXCEL行列）
 	private List<int[]> indexList = Arrays.asList(
-		// 胸部X线检查
-		new int[] {2,2},
-		new int[] {3,3},new int[] {3,4},
-		new int[] {7,3},new int[] {7,4},new int[] {7,5},new int[] {7,6},
-		//脂质
-		new int[] {11,2},new int[] {11,5},new int[] {11,7},
-		new int[] {12,5},new int[] {12,7},
-		new int[] {13,5},new int[] {13,7},
-		new int[] {14,5},new int[] {14,7},
-		new int[] {15,3},new int[] {15,5},new int[] {15,7},
-		new int[] {16,1},
-		//肝功能检查
-		new int[] {19,2},new int[] {19,5},new int[] {19,7},
-		new int[] {20,5},new int[] {20,7},
-		new int[] {21,5},new int[] {21,7},
-		new int[] {22,5},new int[] {22,7},
-		new int[] {23,5},new int[] {23,7},
-		new int[] {24,5},new int[] {24,7},
-		new int[] {25,5},new int[] {25,7},
-		new int[] {26,5},new int[] {26,7},
-		new int[] {27,5},new int[] {27,7},
-		new int[] {28,5},new int[] {28,7},
-		new int[] {29,5},new int[] {29,7},
-		new int[] {30,5},new int[] {30,7},
-		new int[] {31,5},new int[] {31,7},
-		new int[] {32,1}
+		// 糖尿病
+		new int[] {2,2},new int[] {2,5},new int[] {2,7},new int[] {2,8},new int[] {2,9},
+		new int[] {3,5},new int[] {3,7},new int[] {3,8},new int[] {3,9},
+		new int[] {4,5},new int[] {4,7},new int[] {4,8},new int[] {4,9},
+		new int[] {5,5},new int[] {5,7},new int[] {5,8},new int[] {5,9},
+		new int[] {6,1},
+		//痛风
+		new int[] {9,2},new int[] {9,5},new int[] {9,7},new int[] {9,8},new int[] {9,9},
+		new int[] {10,1},
+		//心电图
+		new int[] {13,2},new int[] {13,5},new int[] {13,7},new int[] {13,8},new int[] {13,9},
+		new int[] {14,2},new int[] {14,5},new int[] {14,7},new int[] {14,8},new int[] {14,9},
+		// 便
+		new int[] {17,2},new int[] {17,5},new int[] {17,7},new int[] {17,8},new int[] {17,9},
+		new int[] {18,5},new int[] {18,7},new int[] {18,8},new int[] {18,9},
+		new int[] {19,1},
+		// 眼底
+		new int[] {22,2},new int[] {22,8},new int[] {22,9},
+		new int[] {23,8},new int[] {23,9},
+		new int[] {24,5},new int[] {24,7},new int[] {24,8},new int[] {24,9},
+		new int[] {25,5},new int[] {25,7},new int[] {25,8},new int[] {25,9},
+		new int[] {26,5},new int[] {26,7},new int[] {26,8},new int[] {26,9},
+		new int[] {27,5},new int[] {27,7},new int[] {27,8},new int[] {27,9},
+		new int[] {28,5},new int[] {28,7},new int[] {28,8},new int[] {28,9},
+		new int[] {29,5},new int[] {29,7},new int[] {29,8},new int[] {29,9},
+		// 眼压
+		new int[] {30,2},new int[] {30,5},new int[] {30,7},new int[] {30,8},new int[] {30,9},
+		new int[] {31,2},new int[] {31,5},new int[] {31,7},new int[] {31,8},new int[] {31,9}
 	    );
 	
 	private List<String[]> lableList = Arrays.asList();

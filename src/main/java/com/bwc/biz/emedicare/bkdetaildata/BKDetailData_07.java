@@ -24,37 +24,31 @@ public class BKDetailData_07 {
 	private String histno;
 	//数据坐标（EXCEL行列）
 	private List<int[]> indexList = Arrays.asList(
-		// 诊察所见
-		new int[] {2, 2 },new int[] {2, 3 },new int[] {2, 4 },new int[] {2, 5 },
-		new int[] {3, 3 },new int[] {3, 4 },new int[] {3, 5 },
-		//身体测量
-		new int[] {6, 2 },new int[] {6, 4 },new int[] {6, 5 },
-		new int[] {7, 4 },new int[] {7, 5 },
-		new int[] {8, 4 },new int[] {8, 5 },
-		new int[] {9, 4 },new int[] {9, 5 },
-		new int[] {10, 4 },new int[] {10, 5 },
-		new int[] {11, 4 },new int[] {11, 5 },
-		new int[] {12, 4 },new int[] {12, 5 },
-		new int[] {13, 3 },new int[] {13, 4 },new int[] {13, 5 },
-		new int[] {14, 1 },
-		//血压
-		new int[] {17, 2 },new int[] {17, 4 },new int[] {17, 5 },
-		new int[] {18, 4 },new int[] {18, 5 },
-		new int[] {19, 3 },new int[] {19, 4 },new int[] {19, 5 },
-		new int[] {20, 1 },	
-		//血压
-		new int[] {23, 2 },new int[] {23, 4 },new int[] {23, 5 },
-		new int[] {24, 4 },new int[] {24, 5 },
-		new int[] {25, 3 },new int[] {25, 4 },new int[] {25, 5 },
-		new int[] {26, 1 },	
-		//听力
-		new int[] {29, 2 },new int[] {29, 3 },new int[] {29, 4 },new int[] {29, 5 },
-		new int[] {30, 3 },new int[] {30, 4 },new int[] {30, 5 },
-		new int[] {31, 3 },new int[] {31, 4 },new int[] {31, 5 },
-		new int[] {32, 3 },new int[] {32, 4 },new int[] {32, 5 },
-		new int[] {33, 3 },new int[] {33, 4 },new int[] {33, 5 },
-		new int[] {34, 1 }
-	    );
+		// 肺功能
+		new int[] {2, 2 },new int[] {2, 5 },new int[] {2, 7 },new int[] {2, 8},new int[] {2, 9},
+		new int[] {3, 5 },new int[] {3, 7 },new int[] {3, 8},new int[] {3, 9},
+		new int[] {4, 5 },new int[] {4, 7 },new int[] {4, 8},new int[] {4, 9},
+		new int[] {5, 5 },new int[] {5, 7 },new int[] {5, 8},new int[] {5, 9},
+		new int[] {6, 5 },new int[] {6, 7 },new int[] {6, 8},new int[] {6, 9},
+		new int[] {7, 1 },
+		//胰腺
+		new int[] {11, 2 },new int[] {11, 5 },new int[] {11, 7 },new int[] {11, 8},new int[] {11, 9},
+		new int[] {12, 1 },
+		//炎症反应
+		new int[] {15, 2 },new int[] {15, 5 },new int[] {15, 7 },new int[] {15, 8},new int[] {15, 9},
+		new int[] {16, 5 },new int[] {16, 7 },new int[] {16, 8},new int[] {16, 9},
+		new int[] {17, 5 },new int[] {17, 7 },new int[] {17, 8},new int[] {17, 9},
+		new int[] {18, 5 },new int[] {18, 7 },new int[] {18, 8},new int[] {18, 9},
+		new int[] {19, 5 },new int[] {19, 7 },new int[] {19, 8},new int[] {19, 9},
+		new int[] {20, 5 },new int[] {20, 7 },new int[] {20, 8},new int[] {20, 9},
+		new int[] {21, 1 },
+		//肝炎
+		new int[] {24, 2 },new int[] {24, 5 },new int[] {24, 7 },new int[] {24, 8},new int[] {24, 9},
+		new int[] {25, 5 },new int[] {25, 7 },new int[] {25, 8},new int[] {25, 9},
+		new int[] {26, 5 },new int[] {26, 7 },new int[] {26, 8},new int[] {26, 9},
+		//血清反应
+		new int[] {29, 2 },new int[] {29, 5 },new int[] {29, 7 },new int[] {29, 8},new int[] {29, 9},
+		new int[] {30, 5 },new int[] {30, 7 },new int[] {30, 8},new int[] {30, 9});
 	
 	private List<String[]> lableList = Arrays.asList();
 	

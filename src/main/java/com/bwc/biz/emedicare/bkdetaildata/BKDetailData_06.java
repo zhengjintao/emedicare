@@ -24,37 +24,28 @@ public class BKDetailData_06 {
 	private String histno;
 	//数据坐标（EXCEL行列）
 	private List<int[]> indexList = Arrays.asList(
-		// 诊察所见
-		new int[] {2, 2 },new int[] {2, 3 },new int[] {2, 4 },new int[] {2, 5 },
-		new int[] {3, 3 },new int[] {3, 4 },new int[] {3, 5 },
-		//身体测量
-		new int[] {6, 2 },new int[] {6, 4 },new int[] {6, 5 },
-		new int[] {7, 4 },new int[] {7, 5 },
-		new int[] {8, 4 },new int[] {8, 5 },
-		new int[] {9, 4 },new int[] {9, 5 },
-		new int[] {10, 4 },new int[] {10, 5 },
-		new int[] {11, 4 },new int[] {11, 5 },
-		new int[] {12, 4 },new int[] {12, 5 },
-		new int[] {13, 3 },new int[] {13, 4 },new int[] {13, 5 },
-		new int[] {14, 1 },
-		//血压
-		new int[] {17, 2 },new int[] {17, 4 },new int[] {17, 5 },
-		new int[] {18, 4 },new int[] {18, 5 },
-		new int[] {19, 3 },new int[] {19, 4 },new int[] {19, 5 },
-		new int[] {20, 1 },	
-		//血压
-		new int[] {23, 2 },new int[] {23, 4 },new int[] {23, 5 },
-		new int[] {24, 4 },new int[] {24, 5 },
-		new int[] {25, 3 },new int[] {25, 4 },new int[] {25, 5 },
-		new int[] {26, 1 },	
-		//听力
-		new int[] {29, 2 },new int[] {29, 3 },new int[] {29, 4 },new int[] {29, 5 },
-		new int[] {30, 3 },new int[] {30, 4 },new int[] {30, 5 },
-		new int[] {31, 3 },new int[] {31, 4 },new int[] {31, 5 },
-		new int[] {32, 3 },new int[] {32, 4 },new int[] {32, 5 },
-		new int[] {33, 3 },new int[] {33, 4 },new int[] {33, 5 },
-		new int[] {34, 1 }
-	    );
+		// 上部消化管内视镜
+		new int[] {2, 2 },
+		new int[] {3, 3 },new int[] {3, 4 },
+		new int[] {4, 3 },new int[] {4, 4 },
+		new int[] {5, 3 },new int[] {5, 4 },
+		new int[] {6, 3 },new int[] {6, 4 },
+		new int[] {9, 3 },new int[] {9, 4 },new int[] {9, 5 },new int[] {9, 6 },
+		//胃活检
+		new int[] {11, 2 },
+		new int[] {13, 3 },new int[] {13, 4 },
+		//上腹部超声波
+		new int[] {18, 2 },
+		new int[] {19, 3 },new int[] {19, 4 },
+		new int[] {20, 3 },new int[] {20, 4 },
+		new int[] {21, 3 },new int[] {21, 4 },
+		new int[] {24, 3 },new int[] {24, 4 },new int[] {24, 5 },new int[] {24, 6 },
+		
+		//血沉
+		new int[] {29, 2 },new int[] {29, 5 },new int[] {29, 7},
+		new int[] {30, 5 },new int[] {30, 7},
+		new int[] {31, 3 },new int[] {31, 5},new int[] {31, 7 }
+		);
 	
 	private List<String[]> lableList = Arrays.asList();
 	
