@@ -43,6 +43,11 @@
   <%for (int i = 0; i < dataList02.size(); i++) {%>  
 	   list.dt_02[<%=i%>] = "<%=dataList02.get(i)%>";
    <%}%>
+   list.dt_03 = new Array();
+   <%List<String> dataList03 = (List<String>) request.getAttribute("detailDataList03");%>;
+   <%for (int i = 0; i < dataList03.size(); i++) {%>  
+ 	   list.dt_03[<%=i%>] = "<%=dataList03.get(i)%>";
+    <%}%>
    
   list.dt_09 = new Array();
   <%List<String> dataList09 = (List<String>) request.getAttribute("detailDataList09");%>;
@@ -96,7 +101,8 @@
 		    datatype:'json',
 		    data:{
 		    	dt_01:list.dt_01,
-		    	dt_02:list.dt_02
+		    	dt_02:list.dt_02,
+		    	dt_03:list.dt_03
 		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");
@@ -114,7 +120,8 @@
 		    datatype:'json',
 		    data:{
 		    	dt_01:list.dt_01,
-		    	dt_02:list.dt_02
+		    	dt_02:list.dt_02,
+		    	dt_03:list.dt_03
 		    },
 		    success: function(data) {
 		  	  window.location.href = 'bkhistorylist.do?userid='+ list.dt_01[2];

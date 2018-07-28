@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_01;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_02;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_03;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_09;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_10;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_11;
@@ -69,6 +70,9 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// 健診結果報告書2数据取得
 		BKDetailData_02 detaildata02 = new BKDetailData_02();
 		request.setAttribute("detailDataList02", detaildata02.getDateValue(userid, historydate));
+		// 健診結果報告書3数据取得
+		BKDetailData_03 detaildata03 = new BKDetailData_03();
+		request.setAttribute("detailDataList03", detaildata03.getDateValue(userid, historydate));
 		// 健診結果報告書9数据取得
 		BKDetailData_09 detaildata09 = new BKDetailData_09();
 		request.setAttribute("detailDataList09", detaildata09.getDateValue(userid, historydate));
@@ -114,19 +118,22 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// 健診結果報告書2数据删除
 		BKDetailData_02 data02 = new BKDetailData_02();
 		data02.deleteData(userid,historydate);
-		// sheet09
-		String[] detaildata09 =  request.getParameterValues("json[]");
-		BKDetailData_09 data09 = new BKDetailData_09();
-		data09.deleteData(detaildata09);
-		
-		// sheet10
-		String[] detaildata10 =  request.getParameterValues("json[]");
-		BKDetailData_10 data10 = new BKDetailData_10();
-		data10.deleteData(detaildata10);
-		
-		// sheet11
-		String[] detaildata11 =  request.getParameterValues("json[]");
-		BKDetailData_11 data11 = new BKDetailData_11();
-		data11.deleteData(detaildata11);
+		// 健診結果報告書3数据删除
+		BKDetailData_03 data03 = new BKDetailData_03();
+		data03.deleteData(userid,historydate);
+//		// sheet09
+//		String[] detaildata09 =  request.getParameterValues("json[]");
+//		BKDetailData_09 data09 = new BKDetailData_09();
+//		data09.deleteData(detaildata09);
+//		
+//		// sheet10
+//		String[] detaildata10 =  request.getParameterValues("json[]");
+//		BKDetailData_10 data10 = new BKDetailData_10();
+//		data10.deleteData(detaildata10);
+//		
+//		// sheet11
+//		String[] detaildata11 =  request.getParameterValues("json[]");
+//		BKDetailData_11 data11 = new BKDetailData_11();
+//		data11.deleteData(detaildata11);
 	}
 }

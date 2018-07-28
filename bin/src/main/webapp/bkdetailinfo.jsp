@@ -42,6 +42,12 @@
    <%for (int i = 0; i < dataList02.size(); i++) {%>  
         list.dt_02[<%=i%>] = "<%=dataList02.get(i)%>";
     <%}%>
+    
+    list.dt_03 = new Array();
+    <%List<String> dataList03 = (List<String>) request.getAttribute("detailDataList03");%>;
+    <%for (int i = 0; i < dataList03.size(); i++) {%>  
+         list.dt_03[<%=i%>] = "<%=dataList03.get(i)%>";
+     <%}%>
    
    list.sheets =[
 	   {'id' : 'dtl01', 'name': '健診結果報告書１'},
@@ -193,7 +199,7 @@ footer {
 		<jsp:include page="bkdetailinfo_11.jsp" />	
 		<jsp:include page="bkdetailinfo_12.jsp" />
 		<jsp:include page="bkdetailinfo_13.jsp" />
-		<jsp:include page="bkdetailinfo_14.jsp" />
+		
 		<jsp:include page="bkdetailinfo_19.jsp" />		
 		<jsp:include page="bkdetailinfo_20.jsp" />		
 		<jsp:include page="bkdetailinfo_21.jsp" />	

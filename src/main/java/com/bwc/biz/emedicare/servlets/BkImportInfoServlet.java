@@ -20,6 +20,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_01;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_02;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_03;
 import com.bwc.biz.emedicare.common.JdbcUtil;
 import com.bwc.biz.emedicare.form.User;
 
@@ -106,6 +107,9 @@ public class BkImportInfoServlet extends HttpServlet {
 			// 履历情报-Sheet2（健診結果報告書2）
 			BKDetailData_02 detail02 = new BKDetailData_02(workbook.getSheetAt(1), userid,username,date,Integer.toString(histno));
 			detail02.saveDataExcelToDb();
+			// 履历情报-Sheet3（健診結果報告書3）
+			BKDetailData_03 detail03 = new BKDetailData_03(workbook.getSheetAt(2), userid,username,date,Integer.toString(histno));
+			detail03.saveDataExcelToDb();
 			
 			String fileName = file.getName();
 			String historyname = fileName.substring(0, fileName.indexOf("."));
