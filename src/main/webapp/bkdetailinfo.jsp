@@ -62,16 +62,16 @@
   <%for (int i = 0; i < dataList04.size(); i++) {%>  
   	   list.dt_04[<%=i%>] = "<%=dataList04.get(i)%>";
   <%}%>
-  <%for (int i = 0; i < dataList03.size(); i++) {%>  
+  <%for (int i = 0; i < dataList05.size(); i++) {%>  
    	   list.dt_05[<%=i%>] = "<%=dataList05.get(i)%>";
   <%}%>
-  <%for (int i = 0; i < dataList03.size(); i++) {%>  
+  <%for (int i = 0; i < dataList06.size(); i++) {%>  
        list.dt_06[<%=i%>] = "<%=dataList06.get(i)%>";
   <%}%>
-  <%for (int i = 0; i < dataList03.size(); i++) {%>  
+  <%for (int i = 0; i < dataList07.size(); i++) {%>  
        list.dt_07[<%=i%>] = "<%=dataList07.get(i)%>";
   <%}%>
-  <%for (int i = 0; i < dataList03.size(); i++) {%>  
+  <%for (int i = 0; i < dataList08.size(); i++) {%>  
        list.dt_08[<%=i%>] = "<%=dataList08.get(i)%>";
   <%}%>
    
