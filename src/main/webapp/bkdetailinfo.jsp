@@ -90,12 +90,14 @@
    ]
    
    list.saveData = function() {
-	   var json=list.dt_01;
 	   $.ajax({
 		    url: "bkdetailinfo.do?mode=save",
 		    type: "POST",
 		    datatype:'json',
-		    data:{json:json},
+		    data:{
+		    	dt_01:list.dt_01,
+		    	dt_02:list.dt_02
+		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");
 				$('#cmodal').modal({
@@ -106,12 +108,14 @@
    };
    
    list.deleteData = function() {
-	   var json=list.dt_01;
 	   $.ajax({
 		    url: "bkdetailinfo.do?mode=delete",
 		    type: "POST",
 		    datatype:'json',
-		    data:{json:json},
+		    data:{
+		    	dt_01:list.dt_01,
+		    	dt_02:list.dt_02
+		    },
 		    success: function(data) {
 		  	  window.location.href = 'bkhistorylist.do?userid='+ list.dt_01[2];
 		    }

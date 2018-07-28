@@ -153,21 +153,21 @@ public class BKDetailData_02 {
 	/*
 	 * 画面表示数据更新保存
 	 */
-	public void saveDataDispToDb(String[] detaildata02){
-		String userid = detaildata02[2];
-		String historydate = detaildata02[1];
+	public void saveDataDispToDb(String[] detaildata){
+		String userid = detaildata[2];
+		String historydate = detaildata[1];
 		this.check(userid,historydate);
 		String insertsql = "insert into cdata_detail_02 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
-		for(int i=0; i < detaildata02.length;i++){
+		for(int i=0; i < detaildata.length;i++){
 			insertparams[0] = userid;
-			insertparams[1] = detaildata02[0];
+			insertparams[1] = detaildata[0];
 			insertparams[2] = historydate;
 			insertparams[3] = 1;
 			insertparams[4] = i;
 			insertparams[5] = lableList.get(i)[1];
 			insertparams[6] = lableList.get(i)[2];
-			insertparams[7] = detaildata02[i];
+			insertparams[7] = detaildata[i];
 			
 			JdbcUtil.getInstance().executeUpdate(insertsql, insertparams);
 		}	
@@ -176,18 +176,12 @@ public class BKDetailData_02 {
 	/*
 	 * 画面表示数据删除
 	 */
-	public void deleteData(String[] detaildata02){
-		String userid = detaildata02[2];
-		String historydate = detaildata02[1];
-		
+	public void deleteData(String userid,String historydate){
 		Object[] params = new Object[2];
 		params[0]= userid;
 		params[1]= historydate;
 		String delsql = "delete from cdata_detail_02 where userid = ? and examdate = ?";
 		JdbcUtil.getInstance().executeUpdate(delsql, params);
-		
-		String delsql2 = "delete from cdata_history where userid = ? and historydate = ?";
-		JdbcUtil.getInstance().executeUpdate(delsql2, params);
 	}
 	
 	private void check(String userid, String date) {

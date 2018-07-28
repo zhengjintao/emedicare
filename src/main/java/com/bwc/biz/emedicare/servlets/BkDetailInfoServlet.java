@@ -82,15 +82,11 @@ public class BkDetailInfoServlet extends HttpServlet {
 	
 	private void savedata(HttpServletRequest request){
 		// sheet01
-		String[] detaildata01 =  request.getParameterValues("json[]");
 		BKDetailData_01 data01 = new BKDetailData_01();
-		data01.saveDataDispToDb(detaildata01);
-		
+		data01.saveDataDispToDb(request.getParameterValues("dt_01[]"));
 		// sheet02
-		String[] detaildata02 =  request.getParameterValues("json[]");
 		BKDetailData_02 data02 = new BKDetailData_02();
-		data02.saveDataDispToDb(detaildata02);
-		
+		data02.saveDataDispToDb(request.getParameterValues("dt_02[]"));
 		// sheet09
 		String[] detaildata09 =  request.getParameterValues("json[]");
 		BKDetailData_09 data09 = new BKDetailData_09();
@@ -104,21 +100,20 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// sheet11
 		String[] detaildata11 =  request.getParameterValues("json[]");
 		BKDetailData_11 data11 = new BKDetailData_11();
-		data11.saveDataDispToDb(detaildata11);
-		
+		data11.saveDataDispToDb(detaildata11);	
 	}
 	
 	private void deletedata(HttpServletRequest request){
-		// sheet01
-		String[] detaildata01 =  request.getParameterValues("json[]");
+		String[] detailData = request.getParameterValues("dt_01[]");
+		String userid = detailData[2];
+		String historydate = detailData[1];
+		
+		// 健診結果報告書1数据删除
 		BKDetailData_01 data01 = new BKDetailData_01();
-		data01.deleteData(detaildata01);
-		
-		// sheet02
-		String[] detaildata02 =  request.getParameterValues("json[]");
+		data01.deleteData(userid,historydate);
+		// 健診結果報告書2数据删除
 		BKDetailData_02 data02 = new BKDetailData_02();
-		data02.deleteData(detaildata02);
-		
+		data02.deleteData(userid,historydate);
 		// sheet09
 		String[] detaildata09 =  request.getParameterValues("json[]");
 		BKDetailData_09 data09 = new BKDetailData_09();
