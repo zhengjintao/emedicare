@@ -12,6 +12,7 @@ initdata.username = '<%=request.getAttribute("username")%>';
 initdata.birthday = '<%=request.getAttribute("birthday")%>';
 initdata.sex = '<%=request.getAttribute("sex")%>';
 initdata.telnum = '<%=request.getAttribute("telnum")%>';
+initdata.address = '<%=request.getAttribute("address")%>';
 </script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="dist/components/form.min.js"></script>
@@ -45,6 +46,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.birthday= initdata.birthday;
   list.sex= initdata.sex;
   list.telnum = initdata.telnum;
+  list.address= initdata.address;
   list.explist =  [];
   list.visitlist = [];
   (function(){
@@ -87,28 +89,35 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<h3 class="ui top attached header" style="margin-top: 10px;">基本情報</h3>
 		<div class="ui attached segment" style="margin-top: auto;">
 			<div class="ui grid">
-				<div class="eight wide column">
+				<div class="eight wide column"  style="padding-bottom:0px">
 					<div class="ui labeled input">
-								<div class="ui label">名前</div>
+								<div class="ui label" style="width:80px">名前</div>
 								<input type="text" readonly="readonly" ng-model="list.username">
 							</div>
 				</div>
-				<div class="eight wide column">
+				<div class="eight wide column" style="padding-bottom:0px">
 					<div class="ui labeled input">
-								<div class="ui label">生年月日</div>
-								<input  readonly="readonly" ng-model="list.birthday">
-							</div>
-				</div>
-				<div class="eight wide column">
-					<div class="ui labeled input">
-								<div class="ui label">性別</div>
+								<div class="ui label" style="width:80px">性別</div>
 								<input  readonly="readonly" ng-model="list.sex">
 							</div>
 				</div>
+				<div class="eight wide column" style="padding-bottom:0px">
+					<div class="ui labeled input">
+								<div class="ui label" style="width:80px">生年月日</div>
+								<input  readonly="readonly" ng-model="list.birthday">
+							</div>
+				</div>
+				
+				<div class="eight wide column" style="padding-bottom:0px">
+					<div class="ui labeled input">
+								<div class="ui label" style="width:80px">電話番号</div>
+								<input  readonly="readonly" ng-model="list.telnum">
+							</div>
+				</div>
 				<div class="eight wide column">
 					<div class="ui labeled input">
-								<div class="ui label">電話番号</div>
-								<input  readonly="readonly" ng-model="list.telnum">
+								<div class="ui label" style="width:80px">アドレス</div>
+								<input  style="width:400px" readonly="readonly" ng-model="list.address">
 							</div>
 				</div>
 			</div>

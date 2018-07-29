@@ -33,8 +33,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.errmessage ="";
   list.userinfolist = [
-	  {'userid' : 'U0000002', 'username': '本田慶応', 'expcount' : '2', 'visitcount' : '3'},
-	  {'userid' : 'U0000003', 'username': '坂本龍馬', 'expcount' : '2', 'visitcount' : '3'}
+	  {'userid' : 'U0000002', 'username': '本田慶応', 'expcount' : '2', 'visitcount' : '3'}
 	  ];
   
   (function(){
