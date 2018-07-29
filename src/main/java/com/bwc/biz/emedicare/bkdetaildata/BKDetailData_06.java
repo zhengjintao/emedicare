@@ -24,7 +24,6 @@ public class BKDetailData_06 {
 	private String histno;
 	//数据坐标（EXCEL行列）
 	private List<int[]> indexList = Arrays.asList(
-<<<<<<< Updated upstream
 		// 上部消化管内视镜
 		new int[] {2, 2 },
 		new int[] {3, 3 },new int[] {3, 4 },
@@ -45,8 +44,7 @@ public class BKDetailData_06 {
 		//血沉
 		new int[] {29, 2 },new int[] {29, 5 },new int[] {29, 7},
 		new int[] {30, 5 },new int[] {30, 7},
-		new int[] {31, 3 },new int[] {31, 5},new int[] {31, 7 }
-=======
+		new int[] {31, 3 },new int[] {31, 5},new int[] {31, 7 },
 		// 诊察所见
 		new int[] {2, 2 },new int[] {2, 3 },new int[] {2, 4 },new int[] {2, 5 },
 		new int[] {3, 3 },new int[] {3, 4 },new int[] {3, 5 },
@@ -107,10 +105,7 @@ public class BKDetailData_06 {
 		new String[] { "72", "血清反应","标准值/单位"},new String[] { "73", "血清反应","上次"},new String[] { "74", "血清反应","上次"},new String[] { "75", "血清反应","上上次"},
 		new String[] { "76", "血清反应","标准值/单位"},new String[] { "77", "血清反应","上次"},new String[] { "78", "血清反应","上次"},new String[] { "79", "血清反应","上上次"},
 		new String[] { "80", "血清反应","评语"}
->>>>>>> Stashed changes
 		);
-	
-	private List<String[]> lableList = Arrays.asList();
 	
 	public BKDetailData_06() {}
 
