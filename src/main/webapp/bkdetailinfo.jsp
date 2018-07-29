@@ -44,6 +44,7 @@
   list.dt_10 = new Array();
   list.dt_11 = new Array();
   list.dt_12 = new Array();
+  list.dt_13 = new Array();
   
   <%List<String> dataList01 = (List<String>) request.getAttribute("detailDataList01");%>;
   <%List<String> dataList02 = (List<String>) request.getAttribute("detailDataList02");%>;
@@ -57,6 +58,7 @@
   <%List<String> dataList10 = (List<String>) request.getAttribute("detailDataList10");%>;
   <%List<String> dataList11 = (List<String>) request.getAttribute("detailDataList11");%>;
   <%List<String> dataList12 = (List<String>) request.getAttribute("detailDataList12");%>;
+  <%List<String> dataList13 = (List<String>) request.getAttribute("detailDataList13");%>;
   
   <%for (int i = 0; i < dataList01.size(); i++) {%>  
        list.dt_01[<%=i%>] = "<%=dataList01.get(i)%>";
@@ -93,6 +95,9 @@
   <%}%>
   <%for (int i = 0; i < dataList12.size(); i++) {%>  
        list.dt_12[<%=i%>] = "<%=dataList12.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList13.size(); i++) {%>  
+  	   list.dt_13[<%=i%>] = "<%=dataList13.get(i)%>";
   <%}%>
     
    
@@ -139,7 +144,8 @@
 		    	dt_09:list.dt_09,
 		    	dt_10:list.dt_10,
 		    	dt_11:list.dt_11,
-		    	dt_12:list.dt_12
+		    	dt_12:list.dt_12,
+		    	dt_13:list.dt_13
 		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");

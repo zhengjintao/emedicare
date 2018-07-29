@@ -19,6 +19,7 @@ import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_09;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_10;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_11;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_12;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_13;
 
 /**
  * Servlet implementation class BkDetailInfoServlet
@@ -106,6 +107,9 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// 健診結果報告書12数据取得
 		BKDetailData_12 detaildata12 = new BKDetailData_12();
 		request.setAttribute("detailDataList12", detaildata12.getDateValue(userid, historydate));
+		// 健診結果報告書13数据取得
+		BKDetailData_13 detaildata13 = new BKDetailData_13();
+		request.setAttribute("detailDataList13", detaildata13.getDateValue(userid, historydate));
 	}
 	
 	private void savedata(HttpServletRequest request){
@@ -150,7 +154,10 @@ public class BkDetailInfoServlet extends HttpServlet {
 		data11.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_11[]"));	
 		// sheet12
 		BKDetailData_12 data12 = new BKDetailData_12();
-		data12.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_12[]"));	
+		data12.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_12[]"));
+		// sheet13
+		BKDetailData_13 data13 = new BKDetailData_13();
+		data13.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_13[]"));	
 	}
 	
 	private void deletedata(HttpServletRequest request){
@@ -194,5 +201,8 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// 健診結果報告書12数据删除
 		BKDetailData_12 data12 = new BKDetailData_12();
 		data12.deleteData(userid,historydate);
+		// 健診結果報告書13数据删除
+		BKDetailData_13 data13 = new BKDetailData_13();
+		data13.deleteData(userid,historydate);
 	}
 }
