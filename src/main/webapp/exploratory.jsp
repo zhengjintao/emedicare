@@ -42,12 +42,7 @@
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
-  list.records =  [
-      {id:'E0000001', text:'診査记录20170514'},
-      {id:'E0000001', text:'診査记录20170514'},
-      {id:'E0000001', text:'診査记录20170514'},
-      {id:'E0000001', text:'診査记录20170514'}
-      ];
+  list.records =  [];
   (function(){
   	$scope.url =  "exploratory.do";
   	var postdata = {'mode':'list'};
@@ -59,7 +54,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   			transformRequest:transFormFactory.transForm,
   			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
   		}).then(function (result) {
-  			//list.records = result.data.records;
+  			list.records = result.data.records;
           }).catch(function (result) {
           	list.message = "SORRY!エラーが発生しました。";
           	$('.ui.basic.modal') .modal('show');
@@ -68,7 +63,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   })();
   
   list.onitemclick = function(item) {
-	  window.location.href = 'exploratorydetail.do?expid=' + item.id +"&name=" + item.text;
+	  window.location.href = "exploratorydetail.do?historydate=" + item.historydate + "&expid=" + item.historyno +"&name=" + item.historyname;
   }
 });
 </script>
@@ -90,7 +85,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				<div class="ui large middle aligned selection divided list">
 					<div class="item"  ng-repeat="eachitem in list.records" ng-click="list.onitemclick(eachitem)">
 						<div class="content">
-							<a class="header">{{eachitem.text}}</a>
+							<a class="header">{{eachitem.historyname}}</a>
 						</div>
 					</div>
 				</div>

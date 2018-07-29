@@ -31,14 +31,16 @@ public class ExploratoryDetailServlet extends HttpServlet {
 		String sheetid = request.getParameter("sheetid");
 		sheetid = sheetid ==null || sheetid.length() ==0 ? "01" : sheetid;
 		String expid = request.getParameter("expid");
+		String historydate = request.getParameter("historydate");
 		String name = request.getParameter("name");
 		String jspname = String.format("exploratorydetail%s.jsp", sheetid);
+		request.setAttribute("historydate", historydate);
 		request.setAttribute("expid", expid);
 		request.setAttribute("name", name);
 		
 		HttpSession session = request.getSession();
 		User userinfo = (User)session.getAttribute("userinfo");
-		this.getDispData(request, userinfo.getUserId(), "20180715");
+		this.getDispData(request, userinfo.getUserId(), historydate);
 		request.getRequestDispatcher(jspname).forward(request, response);
 	}
 

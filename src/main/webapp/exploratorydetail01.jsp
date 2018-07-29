@@ -15,6 +15,8 @@
 initdata=[];
 initdata.expid = '<%=request.getAttribute("expid")%>';
 initdata.name = '<%=request.getAttribute("name")%>';
+initdata.historydate = '<%=request.getAttribute("historydate")%>';
+exturl= "historydate=" + initdata.historydate + "&expid=" + initdata.expid +"&name=" + initdata.name;
 </script>
 <script src="assets/js/detailcommon.js"></script>
 <script src="jquery/jquery-3.1.1.min.js"></script>

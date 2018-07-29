@@ -108,9 +108,14 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
   		}).then(function (result) {
   			list.historyList = result.data.historyList;
+  			list.id = "";
+			list.vdate = new Date();
+			list.detail = "";
+			 list.message = "保存しました。";
+         	  $('#cmodal') .modal('show');
           }).catch(function (result) {
         	  list.message = "SORRY!エラーが発生しました。";
-          	$('#cmodal') .modal('show');
+          	  $('#cmodal') .modal('show');
           });
   }
   
@@ -136,6 +141,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
 	  		}).then(function (result) {
 	  			list.historyList = result.data.historyList;
+	  			list.id = "";
+				list.vdate = new Date();
+				list.detail = "";
+	  			list.message = "削除しました。";
+	            $('#cmodal') .modal('show');
 	          }).catch(function (result) {
 	        	  list.message = "SORRY!エラーが発生しました。";
 	          	$('#cmodal') .modal('show');

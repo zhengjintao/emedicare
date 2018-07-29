@@ -34,6 +34,8 @@ public class HomeServlet extends HttpServlet {
 		request.setAttribute("userid", userinfo.getUserId());
 		request.setAttribute("username", userinfo.getUserName());
 		request.setAttribute("langinx", langinx);
+		String userimg = "M".equals(userinfo.getSex()) ? "assets/images/christian.jpg" : "assets/images/rachel.png";
+		request.setAttribute("userimg", userimg);
 		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
 

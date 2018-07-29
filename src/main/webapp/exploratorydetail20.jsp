@@ -13,7 +13,11 @@
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
 
 <script>
-
+initdata=[];
+initdata.expid = '<%=request.getAttribute("expid")%>';
+initdata.name = '<%=request.getAttribute("name")%>';
+initdata.historydate = '<%=request.getAttribute("historydate")%>';
+exturl= "historydate=" + initdata.historydate + "&expid=" + initdata.expid +"&name=" + initdata.name;
 </script>
 <script src="assets/js/detailcommon.js"></script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -148,31 +152,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" colspan="4">检查评语</td>
     </tr>
     <tr>
-      <td colspan="4">检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语
-      检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语检查评语</td>
+      <td colspan="4">{{list.dt_20[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" colspan="4">所见</td>
     </tr>
     <tr>
-      <td colspan="4">所见所见所见所见所见所见所见所见所见所见所见所见所见所见
-      所见所见所见所见所见所见所见所见所见所见所见所见所见所见
-      所见所见所见所见所见所见所见所见所见所见所见所见所见所见
-      所见所见所见所见所见所见所见所见所见所见所见所见所见所见
-      所见所见所见所见所见所见所见所见所见所见所见所见所见所见
-      所见所见所见所见所见所见所见所见所见所见所见所见所见所见</td>
+      <td colspan="4">{{list.dt_20[0]}}</td>
     </tr>
     <tr>
       <td class="cellheader" colspan="4">诊断</td>
     </tr>
     <tr>
-      <td colspan="4">诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断
-      诊断诊断诊断诊断诊断诊断
-      诊断诊断诊断诊断诊断诊断
-      诊断诊断诊断诊断诊断诊断
-      诊断诊断诊断诊断诊断诊断
-      诊断诊断诊断诊断诊断诊断
-      诊断诊断诊断诊断诊断诊断诊断诊断诊断诊断</td>
+      <td colspan="4">{{list.dt_20[0]}}</td>
     </tr>
   </tbody>
 </table>

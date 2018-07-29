@@ -19,6 +19,7 @@ initdata=[];
 initdata.userid = '<%=request.getAttribute("userid")%>';
 initdata.username = '<%=request.getAttribute("username")%>';
 initdata.langinx = <%=request.getAttribute("langinx")%>;
+initdata.userimg = '<%=request.getAttribute("userimg")%>';
 </script>
 <script type="text/javascript">
   var app = angular.module('listApp',[]);
@@ -43,6 +44,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.userid=initdata.userid;
   list.username =initdata.username;
   list.langinx = initdata.langinx;
+  list.userimg = initdata.userimg;
   list.lbluserinfos = ['个人信息', 'Info', '個人情報'];;
   list.lblservices = ['服务', 'Services', 'サービス'];
   list.lblhistorys = ['诊查履历', 'Hisotories', '診査履歴'];
@@ -99,7 +101,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<div class="right floated content" style="margin-top:10px">
 							<i class="chevron right icon"></i>
 						</div>
-						<img class="ui avatar image" src="assets/images/christian.jpg">
+						<img class="ui avatar image" src={{list.userimg}}>
 						<div class="content">
 							<div class="header">{{list.userid}}</div>
 							<div class="description">{{list.username}}</div>

@@ -1,7 +1,6 @@
 package com.bwc.biz.emedicare.servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +53,7 @@ public class VisitsServlet extends HttpServlet {
 	     		JdbcUtil.getInstance().executeUpdate(sql, params);
 			}else{
 				if(id!=null && id.length() >0){
-					String sql = "update cdata_visithistory set visitdate=?, content=? where userid=? and no=？";
+					String sql = "update cdata_visithistory set visitdate=?, content=? where userid=? and no=?";
 		     		Object[] params = new Object[4];
 		     		params[0] = date;
 		     		params[1] = content;
@@ -106,7 +105,7 @@ public class VisitsServlet extends HttpServlet {
 		User userinfo = (User) session.getAttribute("userinfo");
 		JSONArray historyList = new JSONArray();
 		int i = 0;
-		String sql = "select * from cdata_visithistory where userid=? and delflg='0'";
+		String sql = "select * from cdata_visithistory where userid=? and delflg='0' order by visitdate desc";
 		Object[] params = new Object[1];
 		params[0] = userinfo.getUserId();
 		List<Object> hisotrydata = JdbcUtil.getInstance().excuteQuery(sql, params);
