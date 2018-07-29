@@ -41,7 +41,7 @@ public class BkDetailInfoServlet extends HttpServlet {
 		String historyname = request.getParameter("historyname");
 		
 		if(mode.equals("init")){
-			request.setAttribute("historyname", new String(historyname.getBytes("ISO8859-1"),"UTF-8"));
+			request.setAttribute("historyname", historyname);
 			// 画面表示用数据取得
 			this.getDispData(request,userid,historydate);
 			request.getRequestDispatcher("bkdetailinfo.jsp").forward(request, response);

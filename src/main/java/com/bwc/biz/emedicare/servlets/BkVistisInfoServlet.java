@@ -44,8 +44,8 @@ public class BkVistisInfoServlet extends HttpServlet {
  		request.setAttribute("vdate", info.get("visitdate").toString());
  		request.setAttribute("detail", (String)info.get("content"));
  		request.setAttribute("userid", userid);
- 		request.setAttribute("username", new String(username.getBytes("ISO8859-1"),"UTF-8"));
- 		request.setAttribute("name", new String(name.getBytes("ISO8859-1"),"UTF-8"));
+ 		request.setAttribute("username", username);
+ 		request.setAttribute("name", name);
 		request.getRequestDispatcher("bkvistisinfo.jsp").forward(request, response);
 	}
 

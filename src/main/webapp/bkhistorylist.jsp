@@ -131,7 +131,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				    <tr ng-show="list.explist.length==0">
 				     <td>診査履歴なし</a></td>
 				    </tr>
-				    <tr bgcolor="#FAFAFA" height="30px">
+				    <tr bgcolor="#FAFAFA" height="30px" ng-show="list.explist.length>0">
 				        <th width="60%" style="text-align: center;">履历文件名</th>
 				        <th width="40%" style="text-align: center;">诊查时日期</th>
 			        </tr>
@@ -149,7 +149,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				    <tr ng-show="list.visitlist.length==0">
 				    <td>通院記録なし</a></td>
 				    </tr>
-				    <tr bgcolor="#FAFAFA" height="30px">
+				    <tr bgcolor="#FAFAFA" height="30px" ng-show="list.visitlist.length>0">
 				        <th width="60%" style="text-align: center;">通院记录</th>
 				        <th width="40%" style="text-align: center;">记录时间</th>
 			        </tr>
