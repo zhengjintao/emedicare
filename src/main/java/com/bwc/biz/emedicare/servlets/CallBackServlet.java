@@ -124,7 +124,7 @@ public class CallBackServlet extends HttpServlet {
 				errmsg = errmsg + "－－新规做成用户－－<br>";
 				JdbcUtil.getInstance().executeUpdate(sql2, params2);
 
-				request.getRequestDispatcher("login.do?rembpwd=1&userid="+ euserid + "&password=" + password).forward(request, response);
+				request.getRequestDispatcher("wait.do").forward(request, response);
 				return;
 			}else{
 				request.getRequestDispatcher("wait.do").forward(request, response);
