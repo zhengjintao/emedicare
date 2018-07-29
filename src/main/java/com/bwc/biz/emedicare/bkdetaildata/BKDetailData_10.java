@@ -9,7 +9,7 @@ import com.bwc.biz.emedicare.common.JdbcUtil;
 import com.bwc.biz.emedicare.servlets.BkImportInfoServlet;
 
 /*
- * 明细数据第SHEET
+ * 明细数据第SHEET10
  */
 public class BKDetailData_10 {
 	// 对象Sheet
@@ -134,21 +134,19 @@ public class BKDetailData_10 {
 	/*
 	 * 画面表示数据更新保存
 	 */
-	public void saveDataDispToDb(String[] detaildata10){
-		String userid = detaildata10[2];
-		String historydate = detaildata10[1];
+	public void saveDataDispToDb(String userid,String username,String historydate, String[] detaildata02){
 		this.check(userid,historydate);
 		String insertsql = "insert into cdata_detail_10 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
-		for(int i=0; i < detaildata10.length;i++){
+		for(int i=0; i < detaildata02.length;i++){
 			insertparams[0] = userid;
-			insertparams[1] = detaildata10[0];
+			insertparams[1] = username;
 			insertparams[2] = historydate;
 			insertparams[3] = 1;
 			insertparams[4] = i;
 			insertparams[5] = lableList.get(i)[1];
 			insertparams[6] = lableList.get(i)[2];
-			insertparams[7] = detaildata10[i];
+			insertparams[7] = detaildata02[i];
 			
 			JdbcUtil.getInstance().executeUpdate(insertsql, insertparams);
 		}	
@@ -157,18 +155,12 @@ public class BKDetailData_10 {
 	/*
 	 * 画面表示数据删除
 	 */
-	public void deleteData(String[] detaildata10){
-		String userid = detaildata10[2];
-		String historydate = detaildata10[1];
-		
+	public void deleteData(String userid, String historydate){
 		Object[] params = new Object[2];
 		params[0]= userid;
 		params[1]= historydate;
 		String delsql = "delete from cdata_detail_10 where userid = ? and examdate = ?";
 		JdbcUtil.getInstance().executeUpdate(delsql, params);
-		
-		String delsql2 = "delete from cdata_history where userid = ? and historydate = ?";
-		JdbcUtil.getInstance().executeUpdate(delsql2, params);
 	}
 	
 	private void check(String userid, String date) {

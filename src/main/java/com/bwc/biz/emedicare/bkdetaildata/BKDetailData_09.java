@@ -9,7 +9,7 @@ import com.bwc.biz.emedicare.common.JdbcUtil;
 import com.bwc.biz.emedicare.servlets.BkImportInfoServlet;
 
 /*
- * 明细数据第SHEET
+ * 明细数据第SHEET09
  */
 public class BKDetailData_09 {
 	// 对象Sheet
@@ -25,24 +25,24 @@ public class BKDetailData_09 {
 	//数据坐标（EXCEL行列）
 	private List<int[]> indexList = Arrays.asList(
 		// 肿瘤标志物
-		new int[] {2, 2 },new int[] {2, 4 },new int[] {2, 5 },new int[] {2, 6 },new int[] {2, 7 },
-		new int[] {3, 4 },new int[] {3, 5 },new int[] {3, 6 },new int[] {3, 7 },
-		new int[] {4, 4 },new int[] {4, 5 },new int[] {4, 6 },new int[] {4, 7 },
-		new int[] {5, 4 },new int[] {5, 5 },new int[] {5, 6 },new int[] {5, 7 },
-		new int[] {6, 4 },new int[] {6, 5 },new int[] {6, 6 },new int[] {6, 7 },
-		new int[] {7, 4 },new int[] {7, 5 },new int[] {7, 6 },new int[] {7, 7 },
-		new int[] {8, 4 },new int[] {8, 5 },new int[] {8, 6 },new int[] {8, 7 },
+		new int[] {2, 2 },new int[] {2, 5 },new int[] {2, 7 },new int[] {2, 8 },new int[] {2, 9 },
+		new int[] {3, 5 },new int[] {3, 7 },new int[] {3, 8 },new int[] {3, 9 },
+		new int[] {4, 5 },new int[] {4, 7 },new int[] {4, 8 },new int[] {4, 9 },
+		new int[] {5, 5 },new int[] {5, 7 },new int[] {5, 8 },new int[] {5, 9 },
+		new int[] {6, 5 },new int[] {6, 7 },new int[] {6, 8 },new int[] {6, 9 },
+		new int[] {7, 5 },new int[] {7, 7 },new int[] {7, 8 },new int[] {7, 9 },
+		new int[] {8, 5 },new int[] {8, 7 },new int[] {8, 8 },new int[] {8, 9 },
 		// ABI/PWV
-		new int[] {11, 2 },new int[] {11, 4 },new int[] {11, 5 },new int[] {11, 6 },new int[] {11, 7 },
-		new int[] {12, 4 },new int[] {12, 5 },new int[] {12, 6 },new int[] {12, 7 },
-		new int[] {13, 4 },new int[] {13, 5 },new int[] {13, 6 },new int[] {13, 7 },
-		new int[] {14, 4 },new int[] {14, 5 },new int[] {14, 6 },new int[] {14, 7 },
+		new int[] {11, 2 },new int[] {11, 5 },new int[] {11, 7 },new int[] {11, 8 },new int[] {11, 9 },
+		new int[] {12, 5 },new int[] {12, 7 },new int[] {12, 8 },new int[] {12, 9 },
+		new int[] {13, 5 },new int[] {13, 7 },new int[] {13, 8 },new int[] {13, 9 },
+		new int[] {14, 5 },new int[] {14, 7 },new int[] {14, 8 },new int[] {14, 9 },
 		// 甲状腺超声
-		new int[] {17, 2 },new int[] {17, 3 },new int[] {17, 4 },new int[] {17, 5 },
+		new int[] {17, 2 },new int[] {17, 3 },new int[] {17, 6 },new int[] {17, 8 },
 		// 骨密度
-		new int[] {20, 2 },new int[] {20, 3 },new int[] {20, 4 },new int[] {20, 5 },
-		new int[] {21, 3 },new int[] {21, 4 },new int[] {21, 5 },
-		new int[] {22, 3 },new int[] {22, 4 },new int[] {22, 5 }
+		new int[] {20, 2 },new int[] {20, 3 },new int[] {20, 6 },new int[] {20, 8 },
+		new int[] {21, 3 },new int[] {21, 6 },new int[] {21, 8 },
+		new int[] {22, 3 },new int[] {22, 6 },new int[] {22, 8 }
 	    );
 	
 	private List<String[]> lableList = Arrays.asList(
@@ -136,21 +136,19 @@ public class BKDetailData_09 {
 	/*
 	 * 画面表示数据更新保存
 	 */
-	public void saveDataDispToDb(String[] detaildata09){
-		String userid = detaildata09[2];
-		String historydate = detaildata09[1];
+	public void saveDataDispToDb(String userid,String username,String historydate, String[] detaildata02){
 		this.check(userid,historydate);
 		String insertsql = "insert into cdata_detail_09 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
-		for(int i=0; i < detaildata09.length;i++){
+		for(int i=0; i < detaildata02.length;i++){
 			insertparams[0] = userid;
-			insertparams[1] = detaildata09[0];
+			insertparams[1] = username;
 			insertparams[2] = historydate;
 			insertparams[3] = 1;
 			insertparams[4] = i;
 			insertparams[5] = lableList.get(i)[1];
 			insertparams[6] = lableList.get(i)[2];
-			insertparams[7] = detaildata09[i];
+			insertparams[7] = detaildata02[i];
 			
 			JdbcUtil.getInstance().executeUpdate(insertsql, insertparams);
 		}	
@@ -159,18 +157,12 @@ public class BKDetailData_09 {
 	/*
 	 * 画面表示数据删除
 	 */
-	public void deleteData(String[] detaildata09){
-		String userid = detaildata09[2];
-		String historydate = detaildata09[1];
-		
+	public void deleteData(String userid, String historydate) {
 		Object[] params = new Object[2];
 		params[0]= userid;
 		params[1]= historydate;
 		String delsql = "delete from cdata_detail_09 where userid = ? and examdate = ?";
 		JdbcUtil.getInstance().executeUpdate(delsql, params);
-		
-		String delsql2 = "delete from cdata_history where userid = ? and historydate = ?";
-		JdbcUtil.getInstance().executeUpdate(delsql2, params);
 	}
 	
 	private void check(String userid, String date) {

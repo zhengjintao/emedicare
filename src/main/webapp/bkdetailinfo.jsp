@@ -39,7 +39,11 @@
   list.dt_05 = new Array();
   list.dt_06 = new Array();
   list.dt_07 = new Array();
-  list.dt_08 = new Array();
+  list.dt_08 = new Array();  
+  list.dt_09 = new Array();
+  list.dt_10 = new Array();
+  list.dt_11 = new Array();
+  list.dt_12 = new Array();
   
   <%List<String> dataList01 = (List<String>) request.getAttribute("detailDataList01");%>;
   <%List<String> dataList02 = (List<String>) request.getAttribute("detailDataList02");%>;
@@ -49,6 +53,10 @@
   <%List<String> dataList06 = (List<String>) request.getAttribute("detailDataList06");%>;
   <%List<String> dataList07 = (List<String>) request.getAttribute("detailDataList07");%>;
   <%List<String> dataList08 = (List<String>) request.getAttribute("detailDataList08");%>;
+  <%List<String> dataList09 = (List<String>) request.getAttribute("detailDataList09");%>;
+  <%List<String> dataList10 = (List<String>) request.getAttribute("detailDataList10");%>;
+  <%List<String> dataList11 = (List<String>) request.getAttribute("detailDataList11");%>;
+  <%List<String> dataList12 = (List<String>) request.getAttribute("detailDataList12");%>;
   
   <%for (int i = 0; i < dataList01.size(); i++) {%>  
        list.dt_01[<%=i%>] = "<%=dataList01.get(i)%>";
@@ -74,24 +82,18 @@
   <%for (int i = 0; i < dataList08.size(); i++) {%>  
        list.dt_08[<%=i%>] = "<%=dataList08.get(i)%>";
   <%}%>
-   
-  list.dt_09 = new Array();
-  <%List<String> dataList09 = (List<String>) request.getAttribute("detailDataList09");%>;
   <%for (int i = 0; i < dataList09.size(); i++) {%>  
- 	  list.dt_09[<%=i%>] = "<%=dataList09.get(i)%>";
-   <%}%>
-   
-  list.dt_10 = new Array();
-  <%List<String> dataList10 = (List<String>) request.getAttribute("detailDataList10");%>;
+ 	   list.dt_09[<%=i%>] = "<%=dataList09.get(i)%>";
+  <%}%>
   <%for (int i = 0; i < dataList10.size(); i++) {%>  
- 	  list.dt_10[<%=i%>] = "<%=dataList10.get(i)%>";
-   <%}%>
-   
-  list.dt_11 = new Array();
-  <%List<String> dataList11 = (List<String>) request.getAttribute("detailDataList11");%>;
+ 	   list.dt_10[<%=i%>] = "<%=dataList10.get(i)%>";
+  <%}%>
   <%for (int i = 0; i < dataList11.size(); i++) {%>  
- 	  list.dt_11[<%=i%>] = "<%=dataList11.get(i)%>";
-   <%}%>
+ 	   list.dt_11[<%=i%>] = "<%=dataList11.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList12.size(); i++) {%>  
+       list.dt_12[<%=i%>] = "<%=dataList12.get(i)%>";
+  <%}%>
     
    
    list.sheets =[
@@ -133,7 +135,11 @@
 		    	dt_05:list.dt_05,
 		    	dt_06:list.dt_06,
 		    	dt_07:list.dt_07,
-		    	dt_08:list.dt_08
+		    	dt_08:list.dt_08,
+		    	dt_09:list.dt_09,
+		    	dt_10:list.dt_10,
+		    	dt_11:list.dt_11,
+		    	dt_12:list.dt_12
 		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");
