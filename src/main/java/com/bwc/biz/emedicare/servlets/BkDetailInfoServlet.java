@@ -41,7 +41,7 @@ public class BkDetailInfoServlet extends HttpServlet {
 		String historyname = request.getParameter("historyname");
 		
 		if(mode.equals("init")){
-			request.setAttribute("historyname", historyname);
+			request.setAttribute("historyname", new String(historyname.getBytes("ISO8859-1"),"UTF-8"));
 			// 画面表示用数据取得
 			this.getDispData(request,userid,historydate);
 			request.getRequestDispatcher("bkdetailinfo.jsp").forward(request, response);
@@ -142,6 +142,21 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// 健診結果報告書3数据删除
 		BKDetailData_03 data03 = new BKDetailData_03();
 		data03.deleteData(userid,historydate);
+		// 健診結果報告書4数据删除
+		BKDetailData_04 data04 = new BKDetailData_04();
+		data04.deleteData(userid,historydate);
+		// 健診結果報告書5数据删除
+		BKDetailData_05 data05 = new BKDetailData_05();
+		data05.deleteData(userid,historydate);
+		// 健診結果報告書6数据删除
+		BKDetailData_06 data06 = new BKDetailData_06();
+		data06.deleteData(userid,historydate);
+		// 健診結果報告書7数据删除
+		BKDetailData_07 data07 = new BKDetailData_07();
+		data07.deleteData(userid,historydate);
+		// 健診結果報告書8数据删除
+		BKDetailData_08 data08 = new BKDetailData_08();
+		data08.deleteData(userid,historydate);
 //		// sheet09
 //		String[] detaildata09 =  request.getParameterValues("json[]");
 //		BKDetailData_09 data09 = new BKDetailData_09();

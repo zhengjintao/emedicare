@@ -134,7 +134,7 @@ public class BKDetailData_03 {
 		if (dataList.size() > 0) {
 			for (Object data : dataList) {
 				Map<String, Object> row = (Map<String, Object>) data;
-				detailDataList.add(row.get("context").toString());
+				detailDataList.add(row.get("context") ==null ? "":row.get("context").toString());
 			}
 		}
 

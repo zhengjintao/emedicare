@@ -34,8 +34,8 @@ public class BKDetailData_05 {
 		new int[] {9,2},new int[] {9,5},new int[] {9,7},new int[] {9,8},new int[] {9,9},
 		new int[] {10,1},
 		//心电图
-		new int[] {13,2},new int[] {13,5},new int[] {13,7},new int[] {13,8},new int[] {13,9},
-		new int[] {14,2},new int[] {14,5},new int[] {14,7},new int[] {14,8},new int[] {14,9},
+		new int[] {13,2},new int[] {13,3},new int[] {13,5},new int[] {13,7},
+		new int[] {14,2},new int[] {14,3},new int[] {14,5},new int[] {14,7},
 		// 便
 		new int[] {17,2},new int[] {17,5},new int[] {17,7},new int[] {17,8},new int[] {17,9},
 		new int[] {18,5},new int[] {18,7},new int[] {18,8},new int[] {18,9},
@@ -115,7 +115,7 @@ public class BKDetailData_05 {
 		if (dataList.size() > 0) {
 			for (Object data : dataList) {
 				Map<String, Object> row = (Map<String, Object>) data;
-				detailDataList.add(row.get("context").toString());
+				detailDataList.add(row.get("context") ==null ? "":row.get("context").toString());
 			}
 		}
 

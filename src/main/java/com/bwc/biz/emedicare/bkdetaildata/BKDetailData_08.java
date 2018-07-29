@@ -117,7 +117,7 @@ public class BKDetailData_08 {
 		if (dataList.size() > 0) {
 			for (Object data : dataList) {
 				Map<String, Object> row = (Map<String, Object>) data;
-				detailDataList.add(row.get("context").toString());
+				detailDataList.add(row.get("context") ==null ? "":row.get("context").toString());
 			}
 		}
 
@@ -150,10 +150,7 @@ public class BKDetailData_08 {
 	/*
 	 * 画面表示数据删除
 	 */
-	public void deleteData(String[] detaildata02){
-		String userid = detaildata02[2];
-		String historydate = detaildata02[1];
-		
+	public void deleteData(String userid,String historydate){
 		Object[] params = new Object[2];
 		params[0]= userid;
 		params[1]= historydate;

@@ -128,8 +128,8 @@ public class BkImportInfoServlet extends HttpServlet {
 			BKDetailData_07 detail07 = new BKDetailData_07(workbook.getSheetAt(6), userid,username,date,Integer.toString(histno));
 			detail07.saveDataExcelToDb();
 			// 履历情报-Sheet8（健診結果報告書8）
-			BKDetailData_08 detail08 = new BKDetailData_08(workbook.getSheetAt(7), userid,username,date,Integer.toString(histno));
-			detail08.saveDataExcelToDb();
+			//BKDetailData_08 detail08 = new BKDetailData_08(workbook.getSheetAt(7), userid,username,date,Integer.toString(histno));
+			//detail08.saveDataExcelToDb();
 			
 			String fileName = file.getName();
 			String historyname = fileName.substring(0, fileName.indexOf("."));
