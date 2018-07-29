@@ -260,6 +260,18 @@
   	<description></description>
   	<servlet-class>com.bwc.biz.emedicare.servlets.BkNextPlanServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BkUserAuthServlet</servlet-name>
+  	<display-name>BkUserAuthServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.bwc.biz.emedicare.servlets.BkUserAuthServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>WaitServlet</servlet-name>
+  	<display-name>WaitServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.bwc.biz.emedicare.servlets.WaitServlet</servlet-class>
+  </servlet>
     <servlet-mapping>
     	<servlet-name>LoginServlet</servlet-name>
     	<url-pattern>/login.do</url-pattern>
@@ -423,5 +435,13 @@
     <servlet-mapping>
     	<servlet-name>BkNextPlanServlet</servlet-name>
     	<url-pattern>/bknextplan.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>BkUserAuthServlet</servlet-name>
+    	<url-pattern>/bkuserauth.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+    	<servlet-name>WaitServlet</servlet-name>
+    	<url-pattern>/wait.do</url-pattern>
     </servlet-mapping>
 </web-app>

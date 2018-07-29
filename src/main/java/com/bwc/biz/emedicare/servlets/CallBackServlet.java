@@ -61,7 +61,12 @@ public class CallBackServlet extends HttpServlet {
 			params[0] = openid;
 			List<Object> userinfo = JdbcUtil.getInstance().excuteQuery(sql, params);
 			
+			String kbn = "2"; // 新规用户
 			if(userinfo != null && userinfo.size() >0){
+				Map<String, Object> row = (Map<String, Object>) userinfo.get(0);
+				kbn = "0".equals((String)row.get("delflg")) ? "0" : "1"; // "0":用户已通过申请 "1":用户申请中
+			}
+			if("0".equals(kbn)){
 				errmsg = errmsg + "－－已存在，单账号登录－－<br>";
 				Map<String, Object> info = (Map<String, Object>)userinfo.get(0);
 				if("0".equals((String)info.get("delflg"))){
@@ -73,7 +78,7 @@ public class CallBackServlet extends HttpServlet {
 				}
 				
 				return;
-			}else{
+			}else if("2".equals(kbn)){
 				String accessToken = jsonObject.getString("access_token");
 				errmsg = errmsg + "－－开始获取用户微信信息－－<br>";
 				String infoUrl = URLProducer.GetUserInfoUrl(accessToken, openid);
@@ -103,7 +108,7 @@ public class CallBackServlet extends HttpServlet {
 				params2[0] = euserid;
 				params2[1] = filterEmoji(username);
 				params2[2] = password;
-				params2[3] = "0";
+				params2[3] = "1";
 				params2[4] = "09:30:00.0000";
 				params2[5] = "18:30:00.0000";
 				params2[6] = sex;
@@ -120,6 +125,9 @@ public class CallBackServlet extends HttpServlet {
 				JdbcUtil.getInstance().executeUpdate(sql2, params2);
 
 				request.getRequestDispatcher("login.do?rembpwd=1&userid="+ euserid + "&password=" + password).forward(request, response);
+				return;
+			}else{
+				request.getRequestDispatcher("wait.do").forward(request, response);
 				return;
 			}
 
