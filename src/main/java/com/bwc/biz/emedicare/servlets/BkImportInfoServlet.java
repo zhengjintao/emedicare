@@ -18,6 +18,8 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.json.JSONObject;
+
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_01;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_02;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_03;
@@ -34,8 +36,7 @@ import com.bwc.biz.emedicare.form.User;
  */
 public class BkImportInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-	private boolean okflg=true;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -48,13 +49,20 @@ public class BkImportInfoServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String filepath = request.getParameter("filepath");
+		String mode = request.getParameter("mode");
 		
 		HttpSession session = request.getSession();
 		User userinfo = (User)session.getAttribute("userinfo");
-		if(filepath== "" || filepath== null){
+		if(mode.equals("init")){
 			this.getImportHistory(request, response);
 			request.getRequestDispatcher("bkimportinfo.jsp").forward(request, response);
-		}else{
+		}else if(mode.equals("delete")){
+			String importno = request.getParameter("importno");
+			this.deleteImportHistory(importno);
+			List<String[]> hisList = this.getImportHistory(request, response);
+			this.setDispImportHistory(hisList,request, response);
+		}
+		else if(mode.equals("save")){
 			this.saveDataFromExcel(filepath,userinfo.getUserName());
 			this.getImportHistory(request, response);
 			request.getRequestDispatcher("bkimportinfo.jsp").forward(request, response);
@@ -68,31 +76,34 @@ public class BkImportInfoServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-	private void getImportHistory(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		String sql ="select * from cdata_importhistory order by importdate";
+	private List<String[]> getImportHistory(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		String sql ="select * from cdata_importhistory order by importdate desc";
  		List<Object> dataList = JdbcUtil.getInstance().excuteQuery(sql, null);
 		List<String[]> imoprthist = new ArrayList<String[]>();
 		for (Object data : dataList) {
 			Map<String, Object> row = (Map<String, Object>) data;
-			String[] each = new String[5];
+			String[] each = new String[6];
 			each[0] = row.get("userid").toString();
 			each[1] = row.get("username").toString();
 			each[2] = row.get("historyname").toString();
 			each[3] = row.get("importdate").toString();
-			each[4] = row.get("resultflg").toString().equals("0") ? "OK":"NG";
-			
+			each[4] = row.get("resultflg").toString().equals("0") ? "成功":"失败";
+			each[5] = row.get("importno").toString();
 			imoprthist.add(each);
 		}
 		
 		// 最終結果
 		request.setAttribute("imoprthist", imoprthist);
+		return imoprthist;
 	}
 	
 	private void saveDataFromExcel(String filepath,String sysusername) {
 		InputStream inputStream = null;
 		Workbook workbook = null;
 		File file = new File(filepath);
-		
+		String fileName = file.getName();
+		String historyname = fileName.substring(0, fileName.indexOf("."));
+		String userid = "";
 		if (!file.exists()) {
 			System.out.println("文件不存在");
 		}
@@ -101,7 +112,7 @@ public class BkImportInfoServlet extends HttpServlet {
 			inputStream = new FileInputStream(file);
 			workbook = WorkbookFactory.create(inputStream);
 			Sheet sheet = workbook.getSheetAt(0);
-			String userid = getCellValue(sheet,4,2);
+		    userid = getCellValue(sheet,4,2);
 			String username = getCellValue(sheet,3,2);
 			String date = getCellValue(sheet,3,8);
 			int histno = this.check(userid, date);
@@ -131,13 +142,11 @@ public class BkImportInfoServlet extends HttpServlet {
 			//BKDetailData_08 detail08 = new BKDetailData_08(workbook.getSheetAt(7), userid,username,date,Integer.toString(histno));
 			//detail08.saveDataExcelToDb();
 			
-			String fileName = file.getName();
-			String historyname = fileName.substring(0, fileName.indexOf("."));
 			this.saveHistoryDate(userid, username, histno, historyname, date);
-			this.saveImportHistoryDate(userid, sysusername, historyname);
+			this.saveImportHistoryDate(userid, sysusername, historyname,"0");
 			inputStream.close();
 		} catch (Exception e) {
-			this.okflg = false;
+			this.saveImportHistoryDate(userid, sysusername, historyname,"1");
 			e.printStackTrace();
 		}
 	}
@@ -198,17 +207,64 @@ public class BkImportInfoServlet extends HttpServlet {
 	/*
 	 * 明细表数据导入完成后履历表对应数据作成
 	 */
-	private void saveImportHistoryDate(String userid,String username,String historyname){
-		String insertSql = "insert into cdata_importhistory value(?,?,?,?,?)";
-        Object[] insertparams = new Object[5];
-        insertparams[0] = userid;
-        insertparams[1] = username;
-        insertparams[2] = historyname;
-        insertparams[3] = new Date();
-        insertparams[4] = "0";
+	private void saveImportHistoryDate(String userid,String username,String historyname,String flg){
+		long maxno = 0;
+		String sql = "select max(importno) as importno from cdata_importhistory";
+		
+		List<Object> list1 = JdbcUtil.getInstance().excuteQuery(sql, null);
+		Map<String, Object> maxRow = (Map<String, Object>) list1.get(0);
+		// date日的数据已经导入的时候，先删除
+		if (maxRow.get("importno") != null) {
+			maxno = Long.parseLong(maxRow.get("importno").toString());
+		}
+		
+		String insertSql = "insert into cdata_importhistory value(?,?,?,?,?,?)";
+        Object[] insertparams = new Object[6];
+        insertparams[0] = maxno+1;
+        insertparams[1] = userid;
+        insertparams[2] = username;
+        insertparams[3] = historyname;
+        insertparams[4] = new Date();
+        insertparams[5] = flg;
         JdbcUtil.getInstance().executeUpdate(insertSql, insertparams);
 	}
 	
+	private void deleteImportHistory(String importno){
+		Object[] params = new Object[1];
+		params[0]= importno;
+		String delsql = "delete from cdata_importhistory where importno = ?";
+		JdbcUtil.getInstance().executeUpdate(delsql, params);
+	}
+	
+	
+	private void setDispImportHistory(List<String[]> hisList,HttpServletRequest request, HttpServletResponse response) throws IOException{
+		StringBuilder info = new StringBuilder();
+		if (hisList.size() == 0) {
+			info.append("<tr>");
+			info.append("<td>");
+			info.append("没有导入履历记录");
+			info.append("</td>");
+			info.append("</tr>");
+		}
+		for (String[] each : hisList) {
+			info.append("<tr>");
+			info.append("<td>" + each[2] + "</td>");
+			info.append("<td>" + each[3] + "</td>");
+			info.append("<td>" + each[1] + "</td>");
+			info.append("<td>" + each[4] + "</td>");
+			info.append("<td>");
+			info.append("<i class='close icon' onclick='ondelete(" + each[5]+ ");'></i>");
+			info.append("</td>");
+			info.append("</tr>");
+		}
+		
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("info", info.toString());
+		response.setCharacterEncoding("utf-8");
+		response.getWriter().write(jsonObject.toString());
+		
+		return;
+	}
 	/*
 	 * Cell值取得
 	 */

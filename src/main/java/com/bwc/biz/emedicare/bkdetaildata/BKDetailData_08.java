@@ -127,15 +127,13 @@ public class BKDetailData_08 {
 	/*
 	 * 画面表示数据更新保存
 	 */
-	public void saveDataDispToDb(String[] detaildata02){
-		String userid = detaildata02[2];
-		String historydate = detaildata02[1];
+	public void saveDataDispToDb(String userid,String username,String historydate, String[] detaildata02){
 		this.check(userid,historydate);
 		String insertsql = "insert into cdata_detail_08 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
 		for(int i=0; i < detaildata02.length;i++){
 			insertparams[0] = userid;
-			insertparams[1] = detaildata02[0];
+			insertparams[1] = username;
 			insertparams[2] = historydate;
 			insertparams[3] = 1;
 			insertparams[4] = i;

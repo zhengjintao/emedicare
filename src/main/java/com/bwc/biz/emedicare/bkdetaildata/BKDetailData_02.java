@@ -132,7 +132,7 @@ public class BKDetailData_02 {
 	 */
 	public List<String> getDateValue(String userid, String historydate) {
 		List<String> detailDataList = new ArrayList<String>();
-
+ 
 		String dataSql = "select context from cdata_detail_02 where userid = ? and examdate= ? order by dispindex";
 		Object[] params = new Object[2];
 		params[0] = userid;
@@ -153,15 +153,13 @@ public class BKDetailData_02 {
 	/*
 	 * 画面表示数据更新保存
 	 */
-	public void saveDataDispToDb(String[] detaildata){
-		String userid = detaildata[2];
-		String historydate = detaildata[1];
+	public void saveDataDispToDb(String userid,String username,String historydate, String[] detaildata){
 		this.check(userid,historydate);
 		String insertsql = "insert into cdata_detail_02 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
 		for(int i=0; i < detaildata.length;i++){
 			insertparams[0] = userid;
-			insertparams[1] = detaildata[0];
+			insertparams[1] = username;
 			insertparams[2] = historydate;
 			insertparams[3] = 1;
 			insertparams[4] = i;

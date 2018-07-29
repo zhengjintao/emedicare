@@ -31,6 +31,22 @@
 	        return false;  
 		}
   }
+  
+  function ondelete(importno)
+  {
+  	$.ajax({ 
+  	    type: "post", 
+  	    url: "bkimportinfo.do?mode=delete&importno=" +importno, 
+  	    dataType: "json", 
+	    success: function (data) {
+	    	$('#infobody').empty();
+	    	$('#infobody').append(data.info);
+	    }, 
+	    error: function() {
+	            alert("网络异常，请稍后重试");
+	    } 
+  	});
+  }
 </script>
 <body>
 	<script type="text/javascript">
@@ -55,38 +71,39 @@
 
 	<div style="width: 80%; margin-left: auto; margin-right: auto;">
 		<jsp:include page="bkheader.jsp" />
-		<form action="./bkimportinfo.do" method="post"
-			onsubmit="return checkdate();">
+		<form action="./bkimportinfo.do?mode=save" method="post" onsubmit="return checkdate();">
 			<div class="ui fluid action input">
 					<input class="ui input" type="file" id="filepath" name="filepath" />
-					<button class="ui button">
-						一括登録
-					</button>
+					<button class="ui button">履历登録</button>
 				</div>
 		</form>
 		<label class="ui label" style="text-align: left"><h3>登録結果一覧</h3></label>
-		<table class="ui unstackable celled structured table" style="margin-top: 5px">
-			<tbody>
-				<tr bgcolor="#FAFAFA">
-					<th width="50%" style="text-align: center;">ファイル名</th>
-					<th width="20%" style="text-align: center;">日付</th>
-					<th width="20%" style="text-align: center;">名前</th>
-					<th width="10%" style="text-align: center;">結果</th>
-				</tr>
+		<table class="ui unstackable celled structured table"
+			style="margin-top: 5px">
+			<tr bgcolor="#FAFAFA" height="30px">
+				<th width="40%" style="text-align: center;">文件名</th>
+				<th width="20%" style="text-align: center;">导入者</th>
+				<th width="15%" style="text-align: center;">结果</th>
+				<th width="20%" style="text-align: center;">导入时间</th>
+				<th width="5%" style="text-align: center;">记录删除</th>
+			</tr>
+			<tbody id="infobody">
 				<%
 					List<String[]> imoprthist = (List<String[]>) request.getAttribute("imoprthist");
 					for (String[] each : imoprthist) {
 						out.print("<tr>");
 						out.print("<td>" + each[2] + "</td>");
-						out.print("<td >" + each[3] + "</td>");
-						out.print("<td >" + each[1] + "</td>");
-						out.print("<td >" + each[4] + "</td>");
+						out.print("<td>" + each[1] + "</td>");
+						out.print("<td>" + each[4] + "</td>");
+						out.print("<td>" + each[3] + "</td>");
+						out.print("<td>");
+						out.print("<i class='close icon' onclick='ondelete(" + each[5] + ");'></i>");
+						out.print("</td>");
 						out.print("</tr>");
 					}
 				%>
 			</tbody>
 		</table>
 	</div>
-
 </body>
 </html>

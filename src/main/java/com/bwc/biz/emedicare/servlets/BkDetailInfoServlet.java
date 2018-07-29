@@ -109,23 +109,48 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// sheet01
 		BKDetailData_01 data01 = new BKDetailData_01();
 		data01.saveDataDispToDb(request.getParameterValues("dt_01[]"));
+		
+		// 基本情报取得
+		String userid = request.getParameterValues("dt_01[]")[2];
+		String historydate = request.getParameterValues("dt_01[]")[1];
+		String username = request.getParameterValues("dt_01[]")[0];
+		
 		// sheet02
 		BKDetailData_02 data02 = new BKDetailData_02();
-		data02.saveDataDispToDb(request.getParameterValues("dt_02[]"));
+		data02.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_02[]"));
+		// sheet03
+		BKDetailData_03 data03 = new BKDetailData_03();
+		data03.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_03[]"));
+		// sheet04
+		BKDetailData_04 data04 = new BKDetailData_04();
+		data04.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_04[]"));
+		// sheet05
+		BKDetailData_05 data05 = new BKDetailData_05();
+		data05.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_05[]"));
+		// sheet06
+		BKDetailData_06 data06 = new BKDetailData_06();
+		data06.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_06[]"));
+		// sheet07
+		BKDetailData_07 data07 = new BKDetailData_07();
+		data07.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_07[]"));
+		// sheet08
+		BKDetailData_08 data08 = new BKDetailData_08();
+		//data08.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_08[]"));
+
 		// sheet09
 		String[] detaildata09 =  request.getParameterValues("json[]");
 		BKDetailData_09 data09 = new BKDetailData_09();
-		data09.saveDataDispToDb(detaildata09);
+		//data09.saveDataDispToDb(detaildata09);
 		
 		// sheet10
 		String[] detaildata10 =  request.getParameterValues("json[]");
 		BKDetailData_10 data10 = new BKDetailData_10();
-		data10.saveDataDispToDb(detaildata10);
+		//data10.saveDataDispToDb(detaildata10);
 		
 		// sheet11
 		String[] detaildata11 =  request.getParameterValues("json[]");
 		BKDetailData_11 data11 = new BKDetailData_11();
-		data11.saveDataDispToDb(detaildata11);	
+		//data11.saveDataDispToDb(detaildata11);	
 	}
 	
 	private void deletedata(HttpServletRequest request){

@@ -125,20 +125,18 @@ public class BKDetailData_05 {
 	/*
 	 * 画面表示数据更新保存
 	 */
-	public void saveDataDispToDb(String[] detaildata){
-		String userid = detaildata[2];
-		String historydate = detaildata[1];
+	public void saveDataDispToDb(String userid,String username,String historydate, String[] detaildata){
 		this.check(userid,historydate);
 		String insertsql = "insert into cdata_detail_05 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
 		for(int i=0; i < detaildata.length;i++){
 			insertparams[0] = userid;
-			insertparams[1] = detaildata[0];
+			insertparams[1] = username;
 			insertparams[2] = historydate;
 			insertparams[3] = 1;
 			insertparams[4] = i;
-			insertparams[5] = lableList.get(i)[1];
-			insertparams[6] = lableList.get(i)[2];
+			insertparams[5] = "";
+			insertparams[6] = "";
 			insertparams[7] = detaildata[i];
 			
 			JdbcUtil.getInstance().executeUpdate(insertsql, insertparams);
