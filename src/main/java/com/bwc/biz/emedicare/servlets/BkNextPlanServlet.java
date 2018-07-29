@@ -13,7 +13,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.bwc.biz.emedicare.common.JdbcUtil;
-import com.bwc.biz.emedicare.common.StringUtil;
 
 /**
  * Servlet implementation class BkNextPlanServlet
@@ -70,15 +69,27 @@ public class BkNextPlanServlet extends HttpServlet {
 	}
 	
 	private void saveappoint(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-		String sql = "insert into cdata_appointments values(?,?,?,?,?,?,?)";
+		String userid = request.getParameter("userid");
+		String date = request.getParameter("date");
+		String content = request.getParameter("content");
+		String sql = "select no from cdata_appointments order by no desc";
+		List<Object> idinfo = JdbcUtil.getInstance().excuteQuery(sql, null);
+ 		String maxidstr="0";
+ 		if(idinfo.size() >0){
+ 			Map<String, Object> info = (Map<String, Object>)idinfo.get(0);
+ 			maxidstr = String.valueOf(info.get("no"));
+ 		}
+ 		int maxid= new Integer(maxidstr);
+ 		maxid++;
+		sql = "insert into cdata_appointments values(?,?,?,?,?,?)";
 		Object[] params = new Object[6];
 		
-		params[0] = "";
-		params[1] = "";
-		params[2] = "";
-		params[3] = "0";
-		params[4] = "09:30:00.0000";
-		params[5] = "18:30:00.0000";
+		params[0] = maxid;
+		params[1] = userid;
+		params[2] = date;
+		params[3] = "体检通知";
+		params[4] = content;
+		params[5] = "0";
 		JdbcUtil.getInstance().executeUpdate(sql, params);
 	}
 	
@@ -99,21 +110,18 @@ public class BkNextPlanServlet extends HttpServlet {
 		return jsonArray;
 	}
 	private JSONArray historylist(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-		String userid = request.getParameter("userid");
 		JSONArray jsonArray = new JSONArray();
-		String sql = "select * from cdata_history where userid=? and deleteflg='0' order by historyno";
-		Object[] params = new Object[1];
- 		params[0] = userid;
- 		List<Object> explinfodata = JdbcUtil.getInstance().excuteQuery(sql, params);
+		String sql = "select * from cdata_appointments c left join mstr_user u on c.userid=u.userid where c.appointdate < now() order by appointdate desc";
+ 		List<Object> explinfodata = JdbcUtil.getInstance().excuteQuery(sql, null);
  		int i=0;
 		for (Object data : explinfodata) {
 			Map<String, Object> row = (Map<String, Object>) data;
 			JSONObject jsonObject = new JSONObject();
 			jsonObject.put("userid", String.valueOf(row.get("userid")));
 			jsonObject.put("username", String.valueOf(row.get("username")));
-			jsonObject.put("historyno", String.valueOf(row.get("historyno")));
-			jsonObject.put("historyname", String.valueOf(row.get("historyname")));
-			jsonObject.put("historydate", String.valueOf(row.get("historydate")));
+			jsonObject.put("date", String.valueOf(row.get("appointdate")));
+			jsonObject.put("content", String.valueOf(row.get("content")));
+			jsonObject.put("status", String.valueOf(row.get("status")));
 			jsonArray.put(i, jsonObject);
 			i++;
 		}
@@ -122,19 +130,18 @@ public class BkNextPlanServlet extends HttpServlet {
 	}
 	
 	private JSONArray appointlist(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
-		String userid = request.getParameter("userid");
 		JSONArray jsonArray = new JSONArray();
-		String sql = "select * from cdata_visithistory where userid=? and delflg='0' and authflg !='0' order by visitdate desc";
-		Object[] params = new Object[1];
- 		params[0] = userid;
- 		List<Object> datalist = JdbcUtil.getInstance().excuteQuery(sql, params);
+		String sql = "select * from cdata_appointments c left join mstr_user u on c.userid=u.userid where c.appointdate >= now() order by appointdate desc";
+ 		List<Object> datalist = JdbcUtil.getInstance().excuteQuery(sql, null);
  		int i=0;
 		for (Object data : datalist) {
 			Map<String, Object> row = (Map<String, Object>) data;
 			JSONObject jsonObject = new JSONObject();
-			jsonObject.put("id", String.valueOf(row.get("no")));
-			jsonObject.put("name", String.valueOf(i+1));
-			jsonObject.put("date", row.get("visitdate").toString());
+			jsonObject.put("userid", String.valueOf(row.get("userid")));
+			jsonObject.put("username", String.valueOf(row.get("username")));
+			jsonObject.put("date", String.valueOf(row.get("appointdate")));
+			jsonObject.put("content", String.valueOf(row.get("content")));
+			jsonObject.put("status", String.valueOf(row.get("status")));
 			jsonArray.put(i, jsonObject);
 			i++;
 		}

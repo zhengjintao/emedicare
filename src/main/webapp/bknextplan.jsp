@@ -34,14 +34,13 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.message ="";
   list.content = "";
-  list.userlist = [
-	  {'userid':'U0000001' ,'username' : '本田慶応'},
-	  {'userid':'U0000002' ,'username' : '豊田慶応'}]
-  list.appointmentinfolist=[
-	  {'userid':'U0000002' , 'username':'本田慶応' , 'date':'2018-09-08' , 'content':'予定の日付に病院に来てください。' , 'status':'未確認' },
+  list.noticedate ="";
+  list.userinfo={};
+  list.userlist = []
+  list.appointlist=[
 	  {'userid':'U0000002' , 'username':'本田慶応' , 'date':'2018-09-08' , 'content':'予定の日付に病院に来てください。' , 'status':'未確認' }];
   
-  list.historyinfolist=[
+  list.historylist=[
 	  {'userid':'U0000002' , 'username':'本田慶応' , 'date':'2018-09-08' , 'content':'予定の日付に病院に来てください。' , 'status':'確認済' }];
   
   list.onitemclick = function (){
@@ -51,8 +50,14 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
          return;
 	  }
 	  
+	  if(this.noticedate == null || this.noticedate.length == 0){
+			 this.message = "日付は入力必須です。";
+	         $('#cmodal') .modal('show');
+	         return;
+		  }
+	  
 	  $scope.url =  "bknextplan.do";
-	  	var postdata = {'mode':'submit'};
+	  	var postdata = {'mode':'submit', 'userid': list.userinfo.userid, 'date': list.getnoticedate(), 'content' :list.content};
 	      $http(
 	  		{
 	  			method:"POST",
@@ -61,6 +66,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  			transformRequest:transFormFactory.transForm,
 	  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
 	  		}).then(function (result) {
+	  			list.historylist = result.data.historylist;
+	  			list.appointlist = result.data.appointlist;
+	  			list.content = "";
+	  			list.message = " 保存しました。";
+	          	$('#cmodal') .modal('show');
 	          }).catch(function (result) {
 	          	list.message = "SORRY!エラーが発生しました。";
 	          	$('#cmodal') .modal('show');
@@ -81,6 +91,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  			list.userlist = result.data.userlist;
 	  			list.historylist = result.data.historylist;
 	  			list.appointlist = result.data.appointlist;
+	  			list.userinfo=list.userlist[0];
 	          }).catch(function (result) {
 	          	list.message = "SORRY!エラーが発生しました。";
 	          	$('#cmodal') .modal('show');
@@ -88,6 +99,14 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	      
 	  })();
   
+  list.getnoticedate = function(){
+	  var dt = list.noticedate;
+	  var y = dt.getFullYear();
+	  var m = ("00" + (dt.getMonth()+1)).slice(-2);
+	  var d = ("00" + dt.getDate()).slice(-2);
+	  var result = y + "-" + m + "-" + d;
+	  return result;
+	}
 });
 </script>
 
@@ -107,12 +126,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				<div class="three fields">
 					<div class="field">
 						<label>通知ユーザ</label> 
-						<select class="ui dropdown">
-							<option ng-repeat="eachitem in list.userlist" ng-model="eachitem.userid">{{eachitem.username}}({{eachitem.userid}})</option>
+						<select class="ui dropdown" ng-model="list.userinfo" ng-options="eachitem.username+'('+ eachitem.userid +')' for eachitem in list.userlist">
 						</select>
 					</div>
 					<div class="field">
-						<label>日付</label> <input type="date" placeholder="Middle Name">
+						<label>日付</label> <input type="date" placeholder="Middle Name" ng-model="list.noticedate">
 					</div>
 				</div>
 				<div class="field">
@@ -132,16 +150,17 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		<table class="ui unstackable celled structured table" style="margin-top: 5px">
 			<tbody>
 				<tr bgcolor="#FAFAFA" height="30px">
-					<th width="30%" style="text-align: center">ユーザ名前</th>
-					<th width="30%" style="text-align: center">日付</th>
-					<th width="20%" style="text-align: center">お知らせ内容</th>
+					<th width="20%" style="text-align: center">ユーザ名前</th>
+					<th width="20%" style="text-align: center">日付</th>
+					<th width="40%" style="text-align: center">お知らせ内容</th>
 					<th width="20%" style="text-align: center">ユーザ確認状態</th>
 				</tr>
-				<tr ng-repeat="eachitem in list.appointmentinfolist">
+				<tr ng-repeat="eachitem in list.appointlist">
 					<td id="week0"><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.username}}</a></td>
-					<td><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.date}}</a></td>
-					<td><a href=bkhistorylist.douserid={{eachitem.content}}>{{eachitem.content}}</a></td>
-					<td><a href=bkhistorylist.douserid={{eachitem.status}}>{{eachitem.status}}</a></td>
+					<td>{{eachitem.date}}</td>
+					<td>{{eachitem.content}}</td>
+					<td ng-show="eachitem.status=='0'">未確認</td>
+					<td ng-show="eachitem.status=='1'">確認済</td>
 				</tr>
 				
 			</tbody>
@@ -151,11 +170,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		</h4>
 		<table class="ui unstackable celled structured table" style="margin-top: 5px">
 			<tbody>
-				<tr ng-repeat="eachitem in list.historyinfolist">
-					<td width="30%" id="week0"><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.username}}</a></td>
-					<td width="30%"><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.date}}</a></td>
-					<td width="20%"><a href=bkhistorylist.douserid={{eachitem.content}}>{{eachitem.content}}</a></td>
-					<td width="20%"><a href=bkhistorylist.douserid={{eachitem.status}}>{{eachitem.status}}</a></td>
+				<tr ng-repeat="eachitem in list.historylist">
+					<td width="20%" id="week0"><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.username}}</a></td>
+					<td width="20%">{{eachitem.date}}</td>
+					<td width="40%">{{eachitem.content}}</td>
+					<td width="20%" ng-show="eachitem.status=='0'">未確認</td>
+					<td width="20%" ng-show="eachitem.status=='1'">確認済</td>
 				</tr>
 				
 			</tbody>
