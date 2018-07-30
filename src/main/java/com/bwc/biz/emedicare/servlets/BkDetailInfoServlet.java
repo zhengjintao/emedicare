@@ -150,7 +150,7 @@ public class BkDetailInfoServlet extends HttpServlet {
 		data07.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_07[]"));
 		// sheet08
 		BKDetailData_08 data08 = new BKDetailData_08();
-		//data08.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_08[]"));
+		data08.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_08[]"));
 		// sheet09
 		BKDetailData_09 data09 = new BKDetailData_09();
 		data09.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_09[]"));	
