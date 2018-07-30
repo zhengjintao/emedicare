@@ -107,7 +107,7 @@
 	   list.dt_14[<%=i%>] = "<%=dataList14.get(i)%>";
   <%}%>
   <%for (int i = 0; i < dataList15.size(); i++) {%>  
-	  list.dt_15[<%=i%>] = "<%=dataList15.get(i)%>";
+	   list.dt_15[<%=i%>] = "<%=dataList15.get(i)%>";
   <%}%>
     
    
