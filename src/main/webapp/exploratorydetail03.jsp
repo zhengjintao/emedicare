@@ -326,9 +326,9 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td>血小板计数</td>
       <td>{{list.dt_03[101]}}</td>
-      <td>{{list.dt_03[0]}}</td>
-      <td>{{list.dt_03[0]}}</td>
-      <td>{{list.dt_03[0]}}</td>
+      <td>{{list.dt_03[102]}}</td>
+      <td>{{list.dt_03[103]}}</td>
+      <td>{{list.dt_03[104]}}</td>
     </tr>
   </tbody>
 </table>

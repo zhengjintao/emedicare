@@ -20,6 +20,11 @@ import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_10;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_11;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_12;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_13;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_14;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_15;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_16;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_17;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_18;
 import com.bwc.biz.emedicare.form.User;
 
 /**
@@ -118,24 +123,24 @@ public class ExploratoryDetailServlet extends HttpServlet {
 			BKDetailData_13 detaildata13 = new BKDetailData_13();
 			request.setAttribute("detailDataList13", detaildata13.getDateValue(userid, historydate));
 		}else if("14".equals(sheetid)){
-			// 健診結果報告書2数据取得
-			BKDetailData_13 detaildata14 = new BKDetailData_13();
+			// 健診結果報告書14数据取得
+			BKDetailData_14 detaildata14 = new BKDetailData_14();
 			request.setAttribute("detailDataList14", detaildata14.getDateValue(userid, historydate));
 		}else if("15".equals(sheetid)){
-			// 健診結果報告書2数据取得
-			BKDetailData_13 detaildata15 = new BKDetailData_13();
+			// 健診結果報告書15数据取得
+			BKDetailData_15 detaildata15 = new BKDetailData_15();
 			request.setAttribute("detailDataList15", detaildata15.getDateValue(userid, historydate));
 		}else if("16".equals(sheetid)){
-			// 健診結果報告書2数据取得
-			BKDetailData_13 detaildata16 = new BKDetailData_13();
+			// 健診結果報告書16数据取得
+			BKDetailData_16 detaildata16 = new BKDetailData_16();
 			request.setAttribute("detailDataList16", detaildata16.getDateValue(userid, historydate));
 		}else if("17".equals(sheetid)){
 			// 健診結果報告書2数据取得
-			BKDetailData_13 detaildata17 = new BKDetailData_13();
+			BKDetailData_17 detaildata17 = new BKDetailData_17();
 			request.setAttribute("detailDataList17", detaildata17.getDateValue(userid, historydate));
 		}else if("18".equals(sheetid)){
 			// 健診結果報告書2数据取得
-			BKDetailData_13 detaildata18 = new BKDetailData_13();
+			BKDetailData_18 detaildata18 = new BKDetailData_18();
 			request.setAttribute("detailDataList18", detaildata18.getDateValue(userid, historydate));
 		}else if("19".equals(sheetid)){
 			// 健診結果報告書2数据取得

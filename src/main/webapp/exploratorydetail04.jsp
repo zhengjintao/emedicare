@@ -130,11 +130,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td rowspan="5">{{list.dt_04[0]}}</td>
       <td>部位</td>
-      <td colspan="3">{{list.dt_04[0]}}</td>
+      <td colspan="3">所见</td>
     </tr>
     <tr>
-      <td>{{list.dt_04[0]}}</td>
-      <td colspan="3">{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[1]}}</td>
+      <td colspan="3">{{list.dt_04[2]}}</td>
     </tr>
     <tr>
       <td colspan="2">上次</td>
@@ -147,10 +147,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>所见</td>
     </tr>
     <tr>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[3]}}</td>
+      <td>{{list.dt_04[4]}}</td>
+      <td>{{list.dt_04[5]}}</td>
+      <td>{{list.dt_04[6]}}</td>
     </tr>
   </tbody>
 </table>
@@ -164,31 +164,34 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">本次</td>
     </tr>
     <tr>
-      <td rowspan="5"></td>
+      <td rowspan="5">{{list.dt_04[7]}}</td>
       <td>总胆固醇</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[8]}}</td>
+      <td>{{list.dt_04[9]}}</td>
     </tr>
      <tr>
       <td>中性脂肪</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[10]}}</td>
+      <td>{{list.dt_04[11]}}</td>
     </tr>
      <tr>
       <td>高密度脂蛋白总胆固醇</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[12]}}</td>
+      <td>{{list.dt_04[13]}}</td>
     </tr>
      <tr>
       <td>低密度脂蛋白总胆固醇</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[14]}}</td>
+      <td>{{list.dt_04[15]}}</td>
     </tr>
      <tr>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[16]}}</td>
+      <td>{{list.dt_04[17]}}</td>
+      <td>{{list.dt_04[18]}}</td>
     </tr>
+     <tr>
+     <td colspan="5">{{list.dt_04[19]}}</td>
+     </tr>
   </tbody>
 </table>
 <table class="ui unstackable celled structured table">
@@ -201,76 +204,73 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">本次</td>
     </tr>
     <tr>
-      <td rowspan="13"></td>
+      <td rowspan="13">{{list.dt_04[20]}}</td>
       <td>总胆红素（T-BIL）</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[21]}}</td>
+      <td>{{list.dt_04[22]}}</td>
     </tr>
      <tr>
       <td>ZTT</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[23]}}</td>
+      <td>{{list.dt_04[24]}}</td>
     </tr>
      <tr>
       <td>TTT</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[25]}}</td>
+      <td>{{list.dt_04[26]}}</td>
     </tr>
      <tr>
       <td>AST</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[27]}}</td>
+      <td>{{list.dt_04[28]}}</td>
     </tr>
      <tr>
       <td>ALT</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[29]}}</td>
+      <td>{{list.dt_04[30]}}</td>
     </tr>
      <tr>
       <td>γ－GTP</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[31]}}</td>
+      <td>{{list.dt_04[32]}}</td>
     </tr>
     <tr>
       <td>总蛋白（TP）</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[33]}}</td>
+      <td>{{list.dt_04[34]}}</td>
     </tr>
      <tr>
       <td>白蛋白</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[35]}}</td>
+      <td>{{list.dt_04[36]}}</td>
     </tr>
     <tr>
       <td>A/G比</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[37]}}</td>
+      <td>{{list.dt_04[38]}}</td>
     </tr>
     <tr>
       <td>ALP</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[39]}}</td>
+      <td>{{list.dt_04[40]}}</td>
     </tr>
     <tr>
       <td>LAP</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[41]}}</td>
+      <td>{{list.dt_04[42]}}</td>
     </tr>
     <tr>
       <td>ChE</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[43]}}</td>
+      <td>{{list.dt_04[44]}}</td>
     </tr>
     <tr>
       <td>LDH</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td>{{list.dt_04[45]}}</td>
+      <td>{{list.dt_04[46]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
-      <td>{{list.dt_04[0]}}</td>
+      <td colspan="5">{{list.dt_04[47]}}</td>
     </tr>
   </tbody>
 </table>

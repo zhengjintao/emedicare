@@ -119,7 +119,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   </div>
   <div class="pusher">
   <div class="ui segment">
-  <table>
+  <table class="ui unstackable celled structured table">
  <tbody>
     <tr>
       <td class="cellheader" style="width:100px" rowspan="9">上部消化管内视镜</td>
@@ -132,20 +132,20 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td colspan="3">所见</td>
     </tr>
     <tr>
-      <td>{{list.dt_06[0]}}</td>
-      <td colspan="3"></td>
+      <td>{{list.dt_06[1]}}</td>
+      <td colspan="3">{{list.dt_06[2]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_06[0]}}</td>
-      <td colspan="3">{{list.dt_06[0]}}</td>
+      <td>{{list.dt_06[3]}}</td>
+      <td colspan="3">{{list.dt_06[4]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_06[0]}}</td>
-      <td colspan="3">{{list.dt_06[0]}}</td>
+      <td>{{list.dt_06[5]}}</td>
+      <td colspan="3">{{list.dt_06[6]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_06[0]}}</td>
-      <td colspan="3">{{list.dt_06[0]}}</td>
+      <td>{{list.dt_06[7]}}</td>
+      <td colspan="3">{{list.dt_06[8]}}</td>
     </tr>
     <tr>
       <td class="cellheader" colspan="2">上次</td>
@@ -158,14 +158,14 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>所见</td>
     </tr>
     <tr>
-      <td>{{list.dt_06[0]}}</td>
-      <td>{{list.dt_06[0]}}</td>
-      <td>{{list.dt_06[0]}}</td>
-      <td>{{list.dt_06[0]}}</td>
+      <td>{{list.dt_06[9]}}</td>
+      <td>{{list.dt_06[10]}}</td>
+      <td>{{list.dt_06[11]}}</td>
+      <td>{{list.dt_06[12]}}</td>
     </tr>
      <tr>
       <td class="cellheader" style="width:100px" rowspan="3">胃活检</td>
-      <td rowspan="3">{{list.dt_06[0]}}</td>
+      <td rowspan="3">{{list.dt_06[13]}}</td>
       <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
@@ -173,26 +173,34 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td colspan="3">所见</td>
     </tr>
     <tr>
-      <td>{{list.dt_06[0]}}</td>
-      <td colspan="3">{{list.dt_06[0]}}</td>
+      <td>{{list.dt_06[14]}}</td>
+      <td colspan="3">{{list.dt_06[15]}}</td>
     </tr>
   </tbody>
 </table>
  <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" style="width:100px" rowspan="6">上腹部超声波</td>
+      <td class="cellheader" style="width:100px" rowspan="8">上腹部超声波</td>
       <td class="cellheader">判定</td>
       <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
-      <td rowspan="5">{{list.dt_06[0]}}</td>
+      <td rowspan="7">{{list.dt_06[16]}}</td>
       <td>部位</td>
       <td colspan="3">所见</td>
     </tr>
     <tr>
-      <td>{{list.dt_06[0]}}</td>
-      <td colspan="3">{{list.dt_06[0]}}</td>
+      <td>{{list.dt_06[17]}}</td>
+      <td colspan="3">{{list.dt_06[18]}}</td>
+    </tr>
+    <tr>
+      <td>{{list.dt_06[19]}}</td>
+      <td colspan="3">{{list.dt_06[20]}}</td>
+    </tr>
+    <tr>
+      <td>{{list.dt_06[21]}}</td>
+      <td colspan="3">{{list.dt_06[22]}}</td>
     </tr>
     <tr>
       <td colspan="2">上次</td>
@@ -205,10 +213,10 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>所见</td>
     </tr>
     <tr>
-      <td>{{list.dt_06[0]}}</td>
-      <td>{{list.dt_06[0]}}</td>
-      <td>{{list.dt_06[0]}}</td>
-      <td>{{list.dt_06[0]}}</td>
+      <td>{{list.dt_06[23]}}</td>
+      <td>{{list.dt_06[24]}}</td>
+      <td>{{list.dt_06[25]}}</td>
+      <td>{{list.dt_06[26]}}</td>
     </tr>
     
   </tbody>
@@ -223,20 +231,20 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">本次</td>
     </tr>
     <tr>
-      <td rowspan="3"></td>
+      <td rowspan="3">{{list.dt_06[27]}}</td>
       <td>血沉（60分）</td>
-      <td>{{list.dt_06[0]}}</td>
-      <td>{{list.dt_06[0]}}</td>
+      <td>{{list.dt_06[28]}}</td>
+      <td>{{list.dt_06[29]}}</td>
     </tr>
      <tr>
       <td>血沉（120分）</td>
-      <td>{{list.dt_06[0]}}</td>
-      <td>{{list.dt_06[0]}}</td>
+      <td>{{list.dt_06[30]}}</td>
+      <td>{{list.dt_06[31]}}</td>
     </tr>
      <tr>
-      <td>{{list.dt_06[0]}}</td>
-      <td>{{list.dt_06[0]}}</td>
-      <td>{{list.dt_06[0]}}</td>
+      <td>{{list.dt_06[32]}}</td>
+      <td>{{list.dt_06[33]}}</td>
+      <td>{{list.dt_06[34]}}</td>
     </tr>
   </tbody>
 </table>
