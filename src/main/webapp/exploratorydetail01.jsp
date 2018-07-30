@@ -104,62 +104,62 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 								<tr>
 									<td rowspan="4">饮食</td>
 									<td>饮食速度</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[5]}}</td>
 								</tr>
 								<tr>
 									<td>不吃早饭（3次以上）</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[6]}}</td>
 								</tr>
 								<tr>
 									<td>晚餐就餐晚</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[7]}}</td>
 								</tr>
 								<tr>
 									<td>吃夜宵</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[8]}}</td>
 								</tr>
 
 								<tr>
 									<td rowspan="3">运动</td>
 									<td>经常运动</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[9]}}</td>
 								</tr>
 								<tr>
 									<td>在实行身体活动计划</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[10]}}</td>
 								</tr>
 								<tr>
 									<td>步行速度快</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[11]}}</td>
 								</tr>
 
 								<tr>
 									<td rowspan="2">饮酒</td>
 									<td>频度</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[12]}}</td>
 								</tr>
 								<tr>
 									<td>饮酒量</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[13]}}</td>
 								</tr>
 
 								<tr>
 									<td>吸烟</td>
 									<td>烟龄</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[14]}}</td>
 								</tr>
 
 								<tr>
 									<td>睡眠</td>
 									<td>睡眠是否充足</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[15]}}</td>
 								</tr>
 
 								<tr>
 									<td>精神压力<br>焦虑感
 									</td>
 									<td>常有压力感</td>
-									<td class="right aligned">{{list.dt_01[0]}}</td>
+									<td class="right aligned">{{list.dt_01[16]}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -169,7 +169,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<i class="dropdown icon"></i> 对于改善生活习惯的建议
 					</div>
 					<div class="content">
-						<p>{{list.dt_01[0]}}</p>
+						<p>{{list.dt_01[20]}}</p>
 						<br/>
 					</div>
 
@@ -183,19 +183,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<i class="dropdown icon"></i> 自觉症状
 					</div>
 					<div class="content">
-						<p class="transition visible" style="display: block !important;">{{list.dt_01[0]}}</p>
+						<p class="transition visible" style="display: block !important;">{{list.dt_01[17]}}</p>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 既往史•现病史
 					</div>
 					<div class="content">
-						<p>{{list.dt_01[0]}}</p>
+						<p>{{list.dt_01[18]}}</p>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 检查状态
 					</div>
 					<div class="content">
-						<p>{{list.dt_01[0]}}</p>
+						<p>{{list.dt_01[19]}}</p>
 					</div>
 				</div>
 			</div>
@@ -207,25 +207,25 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<i class="dropdown icon"></i> 服用高血压药历
 					</div>
 					<div class="content">
-						<p class="transition visible" style="display: block !important;">{{list.dt_01[0]}}</p>
+						<p class="transition visible" style="display: block !important;">{{list.dt_01[21]}}</p>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 服用脂质代谢异常症药历
 					</div>
 					<div class="content">
-						<p>{{list.dt_01[0]}}</p>
+						<p>{{list.dt_01[22]}}</p>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 服用糖尿病药历
 					</div>
 					<div class="content">
-						<p>{{list.dt_01[0]}}</p>
+						<p>{{list.dt_01[23]}}</p>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 吸烟经历
 					</div>
 					<div class="content">
-						<p>{{list.dt_01[0]}}</p>
+						<p>{{list.dt_01[24]}}</p>
 					</div>
 				</div>
 			</div>

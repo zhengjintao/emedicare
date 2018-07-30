@@ -175,12 +175,12 @@ public class BKDetailData_16 {
 		new String[] { "289", "鳞状上皮","结果"},new String[] { "290", "鳞状上皮","单位"},new String[] { "291", "鳞状上皮","基准值"}
 		);
 
-	public BKDetailData_13() {}
+	public BKDetailData_16() {}
 
 	/*
 	 * 数据导入用构造函数
 	 */
-	public BKDetailData_13(Sheet sheet, String userid, String username, String date, String histno) {
+	public BKDetailData_16(Sheet sheet, String userid, String username, String date, String histno) {
 		this.sheet = sheet;
 		this.userid = userid;
 		this.username = username;
