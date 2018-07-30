@@ -20,6 +20,8 @@ import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_10;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_11;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_12;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_13;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_14;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_15;
 
 /**
  * Servlet implementation class BkDetailInfoServlet
@@ -110,6 +112,12 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// 健診結果報告書13数据取得
 		BKDetailData_13 detaildata13 = new BKDetailData_13();
 		request.setAttribute("detailDataList13", detaildata13.getDateValue(userid, historydate));
+		// 健診結果報告書14数据取得
+		BKDetailData_14 detaildata14 = new BKDetailData_14();
+		request.setAttribute("detailDataList14", detaildata14.getDateValue(userid, historydate));
+		// 健診結果報告書15数据取得
+		BKDetailData_15 detaildata15 = new BKDetailData_15();
+		request.setAttribute("detailDataList15", detaildata15.getDateValue(userid, historydate));
 	}
 	
 	private void savedata(HttpServletRequest request){
@@ -158,6 +166,12 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// sheet13
 		BKDetailData_13 data13 = new BKDetailData_13();
 		data13.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_13[]"));	
+		// sheet14
+		BKDetailData_14 data14 = new BKDetailData_14();
+		data14.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_14[]"));	
+		// sheet15
+		BKDetailData_15 data15 = new BKDetailData_15();
+		data15.saveDataDispToDb(userid,username,historydate,request.getParameterValues("dt_15[]"));	
 	}
 	
 	private void deletedata(HttpServletRequest request){
@@ -204,5 +218,11 @@ public class BkDetailInfoServlet extends HttpServlet {
 		// 健診結果報告書13数据删除
 		BKDetailData_13 data13 = new BKDetailData_13();
 		data13.deleteData(userid,historydate);
+		// 健診結果報告書14数据删除
+		BKDetailData_14 data14 = new BKDetailData_14();
+		data14.deleteData(userid,historydate);
+		// 健診結果報告書15数据删除
+		BKDetailData_15 data15 = new BKDetailData_15();
+		data15.deleteData(userid,historydate);
 	}
 }
