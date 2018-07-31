@@ -39,7 +39,7 @@
 		<tbody>
 			<tr>
 				<td rowspan="4">
-					<div class="ui input" style="height:30px"> <input type="text"></div>
+					<div class="ui input" style="height:30px"> <input type="text" ng-model=list.dt_19[6]></div>
 				</td>
 			</tr>
 		</tbody>
@@ -48,12 +48,12 @@
 		<tbody>
 			<tr>
 				<td class="cellheader">骨密度判定</td>
-				<td ><div class="ui input"><input type="text"></div></td>
+				<td ><div class="ui input"><input type="text" ng-model=list.dt_19[7]></div></td>
 			</tr>
 			<tr>
 				<td class="cellheader" rowspan="5">解说</td>
 				<td rowspan="3">
-      				<div class="ui inverted form lblcontent"><textarea rows="10" cols="1" style="resize: none"></textarea></div>
+      				<div class="ui inverted form lblcontent"><textarea rows="10" cols="1" style="resize: none" ng-model=list.dt_19[8]></textarea></div>
       			</td>
       			
       			
