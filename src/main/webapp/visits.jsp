@@ -7,7 +7,7 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <!-- Site Properties -->
-<title>通院履歴</title>
+<title></title>
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
 
@@ -56,10 +56,12 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.lblexplains = ['感冒发烧，住院2周', '2 week stay in hospital', '風邪で２週間入院した'];
   list.lblheaders = ['履历一览', 'List', '履歴一覧'];
   list.lblsaves = ['保存', 'Save', '保存'];
-  list.lblmessages = ['请输入日期和详细信息', 'Please input date and detail info.', '日付または詳細情報を入力してくだい。'];
+  list.lblmessages = ['请输入日期和详细信息。', 'Please input date and detail info.', '日付または詳細情報を入力してくだい。'];
+  list.lblsavemsgs = ['成功登录数据。', 'Save successfully.', '保存しました。'];
+  list.lbldelmsgs = ['成功删除数据。', 'Delete successfully.', '削除しました。'];
   
   list.setlabel = function() {
-	  var laninx = this.langinx;
+	  var laninx = list.langinx;
 	  list.lblvisit =list.lblvisits[laninx];
 	  list.lbldate =list.lbldates[laninx];
 	  list.lbldetail =list.lbldetails[laninx];
@@ -111,8 +113,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   			list.id = "";
 			list.vdate = new Date();
 			list.detail = "";
-			 list.message = "保存しました。";
-         	  $('#cmodal') .modal('show');
+			list.message = list.lblsavemsgs[list.langinx];
+            $('#cmodal') .modal('show');
           }).catch(function (result) {
         	  list.message = "SORRY!エラーが発生しました。";
           	  $('#cmodal') .modal('show');
@@ -144,7 +146,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  			list.id = "";
 				list.vdate = new Date();
 				list.detail = "";
-	  			list.message = "削除しました。";
+				list.message = list.lbldelmsgs[list.langinx];
 	            $('#cmodal') .modal('show');
 	          }).catch(function (result) {
 	        	  list.message = "SORRY!エラーが発生しました。";

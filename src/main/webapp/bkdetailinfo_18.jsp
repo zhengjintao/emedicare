@@ -6,11 +6,10 @@
 	}
 </style>
 <div class="ui bottom attached tab segment" data-tab="dtl18">	
-	<h1 class="ui top header" style="margin-top: 11px; text-align: center">检查结果查询(血压脉搏检查)</h1>
 	<table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" colspan="4">血压脉搏检查解析结果</td>
+      <td class="ui header cellheader" style="text-align: center" colspan="4">血压脉搏检查解析结果</td>
     </tr>
     <tr>
       <td>姓名：</td>
@@ -35,7 +34,7 @@
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" colspan="4">血管硬度（ｂaPWV）</td>
+      <td class="ui header cellheader" style="text-align: center" colspan="4">血管硬度（ｂaPWV）</td>
     </tr>
     <tr>
       <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_18[6]></div></td>
@@ -48,7 +47,7 @@
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" colspan="7">足部血管阻塞检测(ABI)</td>
+      <td class="ui header cellheader" style="text-align: center" colspan="7">足部血管阻塞检测(ABI)</td>
     </tr>
     <tr>
       <td colspan="5">本次检查结果</td>
@@ -80,7 +79,7 @@
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" colspan="4">定期检查</td>
+      <td class="ui header cellheader" style="text-align: center" colspan="4">定期检查</td>
     </tr>
     <tr>
       <td colspan="4"> <div class="ui inverted form lblcontent"><textarea style="height: 100%; width: 100%; resize: none" ng-model="list.dt_02[0]"></textarea></div></td>

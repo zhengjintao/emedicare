@@ -8,21 +8,21 @@
 <div class="ui bottom attached active tab segment" data-tab="dtl01">
 	<div id="table1" class="ui attached segment" style="margin-top: auto;">
 		<div class="ui equal width grid">
-			<div class="column">
+			<div class="column" style="padding-bottom:0px">
 				<div class="ui labeled input">
 					<div class="ui label">姓名</div>
 					<input id="eusername" name="eusername" type="text"
 						readonly="readonly" ng-model="list.dt_01[0]">
 				</div>
 			</div>
-			<div class="column">
+			<div class="column" style="padding-bottom:0px">
 				<div class="ui labeled input">
 					<div class="ui label">ID</div>
 					<input id="eusername" name="eusername" type="text"
 						readonly="readonly" ng-model="list.dt_01[2]">
 				</div>
 			</div>
-			<div class="column">
+			<div class="column" style="padding-bottom:0px">
 				<div class="ui labeled input">
 					<div class="ui label">性别</div>
 					<input id="eusername" name="eusername" type="text"

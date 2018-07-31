@@ -74,7 +74,7 @@
 		<form action="./bkimportinfo.do?mode=save" method="post" onsubmit="return checkdate();">
 			<div class="ui fluid action input">
 					<input class="ui input" type="file" id="filepath" name="filepath" />
-					<button class="ui button">履历登録</button>
+					<button class="ui active blue button"><i class="upload icon"></i>履历登録</button>
 				</div>
 		</form>
 		<label class="ui label" style="text-align: left"><h3>登録結果一覧</h3></label>

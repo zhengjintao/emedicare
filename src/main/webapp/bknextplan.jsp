@@ -141,7 +141,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 
 			<div class="ui middle aligned divided list">
 				<div class="item">
-					<button class="ui basic submit button" ng-click ="list.onitemclick()">
+					<button class="ui active blue button" ng-click ="list.onitemclick()">
 						<i class="icon user"></i> 通知
 					</button>
 				</div>

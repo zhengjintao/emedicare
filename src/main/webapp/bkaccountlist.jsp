@@ -47,7 +47,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  		}).then(function (result) {
 	  			list.userinfolist = result.data.userinfolist;
 	          }).catch(function (result) {
-	          	list.message = "SORRY!エラーが発生しました。";
+	          	list.errmessage = "SORRY!エラーが発生しました。";
 	          	$('#cmodal') .modal('show');
 	          });
 	      
@@ -55,23 +55,30 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 });
 </script>
 <body ng-controller="ListController as list">
+   <div id="cmodal" class="ui small test modal transition hidden">
+		<i class="close icon"></i>
+		<div class="content">
+			<p id="errmsg">{{list.errmessage}}</p>
+		</div>
+	</div>
 	<div style="width: 80%; margin-left: auto; margin-right: auto;">
         <jsp:include page="bkheader.jsp"/>
 		<table class="ui unstackable celled structured table" style="margin-top: 5px">
 			<tbody>
 				<tr bgcolor="#FAFAFA" height="30px">
-					<th width="60%" style="text-align: center">名前</th>
-					<th width="20%" style="text-align: center">診査履歴数</th>
-					<th width="20%" style="text-align: center">通院記録数</th>
+				    <th width="25%" style="text-align: center">ID</th>
+					<th width="25%" style="text-align: center">名前</th>
+					<th width="25%" style="text-align: center">診査履歴数</th>
+					<th width="25%" style="text-align: center">通院記録数</th>
 				</tr>
 				<tr ng-repeat="eachitem in list.userinfolist">
-					<td id="week0"><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.username}}</a></td>
+				    <td><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.userid}}</a></td>
+					<td><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.username}}</a></td>
 					<td><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.expcount}}</a></td>
 					<td><a href=bkhistorylist.do?userid={{eachitem.userid}}>{{eachitem.visitcount}}</a></td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
-
 </body>
 </html>

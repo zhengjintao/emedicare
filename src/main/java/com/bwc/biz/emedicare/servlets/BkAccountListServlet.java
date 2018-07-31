@@ -35,9 +35,6 @@ public class BkAccountListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String mode = request.getParameter("mode");
 		
-		HttpSession session = request.getSession();
-		User userinfo = (User)session.getAttribute("userinfo");
-		
 		if("list".equals(mode)){
 			this.list(request, response);
 		}else{
@@ -58,7 +55,7 @@ public class BkAccountListServlet extends HttpServlet {
                     "(select userid,count(historyno) as historyno from cdata_history where deleteflg='0' group by userid) h " +
                     "on u.userid = h.userid  left join " +
                     "(select userid,count(no) as no from cdata_visithistory where delflg='0' group by userid) v " +
-                    "on u.userid=v.userid where u.authflg='2' and u.delflg='0'";
+                    "on u.userid=v.userid where u.authflg='2' and u.delflg='0' order by u.userid";
 		
  		List<Object> userinfodata = JdbcUtil.getInstance().excuteQuery(sql, null);
  		int i=0;

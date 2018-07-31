@@ -15,8 +15,8 @@
     </tr>
     <tr>
       <td rowspan="5"><div class="ui inverted form lblcontent"><textarea rows="13" cols="1" style="resize: none" ng-model="list.dt_04[0]"></textarea></div></td>
-      <td>部位</td>
-      <td colspan="3"><div class="ui input" style="height:30px">所见</div></td>
+      <td style="height:20p">部位</td>
+      <td style="height:20p" colspan="3">所见</td>
     </tr>
     <tr>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[1]"></div></td>

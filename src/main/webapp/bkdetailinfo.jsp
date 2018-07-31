@@ -275,10 +275,10 @@ footer {
 			</div>
 			<div class="column"></div>
 			<div class="column" style="text-align:right" >
-				<div class="ui active teal button" ng-click="list.saveData()" >
+				<div class="ui active blue button" ng-click="list.saveData()" >
 					<i class="save icon"></i>保存
 				</div>
-				<div class="ui active teal button" ng-click = "list.deleteData()" >
+				<div class="ui active blue button" ng-click = "list.deleteData()" >
 					<i class="trash icon"></i>删除
 				</div>
 			</div>
