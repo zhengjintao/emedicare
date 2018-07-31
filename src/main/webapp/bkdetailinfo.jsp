@@ -47,6 +47,11 @@
   list.dt_13 = new Array();
   list.dt_14 = new Array();
   list.dt_15 = new Array();
+  list.dt_19 = new Array();
+  list.dt_20 = new Array();
+  list.dt_21 = new Array();
+  list.dt_22 = new Array();
+  list.dt_23 = new Array();
   
   <%List<String> dataList01 = (List<String>) request.getAttribute("detailDataList01");%>;
   <%List<String> dataList02 = (List<String>) request.getAttribute("detailDataList02");%>;
@@ -63,6 +68,11 @@
   <%List<String> dataList13 = (List<String>) request.getAttribute("detailDataList13");%>;
   <%List<String> dataList14 = (List<String>) request.getAttribute("detailDataList14");%>;
   <%List<String> dataList15 = (List<String>) request.getAttribute("detailDataList15");%>;
+  <%List<String> dataList19 = (List<String>) request.getAttribute("detailDataList19");%>;
+  <%List<String> dataList20 = (List<String>) request.getAttribute("detailDataList20");%>;
+  <%List<String> dataList21 = (List<String>) request.getAttribute("detailDataList21");%>;
+  <%List<String> dataList22 = (List<String>) request.getAttribute("detailDataList22");%>;
+  <%List<String> dataList23 = (List<String>) request.getAttribute("detailDataList23");%>;
   
   <%for (int i = 0; i < dataList01.size(); i++) {%>  
        list.dt_01[<%=i%>] = "<%=dataList01.get(i)%>";
@@ -109,6 +119,23 @@
   <%for (int i = 0; i < dataList15.size(); i++) {%>  
 	   list.dt_15[<%=i%>] = "<%=dataList15.get(i)%>";
   <%}%>
+  <%for (int i = 0; i < dataList19.size(); i++) {%>  
+  	   list.dt_19[<%=i%>] = "<%=dataList19.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList20.size(); i++) {%>  
+  	   list.dt_20[<%=i%>] = "<%=dataList20.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList21.size(); i++) {%>  
+  	   list.dt_21[<%=i%>] = "<%=dataList21.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList22.size(); i++) {%>  
+  	   list.dt_22[<%=i%>] = "<%=dataList22.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList23.size(); i++) {%>  
+  	   list.dt_23[<%=i%>] = "<%=dataList23.get(i)%>";
+  <%}%>
+  
+
     
    
    list.sheets =[
@@ -157,7 +184,12 @@
 		    	dt_12:list.dt_12,
 		    	dt_13:list.dt_13,
 		    	dt_14:list.dt_14,
-		    	dt_15:list.dt_15
+		    	dt_15:list.dt_15,
+		    	dt_19:list.dt_19,
+		    	dt_20:list.dt_20,
+		    	dt_21:list.dt_21,
+		    	dt_22:list.dt_22,
+		    	dt_23:list.dt_23
 		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");
