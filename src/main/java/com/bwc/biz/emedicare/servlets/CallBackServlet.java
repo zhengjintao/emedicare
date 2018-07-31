@@ -106,7 +106,7 @@ public class CallBackServlet extends HttpServlet {
 				Object[] params2 = new Object[15];
 				
 				params2[0] = euserid;
-				params2[1] = username;
+				params2[1] = filterEmoji(username);
 				params2[2] = password;
 				params2[3] = "1";
 				params2[4] = "09:30:00.0000";

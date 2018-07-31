@@ -129,31 +129,28 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td rowspan="4">{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[1]}}</td>
+      <td>{{list.dt_10[2]}}</td>
+      <td>{{list.dt_10[3]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[4]}}</td>
+      <td>{{list.dt_10[5]}}</td>
+      <td>{{list.dt_10[6]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[7]}}</td>
+      <td>{{list.dt_10[8]}}</td>
+      <td>{{list.dt_10[9]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[10]}}</td>
+      <td>{{list.dt_10[11]}}</td>
+      <td>{{list.dt_10[12]}}</td>
     </tr>
     <tr>
-      <td colspan="5">{{list.dt_10[0]}}</td>
+      <td colspan="5"></td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="5">腹部CT</td>
@@ -163,31 +160,28 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td rowspan="4">{{list.dt_10[13]}}</td>
+      <td>{{list.dt_10[14]}}</td>
+      <td>{{list.dt_10[15]}}</td>
+      <td>{{list.dt_10[16]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[17]}}</td>
+      <td>{{list.dt_10[18]}}</td>
+      <td>{{list.dt_10[19]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[20]}}</td>
+      <td>{{list.dt_10[21]}}</td>
+      <td>{{list.dt_10[22]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[23]}}</td>
+      <td>{{list.dt_10[24]}}</td>
+      <td>{{list.dt_10[25]}}</td>
     </tr>
     <tr>
-      <td colspan="5">{{list.dt_10[0]}}</td>
+      <td colspan="5"></td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="5">MRI/MRA</td>
@@ -197,31 +191,28 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td rowspan="4">{{list.dt_10[26]}}</td>
+      <td>{{list.dt_10[27]}}</td>
+      <td>{{list.dt_10[28]}}</td>
+      <td>{{list.dt_10[29]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[30]}}</td>
+      <td>{{list.dt_10[31]}}</td>
+      <td>{{list.dt_10[32]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[33]}}</td>
+      <td>{{list.dt_10[34]}}</td>
+      <td>{{list.dt_10[35]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[36]}}</td>
+      <td>{{list.dt_10[37]}}</td>
+      <td>{{list.dt_10[38]}}</td>
     </tr>
     <tr>
-      <td colspan="5">{{list.dt_10[0]}}</td>
+      <td colspan="5"></td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="5">颈部超声</td>
@@ -231,28 +222,25 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td rowspan="4">{{list.dt_10[39]}}</td>
+      <td>{{list.dt_10[40]}}</td>
+      <td>{{list.dt_10[41]}}</td>
+      <td>{{list.dt_10[42]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[43]}}</td>
+      <td>{{list.dt_10[44]}}</td>
+      <td>{{list.dt_10[45]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[46]}}</td>
+      <td>{{list.dt_10[47]}}</td>
+      <td>{{list.dt_10[48]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
-      <td>{{list.dt_10[0]}}</td>
+      <td>{{list.dt_10[50]}}</td>
+      <td>{{list.dt_10[51]}}</td>
+      <td>{{list.dt_10[52]}}</td>
     </tr>
   </tbody>
 </table>

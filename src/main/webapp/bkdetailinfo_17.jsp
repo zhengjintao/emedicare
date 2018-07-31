@@ -6,7 +6,7 @@
 	}
 </style>
 <div class="ui bottom attached tab segment" data-tab="dtl17">	
-	<h1 class="ui top header" style="margin-top: 11px; text-align: center">检查结果查询</h1>
+	<h1 class="ui top header" style="margin-top: 11px; text-align: center">检查结果查询(ABC検診)</h1>
 	<table class="ui unstackable celled structured table">
   <tbody>
     <tr>

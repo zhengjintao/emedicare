@@ -156,8 +156,8 @@
 		    	dt_11:list.dt_11,
 		    	dt_12:list.dt_12,
 		    	dt_13:list.dt_13,
-		    	dt_13:list.dt_14,
-		    	dt_13:list.dt_15
+		    	dt_14:list.dt_14,
+		    	dt_15:list.dt_15
 		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");

@@ -131,124 +131,110 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td>{{list.dt_11[0]}}</td>
+      <td rowspan="15">{{list.dt_11[0]}}</td>
       <td>血沉（60分）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[1]}}</td>
+      <td>{{list.dt_11[2]}}</td>
+      <td>{{list.dt_11[3]}}</td>
+      <td>{{list.dt_11[4]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>血沉（120分）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[5]}}</td>
+      <td>{{list.dt_11[6]}}</td>
+      <td>{{list.dt_11[7]}}</td>
+      <td>{{list.dt_11[8]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>幽门螺旋杆菌抗体</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[9]}}</td>
+      <td>{{list.dt_11[10]}}</td>
+      <td>{{list.dt_11[11]}}</td>
+      <td>{{list.dt_11[12]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>Rh血型</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[13]}}</td>
+      <td>{{list.dt_11[14]}}</td>
+      <td>{{list.dt_11[15]}}</td>
+      <td>{{list.dt_11[16]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>ABO血型</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[17]}}</td>
+      <td>{{list.dt_11[18]}}</td>
+      <td>{{list.dt_11[19]}}</td>
+      <td>{{list.dt_11[20]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>TSH</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[21]}}</td>
+      <td>{{list.dt_11[22]}}</td>
+      <td>{{list.dt_11[23]}}</td>
+      <td>{{list.dt_11[24]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>FT4</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[25]}}</td>
+      <td>{{list.dt_11[26]}}</td>
+      <td>{{list.dt_11[27]}}</td>
+      <td>{{list.dt_11[28]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>FT3</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[29]}}</td>
+      <td>{{list.dt_11[30]}}</td>
+      <td>{{list.dt_11[31]}}</td>
+      <td>{{list.dt_11[32]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>胃蛋白酶原</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[33]}}</td>
+      <td>{{list.dt_11[34]}}</td>
+      <td>{{list.dt_11[35]}}</td>
+      <td>{{list.dt_11[36]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>CK（CPK）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[37]}}</td>
+      <td>{{list.dt_11[38]}}</td>
+      <td>{{list.dt_11[39]}}</td>
+      <td>{{list.dt_11[40]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>咳痰细胞诊</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[41]}}</td>
+      <td>{{list.dt_11[42]}}</td>
+      <td>{{list.dt_11[43]}}</td>
+      <td>{{list.dt_11[44]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>BNP</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[45]}}</td>
+      <td>{{list.dt_11[46]}}</td>
+      <td>{{list.dt_11[47]}}</td>
+      <td>{{list.dt_11[48]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>QFT（判定）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[49]}}</td>
+      <td>{{list.dt_11[50]}}</td>
+      <td>{{list.dt_11[51]}}</td>
+      <td>{{list.dt_11[52]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>QFT（TB抗原）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[53]}}</td>
+      <td>{{list.dt_11[54]}}</td>
+      <td>{{list.dt_11[55]}}</td>
+      <td>{{list.dt_11[56]}}</td>
     </tr>
     <tr>
-      <td></td>
       <td>HPV-DNA（HL）</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>{{list.dt_11[57]}}</td>
+      <td>{{list.dt_11[58]}}</td>
+      <td>{{list.dt_11[59]}}</td>
+      <td>{{list.dt_11[60]}}</td>
     </tr>
   </tbody>
 </table>
