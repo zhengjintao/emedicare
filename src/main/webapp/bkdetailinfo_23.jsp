@@ -6,32 +6,32 @@
 	}
 </style>
 <div class="ui bottom attached tab segment" data-tab="dtl23">	
-	<h1 class="ui top header" style="margin-top: 11px; text-align: center">检查报告(心脏超声波)</h1>
+	<h1 class="ui top header" style="margin-top: 11px; text-align: center">检查报告(脳ドック)</h1>
 	<table class="ui unstackable celled structured table">
 		<tbody>
 				<tr>
 					<td class="cellheader">ID</td>
-					<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+					<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_23[0]></div></td>
 					<td class="cellheader">检查日期</td>
-					<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+					<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_23[1]></div></td>
 				</tr>
 				<tr>
 					<td class="cellheader">姓名</td>
-					<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+					<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_23[2]></div></td>
 					<td class="cellheader">年龄/性别</td>
-					<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+					<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_23[3]></div></td>
 				</tr>
 				<tr>
 					<td class="cellheader">第一次担任医生</td>
-					<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+					<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_23[4]></div></td>
 					<td class="cellheader">第一次诊断时间</td>
-					<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+					<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_23[5]></div></td>
 				</tr>
 				<tr>
 					<td class="cellheader">第二次担任医生</td>
-					<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+					<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_23[6]></div></td>
 					<td class="cellheader">第二次诊断时间</td>
-					<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+					<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_23[7]></div></td>
 				</tr>
 		</tbody>
 	</table>
@@ -41,23 +41,20 @@
 				<td class="cellheader" colspan="4">检查名称</td>
 			</tr>
 			<tr>
-				<td colspan="4"><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+				<td colspan="4"><div class="ui input" style="30px;width:100px;"> <input type="text" ng-model=list.dt_23[8]></div></td>
 			</tr>
 			<tr>
 				<td class="cellheader" colspan="4">所见</td>
 			</tr>
 			<tr>
-				<td colspan="4"><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+				<td colspan="4"><div class="ui input" style="30px;width:100px;"> <input type="text" ng-model=list.dt_23[9]></div></td>
 			</tr>
 			<tr>
      			<td class="cellheader" colspan="4">诊断</td>
     		</tr>
     		<tr>
-				<td colspan="4"><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+				<td colspan="4"><div class="ui input" style="30px;width:100px;"> <input type="text" ng-model=list.dt_23[10]></div></td>
 			</tr>
 		</tbody>
 	</table>
 </div>
-    		
-	
-				

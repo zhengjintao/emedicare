@@ -11,21 +11,21 @@
 		<tbody>
 			<tr>
 				<td class="cellheader">ID</td>
-				<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+				<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_19[0]></div></td>
 				<td class="cellheader">检查日期</td>
-				<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+				<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_19[1]></div></td>
 			</tr>
 			<tr>
 				<td class="cellheader">姓名</td>
-				<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+				<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_19[2]></div></td>
 				<td class="cellheader">检查部位</td>
-				<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+				<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_19[3]></div></td>
 			</tr>
 			<tr>
 				<td class="cellheader">出生日期</td>
-				<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+				<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_19[4]></div></td>
 				<td class="cellheader">年龄/性别</td>
-				<td ><div class="ui input" style="30px;width:100px;"> <input type="text"></div></td>
+				<td style="padding:3px"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_19[5]></div></td>
 			</tr>
 		</tbody>
 	</table>
