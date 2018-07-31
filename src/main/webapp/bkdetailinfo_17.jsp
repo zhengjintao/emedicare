@@ -14,15 +14,15 @@
     </tr>
     <tr>
       <td>ID</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[0]></div></td>
       <td>检查日期</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[1]></div></td>
     </tr>
     <tr>
       <td>姓名</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[2]></div></td>
       <td>报告日期</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[3]></div></td>
     </tr>
   </tbody>
 </table>
@@ -32,7 +32,7 @@
       <td class="cellheader" colspan="4">判定结果</td>
     </tr>
     <tr>
-      <td colspan="4">{{list.dt_17[0]}}</td>
+      <td colspan="4"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[4]></div></td>
     </tr>
   </tbody>
 </table>
@@ -45,24 +45,24 @@
     </tr>
     <tr>
       <td colspan="2">幽门螺旋杆菌抗体( EIA法：E板 )</td>
-      <td>{{list.dt_17[0]}}</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[5]></div></td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[6]></div></td>
     </tr>
     <tr>
       <td rowspan="3">胃蛋白酶原</td>
       <td>胃蛋白酶原Ⅰ（PGⅠ）</td>
-      <td>{{list.dt_17[0]}}</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[7]></div></td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[8]></div></td>
     </tr>
     <tr>
       <td>胃蛋白酶原Ⅱ（PGⅡ）</td>
-      <td>{{list.dt_17[0]}}</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[9]></div></td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[10]></div></td>
     </tr>
     <tr>
       <td>PGⅠ/PGⅡ比</td>
-      <td>{{list.dt_17[0]}}</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[11]></div></td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_17[12]></div></td>
     </tr>
   </tbody>
 </table>
