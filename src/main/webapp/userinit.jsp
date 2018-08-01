@@ -16,7 +16,10 @@
 <script src="dist/components/transition.min.js"></script>
 <script src="dist/semantic.min.js"></script>
 <script>
-
+initdata=[];
+initdata.openid = '<%=request.getAttribute("openid")%>';
+initdata.username = '<%=request.getAttribute("username")%>';
+initdata.sex = '<%=request.getAttribute("sex")%>';
 </script>
 
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -42,10 +45,18 @@
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
+  list.lblLangs=['语言', 'Language', '言語設定'];
   list.lblNames=['姓名', 'Name', 'お名前'];
   list.lblMessages=['请输入姓名。', 'Please input your name.', 'お名前を入力してください。'];
-  list.lblButtons=['登录', 'Login', 'ログイン'];
-  list.name="本田慶応";
+  list.lblButtons=['申请登录', 'Login', 'ログイン申請'];
+  list.lblwarnmsgs =['请务必输入真实姓名，否则可能无法通过审核。','Please input your real name for auth.','本名を入力していますか。'];
+  list.lblinfomsgs =['确认真实姓名为：','Confirm your name:','名前確認：'];
+  list.lblreturns=['重新输入', 'Cancel', 'Cancel'];
+  list.lblconfirms=['确定', 'OK', 'OK'];
+  list.langInx='0';
+  list.username=initdata.username;
+  list.sex=initdata.sex;
+  list.openid=initdata.openid;
   list.submit = function() {
   	$scope.url =  "companyinfoedit.do";
   	var postdata = {'mode':'submit'};
@@ -66,20 +77,31 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   }
   
   list.onItemClick = function() {
-	 if(list.name ==null || list.name.length == 0){
+	 if(list.username ==null || list.username.length == 0){
 	     list.errmessage = list.lblMessages[list.langInx];
 	     $('#cmodal') .modal('show');
 	     return;
 	 }
 	 
-	 window.location.href = 'userinit.do?mode=submit' + '&langkbn=' + list.langInx + '&name=' + list.name;
+	 $('#almodal').modal({
+			closable : false,
+			onApprove : function() {
+				window.location.href = 'userinit.do?mode=submit' + '&username=' + list.username + '&sex=' + list.sex +'&openid=' + list.openid;
+			}
+
+		}).modal('show');
   }
   
   list.onRadioChange = function(val) {
 	  list.langInx = val;
+	  list.lblLangSetting =list.lblLangs[list.langInx];
 	  list.lblNameSetting =list.lblNames[list.langInx];
 	  list.lblNameInput =list.lblMessages[list.langInx];
 	  list.lblBtnname =list.lblButtons[list.langInx];
+	  list.lblwarnmsg =list.lblwarnmsgs[list.langInx];
+	  list.lblinfomsg =list.lblinfomsgs[list.langInx];
+	  list.lblreturn =list.lblreturns[list.langInx];
+	  list.lblconfirm =list.lblconfirms[list.langInx];
 	}
   
   list.onRadioChange(0);
@@ -97,18 +119,52 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	<div class="ui one column grid container">
 		<div class="column">
 			<div style="margin-top: 10px"></div>
+						<div class="ui segment">
+				<a class="ui large top attached label center aligned">{{list.lblLangSetting}}</a>
+				<div class="ui form">
+					<div class="inline fields">
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="frequency" checked="checked" ng-click="list.onRadioChange(0)">
+								<label>中文</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="frequency" ng-click="list.onRadioChange(1)"> <label>English</label>
+							</div>
+						</div>
+						<div class="field">
+							<div class="ui radio checkbox">
+								<input type="radio" name="frequency" ng-click="list.onRadioChange(2)"> <label>日本語</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="ui segment">
 				<a class="ui large top attached label center aligned">{{list.lblNameSetting}}</a>
 				<div class="ui large transparent input">
 					<input type="text" style="width: 250px"
-						placeholder={{list.lblNameInput}} ng-model="list.name">
+						placeholder={{list.lblNameInput}} ng-model="list.username">
 				</div>
 
 			</div>
 			
-			<button class="fluid ui large button" ng-click="list.onItemClick()">{{list.lblBtnname}}</button>
+			<button class="fluid ui large blue button" ng-click="list.onItemClick()">{{list.lblBtnname}}</button>
 		</div>
 		<div class="column"></div>
 	</div>
-
+    <div id="almodal" class="ui small test modal transition hidden">
+			<div class="content">
+				<h4 style="color:red">{{list.lblwarnmsg}}</h4>
+				<p>{{list.lblinfomsg}}{{list.username}}</p>
+			</div>
+			<div class="actions">
+				<div class="ui negative button">{{list.lblreturn}}</div>
+				<div class="ui positive right labeled icon button">
+					{{list.lblconfirm}} <i class="checkmark icon"></i>
+				</div>
+			</div>
+		</div>
 </body>

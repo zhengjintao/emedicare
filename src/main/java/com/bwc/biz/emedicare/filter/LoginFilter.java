@@ -42,7 +42,8 @@ public class LoginFilter implements Filter {
 		if(uri.contains(".jsp")
 			|| uri.contains(".html")
 			||uri.contains(".do")){
-			if(!uri.contains("login") && !uri.contains("deploy") && !uri.contains("callback") && !uri.contains("wait") && !uri.contains("openid")){
+			if(!uri.contains("login") && !uri.contains("deploy") && !uri.contains("callback")
+					&& !uri.contains("wait") && !uri.contains("openid")&& !uri.contains("userinit") ){
 				HttpSession session = req.getSession();
 				Object userId = session.getAttribute("userinfo");
 				

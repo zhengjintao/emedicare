@@ -90,41 +90,12 @@ public class CallBackServlet extends HttpServlet {
 					return;
 				}
 				
-				String username = userInfo.getString("nickname");
+				String username = filterEmoji(userInfo.getString("nickname"));
 				String sex = "1".equals(userInfo.get("sex").toString()) ? "M" : "F";
 				errmsg = errmsg + "－－成功获取用户昵称: " + username +" －－<br>";
 				errmsg = errmsg + "－－成功获取用户性别: " + sex +" －－<br>";
 				
-				String sql2 = "select count(*) as num from mstr_user where userid like 'U0%'";
-				List<Object> usercount = JdbcUtil.getInstance().excuteQuery(sql2, null);
-				Map<String, Object> row = (Map<String, Object>) usercount.get(0);
-				int uid = new Integer(row.get("num").toString());
-				
-				String euserid = "U0" + StringUtil.padLeft(String.valueOf(++uid), 6, '0');
-				String password = "changeme";
-				sql2 = "insert into mstr_user values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-				Object[] params2 = new Object[15];
-				
-				params2[0] = euserid;
-				params2[1] = filterEmoji(username);
-				params2[2] = password;
-				params2[3] = "1";
-				params2[4] = "09:30:00.0000";
-				params2[5] = "18:30:00.0000";
-				params2[6] = sex;
-				params2[7] = "2";
-				params2[8] = "1900-01-01";
-				params2[9] = "";
-				params2[10] = openid;
-				params2[11] = "1";
-				params2[12] = "0";
-				params2[13] = "";
-				params2[14] = "";
-				
-				errmsg = errmsg + "－－新规做成用户－－<br>";
-				JdbcUtil.getInstance().executeUpdate(sql2, params2);
-
-				request.getRequestDispatcher("wait.do").forward(request, response);
+				response.sendRedirect("login.do?username=" + username +"&sex="+sex +"&openid="+openid);
 				return;
 			}else{
 				request.getRequestDispatcher("wait.do").forward(request, response);
