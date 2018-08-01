@@ -25,6 +25,11 @@ import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_15;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_16;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_17;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_18;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_19;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_20;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_21;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_22;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_23;
 import com.bwc.biz.emedicare.form.User;
 
 /**
@@ -135,32 +140,32 @@ public class ExploratoryDetailServlet extends HttpServlet {
 			BKDetailData_16 detaildata16 = new BKDetailData_16();
 			request.setAttribute("detailDataList16", detaildata16.getDateValue(userid, historydate));
 		}else if("17".equals(sheetid)){
-			// 健診結果報告書2数据取得
+			// 健診結果報告書17数据取得
 			BKDetailData_17 detaildata17 = new BKDetailData_17();
 			request.setAttribute("detailDataList17", detaildata17.getDateValue(userid, historydate));
 		}else if("18".equals(sheetid)){
-			// 健診結果報告書2数据取得
+			// 健診結果報告書18数据取得
 			BKDetailData_18 detaildata18 = new BKDetailData_18();
 			request.setAttribute("detailDataList18", detaildata18.getDateValue(userid, historydate));
 		}else if("19".equals(sheetid)){
-			// 健診結果報告書2数据取得
-			BKDetailData_13 detaildata19 = new BKDetailData_13();
+			// 健診結果報告書19数据取得
+			BKDetailData_19 detaildata19 = new BKDetailData_19();
 			request.setAttribute("detailDataList19", detaildata19.getDateValue(userid, historydate));
 		}else if("20".equals(sheetid)){
-			// 健診結果報告書2数据取得
-			BKDetailData_13 detaildata20 = new BKDetailData_13();
+			// 健診結果報告書20数据取得
+			BKDetailData_20 detaildata20 = new BKDetailData_20();
 			request.setAttribute("detailDataList20", detaildata20.getDateValue(userid, historydate));
 		}else if("21".equals(sheetid)){
-			// 健診結果報告書2数据取得
-			BKDetailData_13 detaildata21 = new BKDetailData_13();
+			// 健診結果報告書21数据取得
+			BKDetailData_21 detaildata21 = new BKDetailData_21();
 			request.setAttribute("detailDataList21", detaildata21.getDateValue(userid, historydate));
 		}else if("22".equals(sheetid)){
-			// 健診結果報告書2数据取得
-			BKDetailData_13 detaildata22 = new BKDetailData_13();
+			// 健診結果報告書22数据取得
+			BKDetailData_22 detaildata22 = new BKDetailData_22();
 			request.setAttribute("detailDataList22", detaildata22.getDateValue(userid, historydate));
 		}else if("23".equals(sheetid)){
-			// 健診結果報告書2数据取得
-			BKDetailData_13 detaildata23 = new BKDetailData_13();
+			// 健診結果報告書23数据取得
+			BKDetailData_23 detaildata23 = new BKDetailData_23();
 			request.setAttribute("detailDataList23", detaildata23.getDateValue(userid, historydate));
 		}
 	}

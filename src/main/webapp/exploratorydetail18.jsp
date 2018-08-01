@@ -122,64 +122,92 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" colspan="4">血压脉搏检查解析结果</td>
+      <td class="cellheader" style="text-align: center"  colspan="4">血压脉搏检查解析结果</td>
     </tr>
     <tr>
       <td>姓名：</td>
       <td>{{list.dt_18[0]}}</td>
       <td>ID：</td>
-      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[1]}}</td>
     </tr>
     <tr>
       <td>年龄：</td>
-      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[2]}}</td>
       <td>身高：</td>
-      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[3]}}</td>
     </tr>
     <tr>
       <td>BMI：</td>
-      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[4]}}</td>
       <td>体重：</td>
-      <td>{{list.dt_18[0]}}</td>
+      <td>{{list.dt_18[5]}}</td>
     </tr>
   </tbody>
 </table>
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" colspan="4">血管硬度（ｂaPWV）</td>
+      <td class="cellheader" style="text-align: center" colspan="5">血管硬度（ｂaPWV）</td>
     </tr>
     <tr>
-      <td>{{list.dt_18[0]}}</td>
-      <td>{{list.dt_18[0]}}</td>
-      <td>{{list.dt_18[0]}}</td>
-      <td>{{list.dt_18[0]}}</td>
+      <td colspan="4">根据检查结果推算您的血管年龄 </td>
+      <td rowspan="5"><img style="width:100%;height:50%" src="assets/images/chart01.png" /></td>
+    </tr>
+    <tr>
+      <td colspan="4">随着年龄的增长，血管会逐步老化，需多加注意。</td>
+    
+    </tr>
+    <tr>
+      <td colspan="4"></td>
+    </tr>
+    <tr>
+      <td rowspan="2">baPWV<br>（cm/s）</td>
+       <td colspan="3">{{list.dt_18[6]}}</td>
+    </tr>
+    <tr>
+       <td colspan="3">{{list.dt_18[7]}}</td>
     </tr>
   </tbody>
 </table>
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" colspan="4">足部血管阻塞检测(ABI)</td>
+      <td class="cellheader" style="text-align: center" colspan="7">足部血管阻塞检测(ABI)</td>
     </tr>
     <tr>
-      <td>{{list.dt_18[0]}}</td>
-      <td>{{list.dt_18[0]}}</td>
-      <td>{{list.dt_18[0]}}</td>
-      <td>{{list.dt_18[0]}}</td>
+      <td colspan="5">本次检查结果</td>
+      <td>心率：</td>
+      <td>{{list.dt_18[8]}}</td>
+    </tr>
+    <tr>
+      <td colspan="3"></td>
+      <td>右臂</td>
+      <td>{{list.dt_18[9]}}</td>
+      <td>左臂</td>
+      <td>{{list.dt_18[10]}}</td>
+    </tr>
+    <tr>
+      <td rowspan="2">ABI</td>
+      <td>右足：</td>
+      <td>{{list.dt_18[11]}}</td>
+      <td rowspan="2">右脚腕</td>
+      <td rowspan="2">{{list.dt_18[12]}}</td>
+      <td rowspan="2">左脚腕</td>
+      <td rowspan="2">{{list.dt_18[13]}}</td>
+    </tr>
+    <tr>
+      <td>左足：</td>
+      <td>{{list.dt_18[14]}}</td>
     </tr>
   </tbody>
 </table>
   <table class="ui unstackable celled structured table">
   <tbody>
     <tr>
-      <td class="cellheader" colspan="4">定期检查</td>
+      <td class="cellheader" style="text-align: center" colspan="4">定期检查</td>
     </tr>
     <tr>
-      <td>{{list.dt_18[0]}}</td>
-      <td>{{list.dt_18[0]}}</td>
-      <td>{{list.dt_18[0]}}</td>
-      <td>{{list.dt_18[0]}}</td>
+      <td colspan="4">{{list.dt_18[15]}}</td>
     </tr>
   </tbody>
 </table>

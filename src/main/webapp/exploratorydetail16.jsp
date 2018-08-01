@@ -123,21 +123,21 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <tbody>
     <tr>
       <td class="cellheader" style="width:20%">ID</td>
-      <td></td>
+      <td>{{list.dt_16[0]}}</td>
       <td class="cellheader" style="width:20%">检查日期</td>
-      <td></td>
+      <td>{{list.dt_16[1]}}</td>
     </tr>
     <tr>
       <td class="cellheader">姓名</td>
-      <td></td>
+      <td>{{list.dt_16[2]}}</td>
       <td class="cellheader">报告日期</td>
-      <td></td>
+      <td>{{list.dt_16[3]}}</td>
     </tr>
     <tr>
       <td class="cellheader">担任医生</td>
-      <td></td>
+      <td>{{list.dt_16[4]}}</td>
       <td class="cellheader">年龄/性别</td>
-      <td></td>
+      <td>{{list.dt_16[5]}}</td>
     </tr>
    
     <tr>
@@ -150,38 +150,38 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td>AFP</td>
-      <td>{{list.dt_16[0]}}</td>
-      <td colspan="2"></td>
+      <td>{{list.dt_16[6]}}</td>
+      <td colspan="2">{{list.dt_16[7]}}</td>
     </tr>
     <tr>
       <td>PIVKA-II</td>
-      <td>{{list.dt_16[0]}}</td>
-      <td colspan="2"></td>
+      <td>{{list.dt_16[8]}}</td>
+      <td colspan="2">{{list.dt_16[9]}}</td>
     </tr>
     <tr>
       <td>CEA</td>
-      <td>{{list.dt_16[0]}}</td>
-      <td colspan="2"></td>
+      <td>{{list.dt_16[10]}}</td>
+      <td colspan="2">{{list.dt_16[11]}}</td>
     </tr>
     <tr>
       <td>CA19-9</td>
-      <td>{{list.dt_16[0]}}</td>
-      <td colspan="2"></td>
+      <td>{{list.dt_16[12]}}</td>
+      <td colspan="2">{{list.dt_16[13]}}</td>
     </tr>
     <tr>
       <td>CA15-3</td>
-      <td>{{list.dt_16[0]}}</td>
-      <td colspan="2"></td>
+      <td>{{list.dt_16[14]}}</td>
+      <td colspan="2">{{list.dt_16[15]}}</td>
     </tr>
     <tr>
       <td>CA125</td>
-      <td>{{list.dt_16[0]}}</td>
-      <td colspan="2"></td>
+      <td>{{list.dt_16[16]}}</td>
+      <td colspan="2">{{list.dt_16[17]}}</td>
     </tr>
     <tr>
       <td>CYFRA</td>
-      <td>{{list.dt_16[0]}}</td>
-      <td colspan="2"></td>
+      <td>{{list.dt_16[18]}}</td>
+      <td colspan="2">{{list.dt_16[19]}}</td>
     </tr>
   </tbody>
 </table>

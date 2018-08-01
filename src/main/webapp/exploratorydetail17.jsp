@@ -128,13 +128,13 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>ID</td>
       <td>{{list.dt_17[0]}}</td>
       <td>检查日期</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[1]}}</td>
     </tr>
     <tr>
       <td>姓名</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[2]}}</td>
       <td>报告日期</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[3]}}</td>
     </tr>
   </tbody>
 </table>
@@ -144,7 +144,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" colspan="4">判定结果</td>
     </tr>
     <tr>
-      <td colspan="4">{{list.dt_17[0]}}</td>
+      <td colspan="4">{{list.dt_17[4]}}</td>
     </tr>
   </tbody>
 </table>
@@ -157,24 +157,24 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td colspan="2">幽门螺旋杆菌抗体( EIA法：E板 )</td>
-      <td>{{list.dt_17[0]}}</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[5]}}</td>
+      <td>{{list.dt_17[6]}}</td>
     </tr>
     <tr>
       <td rowspan="3">胃蛋白酶原</td>
       <td>胃蛋白酶原Ⅰ（PGⅠ）</td>
-      <td>{{list.dt_17[0]}}</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[7]}}</td>
+      <td>{{list.dt_17[8]}}</td>
     </tr>
     <tr>
       <td>胃蛋白酶原Ⅱ（PGⅡ）</td>
-      <td>{{list.dt_17[0]}}</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[9]}}</td>
+      <td>{{list.dt_17[10]}}</td>
     </tr>
     <tr>
       <td>PGⅠ/PGⅡ比</td>
-      <td>{{list.dt_17[0]}}</td>
-      <td>{{list.dt_17[0]}}</td>
+      <td>{{list.dt_17[11]}}</td>
+      <td>{{list.dt_17[12]}}</td>
     </tr>
   </tbody>
 </table>

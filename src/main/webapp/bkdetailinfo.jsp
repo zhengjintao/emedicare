@@ -180,6 +180,10 @@
    ]
    
    list.saveData = function() {
+	   $("#errmsg").html("请稍等，保存中...");
+		$('#cmodal').modal({
+			closable : false
+		}).modal('show')
 	   $.ajax({
 		    url: "bkdetailinfo.do?mode=save",
 		    type: "POST",
@@ -211,9 +215,6 @@
 		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");
-				$('#cmodal').modal({
-					closable : false
-				}).modal('show')
 		    }
 		});
    };

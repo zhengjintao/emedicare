@@ -41,19 +41,23 @@
 				<td class="cellheader" colspan="4">检查名称</td>
 			</tr>
 			<tr>
-				<td colspan="4"><div class="ui input" style="30px;width:100px;"> <input type="text" ng-model=list.dt_23[8]></div></td>
+				<td colspan="4"><div class="ui input" style="height:30px;width:800px"> <input type="text" ng-model=list.dt_23[8]></div></td>
 			</tr>
 			<tr>
 				<td class="cellheader" colspan="4">所见</td>
 			</tr>
 			<tr>
-				<td colspan="4"><div class="ui input" style="30px;width:100px;"> <input type="text" ng-model=list.dt_23[9]></div></td>
+				<td colspan="4"><div class="ui input" style="height:30px;width:800px"> <input type="text" ng-model=list.dt_23[9]></div></td>
 			</tr>
 			<tr>
      			<td class="cellheader" colspan="4">诊断</td>
     		</tr>
     		<tr>
-				<td colspan="4"><div class="ui input" style="30px;width:100px;"> <input type="text" ng-model=list.dt_23[10]></div></td>
+				<td colspan="4"><div class="ui inverted form lblcontent">
+			    <div style="height: 4px"></div>
+			    <textarea style="height: 50px; width: 100%; resize: none" ng-model=list.dt_23[10]></textarea>
+		        </div>
+		        </td>
 			</tr>
 		</tbody>
 	</table>
