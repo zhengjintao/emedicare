@@ -125,46 +125,46 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" style="width:20%">ID</td>
       <td>{{list.dt_22[0]}}</td>
       <td class="cellheader" style="width:20%">检查日期</td>
-      <td>{{list.dt_22[0]}}</td>
+      <td>{{list.dt_22[1]}}</td>
     </tr>
     <tr>
       <td class="cellheader">姓名</td>
-      <td>{{list.dt_22[0]}}</td>
+      <td>{{list.dt_22[2]}}</td>
       <td class="cellheader">年龄/性别</td>
-      <td>{{list.dt_22[0]}}</td>
+      <td>{{list.dt_22[3]}}</td>
     </tr>
     <tr>
       <td class="cellheader">第一次担任医生</td>
       <td>{{list.dt_22[0]}}</td>
       <td class="cellheader">第一次诊断时间</td>
-      <td>{{list.dt_22[0]}}</td>
+      <td>{{list.dt_22[1]}}</td>
     </tr>
     <tr>
       <td class="cellheader">第二次担任医生</td>
-      <td>{{list.dt_22[0]}}</td>
+      <td>{{list.dt_22[2]}}</td>
       <td class="cellheader">第二次诊断时间</td>
-      <td>{{list.dt_22[0]}}</td>
+      <td>{{list.dt_22[3]}}</td>
     </tr>
     <tr>
-      <td colspan="4">{{list.dt_22[0]}}</td>
+      <td colspan="4"></td>
     </tr>
     <tr>
       <td class="cellheader" colspan="4">检查评语</td>
     </tr>
     <tr>
-      <td colspan="4">{{list.dt_22[0]}}</td>
+      <td colspan="4">{{list.dt_22[4]}}</td>
     </tr>
     <tr>
       <td class="cellheader" colspan="4">所见</td>
     </tr>
     <tr>
-      <td colspan="4">{{list.dt_22[0]}}</td>
+      <td colspan="4">{{list.dt_22[5]}}</td>
     </tr>
     <tr>
       <td class="cellheader" colspan="4">诊断</td>
     </tr>
     <tr>
-      <td colspan="4">{{list.dt_22[0]}}</td>
+      <td colspan="4">{{list.dt_22[6]}}</td>
     </tr>
   </tbody>
 </table>

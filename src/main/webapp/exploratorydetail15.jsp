@@ -125,23 +125,23 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" style="width:20%">ID</td>
       <td>{{list.dt_15[0]}}</td>
       <td class="cellheader" style="width:20%">检查日期</td>
-      <td>{{list.dt_15[0]}}</td>
+      <td>{{list.dt_15[1]}}</td>
     </tr>
     <tr>
       <td class="cellheader">姓名</td>
-      <td>{{list.dt_15[0]}}</td>
+      <td>{{list.dt_15[2]}}</td>
       <td class="cellheader">报告日期</td>
-      <td>{{list.dt_15[0]}}</td>
+      <td>{{list.dt_15[3]}}</td>
     </tr>
     <tr>
       <td class="cellheader">担任医生</td>
-      <td>{{list.dt_15[0]}}</td>
+      <td>{{list.dt_15[4]}}</td>
       <td class="cellheader">年龄/性别</td>
-      <td>{{list.dt_15[0]}}</td>
+      <td>{{list.dt_15[5]}}</td>
     </tr>
    
     <tr>
-      <td colspan="4">{{list.dt_15[0]}}</td>
+      <td colspan="4"></td>
     </tr>
     <tr>
       <td class="cellheader">检查项目</td>
@@ -151,33 +151,33 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td>TSH</td>
-      <td>{{list.dt_15[0]}}</td>
-      <td>{{list.dt_15[0]}}</td>
-      <td>{{list.dt_15[0]}}</td>
+      <td>{{list.dt_15[6]}}</td>
+      <td>{{list.dt_15[7]}}</td>
+      <td>{{list.dt_15[8]}}</td>
     </tr>
     <tr>
       <td>FT4</td>
-      <td>{{list.dt_15[0]}}</td>
-      <td>{{list.dt_15[0]}}</td>
-      <td>{{list.dt_15[0]}}</td>
+      <td>{{list.dt_15[9]}}</td>
+      <td>{{list.dt_15[10]}}</td>
+      <td>{{list.dt_15[11]}}</td>
     </tr>
     <tr>
       <td>FT3</td>
-      <td>{{list.dt_15[0]}}</td>
-      <td>{{list.dt_15[0]}}</td>
-      <td>{{list.dt_15[0]}}</td>
+      <td>{{list.dt_15[12]}}</td>
+      <td>{{list.dt_15[13]}}</td>
+      <td>{{list.dt_15[14]}}</td>
     </tr>
     <tr>
       <td>抗甲状腺球蛋白抗体 （Tg-Ab）</td>
-      <td>{{list.dt_15[0]}}</td>
-      <td>{{list.dt_15[0]}}</td>
-      <td>{{list.dt_15[0]}}</td>
+      <td>{{list.dt_15[15]}}</td>
+      <td>{{list.dt_15[16]}}</td>
+      <td>{{list.dt_15[17]}}</td>
     </tr>
     <tr>
       <td>抗甲状腺过氧化物酶抗体 （TPO-Ab）</td>
-      <td>{{list.dt_15[0]}}</td>
-      <td>{{list.dt_15[0]}}</td>
-      <td>{{list.dt_15[0]}}</td>
+      <td>{{list.dt_15[18]}}</td>
+      <td>{{list.dt_15[19]}}</td>
+      <td>{{list.dt_15[20]}}</td>
     </tr>
   </tbody>
 </table>

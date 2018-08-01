@@ -125,13 +125,13 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" style="width:20%">ID</td>
       <td>{{list.dt_14[0]}}</td>
       <td class="cellheader" style="width:20%">检查日期</td>
-      <td>{{list.dt_14[0]}}</td>
+      <td>{{list.dt_14[1]}}</td>
     </tr>
     <tr>
       <td class="cellheader">姓名</td>
-      <td>{{list.dt_14[0]}}</td>
+      <td>{{list.dt_14[2]}}</td>
       <td class="cellheader">年龄/性别</td>
-      <td>{{list.dt_14[0]}}</td>
+      <td>{{list.dt_14[3]}}</td>
     </tr>
     <tr>
       <td colspan="4"></td>
@@ -139,22 +139,23 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     <tr>
       <td class="cellheader">检查项目</td>
       <td class="cellheader">检查结果</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader"></td>
+      <td colspan="2" class="cellheader">判定</td>
     </tr>
     <tr>
       <td>血氧饱和度</td>
-      <td> </td>
-      <td>{{list.dt_14[0]}}</td>
-      <td>{{list.dt_14[0]}}</td>
+      <td>{{list.dt_14[4]}}</td>
+      <td colspan="2" >{{list.dt_14[5]}}</td>
     </tr>
     <tr>
-      <td class="cellheader">判定区分</td>
-      <td class="cellheader" colspan="3">说明事项</td>
+      <td class="cellheader" colspan="2">判定区分</td>
+      <td class="cellheader" colspan="2">说明事项</td>
     </tr>
     <tr>
-      <td>判定区分判定区分判定区分</td>
-      <td colspan="3">说明说明说明说明说明说明</td>
+      <td colspan="2">{{list.dt_14[6]}}</td>
+      <td colspan="2">{{list.dt_14[7]}}</td>
+    </tr>
+    <tr>
+      <td colspan="4">{{list.dt_14[8]}}</td>
     </tr>
   </tbody>
 </table>
