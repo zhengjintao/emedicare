@@ -8,11 +8,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -28,6 +30,7 @@ import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_05;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_06;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_07;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_08;
+import com.bwc.biz.emedicare.common.FileUploader;
 import com.bwc.biz.emedicare.common.JdbcUtil;
 import com.bwc.biz.emedicare.form.User;
 
@@ -48,7 +51,6 @@ public class BkImportInfoServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String filepath = request.getParameter("filepath");
 		String mode = request.getParameter("mode");
 		
 		HttpSession session = request.getSession();
@@ -63,7 +65,16 @@ public class BkImportInfoServlet extends HttpServlet {
 			this.setDispImportHistory(hisList,request, response);
 		}
 		else if(mode.equals("save")){
-			this.saveDataFromExcel(filepath,userinfo.getUserName());
+			FileUploader loader = new FileUploader();
+			String[] result = loader.upload(request, this.getServletContext().getRealPath("/WEB-INF"));
+			if("0".equals(result[0])){
+				String filepath = result[1];
+				this.saveDataFromExcel(filepath,userinfo.getUserName());
+				
+			}else{
+				this.saveImportHistoryDate(userinfo.getUserId(), userinfo.getUserName(), result[2],"1", result[1]);
+				
+			}
 			this.getImportHistory(request, response);
 			request.getRequestDispatcher("bkimportinfo.jsp").forward(request, response);
 		}
@@ -82,13 +93,14 @@ public class BkImportInfoServlet extends HttpServlet {
 		List<String[]> imoprthist = new ArrayList<String[]>();
 		for (Object data : dataList) {
 			Map<String, Object> row = (Map<String, Object>) data;
-			String[] each = new String[6];
+			String[] each = new String[7];
 			each[0] = row.get("userid").toString();
 			each[1] = row.get("username").toString();
 			each[2] = row.get("historyname").toString();
 			each[3] = row.get("importdate").toString();
 			each[4] = row.get("resultflg").toString().equals("0") ? "成功":"失败";
 			each[5] = row.get("importno").toString();
+			each[6] = row.get("resultmsg").toString();
 			imoprthist.add(each);
 		}
 		
@@ -143,10 +155,10 @@ public class BkImportInfoServlet extends HttpServlet {
 			detail08.saveDataExcelToDb();
 			
 			this.saveHistoryDate(userid, username, histno, historyname, date);
-			this.saveImportHistoryDate(userid, sysusername, historyname,"0");
+			this.saveImportHistoryDate(userid, sysusername, historyname,"0", "成功导入");
 			inputStream.close();
 		} catch (Exception e) {
-			this.saveImportHistoryDate(userid, sysusername, historyname,"1");
+			this.saveImportHistoryDate(userid, sysusername, historyname,"1", "发生错误");
 			e.printStackTrace();
 		}
 	}
@@ -207,7 +219,7 @@ public class BkImportInfoServlet extends HttpServlet {
 	/*
 	 * 明细表数据导入完成后履历表对应数据作成
 	 */
-	private void saveImportHistoryDate(String userid,String username,String historyname,String flg){
+	private void saveImportHistoryDate(String userid,String username,String historyname,String flg, String msg){
 		long maxno = 0;
 		String sql = "select max(importno) as importno from cdata_importhistory";
 		
@@ -218,14 +230,15 @@ public class BkImportInfoServlet extends HttpServlet {
 			maxno = Long.parseLong(maxRow.get("importno").toString());
 		}
 		
-		String insertSql = "insert into cdata_importhistory value(?,?,?,?,?,?)";
-        Object[] insertparams = new Object[6];
+		String insertSql = "insert into cdata_importhistory value(?,?,?,?,?,?,?)";
+        Object[] insertparams = new Object[7];
         insertparams[0] = maxno+1;
         insertparams[1] = userid;
         insertparams[2] = username;
         insertparams[3] = historyname;
         insertparams[4] = new Date();
         insertparams[5] = flg;
+        insertparams[6] = msg;
         JdbcUtil.getInstance().executeUpdate(insertSql, insertparams);
 	}
 	
@@ -249,9 +262,10 @@ public class BkImportInfoServlet extends HttpServlet {
 		for (String[] each : hisList) {
 			info.append("<tr>");
 			info.append("<td>" + each[2] + "</td>");
-			info.append("<td>" + each[3] + "</td>");
 			info.append("<td>" + each[1] + "</td>");
+			info.append("<td>" + each[3] + "</td>");
 			info.append("<td>" + each[4] + "</td>");
+			info.append("<td>" + each[6] + "</td>");
 			info.append("<td>");
 			info.append("<i class='close icon' onclick='ondelete(" + each[5]+ ");'></i>");
 			info.append("</td>");
@@ -282,4 +296,6 @@ public class BkImportInfoServlet extends HttpServlet {
     	}
     	return value;
 	}
+	
+	
 }

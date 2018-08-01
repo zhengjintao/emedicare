@@ -42,7 +42,6 @@
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
-  list.lblLangs=['语言', 'Language', '言語設定'];
   list.lblNames=['姓名', 'Name', 'お名前'];
   list.lblMessages=['请输入姓名。', 'Please input your name.', 'お名前を入力してください。'];
   list.lblButtons=['登录', 'Login', 'ログイン'];
@@ -78,7 +77,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   
   list.onRadioChange = function(val) {
 	  list.langInx = val;
-	  list.lblLangSetting =list.lblLangs[list.langInx];
 	  list.lblNameSetting =list.lblNames[list.langInx];
 	  list.lblNameInput =list.lblMessages[list.langInx];
 	  list.lblBtnname =list.lblButtons[list.langInx];
@@ -99,29 +97,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	<div class="ui one column grid container">
 		<div class="column">
 			<div style="margin-top: 10px"></div>
-			<div class="ui segment">
-				<a class="ui large top attached label center aligned">{{list.lblLangSetting}}</a>
-				<div class="ui form">
-					<div class="inline fields">
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" name="frequency" checked="checked" ng-click="list.onRadioChange(0)">
-								<label>中文</label>
-							</div>
-						</div>
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" name="frequency" ng-click="list.onRadioChange(1)"> <label>English</label>
-							</div>
-						</div>
-						<div class="field">
-							<div class="ui radio checkbox">
-								<input type="radio" name="frequency" ng-click="list.onRadioChange(2)"> <label>日本語</label>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div class="ui segment">
 				<a class="ui large top attached label center aligned">{{list.lblNameSetting}}</a>
 				<div class="ui large transparent input">

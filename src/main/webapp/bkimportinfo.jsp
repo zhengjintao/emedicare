@@ -23,7 +23,7 @@
   function checkdate(){
 		var filepath = $("#filepath").val();
 		if (filepath == null || filepath == "undefine" || filepath.length == 0) {
-	    	$("#errmsg").html("文件地址必须输入");
+	    	$("#errmsg").html("ファイルを選択してください。");
 			$('#cmodal').modal({
 				closable : false
 
@@ -71,7 +71,7 @@
 
 	<div style="width: 80%; margin-left: auto; margin-right: auto;">
 		<jsp:include page="bkheader.jsp" />
-		<form action="./bkimportinfo.do?mode=save" method="post" onsubmit="return checkdate();">
+		<form action="./bkimportinfo.do?mode=save" enctype="multipart/form-data" method="post" onsubmit="return checkdate();">
 			<div class="ui fluid action input">
 					<input class="ui input" type="file" id="filepath" name="filepath" />
 					<button class="ui active blue button"><i class="upload icon"></i>履历登録</button>
@@ -81,11 +81,12 @@
 		<table class="ui unstackable celled structured table"
 			style="margin-top: 5px">
 			<tr bgcolor="#FAFAFA" height="30px">
-				<th width="40%" style="text-align: center;">文件名</th>
-				<th width="20%" style="text-align: center;">导入者</th>
-				<th width="15%" style="text-align: center;">结果</th>
-				<th width="20%" style="text-align: center;">导入时间</th>
-				<th width="5%" style="text-align: center;">记录删除</th>
+				<th width="20%" style="text-align: center;">文件名</th>
+				<th width="10%" style="text-align: center;">导入者</th>
+				<th width="16%" style="text-align: center;">导入时间</th>
+				<th width="5%" style="text-align: center;">结果</th>
+				<th width="32%" style="text-align: center;">消息</th>
+				<th width="4%" style="text-align: center;">记录<br>删除</th>
 			</tr>
 			<tbody id="infobody">
 				<%
@@ -94,8 +95,9 @@
 						out.print("<tr>");
 						out.print("<td>" + each[2] + "</td>");
 						out.print("<td>" + each[1] + "</td>");
-						out.print("<td>" + each[4] + "</td>");
 						out.print("<td>" + each[3] + "</td>");
+						out.print("<td>" + each[4] + "</td>");
+						out.print("<td>" + each[6] + "</td>");
 						out.print("<td>");
 						out.print("<i class='close icon' onclick='ondelete(" + each[5] + ");'></i>");
 						out.print("</td>");
