@@ -199,7 +199,7 @@ public class BKDetailData_17 {
 		// 内容
 		String context = "";
 		// 插入用SQL
-		String insertSql = "insert into cdata_detail_13 value(?,?,?,?,?,?,?,?)";
+		String insertSql = "insert into cdata_detail_17 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
 		for (int i = 0; i < indexList.size(); i++) {
 			mainclass = lableList.get(i)[1];
@@ -224,7 +224,7 @@ public class BKDetailData_17 {
 	public List<String> getDateValue(String userid, String historydate) {
 		List<String> detailDataList = new ArrayList<String>();
 
-		String dataSql = "select context from cdata_detail_13 where userid = ? and examdate= ? order by dispindex";
+		String dataSql = "select context from cdata_detail_17 where userid = ? and examdate= ? order by dispindex";
 		Object[] params = new Object[2];
 		params[0] = userid;
 		params[1] = historydate;
@@ -246,7 +246,7 @@ public class BKDetailData_17 {
 	 */
 	public void saveDataDispToDb(String userid,String username,String historydate, String[] detaildata02){
 		this.check(userid,historydate);
-		String insertsql = "insert into cdata_detail_13 value(?,?,?,?,?,?,?,?)";
+		String insertsql = "insert into cdata_detail_17 value(?,?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[8];
 		for(int i=0; i < detaildata02.length;i++){
 			insertparams[0] = userid;
@@ -269,7 +269,7 @@ public class BKDetailData_17 {
 		Object[] params = new Object[2];
 		params[0]= userid;
 		params[1]= historydate;
-		String delsql = "delete from cdata_detail_13 where userid = ? and examdate = ?";
+		String delsql = "delete from cdata_detail_17 where userid = ? and examdate = ?";
 		JdbcUtil.getInstance().executeUpdate(delsql, params);
 	}
 	
@@ -278,12 +278,12 @@ public class BKDetailData_17 {
 		params[0]= userid;
 		params[1]= date;
 		
-		String checksql = "select * from cdata_detail_13 where userid = ? and examdate = ?";
+		String checksql = "select * from cdata_detail_17 where userid = ? and examdate = ?";
 		
 		List<Object> list1 = JdbcUtil.getInstance().excuteQuery(checksql, params);
 		// date日的数据已经导入的时候，先删除
 		if (list1.size() > 0) {
-			String delsql = "delete from cdata_detail_13 where userid = ? and examdate = ?";
+			String delsql = "delete from cdata_detail_17 where userid = ? and examdate = ?";
 			JdbcUtil.getInstance().executeUpdate(delsql, params);
 		}
 	}

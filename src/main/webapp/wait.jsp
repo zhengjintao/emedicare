@@ -41,7 +41,7 @@ body>.grid {
 		<div class="column">
 			<div class="ui large center aligned ">
 
-				<div class="ui error message">登录权限待审核中</div>
+				<div class="ui error message">登录权限待审核中（审核等待最长24小时）</div>
 				<div class="ui message">
 					<a href="login.do?from=1">刷新</a>
 				</div>

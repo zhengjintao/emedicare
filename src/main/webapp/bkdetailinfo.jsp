@@ -47,6 +47,9 @@
   list.dt_13 = new Array();
   list.dt_14 = new Array();
   list.dt_15 = new Array();
+  list.dt_16 = new Array();
+  list.dt_17 = new Array();
+  list.dt_18 = new Array();
   list.dt_19 = new Array();
   list.dt_20 = new Array();
   list.dt_21 = new Array();
@@ -68,6 +71,9 @@
   <%List<String> dataList13 = (List<String>) request.getAttribute("detailDataList13");%>;
   <%List<String> dataList14 = (List<String>) request.getAttribute("detailDataList14");%>;
   <%List<String> dataList15 = (List<String>) request.getAttribute("detailDataList15");%>;
+  <%List<String> dataList16 = (List<String>) request.getAttribute("detailDataList16");%>;
+  <%List<String> dataList17 = (List<String>) request.getAttribute("detailDataList17");%>;
+  <%List<String> dataList18 = (List<String>) request.getAttribute("detailDataList18");%>;
   <%List<String> dataList19 = (List<String>) request.getAttribute("detailDataList19");%>;
   <%List<String> dataList20 = (List<String>) request.getAttribute("detailDataList20");%>;
   <%List<String> dataList21 = (List<String>) request.getAttribute("detailDataList21");%>;
@@ -118,6 +124,15 @@
   <%}%>
   <%for (int i = 0; i < dataList15.size(); i++) {%>  
 	   list.dt_15[<%=i%>] = "<%=dataList15.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList16.size(); i++) {%>  
+      list.dt_16[<%=i%>] = "<%=dataList16.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList17.size(); i++) {%>  
+      list.dt_17[<%=i%>] = "<%=dataList17.get(i)%>";
+  <%}%>
+  <%for (int i = 0; i < dataList18.size(); i++) {%>  
+      list.dt_18[<%=i%>] = "<%=dataList18.get(i)%>";
   <%}%>
   <%for (int i = 0; i < dataList19.size(); i++) {%>  
   	   list.dt_19[<%=i%>] = "<%=dataList19.get(i)%>";
@@ -185,6 +200,9 @@
 		    	dt_13:list.dt_13,
 		    	dt_14:list.dt_14,
 		    	dt_15:list.dt_15,
+		    	dt_16:list.dt_16,
+		    	dt_17:list.dt_17,
+		    	dt_18:list.dt_18,
 		    	dt_19:list.dt_19,
 		    	dt_20:list.dt_20,
 		    	dt_21:list.dt_21,

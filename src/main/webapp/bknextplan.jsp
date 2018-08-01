@@ -130,7 +130,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						</select>
 					</div>
 					<div class="field">
-						<label>日付</label> <input type="date" placeholder="Middle Name" ng-model="list.noticedate">
+						<label>日付</label> <input type="date" ng-model="list.noticedate">
 					</div>
 				</div>
 				<div class="field">
