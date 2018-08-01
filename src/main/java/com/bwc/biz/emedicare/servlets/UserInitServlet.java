@@ -49,6 +49,19 @@ public class UserInitServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String sex = request.getParameter("sex");
 		String openid = request.getParameter("openid");
+		String langinx = request.getParameter("langinx");
+		
+		
+		String sql = "select * from mstr_user where openid=?";
+		Object[] params = new Object[1];
+		params[0] = openid;
+		List<Object> userinfo = JdbcUtil.getInstance().excuteQuery(sql, params);
+		
+		// 已申请
+		if(userinfo != null && userinfo.size() >0){
+			response.sendRedirect("wait.do");
+			return;
+		}
 		
 		String sql2 = "select count(*) as num from mstr_user where userid like 'U0%'";
 		List<Object> usercount = JdbcUtil.getInstance().excuteQuery(sql2, null);
@@ -72,13 +85,11 @@ public class UserInitServlet extends HttpServlet {
 		params2[9] = "";
 		params2[10] = openid;
 		params2[11] = "1";
-		params2[12] = "0";
+		params2[12] = langinx;
 		params2[13] = "";
 		params2[14] = "";
 		
 		JdbcUtil.getInstance().executeUpdate(sql2, params2);
-		
-		// ユーザ情報新規作成
 		response.sendRedirect("wait.do");
 	}
 	

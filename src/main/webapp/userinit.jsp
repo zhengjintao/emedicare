@@ -57,24 +57,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.username=initdata.username;
   list.sex=initdata.sex;
   list.openid=initdata.openid;
-  list.submit = function() {
-  	$scope.url =  "companyinfoedit.do";
-  	var postdata = {'mode':'submit'};
-      $http(
-  		{
-  			method:"POST",
-  			url:$scope.url,
-  			data:postdata,
-  			transformRequest:transFormFactory.transForm,
-  			headers:{'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
-  		}).then(function (result) {
-  			list.onsalegoods = result.data.onsalegoods;
-  			list.unsalegoods = result.data.unsalegoods;
-          }).catch(function (result) {
-        	  list.message = "SORRY!エラーが発生しました。";
-          	$('.ui.basic.modal') .modal('show');
-          });
-  }
   
   list.onItemClick = function() {
 	 if(list.username ==null || list.username.length == 0){
@@ -86,7 +68,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	 $('#almodal').modal({
 			closable : false,
 			onApprove : function() {
-				window.location.href = 'userinit.do?mode=submit' + '&username=' + list.username + '&sex=' + list.sex +'&openid=' + list.openid;
+				window.location.href = 'userinit.do?mode=submit' + '&username=' + list.username + '&sex=' + list.sex +'&openid=' + list.openid+'&langinx=' + list.langInx;
 			}
 
 		}).modal('show');
