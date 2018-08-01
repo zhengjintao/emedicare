@@ -19,7 +19,7 @@
 				<td class="cellheader">上上次</td>
 			</tr>			
 			<tr>
-				<td rowspan="15"><div class="ui inverted form lblcontent"><textarea style="height: 100%; width:100%; resize: none" ng-model="list.dt_11[0]"></textarea></div></td>
+				<td rowspan="15"><div class="ui inverted form lblcontent"><textarea  rows="38" style="height: 100%; width:100%; resize: none" ng-model="list.dt_11[0]"></textarea></div></td>
 				<td>血沉（60分）</td>
 				<td style="padding:3px"><div class="ui input" style="width:100%"> <input type="text" ng-model=list.dt_11[1]></div></td>
 				<td style="padding:3px"><div class="ui input" style="width:100%"> <input type="text" ng-model=list.dt_11[2]></div></td>

@@ -17,7 +17,7 @@
 			</tr>
 			<tr>
 				<td rowspan="2">
-				    <div class="ui inverted form lblcontent"><textarea style="height: 100%; width: 100%; resize: none" ng-model="list.dt_02[0]"></textarea></div>
+				    <div class="ui inverted form lblcontent"><textarea rows="3" style="height: 100%; width: 100%; resize: none" ng-model="list.dt_02[0]"></textarea></div>
 				</td>
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[1]"></div></td>
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[2]"></div></td>
@@ -41,7 +41,7 @@
 			</tr>
 			<tr>
 				<td rowspan="7">
-				    <div class="ui inverted form lblcontent"><textarea style="height: 100%; width: 100%;resize: none" ng-model="list.dt_02[7]"></textarea></div>
+				    <div class="ui inverted form lblcontent"><textarea  rows="16" style="height: 100%; width: 100%;resize: none" ng-model="list.dt_02[7]"></textarea></div>
 				</td>
 				<td>身高</td>
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[8]"></div></td>
@@ -78,7 +78,7 @@
                 <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[21]"></div></td>
 			</tr>
 			<tr>
-			<td  colspan="5"><div class="ui inverted form lblcontent"><textarea rows="1" cols="1" style="resize: none" ng-model="list.dt_02[25]"></textarea></div></td>
+			<td  colspan="5"><div class="ui inverted form lblcontent"><textarea rows="2" cols="1" style="resize: none" ng-model="list.dt_02[25]"></textarea></div></td>
 			</tr>
 		</tbody>
 	</table>
@@ -111,7 +111,7 @@
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[33]"></div></td>
 			</tr>
 			<tr>
-			<td  colspan="5"><div class="ui inverted form lblcontent"><textarea rows="1" cols="1" style="resize: none" ng-model="list.dt_02[34]"></textarea></div></td>
+			<td  colspan="5"><div class="ui inverted form lblcontent"><textarea rows="2" cols="1" style="resize: none" ng-model="list.dt_02[34]"></textarea></div></td>
 			</tr>
 		</tbody>
 	</table>
@@ -127,7 +127,7 @@
 			</tr>
 			<tr>
 				<td rowspan="3">
-				    <div class="ui inverted form lblcontent"><textarea style="height: 100%; width: 100%; resize: none" ng-model="list.dt_02[35]"></textarea></div>
+				    <div class="ui inverted form lblcontent"><textarea rows="16" style="height: 100%; width: 100%; resize: none" ng-model="list.dt_02[35]"></textarea></div>
 				</td>
 				<td>矫正视力（右）</td>
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[36]"></div></td>
@@ -144,7 +144,7 @@
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[42]"></div></td>
 			</tr>
 			<tr>
-			<td  colspan="5"><div class="ui inverted form lblcontent"><textarea rows="1" cols="1" style="resize: none" ng-model="list.dt_02[43]"></textarea></div></td>
+			<td  colspan="5"><div class="ui inverted form lblcontent"><textarea rows="2" cols="1" style="resize: none" ng-model="list.dt_02[43]"></textarea></div></td>
 			</tr>
 		</tbody>
 	</table>
@@ -160,7 +160,7 @@
 			</tr>
 			<tr>
 				<td rowspan="5">
-				    <div class="ui inverted form lblcontent"><textarea style="height: 100%; width: 100%; resize: none" ng-model="list.dt_02[44]"></textarea></div>
+				    <div class="ui inverted form lblcontent"><textarea  rows="10" style="height: 100%; width: 100%; resize: none" ng-model="list.dt_02[44]"></textarea></div>
 				</td>
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[45]"></div></td>
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[46]"></div></td>
@@ -187,7 +187,7 @@
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[59]"></div></td>
 			</tr>
 			<tr>
-			<td  colspan="5"><div class="ui inverted form lblcontent"><textarea rows="1" cols="1" style="resize: none" ng-model="list.dt_02[60]"></textarea></div></td>
+			<td  colspan="5"><div class="ui inverted form lblcontent"><textarea rows="2" cols="1" style="resize: none" ng-model="list.dt_02[60]"></textarea></div></td>
 			</tr>
 		</tbody>
 	</table>

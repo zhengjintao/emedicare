@@ -149,9 +149,6 @@
   <%for (int i = 0; i < dataList23.size(); i++) {%>  
   	   list.dt_23[<%=i%>] = "<%=dataList23.get(i)%>";
   <%}%>
-  
-
-    
    
    list.sheets =[
 	   {'id' : 'dtl01', 'name': '健診結果報告書１'},
@@ -245,7 +242,7 @@
 body {
 	margin-top: 10px;
 	background-color: #FFFFFF;
-	min-width:950px;
+	min-width:1050px;
 }
 
 body>.grid {
@@ -278,10 +275,10 @@ footer {
 			<p id="errmsg">{list.errmessage}</p>
 		</div>
 	</div>
-	<div style="width: 80%; margin-left: auto; margin-right: auto;">
+	<div style="width: 80%; margin-left: auto; margin-right: auto;margin-top:-10px;">
 		<jsp:include page="bkheader.jsp" />
 		<div class="ui equal width grid">
-			<div class="column" style="margin-top:10px;">
+			<div class="column">
 				<div class="ui breadcrumb" style="width:500px">
 					<a class="section" href="bkaccountlist.do"><h4>顧客一覧</h4></a> <i
 						class="right angle icon divider"></i> <a class="section"
@@ -293,11 +290,11 @@ footer {
 				</div>
 			</div>
 			<div class="column"></div>
-			<div class="column" style="text-align:right" >
-				<div class="ui active blue button" ng-click="list.saveData()" >
+			<div class="column" style="text-align:right;margin-top:-10px">
+				<div class="ui active blue button" style="margin-bottom:0px" ng-click="list.saveData()" >
 					<i class="save icon"></i>保存
 				</div>
-				<div class="ui active blue button" ng-click = "list.deleteData()" >
+				<div class="ui active blue button" style="margin-bottom:0px" ng-click = "list.deleteData()" >
 					<i class="trash icon"></i>删除
 				</div>
 			</div>

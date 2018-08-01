@@ -73,7 +73,7 @@
 		<jsp:include page="bkheader.jsp" />
 		<form action="./bkimportinfo.do?mode=save" enctype="multipart/form-data" method="post" onsubmit="return checkdate();">
 			<div class="ui fluid action input">
-					<input class="ui input" type="file" id="filepath" name="filepath" />
+					<input class="ui input" type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" id="filepath" name="filepath" />
 					<button class="ui active blue button"><i class="upload icon"></i>履历登録</button>
 				</div>
 		</form>

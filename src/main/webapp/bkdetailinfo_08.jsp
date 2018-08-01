@@ -17,7 +17,7 @@
     </tr>
     <tr>
       <td rowspan="12">
-      <div class="ui inverted form lblcontent"><textarea rows="34" cols="1" style="resize: none" ng-model="list.dt_08[0]"></textarea></div>
+      <div class="ui inverted form lblcontent"><textarea rows="28" cols="1" style="resize: none" ng-model="list.dt_08[0]"></textarea></div>
       </td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_08[1]"></div></td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_08[2]"></div></td>
@@ -91,7 +91,7 @@
     </tr>
     <tr>
       <td rowspan="12">
-      <div class="ui inverted form lblcontent"><textarea rows="34" cols="1" style="resize: none" ng-model="list.dt_08[37]"></textarea></div>
+      <div class="ui inverted form lblcontent"><textarea rows="28" cols="1" style="resize: none" ng-model="list.dt_08[37]"></textarea></div>
       </td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_08[38]"></div></td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_08[39]"></div></td>

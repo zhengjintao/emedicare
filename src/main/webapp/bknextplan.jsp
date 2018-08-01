@@ -37,21 +37,18 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.noticedate ="";
   list.userinfo={};
   list.userlist = []
-  list.appointlist=[
-	  {'userid':'U0000002' , 'username':'本田慶応' , 'date':'2018-09-08' , 'content':'予定の日付に病院に来てください。' , 'status':'未確認' }];
-  
-  list.historylist=[
-	  {'userid':'U0000002' , 'username':'本田慶応' , 'date':'2018-09-08' , 'content':'予定の日付に病院に来てください。' , 'status':'確認済' }];
+  list.appointlist=[];
+  list.historylist=[];
   
   list.onitemclick = function (){
-	  if(this.content == null || this.content.length == 0){
-		 this.message = "通知内容は入力必須です。";
+	  if(list.content == null || list.content.length == 0){
+		  list.message = "通知内容は入力必須です。";
          $('#cmodal') .modal('show');
          return;
 	  }
 	  
-	  if(this.noticedate == null || this.noticedate.length == 0){
-			 this.message = "日付は入力必須です。";
+	  if(list.noticedate == null || list.noticedate.length == 0){
+		     list.message = "日付は入力必須です。";
 	         $('#cmodal') .modal('show');
 	         return;
 		  }
