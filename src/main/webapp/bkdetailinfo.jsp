@@ -12,6 +12,7 @@ initdata.userid = '<%=(String)request.getAttribute("userid")%>';
 initdata.historydate = '<%=(String)request.getAttribute("historydate")%>';
 initdata.historyno = '<%=(String)request.getAttribute("historyno")%>';
 initdata.historyname = '<%=(String)request.getAttribute("historyname")%>';
+initdata.username = '<%=(String)request.getAttribute("username")%>';
 </script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="dist/components/form.min.js"></script>
@@ -42,6 +43,7 @@ initdata.historyname = '<%=(String)request.getAttribute("historyname")%>';
   list.historydate = initdata.historydate;
   list.historyno = initdata.historyno;
   list.historyname = initdata.historyname;
+  list.username = initdata.username;
   list.dt_01 = new Array();
   list.dt_02 = new Array();
   list.dt_03 = new Array();
@@ -301,7 +303,7 @@ footer {
 				<div class="ui breadcrumb" style="width:500px">
 					<a class="section" href="bkaccountlist.do"><h4>顧客一覧</h4></a> <i
 						class="right angle icon divider"></i> <a class="section"
-						href="bkhistorylist.do?userid={{list.dt_01[2]}}"><h4>{{list.dt_01[0]}}</h4></a> <i
+						href="bkhistorylist.do?userid={{list.userid}}"><h4>{{list.username}}</h4></a> <i
 						class="right angle icon divider"></i>
 					<div class="active section">
 						<h4>{{list.historyname}}</h4>

@@ -68,6 +68,8 @@ public class BkDetailInfoServlet extends HttpServlet {
 		
 		if (mode.equals("init")) {
 			// 画面表示用数据取得
+			String username = request.getParameter("username");
+			request.setAttribute("username", username);
 			this.getDispData(request, userid, historydate,historyno);
 			request.getRequestDispatcher("bkdetailinfo.jsp").forward(request, response);
 		} else if (mode.equals("save")) {
