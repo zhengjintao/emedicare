@@ -27,7 +27,7 @@ public class FileUploader {
 			tmpFile.mkdir();
 		}
 		// 0:结果
-		// 1:完整文件名
+		// 1:完整文件名 （失败时为错误消息内容）
 		// 2:文件名
 		String[] result = new String[3];
 		try {
@@ -145,7 +145,7 @@ public class FileUploader {
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 		// 构造新的保存目录
-		String dir = savePath + "/" + sdf.format(date); // upload\2\3 upload\3\5
+		String dir = savePath + "/" + sdf.format(date); // upload／20180802
 		// File既可以代表文件也可以代表目录
 		File file = new File(dir);
 		// 如果目录不存在

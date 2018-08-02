@@ -95,7 +95,7 @@ public class CallBackServlet extends HttpServlet {
 				errmsg = errmsg + "－－成功获取用户昵称: " + username +" －－<br>";
 				errmsg = errmsg + "－－成功获取用户性别: " + sex +" －－<br>";
 				
-				response.sendRedirect("login.do?username=" + username +"&sex="+sex +"&openid="+openid);
+				response.sendRedirect("userinit.do?username=" + username +"&sex="+sex +"&openid="+openid);
 				return;
 			}else{
 				request.getRequestDispatcher("wait.do").forward(request, response);
