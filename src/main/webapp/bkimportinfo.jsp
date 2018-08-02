@@ -51,8 +51,6 @@
 <body>
 	<script type="text/javascript">
 	$(document).ready(function() {
-		$('.ui.accordion').accordion();
-		
 		var message = "<%=(String) request.getAttribute("errmsg")%>";
 		if (message != "null" && message.length > 0) {
 			$('#cmodal').modal({

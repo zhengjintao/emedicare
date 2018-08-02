@@ -93,20 +93,21 @@ public class BKDetailData_21 {
 	/*
 	 * 详细数据取得（画面表示用详细数据取得）
 	 */
-	public List<String> getDateValue(String userid, String historydate) {
+	public List<String> getDateValue(String userid, String historydate, String historyno) {
 		List<String> detailDataList = new ArrayList<String>();
 
-		String dataSql = "select context from cdata_detail_21 where userid = ? and examdate= ? order by dispindex";
-		Object[] params = new Object[2];
+		String dataSql = "select context from cdata_detail_21 where userid = ? and examdate= ? and historyno= ? order by dispindex";
+		Object[] params = new Object[3];
 		params[0] = userid;
 		params[1] = historydate;
+		params[2] = historyno;
 
 		List<Object> dataList = JdbcUtil.getInstance().excuteQuery(dataSql, params);
 
 		if (dataList.size() > 0) {
 			for (Object data : dataList) {
 				Map<String, Object> row = (Map<String, Object>) data;
-				detailDataList.add(row.get("context").toString());
+				detailDataList.add(row.get("context") ==null ? "" : row.get("context").toString());
 			}
 		}
 

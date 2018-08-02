@@ -14,10 +14,10 @@
 
 <script>
 initdata=[];
-initdata.expid = '<%=request.getAttribute("expid")%>';
 initdata.name = '<%=request.getAttribute("name")%>';
 initdata.historydate = '<%=request.getAttribute("historydate")%>';
-exturl= "historydate=" + initdata.historydate + "&expid=" + initdata.expid +"&name=" + initdata.name;
+initdata.historyno = '<%=request.getAttribute("historyno")%>';
+exturl= "historydate=" + initdata.historydate + "&historyno=" + initdata.historyno +"&name=" + initdata.name;
 </script>
 <script src="assets/js/detailcommon.js"></script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -46,7 +46,6 @@ exturl= "historydate=" + initdata.historydate + "&expid=" + initdata.expid +"&na
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
-  list.expid = 'E0000001';
   list.sheets = constsheets;
   list.dt_02 = new Array();
   <%List<String> dataList = (List<String>) request.getAttribute("detailDataList02");%>;

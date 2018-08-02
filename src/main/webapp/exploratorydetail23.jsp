@@ -13,10 +13,10 @@
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
 <script>
 initdata=[];
-initdata.expid = '<%=request.getAttribute("expid")%>';
 initdata.name = '<%=request.getAttribute("name")%>';
 initdata.historydate = '<%=request.getAttribute("historydate")%>';
-exturl= "historydate=" + initdata.historydate + "&expid=" + initdata.expid +"&name=" + initdata.name;
+initdata.historyno = '<%=request.getAttribute("historyno")%>';
+exturl= "historydate=" + initdata.historydate + "&historyno=" + initdata.historyno +"&name=" + initdata.name;
 </script>
 <script src="assets/js/detailcommon.js"></script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -45,7 +45,6 @@ exturl= "historydate=" + initdata.historydate + "&expid=" + initdata.expid +"&na
   
 app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
-	  list.expid = 'E0000001';
 	  list.sheets = constsheets;
 	  list.dt_23 = new Array();
 	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList23");%>;
@@ -74,10 +73,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
   }
-  
-  $('#accordion1') .accordion({exclusive :false});
-  $('#accordion2') .accordion({exclusive :false});
-  $('#accordion3') .accordion({exclusive :false});
   
   var item = list.sheets[22];
   list.sheetname = item.shortname;

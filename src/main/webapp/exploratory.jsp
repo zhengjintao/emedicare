@@ -63,7 +63,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   })();
   
   list.onitemclick = function(item) {
-	  window.location.href = "exploratorydetail.do?historydate=" + item.historydate + "&expid=" + item.historyno +"&name=" + item.historyname;
+	  window.location.href = "exploratorydetail.do?historydate=" + item.historydate + "&historyno=" + item.historyno +"&name=" + item.historyname;
   }
 });
 </script>

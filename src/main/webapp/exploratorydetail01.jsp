@@ -13,10 +13,10 @@
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
 <script>
 initdata=[];
-initdata.expid = '<%=request.getAttribute("expid")%>';
 initdata.name = '<%=request.getAttribute("name")%>';
 initdata.historydate = '<%=request.getAttribute("historydate")%>';
-exturl= "historydate=" + initdata.historydate + "&expid=" + initdata.expid +"&name=" + initdata.name;
+initdata.historyno = '<%=request.getAttribute("historyno")%>';
+exturl= "historydate=" + initdata.historydate + "&historyno=" + initdata.historyno +"&name=" + initdata.name;
 </script>
 <script src="assets/js/detailcommon.js"></script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
@@ -51,7 +51,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
        list.dt_01[<%=i%>] = "<%=dataList.get(i)%>";
    <%}%>
    
-  list.expid = initdata.expid;
+  list.hisotryno = initdata.hisotryno;
   list.name = initdata.name;
   list.sheets = constsheets;
   

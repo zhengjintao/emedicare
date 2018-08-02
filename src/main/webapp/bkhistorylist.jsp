@@ -136,7 +136,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				        <th width="40%" style="text-align: center;">诊查时日期</th>
 			        </tr>
 					<tr ng-repeat="eachitem in list.explist">
-						<td><a href="bkdetailinfo.do?mode=init&userid={{list.userid}}&historydate={{eachitem.historydate}}&historyname={{eachitem.historyname}}">{{eachitem.historyname}}</a></td>
+						<td><a href="bkdetailinfo.do?mode=init&userid={{list.userid}}&historydate={{eachitem.historydate}}&historyno={{eachitem.historyno}}&historyname={{eachitem.historyname}}">{{eachitem.historyname}}</a></td>
 						<td>{{eachitem.historydate}}</td>
 					</tr>
 				</tbody>
