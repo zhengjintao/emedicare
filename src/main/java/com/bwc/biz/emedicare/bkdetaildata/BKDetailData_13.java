@@ -16,12 +16,10 @@ public class BKDetailData_13 {
 	private Sheet sheet;
 	// 用户ID
 	private String userid;
-	// 用户名称
-	private String username;
 	// 检查日期
-	private String date;
+	private String historydate;
 	// 检查日期
-	private String histno;
+	private String historyno;
 	//数据坐标（EXCEL行列）
 	private List<int[]> indexList = Arrays.asList(
 		new int[] {4, 2 },new int[] {4, 3 },new int[] {4, 4 },new int[] {4, 6 },new int[] {4, 7 },new int[] {4, 8 },
@@ -175,17 +173,14 @@ public class BKDetailData_13 {
 		new String[] { "289", "鳞状上皮","结果"},new String[] { "290", "鳞状上皮","单位"},new String[] { "291", "鳞状上皮","基准值"}
 		);
 
-	public BKDetailData_13() {}
-
 	/*
 	 * 数据导入用构造函数
 	 */
-	public BKDetailData_13(Sheet sheet, String userid, String username, String date, String histno) {
+	public BKDetailData_13(Sheet sheet, String userid, String date, String histno) {
 		this.sheet = sheet;
 		this.userid = userid;
-		this.username = username;
-		this.date = date;
-		this.histno = histno;
+		this.historydate = date;
+		this.historyno = histno;
 	}
 
 	/*
@@ -199,20 +194,19 @@ public class BKDetailData_13 {
 		// 内容
 		String context = "";
 		// 插入用SQL
-		String insertSql = "insert into cdata_detail_13 value(?,?,?,?,?,?,?,?)";
-		Object[] insertparams = new Object[8];
+		String insertSql = "insert into cdata_detail_13 value(?,?,?,?,?,?,?)";
+		Object[] insertparams = new Object[7];
 		for (int i = 0; i < indexList.size(); i++) {
 			mainclass = lableList.get(i)[1];
 			subclass = lableList.get(i)[2];
 			context = BkImportInfoServlet.getCellValue(this.sheet, indexList.get(i)[0], indexList.get(i)[1]);
 			insertparams[0] = this.userid;
-			insertparams[1] = this.username;
-			insertparams[2] = this.date;
-			insertparams[3] = histno;
-			insertparams[4] = i;
-			insertparams[5] = mainclass;
-			insertparams[6] = subclass;
-			insertparams[7] = context;
+			insertparams[1] = this.historydate;
+			insertparams[2] = this.historyno;
+			insertparams[3] = i;
+			insertparams[4] = mainclass;
+			insertparams[5] = subclass;
+			insertparams[6] = context;
 
 			JdbcUtil.getInstance().executeUpdate(insertSql, insertparams);
 		}
@@ -221,7 +215,7 @@ public class BKDetailData_13 {
 	/*
 	 * 详细数据取得（画面表示用详细数据取得）
 	 */
-	public List<String> getDateValue(String userid, String historydate, String historyno) {
+	public List<String> getDateValue() {
 		List<String> detailDataList = new ArrayList<String>();
 
 		String dataSql = "select context from cdata_detail_13 where userid = ? and examdate= ? and historyno= ? order by dispindex";
@@ -245,47 +239,19 @@ public class BKDetailData_13 {
 	/*
 	 * 画面表示数据更新保存
 	 */
-	public void saveDataDispToDb(String userid,String username,String historydate, String[] detaildata02){
-		this.check(userid,historydate);
-		String insertsql = "insert into cdata_detail_13 value(?,?,?,?,?,?,?,?)";
-		Object[] insertparams = new Object[8];
-		for(int i=0; i < detaildata02.length;i++){
+	public void saveDataDispToDb(String[] detaildata){
+		String insertsql = "insert into cdata_detail_13 value(?,?,?,?,?,?,?)";
+		Object[] insertparams = new Object[7];
+		for(int i=0; i < detaildata.length;i++){
 			insertparams[0] = userid;
-			insertparams[1] = username;
-			insertparams[2] = historydate;
-			insertparams[3] = 1;
-			insertparams[4] = i;
-			insertparams[5] = lableList.get(i)[1];
-			insertparams[6] = lableList.get(i)[2];
-			insertparams[7] = detaildata02[i];
+			insertparams[1] = historydate;
+			insertparams[2] = historyno;
+			insertparams[3] = i;
+			insertparams[4] = "";
+			insertparams[5] = "";
+			insertparams[6] = detaildata[i];
 			
 			JdbcUtil.getInstance().executeUpdate(insertsql, insertparams);
 		}	
-	}
-	
-	/*
-	 * 画面表示数据删除
-	 */
-	public void deleteData(String userid, String historydate){
-		Object[] params = new Object[2];
-		params[0]= userid;
-		params[1]= historydate;
-		String delsql = "delete from cdata_detail_13 where userid = ? and examdate = ?";
-		JdbcUtil.getInstance().executeUpdate(delsql, params);
-	}
-	
-	private void check(String userid, String date) {
-		Object[] params = new Object[2];
-		params[0]= userid;
-		params[1]= date;
-		
-		String checksql = "select * from cdata_detail_13 where userid = ? and examdate = ?";
-		
-		List<Object> list1 = JdbcUtil.getInstance().excuteQuery(checksql, params);
-		// date日的数据已经导入的时候，先删除
-		if (list1.size() > 0) {
-			String delsql = "delete from cdata_detail_13 where userid = ? and examdate = ?";
-			JdbcUtil.getInstance().executeUpdate(delsql, params);
-		}
 	}
 }

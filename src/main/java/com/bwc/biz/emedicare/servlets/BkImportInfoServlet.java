@@ -70,6 +70,7 @@ public class BkImportInfoServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		User userinfo = (User)session.getAttribute("userinfo");
+		
 		if(mode.equals("init")){
 			this.getImportHistory(request, response);
 			request.getRequestDispatcher("bkimportinfo.jsp").forward(request, response);
@@ -159,121 +160,121 @@ public class BkImportInfoServlet extends HttpServlet {
 			
 			errmsg = "处理：检查日取得";
 			String date = getCellValue(sheet,3,8);
-			int histno = this.saveHistoryDate(userid, username, historyname, date);
+			int histno = this.saveHistoryDate(userid, historyname, date);
 			
 			// 履历情报-Sheet1（健診結果報告書１）
 			errmsg = "处理：履历情报-Sheet1（健診結果報告書１）导入";
-			BKDetailData_01 detail01 = new BKDetailData_01(workbook.getSheetAt(0), userid,username,date,Integer.toString(histno));
+			BKDetailData_01 detail01 = new BKDetailData_01(workbook.getSheetAt(0), userid,date,Integer.toString(histno));
 			detail01.saveDataExcelToDb();
 			
 			// 履历情报-Sheet2（健診結果報告書2）
 			errmsg = "处理：履历情报-Sheet2（健診結果報告書2）导入";
-			BKDetailData_02 detail02 = new BKDetailData_02(workbook.getSheetAt(1), userid,username,date,Integer.toString(histno));
+			BKDetailData_02 detail02 = new BKDetailData_02(workbook.getSheetAt(1), userid, date,Integer.toString(histno));
 			detail02.saveDataExcelToDb();
 			
 			// 履历情报-Sheet3（健診結果報告書3）
 			errmsg = "处理：履历情报-Sheet3（健診結果報告書3）导入";
-			BKDetailData_03 detail03 = new BKDetailData_03(workbook.getSheetAt(2), userid,username,date,Integer.toString(histno));
+			BKDetailData_03 detail03 = new BKDetailData_03(workbook.getSheetAt(2), userid, date,Integer.toString(histno));
 			detail03.saveDataExcelToDb();
 			
 			// 履历情报-Sheet4（健診結果報告書4）
 			errmsg = "处理：履历情报-Sheet4（健診結果報告書4）导入";
-			BKDetailData_04 detail04 = new BKDetailData_04(workbook.getSheetAt(3), userid,username,date,Integer.toString(histno));
+			BKDetailData_04 detail04 = new BKDetailData_04(workbook.getSheetAt(3), userid, date,Integer.toString(histno));
 			detail04.saveDataExcelToDb();
 			
 			// 履历情报-Sheet5（健診結果報告書5）
 			errmsg = "处理：履历情报-Sheet5（健診結果報告書5）导入";
-			BKDetailData_05 detail05 = new BKDetailData_05(workbook.getSheetAt(4), userid,username,date,Integer.toString(histno));
+			BKDetailData_05 detail05 = new BKDetailData_05(workbook.getSheetAt(4), userid, date,Integer.toString(histno));
 			detail05.saveDataExcelToDb();
 			
 			// 履历情报-Sheet6（健診結果報告書6）
 			errmsg = "处理：履历情报-Sheet6（健診結果報告書6）导入";
-			BKDetailData_06 detail06 = new BKDetailData_06(workbook.getSheetAt(5), userid,username,date,Integer.toString(histno));
+			BKDetailData_06 detail06 = new BKDetailData_06(workbook.getSheetAt(5), userid, date,Integer.toString(histno));
 			detail06.saveDataExcelToDb();
 			
 			// 履历情报-Sheet7（健診結果報告書7）
 			errmsg = "处理：履历情报-Sheet7（健診結果報告書7）导入";
-			BKDetailData_07 detail07 = new BKDetailData_07(workbook.getSheetAt(6), userid,username,date,Integer.toString(histno));
+			BKDetailData_07 detail07 = new BKDetailData_07(workbook.getSheetAt(6), userid, date,Integer.toString(histno));
 			detail07.saveDataExcelToDb();
 			
 			// 履历情报-Sheet8（健診結果報告書8）
 			errmsg = "处理：履历情报-Sheet8（健診結果報告書8）导入";
-			BKDetailData_08 detail08 = new BKDetailData_08(workbook.getSheetAt(7), userid,username,date,Integer.toString(histno));
+			BKDetailData_08 detail08 = new BKDetailData_08(workbook.getSheetAt(7), userid, date,Integer.toString(histno));
 			detail08.saveDataExcelToDb();
 			
 			// 履历情报-Sheet9（健診結果報告書8）
 			errmsg = "处理：履历情报-Sheet9（健診結果報告書8）导入";
-			BKDetailData_09 detail09 = new BKDetailData_09(workbook.getSheetAt(8), userid,username,date,Integer.toString(histno));
+			BKDetailData_09 detail09 = new BKDetailData_09(workbook.getSheetAt(8), userid, date,Integer.toString(histno));
 			detail09.saveDataExcelToDb();
 			
 			// 履历情报-Sheet10（健診結果報告書10）
 			errmsg = "处理：履历情报-Sheet10（健診結果報告書10）导入";
-			BKDetailData_10 detail10 = new BKDetailData_10(workbook.getSheetAt(9), userid,username,date,Integer.toString(histno));
+			BKDetailData_10 detail10 = new BKDetailData_10(workbook.getSheetAt(9), userid, date,Integer.toString(histno));
 			detail10.saveDataExcelToDb();
 			
 			// 履历情报-Sheet11（健診結果報告書11）
 			errmsg = "处理：履历情报-Sheet11（健診結果報告書11）导入";
-			BKDetailData_11 detail11 = new BKDetailData_11(workbook.getSheetAt(10), userid,username,date,Integer.toString(histno));
+			BKDetailData_11 detail11 = new BKDetailData_11(workbook.getSheetAt(10), userid, date,Integer.toString(histno));
 			detail11.saveDataExcelToDb();
 			
 			// 履历情报-Sheet12（综合判断）
 			errmsg = "处理：履历情报-Sheet12（综合判断）导入";
-			BKDetailData_12 detail12 = new BKDetailData_12(workbook.getSheetAt(11), userid,username,date,Integer.toString(histno));
+			BKDetailData_12 detail12 = new BKDetailData_12(workbook.getSheetAt(11), userid, date,Integer.toString(histno));
 			detail12.saveDataExcelToDb();
 			
 			// 履历情报-Sheet13（检查结果查询表 ）
 			errmsg = "处理：履历情报-Sheet13（检查结果查询表 ）导入";
-			BKDetailData_13 detail13 = new BKDetailData_13(workbook.getSheetAt(12), userid,username,date,Integer.toString(histno));
+			BKDetailData_13 detail13 = new BKDetailData_13(workbook.getSheetAt(12), userid, date,Integer.toString(histno));
 			detail13.saveDataExcelToDb();
 			
 			// 履历情报-Sheet14（SPO 2）
 			errmsg = "处理：履历情报-Sheet14（SPO 2）导入";
-			BKDetailData_14 detail14 = new BKDetailData_14(workbook.getSheetAt(13), userid,username,date,Integer.toString(histno));
+			BKDetailData_14 detail14 = new BKDetailData_14(workbook.getSheetAt(13), userid, date,Integer.toString(histno));
 			detail14.saveDataExcelToDb();
 			
 			// 履历情报-Sheet15（甲状腺機能）
 			errmsg = "处理：履历情报-Sheet15（甲状腺機能）导入";
-			BKDetailData_15 detail15 = new BKDetailData_15(workbook.getSheetAt(14), userid,username,date,Integer.toString(histno));
+			BKDetailData_15 detail15 = new BKDetailData_15(workbook.getSheetAt(14), userid, date,Integer.toString(histno));
 			detail15.saveDataExcelToDb();
 			
 			// 履历情报-Sheet16（肿瘤标志物）
 			errmsg = "处理：履历情报-Sheet16（肿瘤标志物）导入";
-			BKDetailData_16 detail16 = new BKDetailData_16(workbook.getSheetAt(15), userid,username,date,Integer.toString(histno));
+			BKDetailData_16 detail16 = new BKDetailData_16(workbook.getSheetAt(15), userid, date,Integer.toString(histno));
 			detail16.saveDataExcelToDb();
 			
 			// 履历情报-Sheet17（ABC検診）
 			errmsg = "处理：履历情报-Sheet17（ABC検診）导入";
-			BKDetailData_17 detail17 = new BKDetailData_17(workbook.getSheetAt(16), userid,username,date,Integer.toString(histno));
+			BKDetailData_17 detail17 = new BKDetailData_17(workbook.getSheetAt(16), userid, date,Integer.toString(histno));
 			detail17.saveDataExcelToDb();
 			
 			// 履历情报-Sheet18（血压脉搏检查）
 			errmsg = "处理：履历情报-Sheet18（血压脉搏检查）导入";
-			BKDetailData_18 detail18 = new BKDetailData_18(workbook.getSheetAt(17), userid,username,date,Integer.toString(histno));
+			BKDetailData_18 detail18 = new BKDetailData_18(workbook.getSheetAt(17), userid, date,Integer.toString(histno));
 			detail18.saveDataExcelToDb();
 			
 			// 履历情报-Sheet19（骨密度）
 			errmsg = "处理：履历情报-Sheet19（骨密度）导入";
-			BKDetailData_19 detail19 = new BKDetailData_19(workbook.getSheetAt(18), userid,username,date,Integer.toString(histno));
+			BKDetailData_19 detail19 = new BKDetailData_19(workbook.getSheetAt(18), userid, date,Integer.toString(histno));
 			detail19.saveDataExcelToDb();
 			
 			// 履历情报-Sheet20（脳ドック）
 			errmsg = "处理：履历情报-Sheet20（脳ドック）导入";
-			BKDetailData_20 detail20 = new BKDetailData_20(workbook.getSheetAt(19), userid,username,date,Integer.toString(histno));
+			BKDetailData_20 detail20 = new BKDetailData_20(workbook.getSheetAt(19), userid, date,Integer.toString(histno));
 			detail20.saveDataExcelToDb();
 			
 			// 履历情报-Sheet21（颈动脉超声波）
 			errmsg = "处理：履历情报-Sheet21（颈动脉超声波）导入";
-			BKDetailData_21 detail21 = new BKDetailData_21(workbook.getSheetAt(20), userid,username,date,Integer.toString(histno));
+			BKDetailData_21 detail21 = new BKDetailData_21(workbook.getSheetAt(20), userid, date,Integer.toString(histno));
 			detail21.saveDataExcelToDb();
 			
 			// 履历情报-Sheet22（骨盆MRI）
 			errmsg = "处理：履历情报-Sheet22（骨盆MRI）导入";
-			BKDetailData_22 detail22 = new BKDetailData_22(workbook.getSheetAt(21), userid,username,date,Integer.toString(histno));
+			BKDetailData_22 detail22 = new BKDetailData_22(workbook.getSheetAt(21), userid, date,Integer.toString(histno));
 			detail22.saveDataExcelToDb();
 			
 			// 履历情报-Sheet23（心脏超声波）
 			errmsg = "处理：履历情报-Sheet23（心脏超声波）导入";
-			BKDetailData_23 detail23 = new BKDetailData_23(workbook.getSheetAt(22), userid,username,date,Integer.toString(histno));
+			BKDetailData_23 detail23 = new BKDetailData_23(workbook.getSheetAt(22), userid, date,Integer.toString(histno));
 			detail23.saveDataExcelToDb();
 			
 			this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"0", "成功导入");
@@ -295,7 +296,7 @@ public class BkImportInfoServlet extends HttpServlet {
 	/*
 	 * 履历表对应数据作成
 	 */
-	private int saveHistoryDate(String userid,String username,String historyname,String historydate){
+	private int saveHistoryDate(String userid, String historyname,String historydate){
 		int historyno = 0;
 		String chksql = "select * from cdata_history where userid=? and historydate=?";
 		Object[] params = new Object[2];
@@ -314,17 +315,18 @@ public class BkImportInfoServlet extends HttpServlet {
 		List<Object> list2 = JdbcUtil.getInstance().excuteQuery(maxnosql, params);
 		if (list2.size() > 0) {
 			Map<String, Object> set = (Map<String, Object>) list2.get(0);
-			historyno = Integer.parseInt(set.get("historyno").toString()) + 1;
+			if(set.get("historyno")!=null){
+				historyno = Integer.parseInt(set.get("historyno").toString()) + 1;
+			}
 		}
 
-		String insertSql = "insert into cdata_history value(?,?,?,?,?,?)";
-        Object[] insertparams = new Object[6];
+		String insertSql = "insert into cdata_history value(?,?,?,?,?)";
+        Object[] insertparams = new Object[5];
         insertparams[0] = userid;
         insertparams[1] = historydate;
         insertparams[2] = historyno;
-        insertparams[3] = username;
-        insertparams[4] = historyname;
-        insertparams[5] = "0";
+        insertparams[3] = historyname;
+        insertparams[4] = "0";
         JdbcUtil.getInstance().executeUpdate(insertSql, insertparams);
         
         return historyno;

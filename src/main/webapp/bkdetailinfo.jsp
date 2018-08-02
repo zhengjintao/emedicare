@@ -6,7 +6,13 @@
 
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
-
+<script>
+initdata = [];
+initdata.userid = '<%=(String)request.getAttribute("userid")%>';
+initdata.historydate = '<%=(String)request.getAttribute("historydate")%>';
+initdata.historyno = '<%=(String)request.getAttribute("historyno")%>';
+initdata.historyname = '<%=(String)request.getAttribute("historyname")%>';
+</script>
 <script src="jquery/jquery-3.1.1.min.js"></script>
 <script src="dist/components/form.min.js"></script>
 <script src="dist/components/transition.min.js"></script>
@@ -32,6 +38,10 @@
   
   app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
+  list.userid = initdata.userid;
+  list.historydate = initdata.historydate;
+  list.historyno = initdata.historyno;
+  list.historyname = initdata.historyname;
   list.dt_01 = new Array();
   list.dt_02 = new Array();
   list.dt_03 = new Array();
@@ -182,7 +192,7 @@
 			closable : false
 		}).modal('show')
 	   $.ajax({
-		    url: "bkdetailinfo.do?mode=save",
+		    url: "bkdetailinfo.do?mode=save&userid=" + list.userid + "&historydate="+ list.historydate + "&historyno="+ list.historyno + "&historyname="+ list.historyname,
 		    type: "POST",
 		    datatype:'json',
 		    data:{
@@ -212,20 +222,29 @@
 		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");
+		    },
+		    error: function(data) {
+		    	$("#errmsg").html("保存失败");
 		    }
 		});
    };
    
    list.deleteData = function() {
 	   $.ajax({
-		    url: "bkdetailinfo.do?mode=delete",
+		    url: "bkdetailinfo.do?mode=delete&userid=" + list.userid + "&historydate="+ list.historydate + "&historyno="+ list.historyno + "&historyname="+ list.historyname,
 		    type: "POST",
 		    datatype:'json',
 		    data:{
 		    	dt_01:list.dt_01
 		    },
 		    success: function(data) {
-		  	  window.location.href = 'bkhistorylist.do?userid='+ list.dt_01[2];
+		  	  window.location.href = 'bkhistorylist.do?userid='+ list.userid;
+		    },
+		    error: function(data) {
+		    	$("#errmsg").html("删除失败");
+				$('#cmodal').modal({
+					closable : false
+				}).modal('show');
 		    }
 		});
    }
@@ -285,7 +304,7 @@ footer {
 						href="bkhistorylist.do?userid={{list.dt_01[2]}}"><h4>{{list.dt_01[0]}}</h4></a> <i
 						class="right angle icon divider"></i>
 					<div class="active section">
-						<h4><%=(String)request.getAttribute("historyname")%></h4>
+						<h4>{{list.historyname}}</h4>
 					</div>
 				</div>
 			</div>
