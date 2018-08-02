@@ -30,6 +30,11 @@
 			}).modal('show');
 	        return false;  
 		}
+		$("#errmsg").html("少々お待ちをください。処理中...");
+		$('#cmodal').modal({
+			closable : false
+
+		}).modal('show');
   }
   
   function ondelete(importno)
@@ -72,19 +77,19 @@
 		<form action="./bkimportinfo.do?mode=save" enctype="multipart/form-data" method="post" onsubmit="return checkdate();">
 			<div class="ui fluid action input">
 					<input class="ui input" type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" id="filepath" name="filepath" />
-					<button class="ui active blue button"><i class="upload icon"></i>履历登録</button>
+					<button class="ui active blue button"><i class="upload icon"></i>アップロード</button>
 				</div>
 		</form>
 		<label class="ui label" style="text-align: left"><h3>登録結果一覧</h3></label>
 		<table class="ui unstackable celled structured table"
 			style="margin-top: 5px">
 			<tr bgcolor="#FAFAFA" height="30px">
-				<th width="20%" style="text-align: center;">文件名</th>
-				<th width="10%" style="text-align: center;">导入者</th>
-				<th width="16%" style="text-align: center;">导入时间</th>
-				<th width="5%" style="text-align: center;">结果</th>
-				<th width="32%" style="text-align: center;">消息</th>
-				<th width="4%" style="text-align: center;">记录<br>删除</th>
+				<th width="20%" style="text-align: center;">ファイル名</th>
+				<th width="10%" style="text-align: center;">処理者</th>
+				<th width="16%" style="text-align: center;">処理時間</th>
+				<th width="5%" style="text-align: center;">結果</th>
+				<th width="32%" style="text-align: center;">メッセージ</th>
+				<th width="4%" style="text-align: center;">ログ<br>削除</th>
 			</tr>
 			<tbody id="infobody">
 				<%

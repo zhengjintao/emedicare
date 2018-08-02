@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -112,7 +114,7 @@ public class BkImportInfoServlet extends HttpServlet {
 			each[1] = row.get("username").toString();
 			each[2] = row.get("historyname").toString();
 			each[3] = row.get("importdate").toString();
-			each[4] = row.get("resultflg").toString().equals("0") ? "成功":"失败";
+			each[4] = row.get("resultflg").toString().equals("0") ? "成功":"失敗";
 			each[5] = row.get("importno").toString();
 			each[6] = row.get("resultmsg").toString();
 			imoprthist.add(each);
@@ -160,6 +162,12 @@ public class BkImportInfoServlet extends HttpServlet {
 			
 			errmsg = "处理：检查日取得";
 			String date = getCellValue(sheet,3,8);
+			if(!checkdate(date)){
+				this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "[健診結果報告書１]检查日("+date+")不正确。<br>检查日必须为YYYYMMDD格式(例：20180612)");
+				return;
+			}
+			
+			errmsg = "处理：履历情报记录保存";
 			int histno = this.saveHistoryDate(userid, historyname, date);
 			
 			// 履历情报-Sheet1（健診結果報告書１）
@@ -365,6 +373,11 @@ public class BkImportInfoServlet extends HttpServlet {
 		JdbcUtil.getInstance().executeUpdate(delsql, params);
 	}
 	
+	private boolean checkdate(String date){
+		Pattern pattern = Pattern.compile("^\\d{8}$");
+        Matcher matcher = pattern.matcher(date);
+        return matcher.matches();
+	}
 	
 	private void setDispImportHistory(List<String[]> hisList,HttpServletRequest request, HttpServletResponse response) throws IOException{
 		StringBuilder info = new StringBuilder();

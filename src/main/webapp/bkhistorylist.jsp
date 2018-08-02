@@ -110,7 +110,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				
 				<div class="eight wide column" style="padding-bottom:0px">
 					<div class="ui labeled input">
-								<div class="ui label" style="width:80px">電話番号</div>
+								<div class="ui label" style="width:80px">連絡先</div>
 								<input  readonly="readonly" ng-model="list.telnum">
 							</div>
 				</div>
@@ -132,8 +132,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				     <td>診査履歴なし</a></td>
 				    </tr>
 				    <tr bgcolor="#FAFAFA" height="30px" ng-show="list.explist.length>0">
-				        <th width="60%" style="text-align: center;">履历文件名</th>
-				        <th width="40%" style="text-align: center;">诊查时日期</th>
+				        <th width="60%" style="text-align: center;">履歴名</th>
+				        <th width="40%" style="text-align: center;">診査日付</th>
 			        </tr>
 					<tr ng-repeat="eachitem in list.explist">
 						<td><a href="bkdetailinfo.do?mode=init&userid={{list.userid}}&historydate={{eachitem.historydate}}&username={{list.username}}&historyno={{eachitem.historyno}}&historyname={{eachitem.historyname}}">{{eachitem.historyname}}</a></td>
@@ -150,8 +150,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 				    <td>通院記録なし</a></td>
 				    </tr>
 				    <tr bgcolor="#FAFAFA" height="30px" ng-show="list.visitlist.length>0">
-				        <th width="60%" style="text-align: center;">通院记录</th>
-				        <th width="40%" style="text-align: center;">记录时间</th>
+				        <th width="60%" style="text-align: center;">通院記録</th>
+				        <th width="40%" style="text-align: center;">記録日付</th>
 			        </tr>
 					<tr ng-repeat="eachitem in list.visitlist">
 						<td width="60%"><a href="bkvistisinfo.do?userid={{list.userid}}&id={{eachitem.id}}&username={{list.username}}&name=通院記録{{eachitem.name}}">通院記録{{eachitem.name}}</a></td>
