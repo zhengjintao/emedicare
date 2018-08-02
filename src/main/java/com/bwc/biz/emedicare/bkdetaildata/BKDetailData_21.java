@@ -29,8 +29,8 @@ public class BKDetailData_21 {
 		new int[] {3, 2 },new int[] {3, 6 },
 		new int[] {4, 2 },new int[] {4, 6 },
 		new int[] {7, 1 },
-		new int[] {9, 1 },
-		new int[] {28, 1 }
+		new int[] {10, 1 },
+		new int[] {30, 1 }
 	    );
 	
 	private List<String[]> lableList = Arrays.asList(

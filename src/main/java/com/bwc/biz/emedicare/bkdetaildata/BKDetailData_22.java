@@ -24,13 +24,13 @@ public class BKDetailData_22 {
 	private String histno;
 	//数据坐标（EXCEL行列）
 	private List<int[]> indexList = Arrays.asList(		
-		new int[] {1, 2 },new int[] {1, 6 },
 		new int[] {2, 2 },new int[] {2, 6 },
 		new int[] {3, 2 },new int[] {3, 6 },
 		new int[] {4, 2 },new int[] {4, 6 },
-		new int[] {7, 1 },
-		new int[] {9, 1 },
-		new int[] {28, 1 }
+		new int[] {5, 2 },new int[] {5, 6 },
+		new int[] {8, 1 },
+		new int[] {10, 1 },
+		new int[] {22, 1 }
 	    );
 	
 	private List<String[]> lableList = Arrays.asList(
