@@ -56,12 +56,10 @@ public class LyzTimerTaskNoticeUser extends TimerTask {
 				}
 				
 				final String date = String.valueOf(set2.get("appointdate"));
-				final String username = String.valueOf(set2.get("username"));
 				
 				Thread t = new Thread(new Runnable() {
 					public void run() {
-						String url = Consts.DomainURL + "/emedicare/login.do?from=1";
-						TemplateMessageUtil.sendTemplateMessage(openid, WechatConsts.templetid01, username, date, url);
+						TemplateMessageUtil.sendTemplateMessage(openid, WechatConsts.templetid04, date);
 					}
 				});
 				t.start();

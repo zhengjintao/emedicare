@@ -20,5 +20,7 @@ public class WechatConsts {
  	public final static String templetid02 = "5QEt-apqA6CsXS2louy-IIlXqVVdsnJobWw8P3q0Pcs";
  	//活动参与成功通知
  	public final static String templetid03 = "Lyco7QAgqw-ll-CfYtScBA0D-4kZZzcRxTHan9FrL0Q";
+ 	//
+ 	public final static String templetid04 = "B_moMdXhJmhWPWJVv9xC4rV-z2URjY3kxo6IVlgCf5s";
     
 }
