@@ -201,8 +201,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     
     <tr>
-      <td class="cellheader" rowspan="7">肾</td>
-      <td rowspan="7">{{list.dt_03[42]}}</td>
+      <td class="cellheader" rowspan="8">肾</td>
+      <td rowspan="8">{{list.dt_03[42]}}</td>
       <td>肌酐</td>
       <td>{{list.dt_03[43]}}</td>
       <td>{{list.dt_03[44]}}</td>
@@ -252,7 +252,14 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>{{list.dt_03[70]}}</td>
     </tr>
     <tr>
-      <td colspan="9">{{list.dt_03[71]}}</td>
+      <td>{{list.dt_03[71]}}</td>
+      <td>{{list.dt_03[72]}}</td>
+      <td>{{list.dt_03[73]}}</td>
+      <td>{{list.dt_03[74]}}</td>
+      <td>{{list.dt_03[75]}}</td>
+    </tr>
+    <tr>
+      <td colspan="9">{{list.dt_03[76]}}</td>
     </tr>
   </tbody>
 </table>
@@ -269,61 +276,64 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="8">{{list.dt_03[72]}}</td>
+      <td rowspan="8">{{list.dt_03[77]}}</td>
       <td>白细胞计数</td>
-      <td>{{list.dt_03[73]}}</td>
-      <td>{{list.dt_03[74]}}</td>
-      <td>{{list.dt_03[75]}}</td>
-      <td>{{list.dt_03[76]}}</td>
-    </tr>
-     <tr>
-      <td>红细胞计数</td>
-      <td>{{list.dt_03[77]}}</td>
       <td>{{list.dt_03[78]}}</td>
       <td>{{list.dt_03[79]}}</td>
       <td>{{list.dt_03[80]}}</td>
+      <td>{{list.dt_03[81]}}</td>
+    </tr>
+     <tr>
+      <td>红细胞计数</td>
+       <td>{{list.dt_03[82]}}</td>
+      <td>{{list.dt_03[83]}}</td>
+      <td>{{list.dt_03[84]}}</td>
+      <td>{{list.dt_03[85]}}</td>
     </tr>
      <tr>
       <td>血红蛋白</td>
-      <td>{{list.dt_03[81]}}</td>
-      <td>{{list.dt_03[82]}}</td>
-      <td>{{list.dt_03[83]}}</td>
-      <td>{{list.dt_03[84]}}</td>
-    </tr>
-    <tr>
-      <td>红细胞压积</td>
-      <td>{{list.dt_03[85]}}</td>
       <td>{{list.dt_03[86]}}</td>
       <td>{{list.dt_03[87]}}</td>
       <td>{{list.dt_03[88]}}</td>
+      <td>{{list.dt_03[89]}}</td>
     </tr>
     <tr>
-      <td>平均红细胞体积</td>
-      <td>{{list.dt_03[89]}}</td>
+      <td>红细胞压积</td>
       <td>{{list.dt_03[90]}}</td>
       <td>{{list.dt_03[91]}}</td>
       <td>{{list.dt_03[92]}}</td>
+      <td>{{list.dt_03[93]}}</td>
     </tr>
     <tr>
-      <td>平均红细胞血红蛋白量</td>
-      <td>{{list.dt_03[93]}}</td>
+      <td>平均红细胞体积</td>
       <td>{{list.dt_03[94]}}</td>
       <td>{{list.dt_03[95]}}</td>
       <td>{{list.dt_03[96]}}</td>
+      <td>{{list.dt_03[97]}}</td>
     </tr>
     <tr>
-      <td>平均红细胞血红蛋白浓度</td>
-      <td>{{list.dt_03[97]}}</td>
+      <td>平均红细胞血红蛋白量</td>
       <td>{{list.dt_03[98]}}</td>
       <td>{{list.dt_03[99]}}</td>
       <td>{{list.dt_03[100]}}</td>
+      <td>{{list.dt_03[101]}}</td>
     </tr>
     <tr>
-      <td>血小板计数</td>
-      <td>{{list.dt_03[101]}}</td>
+      <td>平均红细胞血红蛋白浓度</td>
       <td>{{list.dt_03[102]}}</td>
       <td>{{list.dt_03[103]}}</td>
       <td>{{list.dt_03[104]}}</td>
+      <td>{{list.dt_03[105]}}</td>
+    </tr>
+    <tr>
+      <td>血小板计数</td>
+      <td>{{list.dt_03[106]}}</td>
+      <td>{{list.dt_03[107]}}</td>
+      <td>{{list.dt_03[108]}}</td>
+      <td>{{list.dt_03[109]}}</td>
+    </tr>
+    <tr>
+      <td colspan="7">{{list.dt_03[110]}}</td>
     </tr>
   </tbody>
 </table>

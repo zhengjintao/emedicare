@@ -115,81 +115,69 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <div class="pusher">
   <div class="ui segment">
   <table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" style="width:20%">ID</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td class="cellheader" style="width:20%">检查日期</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td class="cellheader">姓名</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td class="cellheader">检查部位</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td class="cellheader">出生日期</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td class="cellheader">年龄/性别</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td>本次测定结果</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td>测定部位：</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td>你的骨密度是 /ｃ㎡</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td>与年轻人的比较值为 ％</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td>与同龄的比较值为 ％</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td>骨面积：</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>骨盐量：</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td class="cellheader">骨密度判定</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-    <tr>
-      <td class="cellheader">解说</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-      <td>{{list.dt_19[0]}}</td>
-    </tr>
-  </tbody>
-</table>
+		<tbody>
+			<tr>
+				<td class="cellheader">ID</td>
+				<td style="padding:3px">{{list.dt_19[0]}}</td>
+				<td class="cellheader">检查日期</td>
+				<td style="padding:3px">{{list.dt_19[1]}}</td>
+			</tr>
+			<tr>
+				<td class="cellheader">姓名</td>
+				<td style="padding:3px">{{list.dt_19[2]}}</td>
+				<td class="cellheader">检查部位</td>
+				<td style="padding:3px">{{list.dt_19[3]}}</td>
+			</tr>
+			<tr>
+				<td class="cellheader">出生日期</td>
+				<td style="padding:3px">{{list.dt_19[4]}}</td>
+				<td class="cellheader">年龄/性别</td>
+				<td style="padding:3px">{{list.dt_19[5]}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<h2 class="ui top header" style="margin-top: 40px;"><b>本次测定结果</b></h2>
+	<table class="ui unstackable table">
+				<tr>
+					<td style="width:95px">测定部位：</td>
+					<td rowspan="4">
+					{{list.dt_19[6]}}
+				   </td>
+				</tr>
+	</table>
+	<table class="ui unstackable celled structured table">
+		<tbody>
+			<tr>
+				<td colspan="4">{{list.dt_19[7]}}</td>
+			</tr>
+			<tr>
+				<td colspan="4">{{list.dt_19[8]}}</td>
+			</tr>
+			<tr>
+				<td colspan="4">{{list.dt_19[9]}}</td>
+			</tr>
+			<tr>
+			<td>骨面积：</td>
+			<td>{{list.dt_19[10]}}</td>
+			<td>骨盐量：</td>
+			<td>{{list.dt_19[11]}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<table class="ui unstackable celled structured table">
+		<tbody>
+			<tr>
+				<td class="cellheader">骨密度判定</td>
+				<td >{{list.dt_19[12]}}</td>
+			</tr>
+			<tr>
+				<td class="cellheader">解说</td>
+				<td>
+      				{{list.dt_19[13]}}
+      			</td>
+			</tr>
+		</tbody>
+	</table>
 </div>
   </div>
 </div>

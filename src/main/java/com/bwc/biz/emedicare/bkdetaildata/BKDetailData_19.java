@@ -26,9 +26,9 @@ public class BKDetailData_19 {
 		new int[] {3, 2 },new int[] {3, 6 },
 		new int[] {4, 2 },new int[] {4, 6 },
 		new int[] {8, 2 },
-		new int[] {10, 3 },
-		new int[] {11, 3 },
-		new int[] {12, 3 },
+		new int[] {10, 1 },
+		new int[] {11, 1 },
+		new int[] {12, 1 },
 		new int[] {13, 2 },new int[] {13, 4 },
 		new int[] {16, 2 },
 		new int[] {17, 2 }

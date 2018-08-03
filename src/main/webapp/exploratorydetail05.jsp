@@ -75,7 +75,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  $('.ui.sidebar').sidebar('toggle');
   }
   
-  var item = list.sheets[10];
+  var item = list.sheets[4];
   list.sheetname = item.shortname;
 });
 </script>
@@ -185,7 +185,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="2">{{list.dt_05[24]}}</td>
+      <td>{{list.dt_05[24]}}</td>
       <td>{{list.dt_05[25]}}</td>
       <td>{{list.dt_05[26]}}</td>
       <td>{{list.dt_05[27]}}</td>
@@ -194,10 +194,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>{{list.dt_05[28]}}</td>
       <td>{{list.dt_05[29]}}</td>
       <td>{{list.dt_05[30]}}</td>
+      <td>{{list.dt_05[31]}}</td>
     </tr>
     
     <tr>
-      <td colspan="5">{{list.dt_05[31]}}</td>
+      <td colspan="5"></td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="3">便</td>

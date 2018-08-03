@@ -233,9 +233,9 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>{{list.dt_10[48]}}</td>
     </tr>
     <tr>
+      <td>{{list.dt_10[49]}}</td>
       <td>{{list.dt_10[50]}}</td>
       <td>{{list.dt_10[51]}}</td>
-      <td>{{list.dt_10[52]}}</td>
     </tr>
   </tbody>
 </table>

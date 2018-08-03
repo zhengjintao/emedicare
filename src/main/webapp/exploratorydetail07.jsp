@@ -196,49 +196,49 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td rowspan="6">{{list.dt_07[28]}}</td>
-      <td>{{list.dt_07[75]}}</td>
+      <td>{{list.dt_07[76]}}</td>
+      <td>{{list.dt_07[29]}}</td>
       <td>{{list.dt_07[30]}}</td>
       <td>{{list.dt_07[31]}}</td>
       <td>{{list.dt_07[32]}}</td>
-      <td>{{list.dt_07[33]}}</td>
     </tr>
     <tr>
       <td>ASO</td>
+      <td>{{list.dt_07[33]}}</td>
       <td>{{list.dt_07[34]}}</td>
       <td>{{list.dt_07[35]}}</td>
       <td>{{list.dt_07[36]}}</td>
-      <td>{{list.dt_07[37]}}</td>
     </tr>
     <tr>
+      <td>{{list.dt_07[77]}}</td>
+      <td>{{list.dt_07[37]}}</td>
       <td>{{list.dt_07[38]}}</td>
       <td>{{list.dt_07[39]}}</td>
       <td>{{list.dt_07[40]}}</td>
-      <td>{{list.dt_07[41]}}</td>
-      <td>{{list.dt_07[42]}}</td>
     </tr>
     <tr>
       <td>类风湿因子定量</td>
+      <td>{{list.dt_07[41]}}</td>
+      <td>{{list.dt_07[42]}}</td>
       <td>{{list.dt_07[43]}}</td>
       <td>{{list.dt_07[44]}}</td>
-      <td>{{list.dt_07[45]}}</td>
-      <td>{{list.dt_07[46]}}</td>
     </tr>
     <tr>
       <td>CRP定量</td>
+      <td>{{list.dt_07[45]}}</td>
+      <td>{{list.dt_07[46]}}</td>
       <td>{{list.dt_07[47]}}</td>
       <td>{{list.dt_07[48]}}</td>
-      <td>{{list.dt_07[49]}}</td>
-      <td>{{list.dt_07[50]}}</td>
     </tr>
     <tr>
       <td>CRP判定</td>
+      <td>{{list.dt_07[49]}}</td>
+      <td>{{list.dt_07[50]}}</td>
       <td>{{list.dt_07[51]}}</td>
       <td>{{list.dt_07[52]}}</td>
-      <td>{{list.dt_07[53]}}</td>
-      <td>{{list.dt_07[54]}}</td>
     </tr>
     <tr>
-      <td colspan="7">{{list.dt_07[55]}}</td>
+      <td colspan="7">{{list.dt_07[53]}}</td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="4">肝炎</td>
@@ -250,26 +250,26 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="3">{{list.dt_07[56]}}</td>
+      <td rowspan="3">{{list.dt_07[54]}}</td>
       <td>HBs抗原</td>
+      <td>{{list.dt_07[55]}}</td>
+      <td>{{list.dt_07[56]}}</td>
       <td>{{list.dt_07[57]}}</td>
       <td>{{list.dt_07[58]}}</td>
-      <td>{{list.dt_07[59]}}</td>
-      <td>{{list.dt_07[60]}}</td>
     </tr>
     <tr>
       <td>HBs抗体</td>
+      <td>{{list.dt_07[59]}}</td>
+      <td>{{list.dt_07[60]}}</td>
       <td>{{list.dt_07[61]}}</td>
       <td>{{list.dt_07[62]}}</td>
-      <td>{{list.dt_07[63]}}</td>
-      <td>{{list.dt_07[64]}}</td>
     </tr>
     <tr>
       <td>HCV抗体</td>
+      <td>{{list.dt_07[63]}}</td>
+      <td>{{list.dt_07[64]}}</td>
       <td>{{list.dt_07[65]}}</td>
       <td>{{list.dt_07[66]}}</td>
-      <td>{{list.dt_07[67]}}</td>
-      <td>{{list.dt_07[68]}}</td>
     </tr>
     
     <tr>
@@ -282,19 +282,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="2">{{list.dt_07[69]}}</td>
+      <td rowspan="2">{{list.dt_07[67]}}</td>
       <td>梅毒反应RPR</td>
+      <td>{{list.dt_07[68]}}</td>
+      <td>{{list.dt_07[69]}}</td>
       <td>{{list.dt_07[70]}}</td>
       <td>{{list.dt_07[71]}}</td>
-      <td>{{list.dt_07[72]}}</td>
-      <td>{{list.dt_07[73]}}</td>
     </tr>
     <tr>
       <td>TPLA</td>
+      <td>{{list.dt_07[72]}}</td>
+      <td>{{list.dt_07[73]}}</td>
       <td>{{list.dt_07[74]}}</td>
       <td>{{list.dt_07[75]}}</td>
-      <td>{{list.dt_07[76]}}</td>
-      <td>{{list.dt_07[77]}}</td>
     </tr>
   </tbody>
 </table>

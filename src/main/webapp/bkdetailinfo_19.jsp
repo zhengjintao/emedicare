@@ -32,15 +32,28 @@
 	<h2 class="ui top header" style="margin-top: 40px;"><b>本次测定结果</b></h2>
 	<table class="ui unstackable table">
 				<tr>
-					<td>测定部位：</td>
+					<td style="width:95px">测定部位：</td>
+					<td rowspan="4">
+					<div class="ui input" style="height:30px"> <input type="text" ng-model=list.dt_19[6]></div>
+				   </td>
 				</tr>
 	</table>
 	<table class="ui unstackable celled structured table">
 		<tbody>
 			<tr>
-				<td rowspan="4">
-					<div class="ui input" style="height:30px"> <input type="text" ng-model=list.dt_19[6]></div>
-				</td>
+				<td colspan="4"><div class="ui input" style="height:30px;width:800px"> <input type="text" ng-model=list.dt_19[7]></div></td>
+			</tr>
+			<tr>
+				<td colspan="4"><div class="ui input" style="height:30px;width:800px"> <input type="text" ng-model=list.dt_19[8]></div></td>
+			</tr>
+			<tr>
+				<td colspan="4"><div class="ui input" style="height:30px;width:800px"> <input type="text" ng-model=list.dt_19[9]></div></td>
+			</tr>
+			<tr>
+			<td>骨面积：</td>
+			<td><div class="ui input" style="height:30px"> <input type="text" ng-model=list.dt_19[10]></div></td>
+			<td>骨盐量：</td>
+			<td><div class="ui input" style="height:30px"> <input type="text" ng-model=list.dt_19[11]></div></td>
 			</tr>
 		</tbody>
 	</table>
@@ -48,15 +61,13 @@
 		<tbody>
 			<tr>
 				<td class="cellheader">骨密度判定</td>
-				<td ><div class="ui input"><input type="text" ng-model=list.dt_19[7]></div></td>
+				<td ><div class="ui input"><input type="text" ng-model=list.dt_19[12]></div></td>
 			</tr>
 			<tr>
 				<td class="cellheader" rowspan="5">解说</td>
 				<td rowspan="3">
-      				<div class="ui inverted form lblcontent"><textarea rows="10" cols="1" style="resize: none" ng-model=list.dt_19[8]></textarea></div>
+      				<div class="ui inverted form lblcontent"><textarea rows="10" cols="1" style="resize: none" ng-model=list.dt_19[13]></textarea></div>
       			</td>
-      			
-      			
 			</tr>
 		</tbody>
 	</table>
