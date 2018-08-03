@@ -14,7 +14,7 @@
       <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
-      <td rowspan="5"><div class="ui inverted form lblcontent"><textarea rows="13" cols="1" style="resize: none" ng-model="list.dt_04[0]"></textarea></div></td>
+      <td rowspan="5"><div class="ui inverted form lblcontent"><textarea rows="10" cols="1" style="resize: none" ng-model="list.dt_04[0]"></textarea></div></td>
       <td style="height:20p">部位</td>
       <td style="height:20p" colspan="3">所见</td>
     </tr>
@@ -50,7 +50,7 @@
       <td class="cellheader">本次</td>
     </tr>
     <tr>
-      <td rowspan="5"><div class="ui inverted form lblcontent"><textarea rows="13" cols="1" style="resize: none" ng-model="list.dt_04[7]"></textarea></div></td>
+      <td rowspan="5"><div class="ui inverted form lblcontent"><textarea rows="10" cols="1" style="resize: none" ng-model="list.dt_04[7]"></textarea></div></td>
       <td>总胆固醇</td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[8]"></div></td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[9]"></div></td>
@@ -93,7 +93,7 @@
     </tr>
     <tr>
       <td rowspan="13">
-      <div class="ui inverted form lblcontent"><textarea rows="35" cols="1" style="resize: none" ng-model="list.dt_04[20]"></textarea></div>
+      <div class="ui inverted form lblcontent"><textarea rows="30" cols="1" style="resize: none" ng-model="list.dt_04[20]"></textarea></div>
       </td>
       <td>总胆红素（T-BIL）</td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_04[21]"></div></td>

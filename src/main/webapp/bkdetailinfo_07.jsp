@@ -18,7 +18,7 @@
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="5"><div class="ui inverted form lblcontent"><textarea rows="12" cols="1" style="resize: none" ng-model="list.dt_07[0]"></textarea></div></td>
+      <td rowspan="5"><div class="ui inverted form lblcontent"><textarea rows="11" cols="1" style="resize: none" ng-model="list.dt_07[0]"></textarea></div></td>
       <td>肺活量（实测值</td>
       <td style="padding:3px"><div class="ui input" style="width:140px;"><input type="text" ng-model="list.dt_07[1]"></div></td>
       <td style="padding:3px"><div class="ui input" style="width:140px;"><input type="text" ng-model="list.dt_07[2]"></div></td>
@@ -143,7 +143,7 @@
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="3"><div class="ui inverted form lblcontent"><textarea rows="8" cols="1" style="resize: none" ng-model="list.dt_07[54]"></textarea></div></td>
+      <td rowspan="3"><div class="ui inverted form lblcontent"><textarea rows="6" cols="1" style="resize: none" ng-model="list.dt_07[54]"></textarea></div></td>
       <td>HBs抗原</td>
       <td style="padding:3px"><div class="ui input" style="width:140px;"><input type="text" ng-model="list.dt_07[55]"></div></td>
       <td style="padding:3px"><div class="ui input" style="width:140px;"><input type="text" ng-model="list.dt_07[56]"></div></td>
@@ -178,7 +178,7 @@
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="2"><div class="ui inverted form lblcontent"><textarea rows="6" cols="1" style="resize: none" ng-model="list.dt_07[67]"></textarea></div></td>
+      <td rowspan="2"><div class="ui inverted form lblcontent"><textarea rows="4" cols="1" style="resize: none" ng-model="list.dt_07[67]"></textarea></div></td>
       <td>梅毒反应RPR</td>
       <td style="padding:3px"><div class="ui input" style="width:140px;"><input type="text" ng-model="list.dt_07[68]"></div></td>
       <td style="padding:3px"><div class="ui input" style="width:140px;"><input type="text" ng-model="list.dt_07[69]"></div></td>

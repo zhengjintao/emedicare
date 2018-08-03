@@ -78,13 +78,13 @@
       <td>右足：</td>
       <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_18[11]></div></td>
       <td rowspan="2">右脚腕</td>
-      <td rowspan="2"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_18[12]></div></td>
-      <td rowspan="2">左脚腕</td>
       <td rowspan="2"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_18[13]></div></td>
+      <td rowspan="2">左脚腕</td>
+      <td rowspan="2"><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_18[14]></div></td>
     </tr>
     <tr>
       <td>左足：</td>
-      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_18[14]></div></td>
+      <td><div class="ui input" style="height:100%; width:100%"> <input type="text" ng-model=list.dt_18[12]></div></td>
     </tr>
   </tbody>
 </table>

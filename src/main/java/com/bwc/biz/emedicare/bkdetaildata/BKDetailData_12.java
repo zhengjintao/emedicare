@@ -42,7 +42,7 @@ public class BKDetailData_12 {
 		// 保健指导程度
 		new int[] {25, 10 },
 		// 指示事项
-		new int[] {30, 1 }
+		new int[] {29, 1 }
 	    );
 	
 	private List<String[]> lableList = Arrays.asList(

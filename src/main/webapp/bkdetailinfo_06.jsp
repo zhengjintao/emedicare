@@ -14,7 +14,7 @@
       <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
-      <td rowspan="8"><div class="ui inverted form lblcontent"><textarea rows="20" cols="1" style="resize: none" ng-model="list.dt_06[0]"></textarea></div></td>
+      <td rowspan="8"><div class="ui inverted form lblcontent"><textarea rows="18" cols="1" style="resize: none" ng-model="list.dt_06[0]"></textarea></div></td>
       <td>部位</td>
       <td colspan="3">所见</td>
     </tr>
@@ -73,7 +73,7 @@
       <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
-      <td rowspan="8"><div class="ui inverted form lblcontent"><textarea rows="10" cols="1" style="resize: none" ng-model="list.dt_06[16]"></textarea></div></td>
+      <td rowspan="8"><div class="ui inverted form lblcontent"><textarea rows="15" cols="1" style="resize: none" ng-model="list.dt_06[16]"></textarea></div></td>
       <td>部位</td>
       <td colspan="3">所见</td>
     </tr>
@@ -118,7 +118,7 @@
       <td class="cellheader">本次</td>
     </tr>
     <tr>
-      <td rowspan="3"><div class="ui inverted form lblcontent"><textarea rows="6" cols="1" style="resize: none" ng-model="list.dt_06[27]"></textarea></div></td>
+      <td rowspan="3"><div class="ui inverted form lblcontent"><textarea rows="5" cols="1" style="resize: none" ng-model="list.dt_06[27]"></textarea></div></td>
       <td>血沉（60分）</td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_06[28]"></div></td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_06[29]"></div></td>

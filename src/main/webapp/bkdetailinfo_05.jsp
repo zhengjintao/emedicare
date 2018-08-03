@@ -18,7 +18,7 @@
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="4"><div class="ui inverted form lblcontent"><textarea rows="10" cols="1" style="resize: none" ng-model="list.dt_05[0]"></textarea></div></td>
+      <td rowspan="4"><div class="ui inverted form lblcontent"><textarea rows="8" cols="1" style="resize: none" ng-model="list.dt_05[0]"></textarea></div></td>
       <td>任意时间血糖</td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" style="width:10px" ng-model="list.dt_05[1]"></div></td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" style="width:10px" ng-model="list.dt_05[2]"></div></td>
@@ -128,7 +128,7 @@
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="8"><div class="ui inverted form lblcontent"><textarea rows="20" cols="1" style="resize: none" ng-model="list.dt_05[42]"></textarea></div></td>
+      <td rowspan="8"><div class="ui inverted form lblcontent"><textarea rows="18" cols="1" style="resize: none" ng-model="list.dt_05[42]"></textarea></div></td>
       <td colspan="3" style="text-align:center">右    左 </td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" style="width:10px" ng-model="list.dt_05[43]"></div></td>
       <td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" style="width:10px" ng-model="list.dt_05[44]"></div></td>

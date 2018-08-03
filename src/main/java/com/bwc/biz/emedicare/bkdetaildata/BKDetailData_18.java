@@ -26,10 +26,11 @@ public class BKDetailData_18 {
 			new int[] {3, 3 },new int[] {3, 10 },
 			new int[] {4, 3 },new int[] {4, 10 },
 			new int[] {24, 2 },new int[] {27, 2 },
-			new int[] {32, 14 },
-			new int[] {33, 8 },new int[] {33, 14 },
+			new int[] {33, 14 },
+			new int[] {34, 8 },new int[] {34, 14 },
 			new int[] {36, 3 },new int[] {37, 3 },
-			new int[] {36, 8 },new int[] {36, 14 }
+			new int[] {36, 8 },new int[] {36, 14 },
+			new int[] {41, 1 }
 	    );
 	
 	private List<String[]> lableList = Arrays.asList(
@@ -39,9 +40,9 @@ public class BKDetailData_18 {
 			new String[] { "7", "baPWV（cm/s）","值1"},new String[] { "8", "baPWV（cm/s）","值2"},
 			new String[] { "9", "心率","心率"},
 			new String[] { "10", "右臂","右臂"},new String[] { "11", "左臂","左臂"},
-			new String[] { "12", "右臂","右臂"},new String[] { "13", "左臂","左臂"},
-			new String[] { "14", "ABI","右足"},new String[] { "15", "ABI","左足"},
-			new String[] { "16", "ABI","右脚腕"},new String[] { "17", "ABI","左脚腕"}
+			new String[] { "12", "ABI","右足"},new String[] { "13", "ABI","左足"},
+			new String[] { "14", "ABI","右脚腕"},new String[] { "15", "ABI","左脚腕"},
+			new String[] { "16", "定期检查","定期检查"}
 		);
 
 	/*

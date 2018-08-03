@@ -18,7 +18,7 @@
 				<td class="cellheader">上上次</td>
 			</tr>
 			<tr>
-				<td rowspan="7"><div class="ui inverted form lblcontent"><textarea rows="16" style="height: 100%; width:100%; resize: none" ng-model="list.dt_09[0]"></textarea></div></td>
+				<td rowspan="7"><div class="ui inverted form lblcontent"><textarea rows="17" style="height: 100%; width:100%; resize: none" ng-model="list.dt_09[0]"></textarea></div></td>
 				<td>AFP</td>
 				<td style="padding:3px"><div class="ui input" style="width:100%"> <input type="text" ng-model=list.dt_09[1]></div></td>
 				<td style="padding:3px"><div class="ui input" style="width:100%"> <input type="text" ng-model=list.dt_09[2]></div></td>
@@ -82,7 +82,7 @@
 				<td class="cellheader">上上次</td>
 			</tr>
 			<tr>
-				<td rowspan="4"><div class="ui inverted form lblcontent"><textarea rows="10" style="height: 100%; width:100%; resize: none" ng-model="list.dt_09[29]"></textarea></div></td>
+				<td rowspan="4"><div class="ui inverted form lblcontent"><textarea rows="9" style="height: 100%; width:100%; resize: none" ng-model="list.dt_09[29]"></textarea></div></td>
 				<td>ABI 右</td>
 				<td style='padding:3px'><div class='ui input' style='width:100%'> <input type='text' ng-model=list.dt_09[30]></div></td>
 				<td style='padding:3px'><div class='ui input' style='width:100%'> <input type='text' ng-model=list.dt_09[31]></div></td>

@@ -31,8 +31,7 @@ public class BKDetailData_19 {
 		new int[] {12, 3 },
 		new int[] {13, 2 },new int[] {13, 4 },
 		new int[] {16, 2 },
-		new int[] {17, 2 },
-		new int[] {18, 2 }
+		new int[] {17, 2 }
 	    );
 	
 	private List<String[]> lableList = Arrays.asList(
@@ -48,8 +47,7 @@ public class BKDetailData_19 {
 		new String[] { "10", "与同龄的比较值为 ％","与同龄的比较值为 ％"},
 		new String[] { "11", "骨面积：","骨面积："},new String[] { "12", "骨盐量：","骨盐量："},
 		new String[] { "13", "骨密度判定","骨密度判定"},
-		new String[] { "14", "解说","解说"},
-		new String[] { "15", "解说","解说"}
+		new String[] { "14", "解说","解说"}
 		);
 
 	/*

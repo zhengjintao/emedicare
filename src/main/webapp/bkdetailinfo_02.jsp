@@ -127,7 +127,7 @@
 			</tr>
 			<tr>
 				<td rowspan="3">
-				    <div class="ui inverted form lblcontent"><textarea rows="16" style="height: 100%; width: 100%; resize: none" ng-model="list.dt_02[35]"></textarea></div>
+				    <div class="ui inverted form lblcontent"><textarea rows="5" style="height: 100%; width: 100%; resize: none" ng-model="list.dt_02[35]"></textarea></div>
 				</td>
 				<td>矫正视力（右）</td>
 				<td style="padding:3px"><div class="ui input" style="width:100%;"><input type="text" ng-model="list.dt_02[36]"></div></td>
