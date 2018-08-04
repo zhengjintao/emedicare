@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.util.List"%>
+<%@ page import="com.bwc.biz.emedicare.common.StringUtil"%>
 <html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
@@ -50,7 +51,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.dt_04 = new Array();
   <%List<String> dataList = (List<String>) request.getAttribute("detailDataList04");%>;
   <%for (int i = 0; i < dataList.size(); i++) {%>  
-       list.dt_04[<%=i%>] = "<%=dataList.get(i)%>";
+       list.dt_04[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList.get(i))%>";
    <%}%>
    
   /* (function(){
@@ -123,7 +124,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" colspan="4">本次</td>
     </tr>
     <tr>
-      <td rowspan="5">{{list.dt_04[0]}}</td>
+      <td rowspan="5"><pre>{{list.dt_04[0]}}</pre></td>
       <td>部位</td>
       <td colspan="3">所见</td>
     </tr>
@@ -159,7 +160,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">本次</td>
     </tr>
     <tr>
-      <td rowspan="5">{{list.dt_04[7]}}</td>
+      <td rowspan="5"><pre>{{list.dt_04[7]}}</pre></td>
       <td>总胆固醇</td>
       <td>{{list.dt_04[8]}}</td>
       <td>{{list.dt_04[9]}}</td>
@@ -185,7 +186,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>{{list.dt_04[18]}}</td>
     </tr>
      <tr>
-     <td colspan="5">{{list.dt_04[19]}}</td>
+     <td colspan="5"><pre>{{list.dt_04[19]}}</pre></td>
      </tr>
   </tbody>
 </table>
@@ -199,7 +200,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">本次</td>
     </tr>
     <tr>
-      <td rowspan="13">{{list.dt_04[20]}}</td>
+      <td rowspan="13"><pre>{{list.dt_04[20]}}</pre></td>
       <td>总胆红素（T-BIL）</td>
       <td>{{list.dt_04[21]}}</td>
       <td>{{list.dt_04[22]}}</td>
@@ -265,7 +266,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>{{list.dt_04[46]}}</td>
     </tr>
     <tr>
-      <td colspan="5">{{list.dt_04[47]}}</td>
+      <td colspan="5"><pre>{{list.dt_04[47]}}</pre></td>
     </tr>
   </tbody>
 </table>

@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.util.List"%>
+<%@ page import="com.bwc.biz.emedicare.common.StringUtil"%>
 <html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
@@ -50,7 +51,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  list.dt_10 = new Array();
 	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList10");%>;
 	  <%for (int i = 0; i < dataList.size(); i++) {%>  
-	       list.dt_10[<%=i%>] = "<%=dataList.get(i)%>";
+	       list.dt_10[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList.get(i))%>";
 	   <%}%>
 	  /* (function(){
 		  $scope.url =  "exploratorydetail.do";
@@ -124,7 +125,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="4">{{list.dt_10[0]}}</td>
+      <td rowspan="4"><pre>{{list.dt_10[0]}}</pre></td>
       <td>{{list.dt_10[1]}}</td>
       <td>{{list.dt_10[2]}}</td>
       <td>{{list.dt_10[3]}}</td>
@@ -155,7 +156,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="4">{{list.dt_10[13]}}</td>
+      <td rowspan="4"><pre>{{list.dt_10[13]}}</pre></td>
       <td>{{list.dt_10[14]}}</td>
       <td>{{list.dt_10[15]}}</td>
       <td>{{list.dt_10[16]}}</td>
@@ -186,7 +187,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="4">{{list.dt_10[26]}}</td>
+      <td rowspan="4"><pre>{{list.dt_10[26]}}</pre></td>
       <td>{{list.dt_10[27]}}</td>
       <td>{{list.dt_10[28]}}</td>
       <td>{{list.dt_10[29]}}</td>
@@ -217,7 +218,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="4">{{list.dt_10[39]}}</td>
+      <td rowspan="4"><pre>{{list.dt_10[39]}}</pre></td>
       <td>{{list.dt_10[40]}}</td>
       <td>{{list.dt_10[41]}}</td>
       <td>{{list.dt_10[42]}}</td>

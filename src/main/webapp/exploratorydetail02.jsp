@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.util.List"%>
+<%@ page import="com.bwc.biz.emedicare.common.StringUtil"%>
 <html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
@@ -50,7 +51,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.dt_02 = new Array();
   <%List<String> dataList = (List<String>) request.getAttribute("detailDataList02");%>;
   <%for (int i = 0; i < dataList.size(); i++) {%>  
-       list.dt_02[<%=i%>] = "<%=dataList.get(i)%>";
+       list.dt_02[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList.get(i))%>";
    <%}%>
   /* (function(){
 	  $scope.url =  "exploratorydetail.do";
@@ -119,7 +120,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td class="cellheader">上上次</td>
 						</tr>
 						<tr>
-							<td rowspan="2">{{list.dt_02[0]}}</td>
+							<td rowspan="2"><pre>{{list.dt_02[0]}}</pre></td>
 							<td>{{list.dt_02[1]}}</td>
 							<td>{{list.dt_02[2]}}</td>
 							<td>{{list.dt_02[3]}}</td>
@@ -141,7 +142,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td class="cellheader">本次</td>
 						</tr>
 						<tr>
-							<td rowspan="7">{{list.dt_02[7]}}</td>
+							<td rowspan="7"><pre>{{list.dt_02[7]}}</pre></td>
 							<td>身高</td>
 							<td>{{list.dt_02[8]}}</td>
 							<td>{{list.dt_02[9]}}</td>
@@ -177,7 +178,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td>{{list.dt_02[21]}}</td>
 						</tr>
 						<tr>
-						<td colspan="5">{{list.dt_02[25]}}</td>
+						<td colspan="5"><pre>{{list.dt_02[25]}}</pre></td>
 						</tr>
 					</tbody>
 				</table>
@@ -192,7 +193,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td class="cellheader">本次</td>
 						</tr>
 						<tr>
-							<td rowspan="3">{{list.dt_02[26]}}</td>
+							<td rowspan="3"><pre>{{list.dt_02[26]}}</pre></td>
 							<td>高压</td>
 							<td>{{list.dt_02[27]}}</td>
 							<td>{{list.dt_02[28]}}</td>
@@ -208,7 +209,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td>{{list.dt_02[33]}}</td>
 						</tr>
 						<tr>
-						<td colspan="5">{{list.dt_02[34]}}</td>
+						<td colspan="5"><pre>{{list.dt_02[34]}}</pre></td>
 						</tr>
 					</tbody>
 				</table>
@@ -223,7 +224,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td class="cellheader">本次</td>
 						</tr>
 						<tr>
-							<td rowspan="3">{{list.dt_02[35]}}</td>
+							<td rowspan="3"><pre>{{list.dt_02[35]}}</pre></td>
 							<td>矫正视力（右）</td>
 							<td>{{list.dt_02[36]}}</td>
 							<td>{{list.dt_02[37]}}</td>
@@ -239,7 +240,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td>{{list.dt_02[42]}}</td>
 						</tr>
 						<tr>
-						<td colspan="5">{{list.dt_02[43]}}</td>
+						<td colspan="5"><pre>{{list.dt_02[43]}}</pre></td>
 						</tr>
 					</tbody>
 				</table>
@@ -254,7 +255,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td class="cellheader">本次</td>
 						</tr>
 						<tr>
-							<td rowspan="5">{{list.dt_02[44]}}</td>
+							<td rowspan="5"><pre>{{list.dt_02[44]}}</pre></td>
 							<td>{{list.dt_02[45]}}</td>
 							<td>{{list.dt_02[46]}}</td>
 							<td>{{list.dt_02[47]}}</td>
@@ -280,7 +281,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 							<td>{{list.dt_02[59]}}</td>
 						</tr>
 						<tr>
-						<td colspan="5">{{list.dt_02[60]}}</td>
+						<td colspan="5"><pre>{{list.dt_02[60]}}</pre></td>
 						</tr>
 					</tbody>
 				</table>

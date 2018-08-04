@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.util.List"%>
+<%@ page import="com.bwc.biz.emedicare.common.StringUtil"%>
 <html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
@@ -50,7 +51,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  list.dt_05 = new Array();
 	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList05");%>;
 	  <%for (int i = 0; i < dataList.size(); i++) {%>  
-	       list.dt_05[<%=i%>] = "<%=dataList.get(i)%>";
+	       list.dt_05[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList.get(i))%>";
 	   <%}%>
 	 /*  (function(){
 		  $scope.url =  "exploratorydetail.do";
@@ -126,7 +127,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="4">{{list.dt_05[0]}}</td>
+      <td rowspan="4"><pre>{{list.dt_05[0]}}</pre></td>
       <td>任意时间血糖</td>
       <td>{{list.dt_05[1]}}</td>
       <td>{{list.dt_05[2]}}</td>
@@ -155,7 +156,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>{{list.dt_05[16]}}</td>
     </tr>
     <tr>
-      <td colspan="7">{{list.dt_05[17]}}</td>
+      <td colspan="7"><pre>{{list.dt_05[17]}}</pre></td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="2">痛风</td>
@@ -167,7 +168,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td>{{list.dt_05[18]}}</td>
+      <td><pre>{{list.dt_05[18]}}</pre></td>
       <td>尿酸</td>
       <td>{{list.dt_05[19]}}</td>
       <td>{{list.dt_05[20]}}</td>
@@ -175,7 +176,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>{{list.dt_05[22]}}</td>
     </tr>
     <tr>
-      <td colspan="7">{{list.dt_05[23]}}</td>
+      <td colspan="7"><pre>{{list.dt_05[23]}}</pre></td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="3">心电图</td>
@@ -210,7 +211,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="2">{{list.dt_05[32]}}</td>
+      <td rowspan="2"><pre>{{list.dt_05[32]}}</pre></td>
       <td>便潜血第一次</td>
       <td>{{list.dt_05[33]}}</td>
       <td>{{list.dt_05[34]}}</td>
@@ -225,7 +226,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>{{list.dt_05[40]}}</td>
     </tr>
     <tr>
-      <td colspan="7">{{list.dt_05[41]}}</td>
+      <td colspan="7"><pre>{{list.dt_05[41]}}</pre></td>
     </tr>
     <tr>
       <td class="cellheader" rowspan="9">眼底</td>
@@ -237,7 +238,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="8">{{list.dt_05[42]}}</td>
+      <td rowspan="8"><pre>{{list.dt_05[42]}}</pre></td>
       <td colspan="3" style="text-align:center">右    左 </td>
       <td>{{list.dt_05[43]}}</td>
       <td>{{list.dt_05[44]}}</td>
@@ -293,7 +294,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
     </tr>
     <tr>
       <td class="cellheader" rowspan="2">眼压</td>
-      <td>{{list.dt_05[71]}}</td>
+      <td><pre>{{list.dt_05[71]}}</pre></td>
       <td>眼压（右）</td>
       <td>{{list.dt_05[72]}}</td>
       <td>{{list.dt_05[73]}}</td>
@@ -301,7 +302,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td>{{list.dt_05[75]}}</td>
     </tr>
     <tr>
-      <td>{{list.dt_05[76]}}</td>
+      <td><pre>{{list.dt_05[76]}}</pre></td>
       <td>眼压（左）</td>
       <td>{{list.dt_05[77]}}</td>
       <td>{{list.dt_05[78]}}</td>

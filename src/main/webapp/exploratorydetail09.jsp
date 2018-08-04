@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.util.List"%>
+<%@ page import="com.bwc.biz.emedicare.common.StringUtil"%>
 <html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
@@ -50,7 +51,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  list.dt_09 = new Array();
 	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList09");%>;
 	  <%for (int i = 0; i < dataList.size(); i++) {%>  
-	       list.dt_09[<%=i%>] = "<%=dataList.get(i)%>";
+	       list.dt_09[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList.get(i))%>";
 	   <%}%>
 	   
 	  /* (function(){
@@ -127,7 +128,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="7">{{list.dt_09[0]}}</td>
+      <td rowspan="7"><pre>{{list.dt_09[0]}}</pre></td>
       <td>AFP</td>
       <td>{{list.dt_09[1]}}</td>
       <td>{{list.dt_09[2]}}</td>
@@ -189,7 +190,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="4">{{list.dt_09[29]}}</td>
+      <td rowspan="4"><pre>{{list.dt_09[29]}}</pre></td>
       <td>ABI 右</td>
       <td>{{list.dt_09[30]}}</td>
       <td>{{list.dt_09[31]}}</td>
@@ -228,7 +229,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td>{{list.dt_09[46]}}</td>
+      <td><pre>{{list.dt_09[46]}}</pre></td>
       <td>{{list.dt_09[47]}}</td>
       <td>{{list.dt_09[48]}}</td>
       <td>{{list.dt_09[49]}}</td>
@@ -245,7 +246,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="3">{{list.dt_09[50]}}</td>
+      <td rowspan="3"><pre>{{list.dt_09[50]}}</pre></td>
       <td>{{list.dt_09[51]}}</td>
       <td>{{list.dt_09[52]}}</td>
       <td>{{list.dt_09[53]}}</td>

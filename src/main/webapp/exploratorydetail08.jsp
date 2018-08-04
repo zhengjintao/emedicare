@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.util.List"%>
+<%@ page import="com.bwc.biz.emedicare.common.StringUtil"%>
 <html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
@@ -50,7 +51,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  list.dt_08 = new Array();
 	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList08");%>;
 	  <%for (int i = 0; i < dataList.size(); i++) {%>  
-	       list.dt_08[<%=i%>] = "<%=dataList.get(i)%>";
+	       list.dt_08[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList.get(i))%>";
 	   <%}%>
 	   
 	 /*  (function(){
@@ -125,7 +126,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="12">{{list.dt_08[0]}}</td>
+      <td rowspan="12"><pre>{{list.dt_08[0]}}</pre></td>
       <td>{{list.dt_08[1]}}</td>
       <td>{{list.dt_08[2]}}</td>
       <td>{{list.dt_08[3]}}</td>
@@ -197,7 +198,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader">上上次</td>
     </tr>
     <tr>
-      <td rowspan="12">{{list.dt_08[37]}}</td>
+      <td rowspan="12"><pre>{{list.dt_08[37]}}</pre></td>
       <td>{{list.dt_08[38]}}</td>
       <td>{{list.dt_08[39]}}</td>
       <td>{{list.dt_08[40]}}</td>

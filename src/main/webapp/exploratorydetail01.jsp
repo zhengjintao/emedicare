@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.util.List"%>
+<%@ page import="com.bwc.biz.emedicare.common.StringUtil"%>
 <html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
@@ -48,7 +49,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.dt_01 = new Array();
   <%List<String> dataList = (List<String>) request.getAttribute("detailDataList01");%>;
   <%for (int i = 0; i < dataList.size(); i++) {%>  
-       list.dt_01[<%=i%>] = "<%=dataList.get(i)%>";
+       list.dt_01[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList.get(i))%>";
    <%}%>
    
   list.hisotryno = initdata.hisotryno;
@@ -169,7 +170,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<i class="dropdown icon"></i> 对于改善生活习惯的建议
 					</div>
 					<div class="content">
-						<p>{{list.dt_01[20]}}</p>
+						<pre>{{list.dt_01[20]}}</pre>
 						<br/>
 					</div>
 
@@ -183,19 +184,19 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 						<i class="dropdown icon"></i> 自觉症状
 					</div>
 					<div class="content">
-						<p class="transition visible" style="display: block !important;">{{list.dt_01[17]}}</p>
+						<pre class="transition visible" style="display: block !important;">{{list.dt_01[17]}}</pre>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 既往史•现病史
 					</div>
 					<div class="content">
-						<p>{{list.dt_01[18]}}</p>
+						<pre>{{list.dt_01[18]}}</pre>
 					</div>
 					<div class="title">
 						<i class="dropdown icon"></i> 检查状态
 					</div>
 					<div class="content">
-						<p>{{list.dt_01[19]}}</p>
+						<pre>{{list.dt_01[19]}}</pre>
 					</div>
 				</div>
 			</div>

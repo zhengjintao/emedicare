@@ -1,4 +1,5 @@
 ﻿<%@ page import="java.util.List"%>
+<%@ page import="com.bwc.biz.emedicare.common.StringUtil"%>
 <html ng-app="listApp">
 <head>
 <!-- Standard Meta -->
@@ -50,7 +51,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 	  list.dt_18 = new Array();
 	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList18");%>;
 	  <%for (int i = 0; i < dataList.size(); i++) {%>  
-	       list.dt_18[<%=i%>] = "<%=dataList.get(i)%>";
+	       list.dt_18[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList.get(i))%>";
 	   <%}%>
 	  /* (function(){
 		  $scope.url =  "exploratorydetail.do";
@@ -202,7 +203,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
       <td class="cellheader" style="text-align: center" colspan="4">定期检查</td>
     </tr>
     <tr>
-      <td colspan="4">{{list.dt_18[15]}}</td>
+      <td colspan="4"><pre>{{list.dt_18[15]}}</pre></td>
     </tr>
   </tbody>
 </table>

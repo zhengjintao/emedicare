@@ -1,5 +1,6 @@
 ﻿<%@ page import="java.util.List" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.bwc.biz.emedicare.common.StringUtil"%>
 <html ng-app="listApp">
 <!-- Standard Meta -->
 <meta http-equiv="content-type" charset="utf-8">
@@ -93,73 +94,73 @@ initdata.username = '<%=(String)request.getAttribute("username")%>';
   <%List<String> dataList23 = (List<String>) request.getAttribute("detailDataList23");%>;
   
   <%for (int i = 0; i < dataList01.size(); i++) {%>  
-       list.dt_01[<%=i%>] = "<%=dataList01.get(i)%>";
+       list.dt_01[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList01.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList02.size(); i++) {%>  
-	   list.dt_02[<%=i%>] = "<%=dataList02.get(i)%>";
+	   list.dt_02[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList02.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList03.size(); i++) {%>  
- 	   list.dt_03[<%=i%>] = "<%=dataList03.get(i)%>";
+ 	   list.dt_03[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList03.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList04.size(); i++) {%>  
-  	   list.dt_04[<%=i%>] = "<%=dataList04.get(i)%>";
+  	   list.dt_04[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList04.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList05.size(); i++) {%>  
-   	   list.dt_05[<%=i%>] = "<%=dataList05.get(i)%>";
+   	   list.dt_05[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList05.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList06.size(); i++) {%>  
-       list.dt_06[<%=i%>] = "<%=dataList06.get(i)%>";
+       list.dt_06[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList06.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList07.size(); i++) {%>  
-       list.dt_07[<%=i%>] = "<%=dataList07.get(i)%>";
+       list.dt_07[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList07.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList08.size(); i++) {%>  
-       list.dt_08[<%=i%>] = "<%=dataList08.get(i)%>";
+       list.dt_08[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList08.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList09.size(); i++) {%>  
- 	   list.dt_09[<%=i%>] = "<%=dataList09.get(i)%>";
+ 	   list.dt_09[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList09.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList10.size(); i++) {%>  
- 	   list.dt_10[<%=i%>] = "<%=dataList10.get(i)%>";
+ 	   list.dt_10[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList10.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList11.size(); i++) {%>  
- 	   list.dt_11[<%=i%>] = "<%=dataList11.get(i)%>";
+ 	   list.dt_11[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList11.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList12.size(); i++) {%>  
-       list.dt_12[<%=i%>] = "<%=dataList12.get(i)%>";
+       list.dt_12[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList12.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList13.size(); i++) {%>  
-  	   list.dt_13[<%=i%>] = "<%=dataList13.get(i)%>";
+  	   list.dt_13[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList13.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList14.size(); i++) {%>  
-	   list.dt_14[<%=i%>] = "<%=dataList14.get(i)%>";
+	   list.dt_14[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList14.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList15.size(); i++) {%>  
-	   list.dt_15[<%=i%>] = "<%=dataList15.get(i)%>";
+	   list.dt_15[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList15.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList16.size(); i++) {%>  
-      list.dt_16[<%=i%>] = "<%=dataList16.get(i)%>";
+      list.dt_16[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList16.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList17.size(); i++) {%>  
-      list.dt_17[<%=i%>] = "<%=dataList17.get(i)%>";
+      list.dt_17[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList17.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList18.size(); i++) {%>  
-      list.dt_18[<%=i%>] = "<%=dataList18.get(i)%>";
+      list.dt_18[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList18.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList19.size(); i++) {%>  
-  	   list.dt_19[<%=i%>] = "<%=dataList19.get(i)%>";
+  	   list.dt_19[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList19.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList20.size(); i++) {%>  
-  	   list.dt_20[<%=i%>] = "<%=dataList20.get(i)%>";
+  	   list.dt_20[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList20.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList21.size(); i++) {%>  
-  	   list.dt_21[<%=i%>] = "<%=dataList21.get(i)%>";
+  	   list.dt_21[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList21.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList22.size(); i++) {%>  
-  	   list.dt_22[<%=i%>] = "<%=dataList22.get(i)%>";
+  	   list.dt_22[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList22.get(i))%>";
   <%}%>
   <%for (int i = 0; i < dataList23.size(); i++) {%>  
-  	   list.dt_23[<%=i%>] = "<%=dataList23.get(i)%>";
+  	   list.dt_23[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList23.get(i))%>";
   <%}%>
    
    list.sheets =[
