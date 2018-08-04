@@ -156,7 +156,7 @@ public class BkImportInfoServlet extends HttpServlet {
 			List<Object> userinfo = JdbcUtil.getInstance().excuteQuery(checksql, params);
 			// 导入对象用户不存在
 			if (userinfo.size() == 0) {
-				this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "导入对象用户不存在（ID:"+userid+" ／ 用户名:"+username+"）");
+				this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "导入对象用户不存在（ID:"+userid+"&nbsp;&nbsp;用户名:"+username+"）");
 				return;
 			}
 			
@@ -285,7 +285,7 @@ public class BkImportInfoServlet extends HttpServlet {
 			BKDetailData_23 detail23 = new BKDetailData_23(workbook.getSheetAt(22), userid, date,Integer.toString(histno));
 			detail23.saveDataExcelToDb();
 			
-			this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"0", "成功导入");
+			this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"0", "成功导入。<br>(用户ID:"+userid+"&nbsp;&nbsp;用户名:"+username+ "&nbsp;&nbsp;检查日:" +date+")");
 			inputStream.close();
 		} catch (Exception e) {
 			this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "导入文件失败。<br>"+errmsg+"发生错误");
