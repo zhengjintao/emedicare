@@ -45,12 +45,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   var list = this;
   list.langinx = initdata.langinx;
   
-  list.recentList =  [
-      {id:'00001', header:'检查通知－20180606', date:'2018年5月30日 9点30分', description:'请提前预约好时间，不能错过时间。', status:'未确认'}
-      ];
-  list.historyList =  [
-	  {id:'00001', header:'检查通知－20180506', date:'2018年5月30日 9点30分', description:'请提前预约好时间，不能错过时间。', status:'未确认'}
-      ];
+  list.recentList =  [];
+  list.historyList =  [];
   
   list.lblbtnoks = ['确定', 'OK', '確認'];
   list.lblheaders = ['履历', 'List', '履歴'];
@@ -91,7 +87,6 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   
   list.listdata();
   list.onitemclick = function(id) {
-	  alert(id);
 	  $scope.url =  "appointments.do";
 	  	var postdata = {'mode':'submit', 'id' : id};
 	      $http(
@@ -134,7 +129,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 								src="/images/avatar/large/elliot.jpg"> -->
 						<div class="header">{{eachitem.header}}</div>
 						<div class="meta">{{eachitem.date}}</div>
-						<div class="description">{{eachitem.description}}</div>
+						<div class="description"><pre>{{eachitem.description}}</pre></div>
 					</div>
 					<div class="extra content" ng-show = "eachitem.status == '0'">
 						<div class="ui two buttons">
@@ -158,7 +153,7 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 								src="/images/avatar/large/elliot.jpg"> -->
 						<div class="header">{{eachitem.header}}</div>
 						<div class="meta">{{eachitem.date}}</div>
-						<div class="description">{{eachitem.description}}</div>
+						<div class="description"><pre>{{eachitem.description}}</pre></div>
 					</div>
 					<div class="extra content" ng-show="eachitem.status == 0">
 						{{list.lblstatus}}
