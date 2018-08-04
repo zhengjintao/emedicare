@@ -68,7 +68,11 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.sheetname = item.shortname;
 });
 </script>
-
+<style>
+.cellheader{
+    background-color:#c4e8fc
+}
+</style>
 </head>
 <body ng-controller="ListController as list">
 	<div class="ui top attached  menu">
@@ -95,6 +99,26 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
 		</div>
 		<div class="pusher">
 			<div class="ui segment">
+			   <table class="ui unstackable celled structured table">
+  <tbody>
+    <tr>
+      <td class="cellheader">姓名</td>
+      <td>{{list.dt_01[0]}}</td>
+      <td class="cellheader">ID</td>
+      <td>{{list.dt_01[2]}}</td>
+    </tr>
+    <tr>
+      <td class="cellheader">性别</td>
+      <td>{{list.dt_01[4]}}</td>
+      <td class="cellheader">年龄</td>
+      <td>{{list.dt_01[3]}}</td>
+    </tr>
+    <tr>
+      <td class="cellheader">检查日期</td>
+      <td colspan="3">{{list.dt_01[1]}}</td>
+    </tr>
+    </tbody>
+    </table>
 				<div id="accordion1" class="ui styled fluid accordion">
 					<div class="title">
 						<i class="dropdown icon"></i> 现在的生活习惯
