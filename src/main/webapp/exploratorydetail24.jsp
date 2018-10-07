@@ -1,4 +1,4 @@
-﻿<%@ page import="java.util.List" contentType="text/html; charset=UTF-8"
+<%@ page import="java.util.List" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <%@ page import="java.util.List"%>
 <%@ page import="com.bwc.biz.emedicare.common.StringUtil"%>
@@ -14,7 +14,6 @@
 <title>診査详细</title>
 <link rel="shortcut icon" type="image/png" href="favicon.ico">
 <link rel="stylesheet" type="text/css" href="dist/semantic.min.css">
-
 <script>
 initdata=[];
 initdata.name = '<%=request.getAttribute("name")%>';
@@ -50,14 +49,14 @@ exturl= "historydate=" + initdata.historydate + "&historyno=" + initdata.history
 app.controller('ListController', function($scope,$http,transFormFactory) {
 	var list = this;
 	  list.sheets = constsheets;
-	  list.dt_11 = new Array();
-	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList11");%>;
+	  list.dt_24 = new Array();
+	  <%List<String> dataList = (List<String>) request.getAttribute("detailDataList24");%>;
 	  <%for (int i = 0; i < dataList.size(); i++) {%>  
-	       list.dt_11[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList.get(i))%>";
+	       list.dt_24[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList.get(i))%>";
 	   <%}%>
 	  /* (function(){
 		  $scope.url =  "exploratorydetail.do";
-		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '11'};
+		  var postdata = {'mode':'list', 'expid':list.expid, 'sheetid': '23'};
 	      $http(
 	  		{
 	  			method:"POST",
@@ -77,8 +76,8 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   list.showsidebar = function(){
 	  $('.ui.sidebar').sidebar('toggle');
   }
-	  
-  var item = list.sheets[10];
+  
+  var item = list.sheets[23];
   list.sheetname = item.shortname;
 });
 </script>
@@ -118,123 +117,9 @@ app.controller('ListController', function($scope,$http,transFormFactory) {
   <div class="pusher">
   <div class="ui segment">
   <table class="ui unstackable celled structured table">
-  <tbody>
-    <tr>
-      <td class="cellheader" rowspan="16">选项</td>
-      <td class="cellheader">判定</td>
-      <td class="cellheader">检查项目</td>
-      <td class="cellheader">标准值/单位</td>
-      <td class="cellheader">本次</td>
-      <td class="cellheader">上次</td>
-      <td class="cellheader">上上次</td>
-    </tr>
-    <tr>
-      <td rowspan="15"><pre>{{list.dt_11[0]}}</pre></td>
-      <td>血沉（60分）</td>
-      <td>{{list.dt_11[1]}}</td>
-      <td>{{list.dt_11[2]}}</td>
-      <td>{{list.dt_11[3]}}</td>
-      <td>{{list.dt_11[4]}}</td>
-    </tr>
-    <tr>
-      <td>血沉（120分）</td>
-      <td>{{list.dt_11[5]}}</td>
-      <td>{{list.dt_11[6]}}</td>
-      <td>{{list.dt_11[7]}}</td>
-      <td>{{list.dt_11[8]}}</td>
-    </tr>
-    <tr>
-      <td>幽门螺旋杆菌抗体</td>
-      <td>{{list.dt_11[9]}}</td>
-      <td>{{list.dt_11[10]}}</td>
-      <td>{{list.dt_11[11]}}</td>
-      <td>{{list.dt_11[12]}}</td>
-    </tr>
-    <tr>
-      <td>Rh血型</td>
-      <td>{{list.dt_11[13]}}</td>
-      <td>{{list.dt_11[14]}}</td>
-      <td>{{list.dt_11[15]}}</td>
-      <td>{{list.dt_11[16]}}</td>
-    </tr>
-    <tr>
-      <td>ABO血型</td>
-      <td>{{list.dt_11[17]}}</td>
-      <td>{{list.dt_11[18]}}</td>
-      <td>{{list.dt_11[19]}}</td>
-      <td>{{list.dt_11[20]}}</td>
-    </tr>
-    <tr>
-      <td>TSH</td>
-      <td>{{list.dt_11[21]}}</td>
-      <td>{{list.dt_11[22]}}</td>
-      <td>{{list.dt_11[23]}}</td>
-      <td>{{list.dt_11[24]}}</td>
-    </tr>
-    <tr>
-      <td>FT4</td>
-      <td>{{list.dt_11[25]}}</td>
-      <td>{{list.dt_11[26]}}</td>
-      <td>{{list.dt_11[27]}}</td>
-      <td>{{list.dt_11[28]}}</td>
-    </tr>
-    <tr>
-      <td>FT3</td>
-      <td>{{list.dt_11[29]}}</td>
-      <td>{{list.dt_11[30]}}</td>
-      <td>{{list.dt_11[31]}}</td>
-      <td>{{list.dt_11[32]}}</td>
-    </tr>
-    <tr>
-      <td>胃蛋白酶原</td>
-      <td>{{list.dt_11[33]}}</td>
-      <td>{{list.dt_11[34]}}</td>
-      <td>{{list.dt_11[35]}}</td>
-      <td>{{list.dt_11[36]}}</td>
-    </tr>
-    <tr>
-      <td>CK（CPK）</td>
-      <td>{{list.dt_11[37]}}</td>
-      <td>{{list.dt_11[38]}}</td>
-      <td>{{list.dt_11[39]}}</td>
-      <td>{{list.dt_11[40]}}</td>
-    </tr>
-    <tr>
-      <td>咳痰细胞诊</td>
-      <td>{{list.dt_11[41]}}</td>
-      <td>{{list.dt_11[42]}}</td>
-      <td>{{list.dt_11[43]}}</td>
-      <td>{{list.dt_11[44]}}</td>
-    </tr>
-    <tr>
-      <td>BNP</td>
-      <td>{{list.dt_11[45]}}</td>
-      <td>{{list.dt_11[46]}}</td>
-      <td>{{list.dt_11[47]}}</td>
-      <td>{{list.dt_11[48]}}</td>
-    </tr>
-    <tr>
-      <td>QFT（判定）</td>
-      <td>{{list.dt_11[49]}}</td>
-      <td>{{list.dt_11[50]}}</td>
-      <td>{{list.dt_11[51]}}</td>
-      <td>{{list.dt_11[52]}}</td>
-    </tr>
-    <tr>
-      <td>QFT（TB抗原）</td>
-      <td>{{list.dt_11[53]}}</td>
-      <td>{{list.dt_11[54]}}</td>
-      <td>{{list.dt_11[55]}}</td>
-      <td>{{list.dt_11[56]}}</td>
-    </tr>
-    <tr>
-      <td>HPV-DNA（HL）</td>
-      <td>{{list.dt_11[57]}}</td>
-      <td>{{list.dt_11[58]}}</td>
-      <td>{{list.dt_11[59]}}</td>
-      <td>{{list.dt_11[60]}}</td>
-    </tr>
-  </tbody>
+  	<tr ng-repeat="eachitem in list.dt_24">
+		<td><img class="ui fluid image" src="{{eachitem}}" /></td>
+	</tr>
 </table>
 </div>
   </div>

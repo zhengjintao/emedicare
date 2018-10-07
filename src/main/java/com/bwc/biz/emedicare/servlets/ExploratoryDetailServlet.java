@@ -30,6 +30,7 @@ import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_20;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_21;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_22;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_23;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_24;
 import com.bwc.biz.emedicare.form.User;
 
 /**
@@ -167,6 +168,10 @@ public class ExploratoryDetailServlet extends HttpServlet {
 			// 健診結果報告書23数据取得
 			BKDetailData_23 detaildata23 = new BKDetailData_23(null, userid, historydate, historyno);
 			request.setAttribute("detailDataList23", detaildata23.getDateValue());
+		}else if("24".equals(sheetid)){
+			// 健診結果報告書23数据取得
+			BKDetailData_24 detaildata24 = new BKDetailData_24(userid, historydate, historyno, null, null);
+			request.setAttribute("detailDataList24", detaildata24.getPathValue());
 		}
 	}
 }

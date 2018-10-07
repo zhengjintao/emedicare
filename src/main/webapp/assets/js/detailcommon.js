@@ -21,5 +21,6 @@ constsheets = [
 	  {'name' : '检查报告(脳ドック)', 'shortname' : '脳ドック', 'href': 'exploratorydetail.do?sheetid=20&'+ exturl},
 	  {'name' : '检查报告(颈动脉超声波)', 'shortname' : '颈动脉超声波', 'href': 'exploratorydetail.do?sheetid=21&'+ exturl},
 	  {'name' : '检查报告(骨盆MRI)', 'shortname' : '骨盆MRI', 'href': 'exploratorydetail.do?sheetid=22&'+ exturl},
-	  {'name' : '检查报告(心脏超声波)', 'shortname' : '心脏超声波', 'href': 'exploratorydetail.do?sheetid=23&'+ exturl}
+	  {'name' : '检查报告(心脏超声波)', 'shortname' : '心脏超声波', 'href': 'exploratorydetail.do?sheetid=23&'+ exturl},
+	  {'name' : '照片详情', 'shortname' : '照片详情', 'href': 'exploratorydetail.do?sheetid=24&'+ exturl}
 	  ];

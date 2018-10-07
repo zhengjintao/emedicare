@@ -10,8 +10,8 @@
 	<table class="ui unstackable celled structured table">
 		<tbody>
 			<tr ng-repeat="eachitem in list.dt_25">
-				<td><img src="{{eachitem}}" height="400" width="400" /></td>
-				<td></td>
+				<td width="60%"><img class="ui fluid image" src="{{eachitem}}" /></td>
+				<td width="40%"></td>
 			</tr>
 		</tbody>
 	</table>
