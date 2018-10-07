@@ -233,7 +233,6 @@ initdata.username = '<%=(String)request.getAttribute("username")%>';
 		    	dt_21:list.dt_21,
 		    	dt_22:list.dt_22,
 		    	dt_23:list.dt_23,
-		    	dt_23:list.dt_24
 		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");

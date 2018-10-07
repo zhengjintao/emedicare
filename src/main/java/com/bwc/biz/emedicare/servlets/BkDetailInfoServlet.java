@@ -71,7 +71,7 @@ public class BkDetailInfoServlet extends HttpServlet {
 			// 画面表示用数据取得
 			String username = request.getParameter("username");
 			request.setAttribute("username", username);
-			this.getDispData(request, userid, historydate,historyno);
+			this.getDispData(request, userid, historydate, historyno);
 			request.getRequestDispatcher("bkdetailinfo.jsp").forward(request, response);
 		} else if (mode.equals("save")) {
 			this.savedata(request, userid, request.getParameterValues("dt_01[]")[0], historyname, historydate);
@@ -253,6 +253,13 @@ public class BkDetailInfoServlet extends HttpServlet {
 		
 		String delsql = "update cdata_history set deleteflg='1' where userid = ? and historydate=? and historyno=?";
 		JdbcUtil.getInstance().executeUpdate(delsql, params);
+		
+		Object[] params1 = new Object[2];
+		params1[0]= userid;
+		params1[1]= historydate;
+		
+		String delsql1 = "update cdata_pichistory set deleteflg='1' where userid = ? and historydate=?";
+		JdbcUtil.getInstance().executeUpdate(delsql1, params1);
 	}
 	
 	private int saveHistoryDate(String userid, String historyname,String historydate){

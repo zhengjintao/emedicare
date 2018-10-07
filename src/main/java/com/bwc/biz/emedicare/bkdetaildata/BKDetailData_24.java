@@ -43,8 +43,8 @@ public class BKDetailData_24 {
 		String context = BkImportInfoServlet.getPicValue(this.historyname, 3);
 		insertparams[0] = this.userid;
 		insertparams[1] = this.historydate;
-		insertparams[2] = 0;
-		insertparams[3] = this.historyno;
+		insertparams[2] = this.historyno;
+		insertparams[3] = 0;
 		insertparams[4] = this.historyname;
 		insertparams[5] = this.filepath.replaceAll("(.*)assets", "/emedicare/assets");
 		insertparams[6] = context;
@@ -58,12 +58,10 @@ public class BKDetailData_24 {
 	public List<String> getCommentValue() {
 		List<String> detailDataList = new ArrayList<String>();
 
-		String dataSql = "select context from cdata_detail_24 where userid = ? and examdate= ? order by dispindex";
-		Object[] params = new Object[2];
-		params[0] = userid;
-		params[1] = historydate;
-
-		List<Object> dataList = JdbcUtil.getInstance().excuteQuery(dataSql, params);
+		String dataSql = "select context from cdata_detail_24 inner join cdata_pichistory "
+				+ "on cdata_detail_24.historyno = cdata_pichistory.historyno "
+				+ "where cdata_pichistory.deleteflg = '0'";
+		List<Object> dataList = JdbcUtil.getInstance().excuteQuery(dataSql, null);
 
 		if (dataList.size() > 0) {
 			for (Object data : dataList) {
@@ -78,12 +76,10 @@ public class BKDetailData_24 {
 	public List<String> getPathValue() {
 		List<String> detailDataList = new ArrayList<String>();
 
-		String dataSql = "select filepath from cdata_detail_24 where userid = ? and examdate= ? order by dispindex";
-		Object[] params = new Object[2];
-		params[0] = userid;
-		params[1] = historydate;
-
-		List<Object> dataList = JdbcUtil.getInstance().excuteQuery(dataSql, params);
+		String dataSql = "select filepath from cdata_detail_24 inner join cdata_pichistory "
+				+ "on cdata_detail_24.historyno = cdata_pichistory.historyno "
+				+ "where cdata_pichistory.deleteflg = '0'";
+		List<Object> dataList = JdbcUtil.getInstance().excuteQuery(dataSql, null);
 
 		if (dataList.size() > 0) {
 			for (Object data : dataList) {
@@ -99,19 +95,7 @@ public class BKDetailData_24 {
 	 * 画面表示数据更新保存
 	 */
 	public void saveDataDispToDb(String[] detaildata){
-		String insertsql = "update cdata_detail_24 value(?,?,?,?,?,?,?)";
-		Object[] insertparams = new Object[7];
-		for(int i=0; i < detaildata.length;i++){
-			insertparams[0] = userid;
-			insertparams[1] = historydate;
-			insertparams[2] = historyno;
-			insertparams[3] = i;
-			insertparams[4] = "";
-			insertparams[5] = "";
-			insertparams[6] = detaildata[i];
-			
-			JdbcUtil.getInstance().executeUpdate(insertsql, insertparams);
-		}	
+		//TODO
 	}
 }
 

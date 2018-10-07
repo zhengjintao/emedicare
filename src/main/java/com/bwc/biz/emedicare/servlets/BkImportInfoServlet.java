@@ -347,7 +347,7 @@ public class BkImportInfoServlet extends HttpServlet {
 				return;
 			}
 			//check sam efile
-			String checknamesql = "select * from cdata_importhistory where historyname = ? and resultflg = '0'";
+			String checknamesql = "select * from cdata_pichistory where historyname = ? and deleteflg = '0'";
 			Object[] checkparams = new Object[1];
 			checkparams[0]= historyname;	
 			
@@ -414,15 +414,8 @@ public class BkImportInfoServlet extends HttpServlet {
 		String chksql = "select * from cdata_pichistory where userid=? and historydate=?";
 		Object[] params = new Object[2];
 		params[0]= userid;
-		params[1]= historydate;
-		
-		List<Object> list1 = JdbcUtil.getInstance().excuteQuery(chksql, params);
-		// date日的数据已经导入的时候，先删除
-		if (list1.size() > 0) {
-			String delsql = "update cdata_pichistory set deleteflg='1' where userid = ? and historydate=?";
-			JdbcUtil.getInstance().executeUpdate(delsql, params);
-		}
-		
+		params[1]= historydate;		
+			
 		// 履历No取得
 		String maxnosql = "select max(historyno) as historyno from cdata_pichistory where userid = ? and historydate=?";
 		List<Object> list2 = JdbcUtil.getInstance().excuteQuery(maxnosql, params);
