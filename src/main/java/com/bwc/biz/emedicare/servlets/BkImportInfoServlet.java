@@ -47,8 +47,10 @@ import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_20;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_21;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_22;
 import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_23;
+import com.bwc.biz.emedicare.bkdetaildata.BKDetailData_24;
 import com.bwc.biz.emedicare.common.FileUploader;
 import com.bwc.biz.emedicare.common.JdbcUtil;
+import com.bwc.biz.emedicare.common.PicUploader;
 import com.bwc.biz.emedicare.form.User;
 
 /**
@@ -56,7 +58,6 @@ import com.bwc.biz.emedicare.form.User;
  */
 public class BkImportInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -81,12 +82,24 @@ public class BkImportInfoServlet extends HttpServlet {
 			this.deleteImportHistory(importno);
 			List<String[]> hisList = this.getImportHistory(request, response);
 			this.setDispImportHistory(hisList,request, response);
-		}else if(mode.equals("save")){
+		}else if(mode.equals("savesheet")){
 			FileUploader loader = new FileUploader();
 			String[] result = loader.upload(request, this.getServletContext().getRealPath("/WEB-INF"));
 			// 文件正常上传
 			if("0".equals(result[0])){
 				this.saveDataFromExcel(result[1], result[2], userinfo);
+			}else{
+				// 上传文件发生错误
+				this.saveImportHistoryDate(userinfo.getUserId(), userinfo.getUserName(), result[2], "1", result[1]);
+			}
+			this.getImportHistory(request, response);
+			request.getRequestDispatcher("bkimportinfo.jsp").forward(request, response);
+		}else if(mode.equals("savepic")){
+			PicUploader loader = new PicUploader();
+			String[] result = loader.upload(request, this.getServletContext().getRealPath("/assets"));
+			// 文件正常上传
+			if("0".equals(result[0])){
+				this.saveDataFromPic(result[1], result[2], userinfo);
 			}else{
 				// 上传文件发生错误
 				this.saveImportHistoryDate(userinfo.getUserId(), userinfo.getUserName(), result[2], "1", result[1]);
@@ -301,6 +314,62 @@ public class BkImportInfoServlet extends HttpServlet {
 		}
 	}
 	
+	private void saveDataFromPic(String filepath, String orifilename, User procuser) {
+		InputStream inputStream = null;
+		File file = new File(filepath);		
+		String historyname = orifilename.substring(0, orifilename.indexOf("."));;
+		if (!file.exists()) {
+			this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "上传未成功，文件不存在");
+			return;
+		}
+		String errmsg = "";
+		try {
+			inputStream = new FileInputStream(file);
+			// check id
+			String userid = getPicValue(historyname, 0);		    
+		    Object[] params = new Object[1];
+			params[0]= userid;
+			
+			String checksql = "select * from mstr_user where userid = ? and delflg = '0'";
+			String username = getPicValue(historyname ,1);
+			
+			List<Object> userinfo = JdbcUtil.getInstance().excuteQuery(checksql, params);
+			// 导入对象用户不存在
+			if (userinfo.size() == 0) {
+				this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "导入对象用户不存在（ID:"+userid+"&nbsp;&nbsp;用户名:"+username+"）");
+				return;
+			}
+			//check date
+			errmsg = "处理：检查日取得";
+			String date = getPicValue(historyname, 2);
+			if(!checkdate(date)){
+				this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "[健診結果報告書１]检查日("+date+")不正确。<br>检查日必须为YYYYMMDD格式(例：20180612)");
+				return;
+			}
+			//check sam efile
+			String checknamesql = "select * from cdata_importhistory where historyname = ? and resultflg = '0'";
+			Object[] checkparams = new Object[1];
+			checkparams[0]= historyname;	
+			
+			List<Object> nameinfo = JdbcUtil.getInstance().excuteQuery(checknamesql, checkparams);
+			if (nameinfo.size() > 0) {
+				this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "导入相同图片，请导入其他图片");
+				return;
+			}
+			errmsg = "处理：履历情报记录保存";
+			int histno = this.savePicHistoryDate(userid, historyname, date);
+			
+			BKDetailData_24 detail24 = new BKDetailData_24(userid, date, Integer.toString(histno), historyname, filepath);
+			detail24.saveDataPicToDb();
+						
+			this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"0", "成功导入。<br>(用户ID:"+userid+"&nbsp;&nbsp;用户名:"+username+ "&nbsp;&nbsp;检查日:" +date+")");
+			inputStream.close();
+		} catch (Exception e) {
+			this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "导入文件失败。<br>"+errmsg+"发生错误");
+			e.printStackTrace();
+		}
+	}
+	
 	/*
 	 * 履历表对应数据作成
 	 */
@@ -340,6 +409,41 @@ public class BkImportInfoServlet extends HttpServlet {
         return historyno;
 	}
 	
+	private int savePicHistoryDate(String userid, String historyname,String historydate){
+		int historyno = 0;
+		String chksql = "select * from cdata_pichistory where userid=? and historydate=?";
+		Object[] params = new Object[2];
+		params[0]= userid;
+		params[1]= historydate;
+		
+		List<Object> list1 = JdbcUtil.getInstance().excuteQuery(chksql, params);
+		// date日的数据已经导入的时候，先删除
+		if (list1.size() > 0) {
+			String delsql = "update cdata_pichistory set deleteflg='1' where userid = ? and historydate=?";
+			JdbcUtil.getInstance().executeUpdate(delsql, params);
+		}
+		
+		// 履历No取得
+		String maxnosql = "select max(historyno) as historyno from cdata_pichistory where userid = ? and historydate=?";
+		List<Object> list2 = JdbcUtil.getInstance().excuteQuery(maxnosql, params);
+		if (list2.size() > 0) {
+			Map<String, Object> set = (Map<String, Object>) list2.get(0);
+			if(set.get("historyno")!=null){
+				historyno = Integer.parseInt(set.get("historyno").toString()) + 1;
+			}
+		}
+
+		String insertSql = "insert into cdata_pichistory value(?,?,?,?,?)";
+        Object[] insertparams = new Object[5];
+        insertparams[0] = userid;
+        insertparams[1] = historydate;
+        insertparams[2] = historyno;
+        insertparams[3] = historyname;
+        insertparams[4] = "0";
+        JdbcUtil.getInstance().executeUpdate(insertSql, insertparams);
+        
+        return historyno;
+	}
 	/*
 	 * 明细表数据导入完成后履历表对应数据作成
 	 */
@@ -423,6 +527,15 @@ public class BkImportInfoServlet extends HttpServlet {
         	value = Double.toString(cell.getNumericCellValue());
             break;
     	}
+    	return value;
+	}
+	/*
+	 * Pic值取得
+	 */
+	public static String getPicValue(String filename, int index){
+		String value = null;
+    	String[] temp = filename.split("_", 4);
+    	value = temp[index];
     	return value;
 	}
 }

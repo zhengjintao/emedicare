@@ -68,6 +68,8 @@ initdata.username = '<%=(String)request.getAttribute("username")%>';
   list.dt_21 = new Array();
   list.dt_22 = new Array();
   list.dt_23 = new Array();
+  list.dt_24 = new Array();
+  list.dt_25 = new Array();
   
   <%List<String> dataList01 = (List<String>) request.getAttribute("detailDataList01");%>;
   <%List<String> dataList02 = (List<String>) request.getAttribute("detailDataList02");%>;
@@ -92,6 +94,8 @@ initdata.username = '<%=(String)request.getAttribute("username")%>';
   <%List<String> dataList21 = (List<String>) request.getAttribute("detailDataList21");%>;
   <%List<String> dataList22 = (List<String>) request.getAttribute("detailDataList22");%>;
   <%List<String> dataList23 = (List<String>) request.getAttribute("detailDataList23");%>;
+  <%List<String> dataList24 = (List<String>) request.getAttribute("detailDataList24");%>;
+  <%List<String> dataList25 = (List<String>) request.getAttribute("detailDataList25");%>;
   
   <%for (int i = 0; i < dataList01.size(); i++) {%>  
        list.dt_01[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList01.get(i))%>";
@@ -162,6 +166,12 @@ initdata.username = '<%=(String)request.getAttribute("username")%>';
   <%for (int i = 0; i < dataList23.size(); i++) {%>  
   	   list.dt_23[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList23.get(i))%>";
   <%}%>
+  <%for (int i = 0; i < dataList24.size(); i++) {%>  
+	   list.dt_24[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList24.get(i))%>";
+  <%}%>
+  <%for (int i = 0; i < dataList24.size(); i++) {%>  
+       list.dt_25[<%=i%>] = "<%=StringUtil.javaScriptStringEnc(dataList25.get(i))%>";
+  <%}%>
    
    list.sheets =[
 	   {'id' : 'dtl01', 'name': '健診結果報告書１'},
@@ -186,7 +196,8 @@ initdata.username = '<%=(String)request.getAttribute("username")%>';
 	   {'id' : 'dtl20', 'name': '脳ドック'},
 	   {'id' : 'dtl21', 'name': '颈动脉超声波'},
 	   {'id' : 'dtl22', 'name': '骨盆MRI'},
-	   {'id' : 'dtl23', 'name': '心脏超声波'}
+	   {'id' : 'dtl23', 'name': '心脏超声波'},
+	   {'id' : 'dtl24', 'name': '图片详情'}
    ]
    
    list.saveData = function() {
@@ -221,7 +232,8 @@ initdata.username = '<%=(String)request.getAttribute("username")%>';
 		    	dt_20:list.dt_20,
 		    	dt_21:list.dt_21,
 		    	dt_22:list.dt_22,
-		    	dt_23:list.dt_23
+		    	dt_23:list.dt_23,
+		    	dt_23:list.dt_24
 		    },
 		    success: function(data) {
 		    	$("#errmsg").html("保存完成");
@@ -355,7 +367,8 @@ footer {
 		<jsp:include page="bkdetailinfo_20.jsp" />		
 		<jsp:include page="bkdetailinfo_21.jsp" />	
 		<jsp:include page="bkdetailinfo_22.jsp" />
-		<jsp:include page="bkdetailinfo_23.jsp" />
+		<jsp:include page="bkdetailinfo_23.jsp" />		
+		<jsp:include page="bkdetailinfo_24.jsp" />
 	</div>
 </body>
 </html>

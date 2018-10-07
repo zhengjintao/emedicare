@@ -1,4 +1,6 @@
-﻿<%@ page import="java.util.List"%>
+﻿<%@ page import="java.util.List" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> 
+<%@ page import="java.util.List"%>
 <html ng-app="listApp">
 <!-- Standard Meta -->
 <meta http-equiv="content-type" charset="utf-8">
@@ -20,8 +22,8 @@
 	  list.errmessage ="";
 	});
   
-  function checkdate(){
-		var filepath = $("#filepath").val();
+  function checkdate1(){
+		var filepath = $("#filepath1").val();
 		if (filepath == null || filepath == "undefine" || filepath.length == 0) {
 	    	$("#errmsg").html("ファイルを選択してください。");
 			$('#cmodal').modal({
@@ -36,6 +38,23 @@
 
 		}).modal('show');
   }
+  
+  function checkdate2(){
+		var filepath = $("#filepath2").val();
+		if (filepath == null || filepath == "undefine" || filepath.length == 0) {
+	    	$("#errmsg").html("画像を選択してください。");
+			$('#cmodal').modal({
+				closable : false
+
+			}).modal('show');
+	        return false;  
+		}
+		$("#errmsg").html("少々お待ちをください。処理中...");
+		$('#cmodal').modal({
+			closable : false
+
+		}).modal('show');
+}
   
   function ondelete(importno)
   {
@@ -74,9 +93,17 @@
 
 	<div style="width: 80%; margin-left: auto; margin-right: auto;">
 		<jsp:include page="bkheader.jsp" />
-		<form action="./bkimportinfo.do?mode=save" enctype="multipart/form-data" method="post" onsubmit="return checkdate();">
+		<label class="ui label" style="text-align: left;margin-top: 5px"><h3>ファイル登録</h3></label>
+		<form action="./bkimportinfo.do?mode=savesheet" enctype="multipart/form-data" method="post" onsubmit="return checkdate1();">
 			<div class="ui fluid action input">
-					<input class="ui input" type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" id="filepath" name="filepath" />
+					<input class="ui input" type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" id="filepath1" name="filepath1" />
+					<button class="ui active blue button"><i class="upload icon"></i>アップロード</button>
+				</div>
+		</form>
+		<label class="ui label" style="text-align: left;margin-top: 5px"><h3>画像登録</h3></label>
+		<form action="./bkimportinfo.do?mode=savepic" enctype="multipart/form-data" method="post" onsubmit="return checkdate2();">
+			<div class="ui fluid action input">
+					<input class="ui input" type="file" accept="image/png,image/jpeg" id="filepath2" name="filepath2" />
 					<button class="ui active blue button"><i class="upload icon"></i>アップロード</button>
 				</div>
 		</form>

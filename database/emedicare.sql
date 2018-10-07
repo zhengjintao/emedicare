@@ -689,6 +689,33 @@ LOCK TABLES `cdata_detail_23` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cdata_detail_24`
+--
+
+DROP TABLE IF EXISTS `cdata_detail_24`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cdata_detail_24` (
+  `userid` varchar(30) NOT NULL,
+  `examdate` varchar(8) NOT NULL,
+  `historyno` varchar(3) NOT NULL,
+  `dispindex` int(3) NOT NULL,	
+  `filenmae` varchar(100) DEFAULT NULL,
+  `filepath` varchar(500) DEFAULT NULL,
+  `context` longtext,
+  PRIMARY KEY (`userid`,`examdate`,`historyno`,`dispindex`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='心脏超声波检查报告 明细数据';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cdata_detail_24`
+--
+
+LOCK TABLES `cdata_detail_24` WRITE;
+/*!40000 ALTER TABLE `cdata_detail_24` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cdata_detail_24` ENABLE KEYS */;
+UNLOCK TABLES;
+--
 -- Table structure for table `cdata_history`
 --
 
@@ -714,6 +741,31 @@ LOCK TABLES `cdata_history` WRITE;
 /*!40000 ALTER TABLE `cdata_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
+--
+-- Table structure for table `cdata_pichistory`
+--
+
+DROP TABLE IF EXISTS `cdata_pichistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cdata_pichistory` (
+  `userid` varchar(30) NOT NULL,
+  `historydate` varchar(8) NOT NULL,
+  `historyno` int(11) NOT NULL,
+  `historyname` varchar(100) NOT NULL,
+  `deleteflg` varchar(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`userid`,`historydate`,`historyno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='图片情报表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cdata_pichistory`
+--
+
+LOCK TABLES `cdata_pichistory` WRITE;
+/*!40000 ALTER TABLE `cdata_pichistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cdata_pichistory` ENABLE KEYS */;
+UNLOCK TABLES;
 --
 -- Table structure for table `cdata_importhistory`
 --

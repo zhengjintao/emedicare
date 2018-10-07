@@ -1,4 +1,6 @@
-﻿<html ng-app="listApp">
+﻿<%@ page import="java.util.List" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%> 
+<html ng-app="listApp">
 <!-- Standard Meta -->
 <meta http-equiv="content-type" charset="utf-8">
 
