@@ -700,7 +700,7 @@ CREATE TABLE `cdata_detail_24` (
   `examdate` varchar(8) NOT NULL,
   `historyno` varchar(3) NOT NULL,
   `dispindex` int(3) NOT NULL,	
-  `filenmae` varchar(100) DEFAULT NULL,
+  `filename` varchar(100) DEFAULT NULL,
   `filepath` varchar(500) DEFAULT NULL,
   `context` longtext,
   PRIMARY KEY (`userid`,`examdate`,`historyno`,`dispindex`)
