@@ -325,23 +325,24 @@ public class BkImportInfoServlet extends HttpServlet {
 		String errmsg = "";
 		try {
 			inputStream = new FileInputStream(file);
-			// check id
+			
+			String username = getUsername(getPicValue(historyname ,0));
+			
+			// check id			
+			String checksql = "select * from mstr_user where userid = ? and delflg = '0'";
 			String userid = getPicValue(historyname, 0);		    
 		    Object[] params = new Object[1];
-			params[0]= userid;
-			
-			String checksql = "select * from mstr_user where userid = ? and delflg = '0'";
-			String username = getPicValue(historyname ,1);
-			
+			params[0]= userid;			
 			List<Object> userinfo = JdbcUtil.getInstance().excuteQuery(checksql, params);
 			// 导入对象用户不存在
 			if (userinfo.size() == 0) {
 				this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "导入对象用户不存在（ID:"+userid+"&nbsp;&nbsp;用户名:"+username+"）");
 				return;
 			}
+			
 			//check date
 			errmsg = "处理：检查日取得";
-			String date = getPicValue(historyname, 2);
+			String date = getPicValue(historyname, 1);
 			if(!checkdate(date)){
 				this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "[健診結果報告書１]检查日("+date+")不正确。<br>检查日必须为YYYYMMDD格式(例：20180612)");
 				return;
@@ -370,6 +371,23 @@ public class BkImportInfoServlet extends HttpServlet {
 		}
 	}
 	
+	private String getUsername(String id) {
+		String userid = "";
+		String checksql = "select * from mstr_user where userid = ? and delflg = '0'";		    
+	    Object[] params = new Object[1];
+		params[0]= id;			
+		List<Object> userinfo = JdbcUtil.getInstance().excuteQuery(checksql, params);
+		
+		if (userinfo.size() > 0) {
+			for (Object data : userinfo) {
+				Map<String, Object> row = (Map<String, Object>) data;
+				userid = row.get("username").toString();
+			}
+		}
+		
+		return userid;
+	}
+
 	/*
 	 * 履历表对应数据作成
 	 */
@@ -527,7 +545,7 @@ public class BkImportInfoServlet extends HttpServlet {
 	 */
 	public static String getPicValue(String filename, int index){
 		String value = null;
-    	String[] temp = filename.split("_", 4);
+    	String[] temp = filename.split("_", 3);
     	value = temp[index];
     	return value;
 	}

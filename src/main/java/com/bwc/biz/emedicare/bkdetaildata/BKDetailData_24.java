@@ -40,7 +40,7 @@ public class BKDetailData_24 {
 		// 插入用SQL
 		String insertSql = "insert into cdata_detail_24 value(?,?,?,?,?,?,?)";
 		Object[] insertparams = new Object[7];
-		String context = BkImportInfoServlet.getPicValue(this.historyname, 3);
+		String context = BkImportInfoServlet.getPicValue(this.historyname, 2);
 		insertparams[0] = this.userid;
 		insertparams[1] = this.historydate;
 		insertparams[2] = this.historyno;
