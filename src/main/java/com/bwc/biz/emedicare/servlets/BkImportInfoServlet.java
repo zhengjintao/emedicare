@@ -344,7 +344,7 @@ public class BkImportInfoServlet extends HttpServlet {
 			errmsg = "处理：检查日取得";
 			String date = getPicValue(historyname, 1);
 			if(!checkdate(date)){
-				this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "[健診結果報告書１]检查日("+date+")不正确。<br>检查日必须为YYYYMMDD格式(例：20180612)");
+				this.saveImportHistoryDate(procuser.getUserId(), procuser.getUserName(), historyname,"1", "[图片]检查日("+date+")不正确。<br>检查日必须为YYYYMMDD格式(例：20180612)");
 				return;
 			}
 			//check sam efile
