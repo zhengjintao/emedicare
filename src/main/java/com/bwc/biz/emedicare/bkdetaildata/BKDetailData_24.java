@@ -59,9 +59,14 @@ public class BKDetailData_24 {
 		List<String> detailDataList = new ArrayList<String>();
 
 		String dataSql = "select context from cdata_detail_24 inner join cdata_pichistory "
-				+ "on cdata_detail_24.historyno = cdata_pichistory.historyno "
-				+ "where cdata_pichistory.deleteflg = '0'";
-		List<Object> dataList = JdbcUtil.getInstance().excuteQuery(dataSql, null);
+				+ "on cdata_detail_24.historyno = cdata_pichistory.historyno and "
+				+ "cdata_detail_24.userid = cdata_pichistory.userid "
+				+ "where cdata_detail_24.userid = ? and cdata_pichistory.historydate = ? "
+				+ "and cdata_pichistory.deleteflg = '0'";
+		Object[] params = new Object[2];
+		params[0] = this.userid;
+		params[1] = this.historydate;
+		List<Object> dataList = JdbcUtil.getInstance().excuteQuery(dataSql, params);
 
 		if (dataList.size() > 0) {
 			for (Object data : dataList) {
@@ -77,9 +82,14 @@ public class BKDetailData_24 {
 		List<String> detailDataList = new ArrayList<String>();
 
 		String dataSql = "select filepath from cdata_detail_24 inner join cdata_pichistory "
-				+ "on cdata_detail_24.historyno = cdata_pichistory.historyno "
-				+ "where cdata_pichistory.deleteflg = '0'";
-		List<Object> dataList = JdbcUtil.getInstance().excuteQuery(dataSql, null);
+				+ "on cdata_detail_24.historyno = cdata_pichistory.historyno and "
+				+ "cdata_detail_24.userid = cdata_pichistory.userid "
+				+ "where cdata_detail_24.userid = ? and cdata_pichistory.historydate = ? "
+				+ "and cdata_pichistory.deleteflg = '0'";
+		Object[] params = new Object[2];
+		params[0] = this.userid;
+		params[1] = this.historydate;
+		List<Object> dataList = JdbcUtil.getInstance().excuteQuery(dataSql, params);
 
 		if (dataList.size() > 0) {
 			for (Object data : dataList) {
